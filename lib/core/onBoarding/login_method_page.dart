@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
+import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/light_color.dart';
 import 'package:src/commons/themes/theme.dart';
+import 'package:src/core/auth/login/login.dart';
 
 import 'widget/login_with_button.dart';
 
@@ -54,7 +56,6 @@ Widget _buildAppleOrGoogle(BuildContext context) {
   return _btnLoginWithGoogle(context);
 }
 
-///Nút Đăng nhập với Apple
 Widget _btnLoginWithApple(BuildContext context) {
   return Container(
     margin: EdgeInsets.symmetric(horizontal: 32.w),
@@ -69,14 +70,12 @@ Widget _btnLoginWithApple(BuildContext context) {
       ),
       height: 44.h,
       onPressed: () {
-        ///Đăng nhập với Apple ID
       },
       icon: SvgPicture.asset("assets/svg/icon/apple_logo.svg", width: 18.w),
     ),
   );
 }
 
-///Nút Đăng nhập với Google
 Widget _btnLoginWithGoogle(BuildContext context) {
   return Container(
     margin: EdgeInsets.symmetric(horizontal: 32.w),
@@ -91,7 +90,6 @@ Widget _btnLoginWithGoogle(BuildContext context) {
       ),
       height: 44.h,
       onPressed: () {
-        ///Đăng nhập với Google
       },
       isGoogleDark: true,
       icon: SvgPicture.asset("assets/svg/icon/google_logo.svg",
@@ -100,7 +98,6 @@ Widget _btnLoginWithGoogle(BuildContext context) {
   );
 }
 
-///Nút Đăng nhập với số điện thoại
 Widget _btnLoginWithPhone(BuildContext context) {
   return Container(
     margin: EdgeInsets.symmetric(horizontal: 32.w),
@@ -115,6 +112,7 @@ Widget _btnLoginWithPhone(BuildContext context) {
       ),
       height: 44.h,
       onPressed: () {
+        navigateTo(LoginPage(), context);
         // navigateTo(AuthPage(), context);
       },
       icon: SvgPicture.asset(
