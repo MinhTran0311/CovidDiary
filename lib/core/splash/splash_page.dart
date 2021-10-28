@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/onBoarding/login_method_page.dart';
+import 'package:src/HealthDiary/health_report.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class _SplashPageState extends State<SplashPage> {
     // } else {
     //   pushReplacement(context, BoardingScreen());
     // }
-    pushReplacement(LoginMethodPage(), context);
+    pushReplacement(HealthReport(), context);
   }
 
   @override

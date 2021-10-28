@@ -17,6 +17,12 @@ class RoundedButton extends StatelessWidget {
 
   final Color? fontColor;
 
+  /// buttonColor: the color of the button
+  /// height: the height of the button
+  /// width: the width of the button
+  /// buttonText: the text on the button. If you use child widget, don't fill this field
+  /// child: the child widget of the button. Mutually exclusive with buttonText.
+  /// fontColor: the font color of the text. defaults to black.
   const RoundedButton(
       {Key? key,
       this.buttonColor,
