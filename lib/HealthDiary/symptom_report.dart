@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:src/widgets/button/elevated_button.dart';
+import 'package:src/widgets/button/fill_button.dart';
 
 class SymptomReport extends StatelessWidget {
   /// buttonColor: the color of the button
@@ -121,6 +121,10 @@ class SymptomReport extends StatelessWidget {
         "bạn nên tìm trợ giúp y tế ngay lập tức.",
   ];
 
+  void OnPressed(int id) {
+    ;
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Widget> items = [];
@@ -128,7 +132,8 @@ class SymptomReport extends StatelessWidget {
       items.add(
         // ButtonEmoticon
         Center(
-          child: RoundedButton(
+          child: FillButton(
+            onPressed: () => OnPressed(i),
             child: Stack(
               children: [
                 Center(
