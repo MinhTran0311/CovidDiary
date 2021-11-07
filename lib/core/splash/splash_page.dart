@@ -3,10 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:src/HealthDiary/health_report.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/onBoarding/login_method_page.dart';
-import 'package:src/HealthDiary/health_report.dart';
+import 'package:src/HealthDiary/symptom_detail.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -37,7 +38,8 @@ class _SplashPageState extends State<SplashPage> {
     // } else {
     //   pushReplacement(context, BoardingScreen());
     // }
-    pushReplacement(HealthReport(), context);
+    pushReplacement(SymptomDetail(symptom: 1, onSliderChange: (_) {}), context);
+    //pushReplacement(HealthReport(), context);
   }
 
   @override
