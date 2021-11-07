@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/widgets/button/fill_button.dart';
+import 'package:src/widgets/button/non_fill_button.dart';
 
 class SymptomReport extends StatelessWidget {
   /// buttonColor: the color of the button
@@ -57,7 +58,7 @@ class SymptomReport extends StatelessWidget {
       items.add(
         // ButtonEmoticon
         Center(
-          child: FillButton(
+          child: NonFillButton(
             onPressed: () => OnPressed(i),
             child: Stack(
               children: [
@@ -69,6 +70,7 @@ class SymptomReport extends StatelessWidget {
                   child: Text(
                     noteList[i],
                     style: Theme.of(context).textTheme.bodyText1,
+                    textAlign: TextAlign.center,
                   ),
                 )
               ],
@@ -93,6 +95,7 @@ class SymptomReport extends StatelessWidget {
           ),
         ),
         Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
@@ -116,39 +119,35 @@ class SymptomReport extends StatelessWidget {
                 Expanded(child: Container()),
               ],
             ),
-            Expanded(child: Container()),
-            Row(children: [
-              Expanded(child: Container()),
-              items[0],
-              Expanded(child: Container()),
-              items[1],
-              Expanded(child: Container()),
-            ]),
-            Expanded(child: Container()),
-            Row(children: [
-              Expanded(child: Container()),
-              items[2],
-              Expanded(child: Container()),
-              items[3],
-              Expanded(child: Container()),
-            ]),
-            Expanded(child: Container()),
-            Row(children: [
-              Expanded(child: Container()),
-              items[4],
-              Expanded(child: Container()),
-              items[5],
-              Expanded(child: Container()),
-            ]),
-            Expanded(child: Container()),
-            Row(children: [
-              Expanded(child: Container()),
-              items[6],
-              Expanded(child: Container()),
-              items[7],
-              Expanded(child: Container()),
-            ]),
-            Expanded(child: Container()),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                items[0],
+                items[1],
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                items[2],
+                items[3],
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                items[4],
+                items[5],
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                items[6],
+                items[7],
+              ],
+            ),
+            Container(),
           ],
         )
       ],

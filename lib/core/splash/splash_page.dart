@@ -39,7 +39,7 @@ class _SplashPageState extends State<SplashPage> {
     //   pushReplacement(context, BoardingScreen());
     // }
     pushReplacement(SymptomDetail(symptom: 1, onSliderChange: (_) {}), context);
-    //pushReplacement(HealthReport(), context);
+    //pushReplacement(SymptomReport(), context);
   }
 
   @override

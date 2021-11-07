@@ -123,6 +123,16 @@ class _SymptomReportState extends State<SymptomDetail> {
       "",
     ],
   ];
+  static List<String> generalSymptomInfo = [
+    "Ho là một trong những triệu chứng quan trọng nhất của Covid 19, mặc dù có rất nhiều bệnh cũng có triệu chứng này.",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ];
   static List<String Function(String)> governmentAdvice = [
     (str) =>
         "Theo khuyến cáo của chính phủ, nếu bạn bị $str, " +
@@ -133,6 +143,7 @@ class _SymptomReportState extends State<SymptomDetail> {
         "Theo khuyến cáo của chính phủ, nếu bạn bị $str, " +
         "bạn nên tìm trợ giúp y tế ngay lập tức.",
   ];
+  static List<int> governmentAdviceType = [0, 0, 1, 0, 0, 0, 1, 0];
 
   Color lerpGradient(LinearGradient gradient, double t) {
     List<Color> colors = gradient.colors;
@@ -173,25 +184,15 @@ class _SymptomReportState extends State<SymptomDetail> {
     widget.onSliderChange(slider);
   }
 
+  static List<Color> redgreen = [
+    CustomColors.success,
+    CustomColors.warning,
+    CustomColors.error,
+  ];
   @override
   Widget build(BuildContext context) {
     LinearGradient redgreenGradient = LinearGradient(
-      colors:
-          //*
-          [
-        CustomColors.success,
-        CustomColors.warning,
-        CustomColors.error,
-      ]
-      // */
-      /*
-          [
-        Colors.green,
-        Colors.yellow,
-        Colors.red,
-      ]
-      // */
-      ,
+      colors: redgreen,
     );
 
     Color sliderThumbColor = lerpGradient(redgreenGradient, currentValue);
@@ -252,10 +253,10 @@ class _SymptomReportState extends State<SymptomDetail> {
                   trackShape: GradientRectSliderTrackShape(
                     gradient: redgreenGradient,
                   ),
-                  trackHeight: 16,
+                  trackHeight: 16.h,
                   thumbColor: sliderThumbColor,
                   thumbShape: RoundSliderThumbShape(
-                    enabledThumbRadius: 16,
+                    enabledThumbRadius: 16.h,
                   ),
                 ),
                 child: Slider(
@@ -263,8 +264,82 @@ class _SymptomReportState extends State<SymptomDetail> {
                   onChanged: onSliderChanged,
                 ),
               ),
-
-              // */
+              Container(
+                padding: EdgeInsets.all(8),
+                margin: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: getCustomColor().background,
+                  borderRadius: BorderRadius.circular(8.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Center(
+                      child: Text(
+                        symptomNameList[symptom] + severity[currentSeverity],
+                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                              color: redgreen[currentSeverity],
+                            ),
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        symptomInfo[symptom][currentSeverity],
+                        style: Theme.of(context).textTheme.headline6!,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(8),
+                margin: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: getCustomColor().background,
+                  borderRadius: BorderRadius.circular(8.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Center(
+                      child: Text(
+                        "Triệu chứng ${symptomNameList[symptom]} của Covid 19",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6!
+                            .copyWith(color: getCustomColor().primary),
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        generalSymptomInfo[symptom],
+                        style: Theme.of(context).textTheme.headline6!,
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        governmentAdvice[governmentAdviceType[symptom]](
+                            symptomNameList[symptom]),
+                        style: Theme.of(context).textTheme.headline6!,
+                      ),
+                    )
+                  ],
+                ),
+              ),
               Expanded(child: Container()),
             ],
           ),
