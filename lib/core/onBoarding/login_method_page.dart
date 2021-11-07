@@ -6,9 +6,8 @@ import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/light_color.dart';
 import 'package:src/commons/themes/theme.dart';
-import 'package:src/core/auth/view/log_in.dart';
-import 'package:src/core/auth/view/auth.dart';
 
+import 'test.dart';
 import 'widget/login_with_button.dart';
 
 class LoginMethodPage extends StatelessWidget {
@@ -113,7 +112,7 @@ Widget _btnLoginWithPhone(BuildContext context) {
       ),
       height: 44.h,
       onPressed: () {
-        navigateTo(AuthPage(), context);
+        navigateTo(TestPage(), context);
       },
       icon: SvgPicture.asset(
         "assets/svg/icon/phone_signin.svg",

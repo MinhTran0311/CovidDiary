@@ -2,13 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
-import 'package:src/commons/notifications/notifications.dart';
 import 'package:src/commons/themes/theme.dart';
-import 'package:src/widgets/button/back_button.dart';
-import 'package:src/widgets/button/fill_button.dart';
-import 'package:src/widgets/button/non_fill_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:src/widgets/input_field/text_form_field.dart';
 
 import 'log_in.dart';
 
