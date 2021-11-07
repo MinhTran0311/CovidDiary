@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:src/commons/themes/theme.dart';
 import 'package:src/widgets/button/fill_button.dart';
 
 class SymptomReport extends StatelessWidget {
@@ -159,11 +160,41 @@ class SymptomReport extends StatelessWidget {
       child: Stack(
         textDirection: TextDirection.ltr,
         children: [
-          Container(
-              // Top bar
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: getCustomColor().bgGradient,
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
               ),
+            ),
+          ),
           Column(
             children: [
+              Row(
+                children: [
+                  Expanded(child: Container()),
+                  Container(
+                    height: 64,
+                    child: Text(
+                      "Dạo này bạn có bị gì không?",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4!
+                          .copyWith(color: getCustomColor().primary),
+                    ),
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: getCustomColor().white,
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    alignment: Alignment.center,
+                  ),
+                  Expanded(child: Container()),
+                ],
+              ),
               Expanded(child: Container()),
               Row(children: [
                 Expanded(child: Container()),
