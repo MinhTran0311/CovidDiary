@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/themes/theme.dart';
 
-class OutlineButton extends StatelessWidget {
+class GhostButton extends StatelessWidget {
   final bool isAccent;
 
   final double? width;
@@ -16,16 +16,16 @@ class OutlineButton extends StatelessWidget {
 
   final Widget? child;
 
-  const OutlineButton(
+  const GhostButton(
       {Key? key,
-      this.isAccent = false,
-      this.width,
-      this.height,
-      this.buttonText,
-      this.child,
-      required this.onPressed})
+        this.isAccent = false,
+        this.width,
+        this.height,
+        this.buttonText,
+        this.child,
+        required this.onPressed})
       : assert((buttonText != null && child == null) ||
-            (buttonText == null && child != null)),
+      (buttonText == null && child != null)),
         super(key: key);
 
   @override
@@ -42,11 +42,7 @@ class OutlineButton extends StatelessWidget {
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],
-        border: Border.all(
-            width: 2.w,
-            color: !this.isAccent
-                ? getCustomColor().primary
-                : getCustomColor().secondary),
+        border: null,
         color: getCustomColor().background,
         borderRadius: BorderRadius.circular(8.r),
       ),
@@ -54,12 +50,12 @@ class OutlineButton extends StatelessWidget {
           child: (this.buttonText == null && this.child != null)
               ? this.child!
               : Text(
-                  buttonText!,
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
-                      color: !this.isAccent
-                          ? getCustomColor().primary
-                          : getCustomColor().secondary),
-                ),
+            buttonText!,
+            style: Theme.of(context).textTheme.headline6!.copyWith(
+                color: !this.isAccent
+                    ? getCustomColor().primary
+                    : getCustomColor().secondary),
+          ),
           onPressed: onPressed),
     );
   }

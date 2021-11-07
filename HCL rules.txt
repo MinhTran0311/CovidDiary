@@ -1,0 +1,25 @@
+Một số điều cần lưu ý:
+1. Code style
+	Chia nhỏ code nhiều nhất có thể, 1 file tối đa 200 - 250 lines.
+	Các widget có khả năng reuse thì nên tạo widget dùng chung ửo trong thư mục widget/ 
+	Cây thư mục: 
+	core/screen_name:
+		/view
+		/model
+		/widget
+2. Các giá trị kích thước:
+	Sử dụng kích thước của thư viện intl screen để đảm bảo không bể layout nên cần thêm các suffix sau:
+	width: 12 -> width: 12.w 
+	height: 12 -> height: 12.h 
+	fontsize: 12 -> fontsize: 12.sp
+	borderRadius: 12 -> fontsize: 12.r
+Library link: https://pub.dev/packages/flutter_screenutil
+3. Đa ngôn ngữ:
+	Ở những nơi dùng text, cần khai báo như sau:
+	1. Sử dụng 1 key với quy tắc camel lower case (VD: text_field_phone_error_empty). Đặt tên theo quy tắc screenName_text hoặc widgetName_text.
+	2. Khai báo nội dung tiếng việt trong file "lib/commons/l10n/translation/intl_vi.arb"
+	3. Khai báo nội dung tiếng anh trong file "lib/commons/l10n/translation/intl_en.arb"
+	4. Tại nơi cần dùng: S.current.key
+4. Asset:
+	Đặt tên asset theo camel lower case, bỏ vào đúng thư mục.
+	Trước khi import cần kiểm tra đã có asset đó hay chưa, tránh trường hợp dư thừa.
