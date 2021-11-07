@@ -2,11 +2,17 @@ library motiontabbar;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/base/tab_item.dart';
 import 'package:vector_math/vector_math.dart' as vector;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-typedef MotionTabBuilder = Widget Function(
-    );
+typedef MotionTabBuilder = Widget Function();
+
+const double BOTTOM_HEIGHT = 48;
+const double ITEM_SIZE = 64;
+const double SELECTED_ICON_SIZE = 32;
+const double SELECTED_Y = 0.3;
 
 class MotionTabBar extends StatefulWidget {
   final Color tabIconColor, tabSelectedColor;
@@ -25,7 +31,7 @@ class MotionTabBar extends StatefulWidget {
     required this.initialSelectedTab,
     required this.labels,
     required this.icons,
-  })  : assert(labels.contains(initialSelectedTab));
+  }) : assert(labels.contains(initialSelectedTab));
 
   @override
   _MotionTabBarState createState() => _MotionTabBarState();
@@ -119,17 +125,17 @@ class _MotionTabBarState extends State<MotionTabBar>
       alignment: Alignment.topCenter,
       children: <Widget>[
         Container(
-          height: 60,
+          height: BOTTOM_HEIGHT.h,
           //margin: EdgeInsets.only(top: 45),
-          decoration: BoxDecoration(color: Colors.white, boxShadow: [
+          decoration:
+              BoxDecoration(color: getCustomColor().primary, boxShadow: [
             BoxShadow(
-              color: Colors.black12,
+              color: getCustomColor().black,
               offset: Offset(0, -1),
               blurRadius: 5,
             ),
           ]),
-          child:
-          Row(
+          child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: generateTabItems(),
@@ -137,7 +143,7 @@ class _MotionTabBarState extends State<MotionTabBar>
         ),
         IgnorePointer(
           child: Container(
-            decoration: BoxDecoration(color: Colors.transparent),
+            decoration: BoxDecoration(color: getCustomColor().background),
             child: Align(
               heightFactor: 0,
               alignment: Alignment(_positionAnimation.value, 0),
@@ -157,11 +163,11 @@ class _MotionTabBarState extends State<MotionTabBar>
                               width: 70,
                               height: 70,
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: getCustomColor().primary,
                                 shape: BoxShape.circle,
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black12,
+                                    color: getCustomColor().black,
                                     blurRadius: 8,
                                   )
                                 ],
@@ -177,16 +183,16 @@ class _MotionTabBarState extends State<MotionTabBar>
                       child: CustomPaint(painter: HalfPainter()),
                     ),
                     SizedBox(
-                      height: 45,
-                      width: 45,
+                      height: ITEM_SIZE.w,
+                      width: ITEM_SIZE.h,
                       child: Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: widget.tabSelectedColor,
                           border: Border.all(
-                            color: Colors.white,
-                            width: 5,
-                            style: BorderStyle.none,
+                            color: getCustomColor().secondary,
+                            width: 1.6,
+                            style: BorderStyle.solid,
                           ),
                         ),
                         child: Padding(
@@ -195,7 +201,8 @@ class _MotionTabBarState extends State<MotionTabBar>
                             opacity: fabIconAlpha,
                             child: Icon(
                               activeIcon,
-                              color: Colors.white,
+                              size: SELECTED_ICON_SIZE.w,
+                              color: getCustomColor().secondary,
                             ),
                           ),
                         ),
@@ -218,7 +225,7 @@ class _MotionTabBarState extends State<MotionTabBar>
       return TabItem(
         selected: selectedTab == tabLabel,
         iconData: icon!,
-       // title: tabLabel,
+        // title: tabLabel,
         textStyle: widget.textStyle,
         tabSelectedColor: widget.tabSelectedColor,
         tabIconColor: widget.tabIconColor,
@@ -259,7 +266,7 @@ class HalfPainter extends CustomPainter {
     final Rect beforeRect = Rect.fromLTWH(0, (size.height / 2) - 10, 10, 10);
     final Rect largeRect = Rect.fromLTWH(10, 0, size.width - 20, 70);
     final Rect afterRect =
-    Rect.fromLTWH(size.width - 10, (size.height / 2) - 10, 10, 10);
+        Rect.fromLTWH(size.width - 10, (size.height / 2) - 10, 10, 10);
 
     final path = Path();
     path.arcTo(beforeRect, vector.radians(0), vector.radians(90), false);
@@ -270,7 +277,7 @@ class HalfPainter extends CustomPainter {
     path.arcTo(afterRect, vector.radians(180), vector.radians(-90), false);
     path.close();
 
-    canvas.drawPath(path, Paint()..color = Colors.white);
+    // canvas.drawPath(path, Paint()..color = getCustomColor().primary);
   }
 
   @override

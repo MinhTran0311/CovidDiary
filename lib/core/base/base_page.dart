@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:src/commons/themes/theme.dart';
 import 'tab_bar.dart';
 import 'tab_navigator.dart';
 
@@ -67,8 +68,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
           bottomNavigationBar: MotionTabBar(
             labels: ["Account", "Home", "Dashboard"],
             initialSelectedTab: "Home",
-            tabIconColor: Colors.green,
-            tabSelectedColor: Colors.red,
+            tabIconColor: getCustomColor().background,
+            tabSelectedColor: getCustomColor().background,
             onTabItemSelected: (int value) {
               print(value);
               setState(() {
@@ -78,7 +79,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               });
             },
             icons: [Icons.account_box, Icons.home, Icons.menu],
-            textStyle: TextStyle(color: Colors.red),
+            textStyle: TextStyle(color: getCustomColor().secondary),
           )
           //     CurvedNavigationBar(
           //   height: 60,

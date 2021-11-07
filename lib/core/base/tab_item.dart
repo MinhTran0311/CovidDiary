@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:src/commons/themes/theme.dart';
 
 const double ICON_OFF = -3;
 const double ICON_ON = 0;
@@ -17,7 +18,7 @@ class TabItem extends StatefulWidget {
   final Color tabIconColor, tabSelectedColor;
 
   TabItem({
-   // required this.title,
+    // required this.title,
     required this.selected,
     required this.iconData,
     required this.textStyle,
@@ -87,8 +88,8 @@ class _TabItemState extends State<TabItem> {
                 duration: Duration(milliseconds: ANIM_DURATION),
                 opacity: iconAlpha,
                 child: IconButton(
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
+                  highlightColor: getCustomColor().background,
+                  splashColor: getCustomColor().background,
                   padding: EdgeInsets.all(0),
                   alignment: Alignment(0, 0),
                   icon: Icon(widget.iconData, color: widget.tabIconColor),
