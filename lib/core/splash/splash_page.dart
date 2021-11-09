@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/onBoarding/login_method_page.dart';
@@ -15,8 +13,8 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   late Timer _timerSplash;
 
-  bool _isViewedOnBoarding = false;
-  bool _isLoggedIn = false;
+  //bool _isViewedOnBoarding = false;
+  //bool _isLoggedIn = false;
 
   void _loadPrefs() {
     // Map<String, dynamic> _settings = _session.userSettings;

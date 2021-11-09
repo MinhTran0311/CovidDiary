@@ -36,7 +36,7 @@ class _MotionTabBarState extends State<MotionTabBar>
   late AnimationController _animationController;
   late Tween<double> _positionTween;
   late Animation<double> _positionAnimation;
-  int ANIM_DURATION = 300;
+  //int ANIM_DURATION = 300;
   late AnimationController _fadeOutController;
   late Animation<double> _fadeFabOutAnimation;
   late Animation<double> _fadeFabInAnimation;

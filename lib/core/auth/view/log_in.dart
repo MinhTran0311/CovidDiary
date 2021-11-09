@@ -4,7 +4,6 @@ import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/base/base_page.dart';
 import 'package:src/widgets/button/fill_button.dart';
-import 'package:src/widgets/button/outline_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/widgets/input_field/text_form_field.dart';
 

@@ -51,5 +51,10 @@
   "error_empty_issue": "Please enter your issue.",
   "error_occur_please_try_again": "Something went wrong. Please try again.",
   "error_empty_input": "Please fill input field",
-  "otp_resent": "Resent OTP"
+  "otp_resent": "Resent OTP",
+
+  "on_boarding1": "Always wear a mask as soon as you leave the house, \ngo to public places, gather in crowds.",
+  "on_boarding2": "Only leave the house when absolutely necessary, \nalways keep a note of your own journey..",
+  "on_boarding3": "Hand washing is an effective way to prevent \nnot only Covid-19 but also other respiratory diseases.",
+  "on_boarding4": "Check your health every day, \nimmediately contact medical authorities if there are abnormal symptoms."
 }
