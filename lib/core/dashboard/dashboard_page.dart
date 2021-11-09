@@ -12,6 +12,7 @@ import 'package:src/core/dashboard/widget/health_track_widget.dart';
 import 'package:src/core/dashboard/widget/place_track_widget.dart';
 import 'package:src/core/dashboard/widget/today_stats_widget%20%20copy.dart';
 import 'package:src/core/onBoarding/widget/login_with_button.dart';
+import 'package:src/widgets/input_field/gradient_background.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -19,9 +20,15 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(children: [DBTodayStatsWidget()]),
+        body: GradientBackGround(
+      child: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          child: Column(
+            children: [DBTodayStatsWidget()],
+          ),
+        ),
       ),
-    );
+    ));
   }
 }

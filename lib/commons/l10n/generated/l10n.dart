@@ -539,6 +539,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Tình hình dịch bệnh hôm nay`
+  String get dashboard_today_stats {
+    return Intl.message(
+      'Tình hình dịch bệnh hôm nay',
+      name: 'dashboard_today_stats',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thế giới`
+  String get dashboard_world {
+    return Intl.message(
+      'Thế giới',
+      name: 'dashboard_world',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Việt Nam`
+  String get dashboard_vn {
+    return Intl.message(
+      'Việt Nam',
+      name: 'dashboard_vn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bị nhiễm`
+  String get dashboard_infected {
+    return Intl.message(
+      'Bị nhiễm',
+      name: 'dashboard_infected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Khỏi bệnh`
+  String get dashboard_recovered {
+    return Intl.message(
+      'Khỏi bệnh',
+      name: 'dashboard_recovered',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

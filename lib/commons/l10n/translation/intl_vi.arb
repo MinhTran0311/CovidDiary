@@ -52,5 +52,11 @@
   "error_empty_issue": "Vui lòng nhập nội dung sự cố",
   "error_occur_please_try_again": "Đã có lỗi xảy ra. Vui lòng thử lại",
   "error_empty_input": "Vui lòng điền thông tin",
-  "otp_resent": "Đã gửi lại OTP"
+  "otp_resent": "Đã gửi lại OTP",
+
+  "dashboard_today_stats": "Tình hình dịch bệnh hôm nay",
+  "dashboard_world": "Thế giới",
+  "dashboard_vn": "Việt Nam",
+  "dashboard_infected": "Bị nhiễm",
+  "dashboard_recovered": "Khỏi bệnh"
 }

@@ -29,6 +29,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nhập lại mật khẩu của bạn"),
         "confirm_password_input":
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
+        "dashboard_infected": MessageLookupByLibrary.simpleMessage("Bị nhiễm"),
+        "dashboard_recovered":
+            MessageLookupByLibrary.simpleMessage("Khỏi bệnh"),
+        "dashboard_today_stats":
+            MessageLookupByLibrary.simpleMessage("Tình hình dịch bệnh hôm nay"),
+        "dashboard_vn": MessageLookupByLibrary.simpleMessage("Việt Nam"),
+        "dashboard_world": MessageLookupByLibrary.simpleMessage("Thế giới"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("Chưa có tài khoản?"),
         "email_hint":
