@@ -51,6 +51,7 @@ flutter:
   assets:
     - assets/svg/icon/
     - assets/svg/
+    - assets/image/
   fonts:
     - family: Roboto Condensed
       fonts:

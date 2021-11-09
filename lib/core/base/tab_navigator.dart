@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:src/core/achievement/personal_achievement.dart';
 
 class TabNavigator extends StatelessWidget {
   TabNavigator({required this.navigatorKey, required this.tabItem});
@@ -13,7 +14,7 @@ class TabNavigator extends StatelessWidget {
     if (tabItem == "HomeScreen")
       child = Container();
     else if (tabItem == "MapsScreen")
-      child = Container();
+      child = PersonalAchievement();
     else if (tabItem == "ManagementScreen")
       child = Container();
     else if (tabItem == "ProfileScreen")
