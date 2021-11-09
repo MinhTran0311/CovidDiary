@@ -23,3 +23,13 @@ Library link: https://pub.dev/packages/flutter_screenutil
 4. Asset:
 	Đặt tên asset theo camel lower case, bỏ vào đúng thư mục.
 	Trước khi import cần kiểm tra đã có asset đó hay chưa, tránh trường hợp dư thừa.
+5. Cách sử dụng gradient background:
+    Widget build(BuildContext context) {
+        return GradientBackGround(
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: AppBarCustom(context: context, title: "test"), //app bar
+            body: Text("Homies"), //các widget khác
+          ),
+        );
+      }
