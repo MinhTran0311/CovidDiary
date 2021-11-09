@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:src/core/auth/view/sign_up.dart';
 
 import 'log_in.dart';
 
@@ -129,7 +130,7 @@ class _AuthPageState extends State<AuthPage> with TickerProviderStateMixin {
           Visibility(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 16.h),
-              child: Text("sign up"),
+              child: SignUpPage(callBack: changeTab),
             ),
             maintainState: true,
             visible: activeTabIndex == 1,

@@ -38,19 +38,19 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(slivers: [
-      SliverFillRemaining(
-        hasScrollBody: false,
-        child: Padding(
-          padding: EdgeInsets.only(top: 20.h),
+    return Padding(
+      padding: EdgeInsets.only(top: 20.h),
+      child: CustomScrollView(slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
           child: Column(children: [
             _buildFormField(),
             Expanded(child: Container()),
             _buildBottomField()
           ]),
-        ),
-      )
-    ]);
+        )
+      ]),
+    );
   }
 
   Widget _buildFormField() {
@@ -59,7 +59,6 @@ class _LoginPageState extends State<LoginPage> {
       child: Column(children: [
         TextFormFieldWidget.phoneNumber(context, _phoneController),
         SizedBox(height: 24.h),
-
         TextFormFieldWidget.password(context, _passwordController),
         SizedBox(height: 44.h),
         GestureDetector(
@@ -96,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
             width: 198.w,
             buttonText: S.current.sign_in,
             onPressed: () {
-              pushReplacement(HomePageScreen(), context);
+              _submit();
             },
           ),
           Padding(
@@ -129,5 +128,22 @@ class _LoginPageState extends State<LoginPage> {
         ]),
       ),
     );
+  }
+
+  void _submit() async {
+    final _state = _formKey.currentState;
+    if (_state == null) return;
+    FocusManager.instance.primaryFocus?.unfocus();
+    if (_state.validate()) {
+      String _phoneNumber = _phoneController.text.replaceAll(" ", "");
+      if (!_phoneNumber.startsWith('0')) {
+        _phoneNumber = '0$_phoneNumber';
+      }
+      String _password = _passwordController.text;
+      if (_phoneNumber == "0123456789" && _password == "123qwe") {
+        Navigator.of(context).popUntil((route) => route.isFirst);
+        pushReplacement(HomePageScreen(), context);
+      }
+    }
   }
 }

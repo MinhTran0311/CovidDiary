@@ -103,10 +103,10 @@ class Validators {
     };
   }
 
-  static FormFieldValidator<String> compareWith(String src, String fieldName) {
+  static FormFieldValidator<String> compareWith(String src, String error) {
     return (value) {
       if (value != src) {
-        return fieldName + ' ' + 'not_match';
+        return error;
       }
       return null;
     };
