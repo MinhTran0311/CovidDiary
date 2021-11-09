@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/navigators/navigator.dart';
-import 'package:src/commons/notifications/notifications.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/base/base_page.dart';
 import 'package:src/widgets/button/fill_button.dart';
-import 'package:src/widgets/button/non_fill_button.dart';
+import 'package:src/widgets/button/outline_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/widgets/input_field/text_form_field.dart';
 
