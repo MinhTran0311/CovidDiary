@@ -36,7 +36,9 @@ class BasePanel extends StatelessWidget {
           ),
         ],
       ),
-      child: child,
+      child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+          child: child),
     );
   }
 }
