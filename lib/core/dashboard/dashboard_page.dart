@@ -10,7 +10,7 @@ import 'package:src/core/auth/view/auth.dart';
 import 'package:src/core/dashboard/widget/avatar_widget.dart';
 import 'package:src/core/dashboard/widget/health_track_widget.dart';
 import 'package:src/core/dashboard/widget/place_track_widget.dart';
-import 'package:src/core/dashboard/widget/today_stats_widget%20%20copy.dart';
+import 'package:src/core/dashboard/widget/today_stats_widget.dart';
 import 'package:src/core/onBoarding/widget/login_with_button.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 
@@ -21,13 +21,25 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: GradientBackGround(
-      child: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-          child: Column(
-            children: [DBTodayStatsWidget()],
-          ),
-        ),
+      child: Container(
+        child: SingleChildScrollView(
+            child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+                child: Column(
+                  children: [
+                    DBTodayStatsWidget(),
+                    SizedBox(height: 8),
+                    DBTodayStatsWidget(),
+                    SizedBox(height: 8),
+                    DBTodayStatsWidget(),
+                    SizedBox(height: 8),
+                    DBTodayStatsWidget(),
+                    SizedBox(height: 8),
+                    DBTodayStatsWidget(),
+                    SizedBox(height: 8),
+                    DBTodayStatsWidget()
+                  ],
+                ))),
       ),
     ));
   }

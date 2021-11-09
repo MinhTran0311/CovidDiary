@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -51,12 +52,44 @@ class DBTodayStatsWidget extends StatelessWidget {
           ]),
           _getRowTodayStat(
               context,
-              SvgPicture.asset('assets/svg/icon/globe.svg'),
+              Row(
+                children: [
+                  Expanded(
+                      child: SvgPicture.asset('assets/svg/icon/globe.svg',
+                          height: 24.h)),
+                  Container(
+                      alignment: Alignment.center,
+                      width: 64.w,
+                      child: Text(S.current.dashboard_world,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: getCustomColor().black)))
+                ],
+              ),
               _randomNum(),
               _randomNum()),
           _getRowTodayStat(
               context,
-              SvgPicture.asset('assets/svg/icon/vietnam.svg'),
+              Row(
+                children: [
+                  Expanded(
+                      child: SvgPicture.asset('assets/svg/icon/vietnam.svg',
+                          height: 24.h)),
+                  Container(
+                      alignment: Alignment.center,
+                      width: 64.w,
+                      child: Text(S.current.dashboard_vn,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: getCustomColor().black)))
+                ],
+              ),
               _randomNum(),
               _randomNum()),
         ]);

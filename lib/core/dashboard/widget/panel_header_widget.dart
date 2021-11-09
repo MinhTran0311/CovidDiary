@@ -18,7 +18,11 @@ class DBPanelHeader extends Container {
       : super(key: key) {
     _title = title ?? "Tiêu đề trống";
     _sideText = sideText ?? "Xem chi tiết";
-    _sideIcon = sideIcon ?? SvgPicture.asset('assets/svg/icon/details.svg');
+    _sideIcon = sideIcon ??
+        SvgPicture.asset(
+          'assets/svg/icon/details.svg',
+          width: 16.w,
+        );
   }
 
   @override
@@ -26,13 +30,12 @@ class DBPanelHeader extends Container {
     return Container(
       child: Column(children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-                child: Text(
-              _title!,
-              style: Theme.of(context).textTheme.headline6!.copyWith(
-                  fontWeight: FontWeight.w600, color: getCustomColor().primary),
-            )),
+            Text(_title!,
+                style: Theme.of(context).textTheme.headline6!.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: getCustomColor().primary)),
             GestureDetector(
               child: Row(children: [
                 Text(
