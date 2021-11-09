@@ -15,32 +15,11 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   late Timer _timerSplash;
 
-  //bool _isViewedOnBoarding = false;
-  //bool _isLoggedIn = false;
-
-  void _loadPrefs() {
-    // Map<String, dynamic> _settings = _session.userSettings;
-    // _isViewedOnBoarding = _settings['isFirstTime'] ?? false;
-    // if (!_isViewedOnBoarding) {
-    //   _settings['isFirstTime'] = true;
-    //   _session.userSettings = _settings;
-    // }
-    // _isLoggedIn = _session.isLogged;
-  }
-
   void _navigator() {
-    // if (this._isLoggedIn) {
-    //   pushReplacement(context, HomePage(selectedPage: 1));
-    // } else if (this._isViewedOnBoarding) {
-    //   pushReplacement(context, ChooseLoginPage());
-    // } else {
-    //   pushReplacement(context, BoardingScreen());
-    // }
-    bool isFirstTime = CovidDiaryPreferences.getValue<bool>("isFirstTime");
-    print(isFirstTime);
+    bool isOldUser = CovidDiaryPreferences.getValue<bool>("isOldUser");
 
-    if (isFirstTime)
-      pushReplacement(BoardingScreen(), context);
+    if (!isOldUser)
+      pushReplacement(BoardingPage(), context);
     else
       pushReplacement(LoginMethodPage(), context);
   }
@@ -48,7 +27,6 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    _loadPrefs();
     _timerSplash = Timer(Duration(milliseconds: 3000), _navigator);
   }
 

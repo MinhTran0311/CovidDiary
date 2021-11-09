@@ -8,12 +8,12 @@ import 'package:src/commons/themes/theme.dart';
 
 import 'login_method_page.dart';
 
-class BoardingScreen extends StatefulWidget {
+class BoardingPage extends StatefulWidget {
   @override
-  _BoardingScreenState createState() => _BoardingScreenState();
+  _BoardingPageState createState() => _BoardingPageState();
 }
 
-class _BoardingScreenState extends State<BoardingScreen> {
+class _BoardingPageState extends State<BoardingPage> {
   late final int _numPages;
   late final PageController _pageController;
   late int _currentPage;
@@ -74,7 +74,7 @@ class _BoardingScreenState extends State<BoardingScreen> {
             physics: ClampingScrollPhysics(),
             controller: _pageController,
             onPageChanged: (int page) {
-              CovidDiaryPreferences.setValue("isFirstTime", false);
+              CovidDiaryPreferences.setValue("isOldUser", true);
 
               setState(() {
                 _currentPage = page;

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,10 @@ import 'core/splash/splash_page.dart';
 class CovidDiary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ///set màu cho status bar
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //   statusBarColor: getCustomColor().primary, //or set color with: Color(0xFF0000FF)
+    // ));
     return ScreenUtilInit(
       designSize: Size(390, 844),
       builder: () {
