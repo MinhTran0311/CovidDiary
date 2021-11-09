@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:src/commons/navigators/navigator.dart';
+import 'package:src/commons/preference/covid_diary_preferences.dart';
 import 'package:src/commons/themes/theme.dart';
+import 'package:src/core/onBoarding/boarding.dart';
 import 'package:src/core/onBoarding/login_method_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -34,7 +36,13 @@ class _SplashPageState extends State<SplashPage> {
     // } else {
     //   pushReplacement(context, BoardingScreen());
     // }
-    pushReplacement(LoginMethodPage(), context);
+    bool isFirstTime = CovidDiaryPreferences.getValue<bool>("isFirstTime");
+    print(isFirstTime);
+
+    if (isFirstTime)
+      pushReplacement(BoardingScreen(), context);
+    else
+      pushReplacement(LoginMethodPage(), context);
   }
 
   @override

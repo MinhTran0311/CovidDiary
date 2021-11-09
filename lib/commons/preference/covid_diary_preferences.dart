@@ -11,6 +11,7 @@ class CovidDiaryPreferences {
 
   static bool isDarkTheme = false;
   static bool isLoggedIn = false;
+  static bool isFirstTime = true;
 
   static void setValue<T>(String key, T value) {
     if (value is bool) {

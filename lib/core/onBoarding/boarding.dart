@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:src/commons/l10n/generated/l10n.dart';
+import 'package:src/commons/preference/covid_diary_preferences.dart';
 import 'package:src/commons/themes/theme.dart';
 
 import 'login_method_page.dart';
@@ -73,6 +74,8 @@ class _BoardingScreenState extends State<BoardingScreen> {
             physics: ClampingScrollPhysics(),
             controller: _pageController,
             onPageChanged: (int page) {
+              CovidDiaryPreferences.setValue("isFirstTime", false);
+
               setState(() {
                 _currentPage = page;
               });
@@ -92,21 +95,21 @@ class _BoardingScreenState extends State<BoardingScreen> {
       _currentPage == _numPages - 1
           ? SizedBox.shrink()
           : Padding(
-            padding: EdgeInsets.only(bottom: 48.h),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                height: 64,
-                width: 128,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  image: DecorationImage(
-                      image: AssetImage("assets/logo/IWN1.png"),
-                      fit: BoxFit.fill),
+              padding: EdgeInsets.only(bottom: 48.h),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  height: 64,
+                  width: 128,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    image: DecorationImage(
+                        image: AssetImage("assets/logo/IWN1.png"),
+                        fit: BoxFit.fill),
+                  ),
                 ),
               ),
             ),
-          ),
       Align(
         alignment: FractionalOffset.center,
         child: Row(

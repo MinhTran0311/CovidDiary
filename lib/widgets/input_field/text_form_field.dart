@@ -212,8 +212,8 @@ class TextFormFieldWidget extends FormField<String> {
         suffix: GestureDetector(
             onTap: () => _obscureText.value = !_obscureText.value,
             child: !value
-                ? SvgPicture.asset('assets/svg/eye_slash.svg')
-                : SvgPicture.asset('assets/svg/eye.svg')),
+                ? SvgPicture.asset('assets/svg/icon/eye_slash.svg')
+                : SvgPicture.asset('assets/svg/icon/eye.svg')),
         obscureText: _obscureText.value,
         validator: Validators.compose([
           Validators.required(errorMessage: S.current.error_empty_password),
