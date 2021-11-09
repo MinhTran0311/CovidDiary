@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:src/core/dashboard/dashboard_page.dart';
 
 class TabNavigator extends StatelessWidget {
   TabNavigator({required this.navigatorKey, required this.tabItem});
@@ -11,14 +12,14 @@ class TabNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     late Widget child;
     if (tabItem == "HomeScreen")
-      child = Container();
+      child = DashboardPage();
     else if (tabItem == "MapsScreen")
-      child = Container();
+      child = DashboardPage();
     else if (tabItem == "ManagementScreen")
-      child = Container();
+      child = DashboardPage();
     else if (tabItem == "ProfileScreen")
-      child = Container();
-    else if (tabItem == "NewPost") child = Container();
+      child = DashboardPage();
+    else if (tabItem == "NewPost") child = DashboardPage();
     return Navigator(
       key: navigatorKey,
       onGenerateRoute: (routeSettings) {
