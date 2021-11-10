@@ -40,14 +40,10 @@ class _DiseaseInfoPageState extends State<DiseaseInfoPage> {
   }
 
   Widget _buildBody() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-
-        Flexible(child: _buildStatistic(), ),
-        isExpanding ? SizedBox.shrink() : Expanded(child: _buildMap(), flex: 2,)
-      ],
-    );
+    return Column(mainAxisSize: MainAxisSize.min, children: [
+      Flexible(child: _buildStatistic()),
+      isExpanding ? SizedBox.shrink() : Expanded(child: _buildMap(), flex: 2)
+    ]);
   }
 
   Widget _buildStatistic() {
