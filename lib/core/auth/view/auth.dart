@@ -120,18 +120,12 @@ class _AuthPageState extends State<AuthPage> with TickerProviderStateMixin {
       child: IndexedStack(
         children: [
           Visibility(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 16.h),
-              child: LoginPage(callBack: changeTab),
-            ),
+            child: LoginPage(callBack: changeTab),
             maintainState: true,
             visible: activeTabIndex == 0,
           ),
           Visibility(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 16.h),
-              child: SignUpPage(callBack: changeTab),
-            ),
+            child: SignUpPage(callBack: changeTab),
             maintainState: true,
             visible: activeTabIndex == 1,
           )

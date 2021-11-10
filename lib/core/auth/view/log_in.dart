@@ -40,19 +40,19 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 20.h),
-      child: CustomScrollView(slivers: [
-        SliverFillRemaining(
-          hasScrollBody: false,
+    return CustomScrollView(slivers: [
+      SliverFillRemaining(
+        hasScrollBody: false,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 16.h),
           child: Column(children: [
             _buildFormField(),
             Expanded(child: Container()),
             _buildBottomField()
           ]),
-        )
-      ]),
-    );
+        ),
+      )
+    ]);
   }
 
   Widget _buildFormField() {
