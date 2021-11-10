@@ -6,6 +6,8 @@ import 'package:src/core/base/base_page.dart';
 import 'package:src/widgets/button/fill_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/widgets/input_field/text_form_field.dart';
+import 'auth.dart';
+import 'forgot_password.dart';
 
 class LoginPage extends StatefulWidget {
   final Function callBack;
@@ -64,6 +66,8 @@ class _LoginPageState extends State<LoginPage> {
         GestureDetector(
           onTap: () {
             //forgot pass
+            //navigateTo(screen, context)
+            showCustomDialog(context, ForgotPassword());
           },
           child: Container(
             decoration: BoxDecoration(
@@ -95,7 +99,9 @@ class _LoginPageState extends State<LoginPage> {
             width: 198.w,
             buttonText: S.current.sign_in,
             onPressed: () {
-              _submit();
+              //_submit();
+              Navigator.of(context).popUntil((route) => route.isFirst);
+              pushReplacement(HomePageScreen(), context);
             },
           ),
           Padding(
@@ -140,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
         _phoneNumber = '0$_phoneNumber';
       }
       String _password = _passwordController.text;
-      if (_phoneNumber == "0123456789" && _password == "123qwe") {
+      if (_phoneNumber == "01231231231" && _password == "12345678") {
         Navigator.of(context).popUntil((route) => route.isFirst);
         pushReplacement(HomePageScreen(), context);
       }
