@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:src/core/dashboard/dashboard_page.dart';
+import 'package:src/core/disease_info/view/disease_info.dart';
 
 class TabNavigator extends StatelessWidget {
   TabNavigator({required this.navigatorKey, required this.tabItem});
@@ -12,7 +13,7 @@ class TabNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     late Widget child;
     if (tabItem == "HomeScreen")
-      child = DashboardPage();
+      child = DiseaseInfoPage();
     else if (tabItem == "MapsScreen")
       child = DashboardPage();
     else if (tabItem == "ManagementScreen")

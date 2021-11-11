@@ -58,5 +58,22 @@
   "dashboard_world": "Thế giới",
   "dashboard_vn": "Việt Nam",
   "dashboard_infected": "Bị nhiễm",
-  "dashboard_recovered": "Khỏi bệnh"
+  "dashboard_recovered": "Khỏi bệnh",
+  
+  "on_boarding1": "Hãy luôn đeo khẩu trang ngay khi ra khỏi nhà, đến những nơi công cộng, tập trung đông người.",
+  "on_boarding2": "Chỉ ra khỏi nhà khi thật sự cần thiết, luôn ghi chú hành trình di chuyển của bản thân.",
+  "on_boarding3": "Rửa tay là phương pháp hữu hiệu để ngăn ngừa không chỉ Covid-19 mà còn với các bệnh lý hô hấp khác ",
+  "on_boarding4": "Theo dõi sức khỏe mỗi ngày, liên hệ ngay cơ quan y tế khi có dấu hiệu bất thường.",
+
+  "disease_info_app_bar_title": "Thông tin dịch bệnh",
+  "disease_info_cases": "Nhiễm",
+  "disease_info_healed": "Khỏi",
+  "disease_info_death": "Tử vong",
+  "disease_info_vietnam": "Việt Nam",
+  "disease_info_world": "Thế giới",
+  "disease_info_table_province": "Tỉnh/Thành phố",
+  "disease_info_table_nation": "Quốc gia",
+  "disease_info_table_cases": "Nhiễm bệnh",
+  "disease_info_table_healed": "Bình phục",
+  "disease_info_table_deaths": "Tử vong"
 }

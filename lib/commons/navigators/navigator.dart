@@ -26,6 +26,26 @@ class SlideUpRoute extends PageRouteBuilder {
         );
 }
 
+void showCustomDialog(BuildContext context, Widget child) {
+  showGeneralDialog(
+    barrierLabel: "213",
+    barrierDismissible: true,
+    barrierColor: Colors.black.withOpacity(0.6),
+    transitionDuration: Duration(milliseconds: 500),
+    context: context,
+    pageBuilder: (_, __, ___) {
+      return child;
+    },
+    transitionBuilder: (_, anim, __, child) {
+      return SlideTransition(
+        position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(anim),
+        child: child,
+      );
+    },
+  );
+}
+
+
 Future navigateTo(Widget screen, BuildContext context) {
   return Navigator.push(context, _getPlatformRoute(context, screen));
 }

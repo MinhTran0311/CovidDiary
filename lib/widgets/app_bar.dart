@@ -9,7 +9,11 @@ class AppBarCustom extends AppBar {
     required BuildContext context,
     required String title,
   }) : super(
-            title: Text(title),
+            title: Text(title,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline5!
+                    .copyWith(color: getCustomColor().white)),
             leading: IconButton(
               onPressed: () => goBack(context),
               icon: SvgPicture.asset('assets/svg/icon/left_arrow.svg'),

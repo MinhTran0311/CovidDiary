@@ -76,7 +76,7 @@ getTextTheme(TextTheme textTheme) {
     ///Heading 2
     headline6: textTheme.headline6?.copyWith(
         fontFamily: 'Roboto Condensed',
-        fontSize: 20.sp,
+        fontSize: 16.sp,
         height: (20 / 16).sp,
         fontWeight: FontWeight.w700),
 

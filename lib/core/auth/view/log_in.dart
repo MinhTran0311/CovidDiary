@@ -4,9 +4,10 @@ import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/base/base_page.dart';
 import 'package:src/widgets/button/fill_button.dart';
-import 'package:src/widgets/button/outline_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/widgets/input_field/text_form_field.dart';
+import 'auth.dart';
+import 'forgot_password.dart';
 
 class LoginPage extends StatefulWidget {
   final Function callBack;
@@ -43,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
       SliverFillRemaining(
         hasScrollBody: false,
         child: Padding(
-          padding: EdgeInsets.only(top: 20.h),
+          padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 16.h),
           child: Column(children: [
             _buildFormField(),
             Expanded(child: Container()),
@@ -60,12 +61,13 @@ class _LoginPageState extends State<LoginPage> {
       child: Column(children: [
         TextFormFieldWidget.phoneNumber(context, _phoneController),
         SizedBox(height: 24.h),
-
         TextFormFieldWidget.password(context, _passwordController),
         SizedBox(height: 44.h),
         GestureDetector(
           onTap: () {
             //forgot pass
+            //navigateTo(screen, context)
+            showCustomDialog(context, ForgotPassword());
           },
           child: Container(
             decoration: BoxDecoration(
@@ -97,6 +99,8 @@ class _LoginPageState extends State<LoginPage> {
             width: 198.w,
             buttonText: S.current.sign_in,
             onPressed: () {
+              //_submit();
+              Navigator.of(context).popUntil((route) => route.isFirst);
               pushReplacement(HomePageScreen(), context);
             },
           ),
@@ -130,5 +134,22 @@ class _LoginPageState extends State<LoginPage> {
         ]),
       ),
     );
+  }
+
+  void _submit() async {
+    final _state = _formKey.currentState;
+    if (_state == null) return;
+    FocusManager.instance.primaryFocus?.unfocus();
+    if (_state.validate()) {
+      String _phoneNumber = _phoneController.text.replaceAll(" ", "");
+      if (!_phoneNumber.startsWith('0')) {
+        _phoneNumber = '0$_phoneNumber';
+      }
+      String _password = _passwordController.text;
+      if (_phoneNumber == "01231231231" && _password == "12345678") {
+        Navigator.of(context).popUntil((route) => route.isFirst);
+        pushReplacement(HomePageScreen(), context);
+      }
+    }
   }
 }
