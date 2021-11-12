@@ -3,6 +3,7 @@ import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/base/base_page.dart';
+import 'package:src/core/splash/loading_page.dart';
 import 'package:src/widgets/button/fill_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/widgets/input_field/text_form_field.dart';
@@ -101,34 +102,32 @@ class _LoginPageState extends State<LoginPage> {
             onPressed: () {
               //_submit();
               Navigator.of(context).popUntil((route) => route.isFirst);
-              pushReplacement(HomePageScreen(), context);
+              pushReplacement(LoadingPage(nextPage: HomePageScreen()), context);
             },
           ),
           Padding(
             padding: EdgeInsets.only(top: 16.h),
             child: Align(
               alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    S.current.dont_have_account,
-                    style: Theme.of(context).textTheme.caption!.copyWith(
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Text(
+                  S.current.dont_have_account,
+                  style: Theme.of(context).textTheme.caption!.copyWith(
+                      fontWeight: FontWeight.w500,
+                      color: getCustomColor().black),
+                ),
+                SizedBox(width: 8.w),
+                GestureDetector(
+                  onTap: () => widget.callBack(1),
+                  child: Text(
+                    S.current.sign_up,
+                    style: Theme.of(context).textTheme.subtitle1!.copyWith(
                         fontWeight: FontWeight.w500,
-                        color: getCustomColor().black),
+                        color: getCustomColor().primary),
                   ),
-                  SizedBox(width: 8.w),
-                  GestureDetector(
-                    onTap: () => widget.callBack(1),
-                    child: Text(
-                      S.current.sign_up,
-                      style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                          fontWeight: FontWeight.w500,
-                          color: getCustomColor().primary),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ]),
             ),
           ),
         ]),
