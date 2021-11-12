@@ -62,3 +62,55 @@ class FillButton extends StatelessWidget {
     );
   }
 }
+
+class CustomColorFillButton extends StatelessWidget {
+  const CustomColorFillButton(
+      {Key? key,
+      this.fillColor,
+      this.width,
+      this.height,
+      this.buttonText,
+      required this.onPressed,
+      this.child})
+      : assert((buttonText != null && child == null) ||
+            (buttonText == null && child != null)),
+        super(key: key);
+
+  final Color? fillColor;
+  final double? width;
+  final double? height;
+  final String? buttonText;
+  final VoidCallback onPressed;
+
+  final Widget? child;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: this.height,
+      width: this.width,
+      decoration: BoxDecoration(
+        color: fillColor ?? getCustomColor().primary,
+        borderRadius: BorderRadius.circular(8.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 1,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: TextButton(
+          child: (this.buttonText == null && this.child != null)
+              ? this.child!
+              : Text(
+                  buttonText!,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline6!
+                      .copyWith(color: getCustomColor().background),
+                ),
+          onPressed: onPressed),
+    );
+  }
+}

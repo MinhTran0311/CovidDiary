@@ -55,7 +55,12 @@ class HealthReport extends StatelessWidget {
             child: Stack(
               children: [
                 Center(
-                  child: iconList[i] != "" ? Image.asset(iconList[i]) : null,
+                  child: Image.asset(
+                    iconList[i],
+                    width: 48.w,
+                    height: 48.h,
+                    fit: BoxFit.fill,
+                  ),
                 ),
                 Container(
                   alignment: Alignment.bottomCenter,
