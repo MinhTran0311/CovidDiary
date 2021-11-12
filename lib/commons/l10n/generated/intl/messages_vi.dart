@@ -32,13 +32,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
         "dashboard_def_username":
             MessageLookupByLibrary.simpleMessage("Siêu nhân cuồng phong"),
+        "dashboard_friday": MessageLookupByLibrary.simpleMessage("T6"),
+        "dashboard_heath_track":
+            MessageLookupByLibrary.simpleMessage("Theo dõi sức khỏe"),
+        "dashboard_heath_track_button": MessageLookupByLibrary.simpleMessage(
+            "Hôm nay bạn có khỏe không, để mình ghi lại nhé !"),
         "dashboard_hello": MessageLookupByLibrary.simpleMessage("Xin chào"),
         "dashboard_infected": MessageLookupByLibrary.simpleMessage("Bị nhiễm"),
+        "dashboard_monday": MessageLookupByLibrary.simpleMessage("T2"),
         "dashboard_recovered":
             MessageLookupByLibrary.simpleMessage("Khỏi bệnh"),
+        "dashboard_saturday": MessageLookupByLibrary.simpleMessage("T7"),
+        "dashboard_sunday": MessageLookupByLibrary.simpleMessage("CN"),
+        "dashboard_thursday": MessageLookupByLibrary.simpleMessage("T5"),
         "dashboard_today_stats":
             MessageLookupByLibrary.simpleMessage("Tình hình dịch bệnh hôm nay"),
+        "dashboard_tuesday": MessageLookupByLibrary.simpleMessage("T3"),
         "dashboard_vn": MessageLookupByLibrary.simpleMessage("Việt Nam"),
+        "dashboard_wednesday": MessageLookupByLibrary.simpleMessage("T4"),
         "dashboard_world": MessageLookupByLibrary.simpleMessage("Thế giới"),
         "disease_info_app_bar_title":
             MessageLookupByLibrary.simpleMessage("Thông tin dịch bệnh"),

@@ -610,6 +610,96 @@ class S {
     );
   }
 
+  /// `Theo dõi sức khỏe`
+  String get dashboard_heath_track {
+    return Intl.message(
+      'Theo dõi sức khỏe',
+      name: 'dashboard_heath_track',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hôm nay bạn có khỏe không, để mình ghi lại nhé !`
+  String get dashboard_heath_track_button {
+    return Intl.message(
+      'Hôm nay bạn có khỏe không, để mình ghi lại nhé !',
+      name: 'dashboard_heath_track_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `T2`
+  String get dashboard_monday {
+    return Intl.message(
+      'T2',
+      name: 'dashboard_monday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `T3`
+  String get dashboard_tuesday {
+    return Intl.message(
+      'T3',
+      name: 'dashboard_tuesday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `T4`
+  String get dashboard_wednesday {
+    return Intl.message(
+      'T4',
+      name: 'dashboard_wednesday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `T5`
+  String get dashboard_thursday {
+    return Intl.message(
+      'T5',
+      name: 'dashboard_thursday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `T6`
+  String get dashboard_friday {
+    return Intl.message(
+      'T6',
+      name: 'dashboard_friday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `T7`
+  String get dashboard_saturday {
+    return Intl.message(
+      'T7',
+      name: 'dashboard_saturday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `CN`
+  String get dashboard_sunday {
+    return Intl.message(
+      'CN',
+      name: 'dashboard_sunday',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Hãy luôn đeo khẩu trang ngay khi ra khỏi nhà, đến những nơi công cộng, tập trung đông người.`
   String get on_boarding1 {
     return Intl.message(

@@ -31,6 +31,8 @@ class DashboardPage extends StatelessWidget {
                     SizedBox(height: 8),
                     DBTodayStatsWidget(),
                     SizedBox(height: 8),
+                    DBHealthTrackWidget(),
+                    SizedBox(height: 8),
                   ],
                 ))),
       ),

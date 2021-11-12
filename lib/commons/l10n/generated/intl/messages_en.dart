@@ -32,13 +32,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "dashboard_def_username":
             MessageLookupByLibrary.simpleMessage("Siêu nhân cuồng phong"),
+        "dashboard_friday": MessageLookupByLibrary.simpleMessage("Fr"),
+        "dashboard_heath_track":
+            MessageLookupByLibrary.simpleMessage("Health tracking"),
+        "dashboard_heath_track_button": MessageLookupByLibrary.simpleMessage(
+            "How are you today? Let me record it for you!"),
         "dashboard_hello": MessageLookupByLibrary.simpleMessage("Hello"),
         "dashboard_infected": MessageLookupByLibrary.simpleMessage("Infected"),
+        "dashboard_monday": MessageLookupByLibrary.simpleMessage("Mo"),
         "dashboard_recovered":
             MessageLookupByLibrary.simpleMessage("Recovered"),
+        "dashboard_saturday": MessageLookupByLibrary.simpleMessage("Sa"),
+        "dashboard_sunday": MessageLookupByLibrary.simpleMessage("Su"),
+        "dashboard_thursday": MessageLookupByLibrary.simpleMessage("Th"),
         "dashboard_today_stats":
             MessageLookupByLibrary.simpleMessage("Today stats"),
+        "dashboard_tuesday": MessageLookupByLibrary.simpleMessage("Tu"),
         "dashboard_vn": MessageLookupByLibrary.simpleMessage("Vietnam"),
+        "dashboard_wednesday": MessageLookupByLibrary.simpleMessage("We"),
         "dashboard_world": MessageLookupByLibrary.simpleMessage("Worldwide"),
         "disease_info_app_bar_title":
             MessageLookupByLibrary.simpleMessage("Disease information"),

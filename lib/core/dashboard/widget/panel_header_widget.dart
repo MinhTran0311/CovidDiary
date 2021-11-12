@@ -46,6 +46,7 @@ class DBPanelHeader extends Container {
                       .bodyText1!
                       .copyWith(color: getCustomColor().secondary),
                 ),
+                SizedBox(width: 4),
                 _sideIcon!
               ]),
             )
