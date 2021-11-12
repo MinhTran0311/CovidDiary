@@ -71,8 +71,8 @@ class TextFormFieldWidget extends FormField<String> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          if (suffix != null) ...[suffix, SizedBox(width: 8.w)],
                           if (clearIcon != null && isShowClear!) clearIcon,
-                          if (suffix != null) ...[SizedBox(width: 8.w), suffix],
                         ],
                       ))
                   : null;
@@ -212,12 +212,46 @@ class TextFormFieldWidget extends FormField<String> {
         suffix: GestureDetector(
             onTap: () => _obscureText.value = !_obscureText.value,
             child: !value
-                ? SvgPicture.asset('assets/svg/eye_slash.svg')
-                : SvgPicture.asset('assets/svg/eye.svg')),
+                ? SvgPicture.asset('assets/svg/icon/eye_slash.svg')
+                : SvgPicture.asset('assets/svg/icon/eye.svg')),
         obscureText: _obscureText.value,
         validator: Validators.compose([
           Validators.required(errorMessage: S.current.error_empty_password),
           Validators.min(8, S.current.error_short_password),
+        ]),
+      ),
+    );
+  }
+
+  static Widget confirmPassword(
+    BuildContext context,
+    TextEditingController controller, {
+    String? label,
+    String? hint,
+    bool readOnly = false,
+    TextEditingController? passwordController,
+  }) {
+    final ValueNotifier<bool> _obscureText = ValueNotifier<bool>(true);
+    return ValueListenableBuilder<bool>(
+      valueListenable: _obscureText,
+      builder: (_, value, __) => TextFormFieldWidget(
+        context: context,
+        label: label ?? S.current.confirm_password_input,
+        hintText: hint ?? S.current.confirm_password_hint,
+        controller: controller,
+        readOnly: readOnly,
+        suffix: GestureDetector(
+            onTap: () => _obscureText.value = !_obscureText.value,
+            child: !value
+                ? SvgPicture.asset('assets/svg/icon/eye_slash.svg')
+                : SvgPicture.asset('assets/svg/icon/eye.svg')),
+        obscureText: _obscureText.value,
+        validator: Validators.compose([
+          Validators.required(
+              errorMessage: S.current.error_empty_confirm_password),
+          Validators.min(8, S.current.error_short_password),
+          Validators.compareWith(
+              passwordController!.text, S.current.error_wrong_confirm_password),
         ]),
       ),
     );

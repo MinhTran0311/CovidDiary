@@ -8,6 +8,7 @@
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
+// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
 
 import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
@@ -29,6 +30,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nhập lại mật khẩu của bạn"),
         "confirm_password_input":
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
+        "disease_info_app_bar_title":
+            MessageLookupByLibrary.simpleMessage("Thông tin dịch bệnh"),
+        "disease_info_cases": MessageLookupByLibrary.simpleMessage("Nhiễm"),
+        "disease_info_death": MessageLookupByLibrary.simpleMessage("Tử vong"),
+        "disease_info_healed": MessageLookupByLibrary.simpleMessage("Khỏi"),
+        "disease_info_table_cases":
+            MessageLookupByLibrary.simpleMessage("Nhiễm bệnh"),
+        "disease_info_table_deaths":
+            MessageLookupByLibrary.simpleMessage("Tử vong"),
+        "disease_info_table_healed":
+            MessageLookupByLibrary.simpleMessage("Bình phục"),
+        "disease_info_table_nation":
+            MessageLookupByLibrary.simpleMessage("Quốc gia"),
+        "disease_info_table_province":
+            MessageLookupByLibrary.simpleMessage("Tỉnh/Thành phố"),
+        "disease_info_vietnam":
+            MessageLookupByLibrary.simpleMessage("Việt Nam"),
+        "disease_info_world": MessageLookupByLibrary.simpleMessage("Thế giới"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("Chưa có tài khoản?"),
         "email_hint":
@@ -75,6 +94,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng Google"),
         "login_with_phone": MessageLookupByLibrary.simpleMessage(
             "Đăng nhập bằng số điện thoại"),
+        "on_boarding1": MessageLookupByLibrary.simpleMessage(
+            "Hãy luôn đeo khẩu trang ngay khi ra khỏi nhà, đến những nơi công cộng, tập trung đông người."),
+        "on_boarding2": MessageLookupByLibrary.simpleMessage(
+            "Chỉ ra khỏi nhà khi thật sự cần thiết, luôn ghi chú hành trình di chuyển của bản thân."),
+        "on_boarding3": MessageLookupByLibrary.simpleMessage(
+            "Rửa tay là phương pháp hữu hiệu để ngăn ngừa không chỉ Covid-19 mà còn với các bệnh lý hô hấp khác "),
+        "on_boarding4": MessageLookupByLibrary.simpleMessage(
+            "Theo dõi sức khỏe mỗi ngày, liên hệ ngay cơ quan y tế khi có dấu hiệu bất thường."),
         "otp_input": MessageLookupByLibrary.simpleMessage("Nhập mã OTP"),
         "otp_resent": MessageLookupByLibrary.simpleMessage("Đã gửi lại OTP"),
         "password_hint":

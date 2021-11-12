@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/themes/theme.dart';
 
-class NonFillButton extends StatelessWidget {
+class OutlineButton extends StatelessWidget {
   final bool isAccent;
-
-  final bool isHasBorder;
 
   final double? width;
 
@@ -18,14 +16,13 @@ class NonFillButton extends StatelessWidget {
 
   final Widget? child;
 
-  const NonFillButton(
+  const OutlineButton(
       {Key? key,
       this.isAccent = false,
       this.width,
       this.height,
       this.buttonText,
       this.child,
-      this.isHasBorder = true,
       required this.onPressed})
       : assert((buttonText != null && child == null) ||
             (buttonText == null && child != null)),
@@ -45,13 +42,11 @@ class NonFillButton extends StatelessWidget {
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],
-        border: isHasBorder
-            ? Border.all(
-                width: 2.w,
-                color: !this.isAccent
-                    ? getCustomColor().primary
-                    : getCustomColor().secondary)
-            : null,
+        border: Border.all(
+            width: 2.w,
+            color: !this.isAccent
+                ? getCustomColor().primary
+                : getCustomColor().secondary),
         color: getCustomColor().background,
         borderRadius: BorderRadius.circular(8.r),
       ),

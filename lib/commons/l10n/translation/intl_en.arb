@@ -51,5 +51,22 @@
   "error_empty_issue": "Please enter your issue.",
   "error_occur_please_try_again": "Something went wrong. Please try again.",
   "error_empty_input": "Please fill input field",
-  "otp_resent": "Resent OTP"
+  "otp_resent": "Resent OTP",
+
+  "on_boarding1": "Always wear a mask as soon as you leave the house, go to public places, gather in crowds.",
+  "on_boarding2": "Only leave the house when absolutely necessary, always keep a note of your own journey..",
+  "on_boarding3": "Hand washing is an effective way to prevent not only Covid-19 but also other respiratory diseases.",
+  "on_boarding4": "Check your health every day, immediately contact medical authorities if there are abnormal symptoms.",
+
+  "disease_info_app_bar_title": "Disease information",
+  "disease_info_cases": "Cases",
+  "disease_info_healed": "Heals",
+  "disease_info_death": "Deaths",
+  "disease_info_vietnam": "Vietnam",
+  "disease_info_world": "World",
+  "disease_info_table_province": "Province/City",
+  "disease_info_table_nation": "Nation",
+  "disease_info_table_cases": "Cases",
+  "disease_info_table_healed": "Heals",
+  "disease_info_table_deaths": "Deaths"
 }

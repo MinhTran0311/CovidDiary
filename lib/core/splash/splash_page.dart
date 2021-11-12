@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:src/commons/navigators/navigator.dart';
+import 'package:src/commons/preference/covid_diary_preferences.dart';
 import 'package:src/commons/themes/theme.dart';
+import 'package:src/core/onBoarding/boarding.dart';
 import 'package:src/core/onBoarding/login_method_page.dart';
 import 'package:src/core/HealthDiary/symptom_detail.dart';
 
@@ -16,20 +16,8 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   late Timer _timerSplash;
 
-  bool _isViewedOnBoarding = false;
-  bool _isLoggedIn = false;
-
-  void _loadPrefs() {
-    // Map<String, dynamic> _settings = _session.userSettings;
-    // _isViewedOnBoarding = _settings['isFirstTime'] ?? false;
-    // if (!_isViewedOnBoarding) {
-    //   _settings['isFirstTime'] = true;
-    //   _session.userSettings = _settings;
-    // }
-    // _isLoggedIn = _session.isLogged;
-  }
-
   void _navigator() {
+<<<<<<< HEAD
     // if (this._isLoggedIn) {
     //   pushReplacement(context, HomePage(selectedPage: 1));
     // } else if (this._isViewedOnBoarding) {
@@ -45,12 +33,19 @@ class _SplashPageState extends State<SplashPage> {
         ),
         context);
     //pushReplacement(SymptomReport(), context);
+=======
+    bool isOldUser = CovidDiaryPreferences.getValue<bool>("isOldUser");
+
+    if (!isOldUser)
+      pushReplacement(BoardingPage(), context);
+    else
+      pushReplacement(LoginMethodPage(), context);
+>>>>>>> origin/main
   }
 
   @override
   void initState() {
     super.initState();
-    _loadPrefs();
     _timerSplash = Timer(Duration(milliseconds: 3000), _navigator);
   }
 
