@@ -1,12 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/dashboard/widget/panel_header_widget.dart';
+import 'package:src/widgets/button/fill_button.dart';
 import 'package:src/widgets/panel.dart';
 
 class DBHealthTrackWidget extends PanelLight {
@@ -15,7 +15,7 @@ class DBHealthTrackWidget extends PanelLight {
     return PanelLight(
       child: Column(children: [
         DBPanelHeader(title: S.current.dashboard_heath_track),
-        SizedBox(height: 8),
+        SizedBox(height: 8.h),
         SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: IntrinsicHeight(
@@ -39,13 +39,20 @@ class DBHealthTrackWidget extends PanelLight {
                 _dayHealth(context, 4, DBEmoticon.NONE),
                 _dayHealth(context, 5, DBEmoticon.NONE),
               ],
-            )))
+            ))),
+        SizedBox(height: 8.h),
+        FillButton(
+          isAccent: true,
+          width: 342.w,
+          onPressed: () => {},
+          buttonText: S.current.dashboard_heath_track_button,
+        ),
       ]),
     );
   }
 
   Widget _divider() {
-    return VerticalDivider(thickness: 2, color: getCustomColor().black);
+    return VerticalDivider(thickness: 2.w, color: getCustomColor().black);
   }
 
   Widget _dayHealth(BuildContext context, int dayInWeek, DBEmoticon? emoticon,

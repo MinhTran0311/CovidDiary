@@ -28,11 +28,11 @@ class DashboardPage extends StatelessWidget {
                 child: Column(
                   children: [
                     DBAvatarWidget(),
-                    SizedBox(height: 8),
+                    SizedBox(height: 8.h),
                     DBTodayStatsWidget(),
-                    SizedBox(height: 8),
+                    SizedBox(height: 8.h),
                     DBHealthTrackWidget(),
-                    SizedBox(height: 8),
+                    SizedBox(height: 8.h),
                   ],
                 ))),
       ),

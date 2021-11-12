@@ -30,7 +30,7 @@ class DBTodayStatsWidget extends StatelessWidget {
     return Table(
         defaultVerticalAlignment: TableCellVerticalAlignment.middle,
         columnWidths: const <int, TableColumnWidth>{
-          0: FlexColumnWidth(),
+          0: FlexColumnWidth(1.2),
           1: FlexColumnWidth(),
           2: FlexColumnWidth(),
         },
