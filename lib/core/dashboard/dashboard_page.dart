@@ -21,23 +21,16 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: GradientBackGround(
-      child: Container(
+      child: SafeArea(
         child: SingleChildScrollView(
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                 child: Column(
                   children: [
-                    DBTodayStatsWidget(),
+                    DBAvatarWidget(),
                     SizedBox(height: 8),
                     DBTodayStatsWidget(),
                     SizedBox(height: 8),
-                    DBTodayStatsWidget(),
-                    SizedBox(height: 8),
-                    DBTodayStatsWidget(),
-                    SizedBox(height: 8),
-                    DBTodayStatsWidget(),
-                    SizedBox(height: 8),
-                    DBTodayStatsWidget()
                   ],
                 ))),
       ),
