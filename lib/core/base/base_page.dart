@@ -1,4 +1,3 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'tab_bar.dart';
@@ -11,9 +10,9 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
   String _currentPage = "HomeScreen";
-  int _currentIndex = 0;
+ // int _currentIndex = 0;
   late PageController _pageController;
-  int _selectedIndex = 0;
+  //int _selectedIndex = 0;
 
   List<String> pageKeys = [
     "HomeScreen",
@@ -74,7 +73,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               setState(() {
                 //_tabController.index = value;
                 _selectTab(pageKeys[value], value);
-                _currentIndex = value;
+                //_currentIndex = value;
               });
             },
             icons: [Icons.account_box, Icons.home, Icons.menu],
@@ -111,7 +110,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
     } else {
       setState(() {
         _currentPage = pageKeys[index];
-        _selectedIndex = index;
+       // _selectedIndex = index;
       });
     }
   }
