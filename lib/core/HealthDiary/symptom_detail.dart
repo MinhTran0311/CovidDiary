@@ -182,22 +182,22 @@ class _SymptomDetailState extends State<SymptomDetail> {
 
     Color sliderThumbColor = lerpGradient(redgreenGradient, currentValue);
 
-    return Stack(
-      textDirection: TextDirection.ltr,
-      children: [
-        //*
-        Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: getCustomColor().bgGradient,
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+    return Scaffold(
+      body: Stack(
+        textDirection: TextDirection.ltr,
+        children: [
+          //*
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: getCustomColor().bgGradient,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
           ),
-        ),
-        // */
-        Scaffold(
-          body: Column(
+          // */
+          Column(
             children: [
               Expanded(
                 child: Column(
@@ -368,8 +368,8 @@ class _SymptomDetailState extends State<SymptomDetail> {
               ),
             ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
