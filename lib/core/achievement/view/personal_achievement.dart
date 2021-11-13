@@ -1,45 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:src/commons/themes/theme.dart';
+import 'package:src/core/achievement/model/achievement_model.dart';
 import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/panel.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:src/widgets/rounded_avatar.dart';
+import 'package:src/widgets/round_avatar.dart';
 
 class PersonalAchievement extends StatefulWidget {
   const PersonalAchievement({Key? key}) : super(key: key);
 
   @override
   _PersonalAchievementState createState() => _PersonalAchievementState();
-}
-
-class personalData {
-  String name;
-  String avatarUrl;
-  List<awardDetail> awardArr;
-
-  int getTotalPoints() {
-    int totalPoint = 0;
-    for (var award in awardArr) {
-      if (award.isDone == true) totalPoint += award.point;
-    }
-    return totalPoint;
-  }
-
-  void setTotalPoint(number) {
-    this.totalPoint = number;
-  }
-
-  int totalPoint;
-  personalData(this.name, this.avatarUrl, this.awardArr, this.totalPoint);
-}
-
-class awardDetail {
-  String name;
-  String imageUrl;
-  int point;
-  bool isDone;
-  awardDetail(this.name, this.imageUrl, this.point, this.isDone);
 }
 
 var name = "Tuan Minh";
@@ -63,7 +35,7 @@ var awardArr = [
   new awardDetail("Da co nguoi yeu", "assets/image/award.png", 3, false),
 ];
 
-personalData data = new personalData(name, avatarUrl, awardArr, 7);
+PersonalData data = new PersonalData(name, avatarUrl, awardArr, 7);
 
 class _PersonalAchievementState extends State<PersonalAchievement> {
   @override
@@ -117,7 +89,7 @@ class _PersonalAchievementState extends State<PersonalAchievement> {
                                       fontWeight: FontWeight.w700,
                                       color: getCustomColor().secondary),
                             ),
-                          ],
+                          ]
                         )
                       ]),
                     ),
