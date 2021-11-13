@@ -168,8 +168,6 @@ class EmotionReport extends StatefulWidget {
 }
 
 class _EmotionReportState extends State<EmotionReport> {
-  double sigma = 0;
-
   bool? isPositive;
 
   static const String closeSvg = "assets/svg/icon/close-r.svg";
@@ -177,7 +175,6 @@ class _EmotionReportState extends State<EmotionReport> {
   void onClick(int value) {
     // TODO: add to DB
     setState(() {
-      sigma = 5;
       isPositive = value < 4;
     });
   }
@@ -200,11 +197,11 @@ class _EmotionReportState extends State<EmotionReport> {
     if (isPositive != null) {
       stackedEntities.add(BackdropFilter(
         filter: ImageFilter.blur(
-          sigmaX: sigma,
-          sigmaY: sigma,
+          sigmaX: 5,
+          sigmaY: 5,
         ),
         child: Container(
-          color: getCustomColor().black.withOpacity(0),
+          color: getCustomColor().black.withOpacity(0.5),
         ),
       ));
       stackedEntities.add(Row(
