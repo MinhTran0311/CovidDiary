@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:src/core/HealthDiary/symptom_report.dart';
 import 'package:src/core/disease_info/view/disease_info.dart';
+import 'package:src/core/HealthDiary/health_report.dart';
 
 class TabNavigator extends StatelessWidget {
   TabNavigator({required this.navigatorKey, required this.tabItem});
@@ -12,7 +14,7 @@ class TabNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     late Widget child;
     if (tabItem == "HomeScreen")
-      child = DiseaseInfoPage();
+      child = EmotionReport();
     else if (tabItem == "MapsScreen")
       child = Container();
     else if (tabItem == "ManagementScreen")

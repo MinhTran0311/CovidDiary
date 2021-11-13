@@ -17,30 +17,12 @@ class _SplashPageState extends State<SplashPage> {
   late Timer _timerSplash;
 
   void _navigator() {
-<<<<<<< HEAD
-    // if (this._isLoggedIn) {
-    //   pushReplacement(context, HomePage(selectedPage: 1));
-    // } else if (this._isViewedOnBoarding) {
-    //   pushReplacement(context, ChooseLoginPage());
-    // } else {
-    //   pushReplacement(context, BoardingScreen());
-    // }
-    pushReplacement(
-        SymptomDetail(
-          symptom: 1,
-          onDone: (_) {},
-          onCanceled: () {},
-        ),
-        context);
-    //pushReplacement(SymptomReport(), context);
-=======
     bool isOldUser = CovidDiaryPreferences.getValue<bool>("isOldUser");
 
     if (!isOldUser)
       pushReplacement(BoardingPage(), context);
     else
       pushReplacement(LoginMethodPage(), context);
->>>>>>> origin/main
   }
 
   @override

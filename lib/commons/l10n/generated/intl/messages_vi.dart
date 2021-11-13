@@ -82,6 +82,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "gallery": MessageLookupByLibrary.simpleMessage("Thư viện ảnh"),
         "have_an_account":
             MessageLookupByLibrary.simpleMessage("Đã có tài khoản?"),
+        "health_report_emotion_1":
+            MessageLookupByLibrary.simpleMessage("Vui vẻ"),
+        "health_report_emotion_2":
+            MessageLookupByLibrary.simpleMessage("Hài lòng"),
+        "health_report_emotion_3":
+            MessageLookupByLibrary.simpleMessage("Thoải mái"),
+        "health_report_emotion_4":
+            MessageLookupByLibrary.simpleMessage("Phấn khởi"),
+        "health_report_emotion_5":
+            MessageLookupByLibrary.simpleMessage("Mệt mỏi"),
+        "health_report_emotion_6": MessageLookupByLibrary.simpleMessage("Buồn"),
+        "health_report_emotion_7":
+            MessageLookupByLibrary.simpleMessage("Chán nản"),
+        "health_report_emotion_8":
+            MessageLookupByLibrary.simpleMessage("Bực bội"),
+        "health_report_emotion_greating":
+            MessageLookupByLibrary.simpleMessage("Hôm nay bạn thấy thế nào?"),
+        "health_report_response_negative": MessageLookupByLibrary.simpleMessage(
+            "Cố lên bạn ơi,\ndịch bệnh sẽ qua mau thôi!"),
+        "health_report_response_positive": MessageLookupByLibrary.simpleMessage(
+            "Mình rất vui\nkhi bạn tâm tư với mình!"),
         "hello": MessageLookupByLibrary.simpleMessage("Xin chào"),
         "images": MessageLookupByLibrary.simpleMessage("Hình ảnh"),
         "issue_hint":
@@ -120,6 +141,61 @@ class MessageLookup extends MessageLookupByLibrary {
         "sign_up": MessageLookupByLibrary.simpleMessage("Đăng ký"),
         "sign_up_button":
             MessageLookupByLibrary.simpleMessage("Đăng ký tài khoản"),
+        "symptom_info_1_1": MessageLookupByLibrary.simpleMessage(
+            "Thi thoảng, bạn bị ho một cái.\nCó thể nó không đủ để coi như là bị bệnh, nhưng nó có làm phiền bạn một chút ít."),
+        "symptom_info_1_2": MessageLookupByLibrary.simpleMessage(
+            "Bạn cảm giác như bạn bị cảm.\nBạn ho đủ nhiều để khiến bạn khó chịu, và khả năng cao nếu bạn không mắc Covid thì bạn cũng bị cảm hay gì đó."),
+        "symptom_info_1_3": MessageLookupByLibrary.simpleMessage(
+            "Bạn ho thường xuyên.\nThường xuyên đến nỗi bạn bắt đầu thấy mệt.\nCó lẽ đến mức này, bạn rất nên đi khám bệnh."),
+        "symptom_info_2_1": MessageLookupByLibrary.simpleMessage(
+            "Bạn bị sốt 37-38 độ C.\nSốt có thể khiến bạn mệt một chút, nhưng không gì quá nặng."),
+        "symptom_info_2_2": MessageLookupByLibrary.simpleMessage(
+            "Bạn bị sốt 38-39 độ C.\nĐợt sốt này khiến bạn quá mệt để làm việc gì nặng, và bạn nên nghỉ bệnh hôm nay."),
+        "symptom_info_2_3": MessageLookupByLibrary.simpleMessage(
+            "Bạn bị sốt 39+ độ C.\nBạn bị sốt nặng, và nên uống thuốc hạ sốt để giữ thân nhiệt thấp."),
+        "symptom_info_3_1": MessageLookupByLibrary.simpleMessage(
+            "Bạn bị tức ngực, nghẹt mũi, hay khó thở nói chung.\nBạn phải thở mạnh hơn bình thường, và nó có thể khó chịu một chút, nhưng chưa ảnh hưởng lớn đến khả năng hô hấp."),
+        "symptom_info_3_2": MessageLookupByLibrary.simpleMessage(
+            "Bạn bị khó thở.\nThi thoảng bạn phải thở dốc vì thiếu oxy."),
+        "symptom_info_3_3": MessageLookupByLibrary.simpleMessage(
+            "Bạn bị khó thở nặng.\nBạn đã ngất ít nhất 1 lần trong ngày vì thiếu oxy.\nNếu bạn chưa đến bệnh viện thì bạn nên đến đó đi."),
+        "symptom_info_4_1": MessageLookupByLibrary.simpleMessage(
+            "Nhiều lúc trong ngày, bạn thấy muốn ói."),
+        "symptom_info_4_2":
+            MessageLookupByLibrary.simpleMessage("Bạn đã ói 1 lần trong ngày."),
+        "symptom_info_4_3": MessageLookupByLibrary.simpleMessage(
+            "Bạn đã ói nhiều lần trong ngày.\nBạn nên ăn uống đầy đủ để đảm bảo dinh dưỡng.\nCó khi bạn nên đi khám"),
+        "symptom_info_5_1": MessageLookupByLibrary.simpleMessage(
+            "Bạn cảm thấy nhức đầu.\nChuyện bình thường nếu hôm nay bạn làm việc quá sức."),
+        "symptom_info_5_2": MessageLookupByLibrary.simpleMessage(
+            "Bạn cảm thấy chóng mặt.\nCó thể bạn sẽ ngã xuống bất cứ lúc nào."),
+        "symptom_info_5_3": MessageLookupByLibrary.simpleMessage(
+            "Bạn cảm thấy đau đầu.\nCó thể nó đau nhói, có thể nó đau giai giẳng, nhưng nó dường như sẽ không bớt đi sớm nếu bạn không đi khám."),
+        "symptom_info_6_1": MessageLookupByLibrary.simpleMessage(
+            "Bạn cảm thấy khô họng.\nNhớ uống đủ nước nha bạn."),
+        "symptom_info_6_2": MessageLookupByLibrary.simpleMessage(
+            "Bạn cảm thấy ngứa họng.\nBạn có thể muốn ho. Khi đó, nhớ che miệng hoặc ho vào khuỷu tay, và rửa tay thường xuyên."),
+        "symptom_info_6_3": MessageLookupByLibrary.simpleMessage(
+            "Bạn cảm thấy đau họng.\nBạn có thể bị khàn tiếng.\nCó lẽ bạn nên đi khám."),
+        "symptom_info_7_1": MessageLookupByLibrary.simpleMessage(""),
+        "symptom_info_7_2": MessageLookupByLibrary.simpleMessage(""),
+        "symptom_info_7_3": MessageLookupByLibrary.simpleMessage(""),
+        "symptom_info_8_1": MessageLookupByLibrary.simpleMessage(""),
+        "symptom_info_8_2": MessageLookupByLibrary.simpleMessage(""),
+        "symptom_info_8_3": MessageLookupByLibrary.simpleMessage(""),
+        "symptom_name_1": MessageLookupByLibrary.simpleMessage("Ho"),
+        "symptom_name_2": MessageLookupByLibrary.simpleMessage("Sốt"),
+        "symptom_name_3": MessageLookupByLibrary.simpleMessage("Khó thở"),
+        "symptom_name_4":
+            MessageLookupByLibrary.simpleMessage("Nôn /\nbuồn nôn"),
+        "symptom_name_5": MessageLookupByLibrary.simpleMessage("Đau đầu"),
+        "symptom_name_6": MessageLookupByLibrary.simpleMessage("Đau họng"),
+        "symptom_name_7":
+            MessageLookupByLibrary.simpleMessage("Nổi ban\nngoài da"),
+        "symptom_name_8": MessageLookupByLibrary.simpleMessage("Tiêu chảy"),
+        "symptom_severity_1": MessageLookupByLibrary.simpleMessage(" nhẹ"),
+        "symptom_severity_2": MessageLookupByLibrary.simpleMessage(" vừa"),
+        "symptom_severity_3": MessageLookupByLibrary.simpleMessage(" nặng"),
         "test": MessageLookupByLibrary.simpleMessage("Kiểm tra"),
         "text_field_error_empty_input":
             MessageLookupByLibrary.simpleMessage("Vui lòng điền thông tin."),

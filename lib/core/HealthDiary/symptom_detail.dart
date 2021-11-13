@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/widgets/button/fill_button.dart';
@@ -31,89 +33,70 @@ class _SymptomDetailState extends State<SymptomDetail> {
 
   int get symptom => widget.symptom;
   static List<String> iconList = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
+    "assets/svg/icon/cough_ws.svg",
+    "assets/svg/icon/fever_ws.svg",
+    "assets/svg/icon/hiccup_ws.svg",
+    "assets/svg/icon/vomiting_ws.svg",
+    "assets/svg/icon/dizz_ws.svg",
+    "assets/svg/icon/sore_throat_ws.svg",
+    "assets/svg/icon/rash_ws.svg",
+    "assets/svg/icon/diarrhea_ws.svg",
   ];
   static List<String> symptomNameList = [
-    "Ho",
-    "Sốt",
-    "Khó thở",
-    "Nôn / buồn nôn",
-    "Đau đầu",
-    "Đau họng",
-    "Nổi ban ngoài da",
-    "Tiêu chảy",
+    S.current.symptom_name_1,
+    S.current.symptom_name_2,
+    S.current.symptom_name_3,
+    S.current.symptom_name_4,
+    S.current.symptom_name_5,
+    S.current.symptom_name_6,
+    S.current.symptom_name_7,
+    S.current.symptom_name_8,
   ];
   static List<String> severity = [
-    " nhẹ",
-    " vừa",
-    " nặng",
+    S.current.symptom_severity_1,
+    S.current.symptom_severity_2,
+    S.current.symptom_severity_3,
   ];
   static List<List<String>> symptomInfo = [
     [
-      "Thi thoảng, bạn bị ho một cái.\n" +
-          "Có thể nó không đủ để coi như là bị bệnh, " +
-          "nhưng nó có làm phiền bạn một chút ít.",
-      "Bạn cảm giác như bạn bị cảm.\n" +
-          "Bạn ho đủ nhiều để khiến bạn khó chịu, " +
-          "và khả năng cao nếu bạn không mắc Covid thì bạn cũng bị cảm hay gì đó.",
-      "Bạn ho thường xuyên.\n" +
-          "Thường xuyên đến nỗi bạn bắt đầu thấy mệt.\n" +
-          "Có lẽ đến mức này, bạn rất nên đi khám bệnh.",
+      S.current.symptom_info_1_1,
+      S.current.symptom_info_1_2,
+      S.current.symptom_info_1_3,
     ],
     [
-      "Bạn bị sốt 37-38 độ C.\n" +
-          "Sốt có thể khiến bạn mệt một chút, " +
-          "Nhưng không gì quá nặng.",
-      "Bạn bị sốt 38-39 độ C.\n" +
-          "Đợt sốt này khiến bạn quá mệt để làm việc gì nặng, " +
-          "và bạn nên nghỉ bệnh hôm nay.",
-      "Bạn bị sốt 39+ độ C.\n" +
-          "Bạn bị sốt nặng, " +
-          "và nên uống thuốc hạ sốt để giữ thân nhiệt thấp.",
+      S.current.symptom_info_2_1,
+      S.current.symptom_info_2_2,
+      S.current.symptom_info_2_3,
     ],
     [
-      "Bạn bị tức ngực, nghẹt mũi, hay khó thở nói chung.\n" +
-          "Bạn phải thở mạnh hơn bình thường, " +
-          "và nó có thể khó chịu một chút, " +
-          "nhưng chưa ảnh hưởng lớn đến khả năng hô hấp.",
-      "Bạn bị khó thở.\nThi thoảng bạn phải thở dốc vì thiếu oxy.",
-      "Bạn bị khó thở nặng.\n" +
-          "Bạn đã ngất ít nhất 1 lần trong ngày vì thiếu oxy.\n" +
-          "Nếu bạn chưa đến bệnh viện thì bạn nên đến đó đi.",
+      S.current.symptom_info_3_1,
+      S.current.symptom_info_3_2,
+      S.current.symptom_info_3_3,
     ],
     [
-      "Nhiều lúc trong ngày, bạn thấy muốn ói.",
-      "Bạn đã ói 1 lần trong ngày.",
-      "Bạn đã ói nhiều lần trong ngày.\n" +
-          "Bạn nên ăn uống đầy đủ để đảm bảo dinh dưỡng.\n" +
-          "Có khi bạn nên đi khám",
+      S.current.symptom_info_4_1,
+      S.current.symptom_info_4_2,
+      S.current.symptom_info_4_3,
     ],
     [
-      "Bạn cảm thấy nhức đầu.\n" +
-          "Chuyện bình thường nếu hôm nay bạn làm việc quá sức.",
-      "Bạn cảm thấy chóng mặt.\n" + "Có thể bạn sẽ ngã xuống bất cứ lúc nào.",
-      "Bạn cảm thấy đau đầu.\n" +
-          "Có thể nó đau nhói, có thể nó đau giai giẳng, " +
-          "nhưng nó dường như sẽ không bớt đi sớm nếu bạn không đi khám.",
+      S.current.symptom_info_5_1,
+      S.current.symptom_info_5_2,
+      S.current.symptom_info_5_3,
     ],
     [
-      "Bạn cảm thấy khô họng.\n" + "Nhớ uống đủ nước nha bạn.",
-      "Bạn cảm thấy ngứa họng.\n" +
-          "Bạn có thể muốn ho." +
-          "Khi đó, nhớ che miệng hoặc ho vào khuỷu tay, và rửa tay thường xuyên.",
-      "Bạn cảm thấy đau họng.\n" +
-          "Bạn có thể bị khàn tiếng.\n" +
-          "Có lẽ bạn nên đi khám.",
+      S.current.symptom_info_6_1,
+      S.current.symptom_info_6_2,
+      S.current.symptom_info_6_3,
     ],
     [
-      "",
+      S.current.symptom_info_7_1,
+      S.current.symptom_info_7_2,
+      S.current.symptom_info_7_3,
+    ],
+    [
+      S.current.symptom_info_8_1,
+      S.current.symptom_info_8_2,
+      S.current.symptom_info_8_3,
     ],
   ];
   static List<String> generalSymptomInfo = [
@@ -245,7 +228,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
                     ),
                     Center(
                       child: Container(
-                        child: Image.asset(
+                        child: SvgPicture.asset(
                           iconList[symptom],
                           width: 96.w,
                           height: 96.h,

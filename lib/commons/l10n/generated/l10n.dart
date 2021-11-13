@@ -689,6 +689,466 @@ class S {
       args: [],
     );
   }
+
+  /// `Ho`
+  String get symptom_name_1 {
+    return Intl.message(
+      'Ho',
+      name: 'symptom_name_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sốt`
+  String get symptom_name_2 {
+    return Intl.message(
+      'Sốt',
+      name: 'symptom_name_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Khó thở`
+  String get symptom_name_3 {
+    return Intl.message(
+      'Khó thở',
+      name: 'symptom_name_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nôn /\nbuồn nôn`
+  String get symptom_name_4 {
+    return Intl.message(
+      'Nôn /\nbuồn nôn',
+      name: 'symptom_name_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Đau đầu`
+  String get symptom_name_5 {
+    return Intl.message(
+      'Đau đầu',
+      name: 'symptom_name_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Đau họng`
+  String get symptom_name_6 {
+    return Intl.message(
+      'Đau họng',
+      name: 'symptom_name_6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nổi ban\nngoài da`
+  String get symptom_name_7 {
+    return Intl.message(
+      'Nổi ban\nngoài da',
+      name: 'symptom_name_7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tiêu chảy`
+  String get symptom_name_8 {
+    return Intl.message(
+      'Tiêu chảy',
+      name: 'symptom_name_8',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` nhẹ`
+  String get symptom_severity_1 {
+    return Intl.message(
+      ' nhẹ',
+      name: 'symptom_severity_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` vừa`
+  String get symptom_severity_2 {
+    return Intl.message(
+      ' vừa',
+      name: 'symptom_severity_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` nặng`
+  String get symptom_severity_3 {
+    return Intl.message(
+      ' nặng',
+      name: 'symptom_severity_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thi thoảng, bạn bị ho một cái.\nCó thể nó không đủ để coi như là bị bệnh, nhưng nó có làm phiền bạn một chút ít.`
+  String get symptom_info_1_1 {
+    return Intl.message(
+      'Thi thoảng, bạn bị ho một cái.\nCó thể nó không đủ để coi như là bị bệnh, nhưng nó có làm phiền bạn một chút ít.',
+      name: 'symptom_info_1_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn cảm giác như bạn bị cảm.\nBạn ho đủ nhiều để khiến bạn khó chịu, và khả năng cao nếu bạn không mắc Covid thì bạn cũng bị cảm hay gì đó.`
+  String get symptom_info_1_2 {
+    return Intl.message(
+      'Bạn cảm giác như bạn bị cảm.\nBạn ho đủ nhiều để khiến bạn khó chịu, và khả năng cao nếu bạn không mắc Covid thì bạn cũng bị cảm hay gì đó.',
+      name: 'symptom_info_1_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn ho thường xuyên.\nThường xuyên đến nỗi bạn bắt đầu thấy mệt.\nCó lẽ đến mức này, bạn rất nên đi khám bệnh.`
+  String get symptom_info_1_3 {
+    return Intl.message(
+      'Bạn ho thường xuyên.\nThường xuyên đến nỗi bạn bắt đầu thấy mệt.\nCó lẽ đến mức này, bạn rất nên đi khám bệnh.',
+      name: 'symptom_info_1_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn bị sốt 37-38 độ C.\nSốt có thể khiến bạn mệt một chút, nhưng không gì quá nặng.`
+  String get symptom_info_2_1 {
+    return Intl.message(
+      'Bạn bị sốt 37-38 độ C.\nSốt có thể khiến bạn mệt một chút, nhưng không gì quá nặng.',
+      name: 'symptom_info_2_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn bị sốt 38-39 độ C.\nĐợt sốt này khiến bạn quá mệt để làm việc gì nặng, và bạn nên nghỉ bệnh hôm nay.`
+  String get symptom_info_2_2 {
+    return Intl.message(
+      'Bạn bị sốt 38-39 độ C.\nĐợt sốt này khiến bạn quá mệt để làm việc gì nặng, và bạn nên nghỉ bệnh hôm nay.',
+      name: 'symptom_info_2_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn bị sốt 39+ độ C.\nBạn bị sốt nặng, và nên uống thuốc hạ sốt để giữ thân nhiệt thấp.`
+  String get symptom_info_2_3 {
+    return Intl.message(
+      'Bạn bị sốt 39+ độ C.\nBạn bị sốt nặng, và nên uống thuốc hạ sốt để giữ thân nhiệt thấp.',
+      name: 'symptom_info_2_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn bị tức ngực, nghẹt mũi, hay khó thở nói chung.\nBạn phải thở mạnh hơn bình thường, và nó có thể khó chịu một chút, nhưng chưa ảnh hưởng lớn đến khả năng hô hấp.`
+  String get symptom_info_3_1 {
+    return Intl.message(
+      'Bạn bị tức ngực, nghẹt mũi, hay khó thở nói chung.\nBạn phải thở mạnh hơn bình thường, và nó có thể khó chịu một chút, nhưng chưa ảnh hưởng lớn đến khả năng hô hấp.',
+      name: 'symptom_info_3_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn bị khó thở.\nThi thoảng bạn phải thở dốc vì thiếu oxy.`
+  String get symptom_info_3_2 {
+    return Intl.message(
+      'Bạn bị khó thở.\nThi thoảng bạn phải thở dốc vì thiếu oxy.',
+      name: 'symptom_info_3_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn bị khó thở nặng.\nBạn đã ngất ít nhất 1 lần trong ngày vì thiếu oxy.\nNếu bạn chưa đến bệnh viện thì bạn nên đến đó đi.`
+  String get symptom_info_3_3 {
+    return Intl.message(
+      'Bạn bị khó thở nặng.\nBạn đã ngất ít nhất 1 lần trong ngày vì thiếu oxy.\nNếu bạn chưa đến bệnh viện thì bạn nên đến đó đi.',
+      name: 'symptom_info_3_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nhiều lúc trong ngày, bạn thấy muốn ói.`
+  String get symptom_info_4_1 {
+    return Intl.message(
+      'Nhiều lúc trong ngày, bạn thấy muốn ói.',
+      name: 'symptom_info_4_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn đã ói 1 lần trong ngày.`
+  String get symptom_info_4_2 {
+    return Intl.message(
+      'Bạn đã ói 1 lần trong ngày.',
+      name: 'symptom_info_4_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn đã ói nhiều lần trong ngày.\nBạn nên ăn uống đầy đủ để đảm bảo dinh dưỡng.\nCó khi bạn nên đi khám`
+  String get symptom_info_4_3 {
+    return Intl.message(
+      'Bạn đã ói nhiều lần trong ngày.\nBạn nên ăn uống đầy đủ để đảm bảo dinh dưỡng.\nCó khi bạn nên đi khám',
+      name: 'symptom_info_4_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn cảm thấy nhức đầu.\nChuyện bình thường nếu hôm nay bạn làm việc quá sức.`
+  String get symptom_info_5_1 {
+    return Intl.message(
+      'Bạn cảm thấy nhức đầu.\nChuyện bình thường nếu hôm nay bạn làm việc quá sức.',
+      name: 'symptom_info_5_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn cảm thấy chóng mặt.\nCó thể bạn sẽ ngã xuống bất cứ lúc nào.`
+  String get symptom_info_5_2 {
+    return Intl.message(
+      'Bạn cảm thấy chóng mặt.\nCó thể bạn sẽ ngã xuống bất cứ lúc nào.',
+      name: 'symptom_info_5_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn cảm thấy đau đầu.\nCó thể nó đau nhói, có thể nó đau giai giẳng, nhưng nó dường như sẽ không bớt đi sớm nếu bạn không đi khám.`
+  String get symptom_info_5_3 {
+    return Intl.message(
+      'Bạn cảm thấy đau đầu.\nCó thể nó đau nhói, có thể nó đau giai giẳng, nhưng nó dường như sẽ không bớt đi sớm nếu bạn không đi khám.',
+      name: 'symptom_info_5_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn cảm thấy khô họng.\nNhớ uống đủ nước nha bạn.`
+  String get symptom_info_6_1 {
+    return Intl.message(
+      'Bạn cảm thấy khô họng.\nNhớ uống đủ nước nha bạn.',
+      name: 'symptom_info_6_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn cảm thấy ngứa họng.\nBạn có thể muốn ho. Khi đó, nhớ che miệng hoặc ho vào khuỷu tay, và rửa tay thường xuyên.`
+  String get symptom_info_6_2 {
+    return Intl.message(
+      'Bạn cảm thấy ngứa họng.\nBạn có thể muốn ho. Khi đó, nhớ che miệng hoặc ho vào khuỷu tay, và rửa tay thường xuyên.',
+      name: 'symptom_info_6_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn cảm thấy đau họng.\nBạn có thể bị khàn tiếng.\nCó lẽ bạn nên đi khám.`
+  String get symptom_info_6_3 {
+    return Intl.message(
+      'Bạn cảm thấy đau họng.\nBạn có thể bị khàn tiếng.\nCó lẽ bạn nên đi khám.',
+      name: 'symptom_info_6_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get symptom_info_7_1 {
+    return Intl.message(
+      '',
+      name: 'symptom_info_7_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get symptom_info_7_2 {
+    return Intl.message(
+      '',
+      name: 'symptom_info_7_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get symptom_info_7_3 {
+    return Intl.message(
+      '',
+      name: 'symptom_info_7_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get symptom_info_8_1 {
+    return Intl.message(
+      '',
+      name: 'symptom_info_8_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get symptom_info_8_2 {
+    return Intl.message(
+      '',
+      name: 'symptom_info_8_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get symptom_info_8_3 {
+    return Intl.message(
+      '',
+      name: 'symptom_info_8_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mình rất vui\nkhi bạn tâm tư với mình!`
+  String get health_report_response_positive {
+    return Intl.message(
+      'Mình rất vui\nkhi bạn tâm tư với mình!',
+      name: 'health_report_response_positive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cố lên bạn ơi,\ndịch bệnh sẽ qua mau thôi!`
+  String get health_report_response_negative {
+    return Intl.message(
+      'Cố lên bạn ơi,\ndịch bệnh sẽ qua mau thôi!',
+      name: 'health_report_response_negative',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hôm nay bạn thấy thế nào?`
+  String get health_report_emotion_greating {
+    return Intl.message(
+      'Hôm nay bạn thấy thế nào?',
+      name: 'health_report_emotion_greating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vui vẻ`
+  String get health_report_emotion_1 {
+    return Intl.message(
+      'Vui vẻ',
+      name: 'health_report_emotion_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hài lòng`
+  String get health_report_emotion_2 {
+    return Intl.message(
+      'Hài lòng',
+      name: 'health_report_emotion_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thoải mái`
+  String get health_report_emotion_3 {
+    return Intl.message(
+      'Thoải mái',
+      name: 'health_report_emotion_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phấn khởi`
+  String get health_report_emotion_4 {
+    return Intl.message(
+      'Phấn khởi',
+      name: 'health_report_emotion_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mệt mỏi`
+  String get health_report_emotion_5 {
+    return Intl.message(
+      'Mệt mỏi',
+      name: 'health_report_emotion_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buồn`
+  String get health_report_emotion_6 {
+    return Intl.message(
+      'Buồn',
+      name: 'health_report_emotion_6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chán nản`
+  String get health_report_emotion_7 {
+    return Intl.message(
+      'Chán nản',
+      name: 'health_report_emotion_7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bực bội`
+  String get health_report_emotion_8 {
+    return Intl.message(
+      'Bực bội',
+      name: 'health_report_emotion_8',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/core/HealthDiary/symptom_detail.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/widgets/button/fill_button.dart';
-import 'package:src/widgets/button/non_fill_button.dart';
+import 'package:src/widgets/button/outline_button.dart' as btn;
 
 class SymptomReport extends StatefulWidget {
   const SymptomReport({
@@ -18,24 +20,24 @@ class SymptomReport extends StatefulWidget {
 
 class _SymptomReportState extends State<SymptomReport> {
   static List<String> iconList = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
+    "assets/svg/icon/cough_ps.svg",
+    "assets/svg/icon/fever_ps.svg",
+    "assets/svg/icon/hiccup_ps.svg",
+    "assets/svg/icon/vomiting_ps.svg",
+    "assets/svg/icon/dizz_ps.svg",
+    "assets/svg/icon/sore_throat_ps.svg",
+    "assets/svg/icon/rash_ps.svg",
+    "assets/svg/icon/diarrhea_ps.svg",
   ];
   static List<String> noteList = [
-    "Ho",
-    "Sốt",
-    "Khó thở",
-    "Nôn / buồn nôn",
-    "Đau đầu",
-    "Đau họng",
-    "Nổi ban ngoài da",
-    "Tiêu chảy",
+    S.current.symptom_name_1,
+    S.current.symptom_name_2,
+    S.current.symptom_name_3,
+    S.current.symptom_name_4,
+    S.current.symptom_name_5,
+    S.current.symptom_name_6,
+    S.current.symptom_name_7,
+    S.current.symptom_name_8,
   ];
 
   List<int> symptomSeverity = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -66,15 +68,17 @@ class _SymptomReportState extends State<SymptomReport> {
       items.add(
         // ButtonEmoticon
         Center(
-          child: NonFillButton(
+          child: btn.OutlineButton(
             onPressed: () => onSymptomPressed(i),
             child: Stack(
               children: [
-                Center(
-                  child: Image.asset(
+                Container(
+                  alignment: Alignment.topCenter,
+                  padding: EdgeInsets.all(8),
+                  child: SvgPicture.asset(
                     iconList[i],
-                    width: 48.w,
-                    height: 48.h,
+                    width: 60.h,
+                    height: 60.h,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -88,8 +92,8 @@ class _SymptomReportState extends State<SymptomReport> {
                 )
               ],
             ),
-            width: 130,
-            height: 130,
+            width: 130.h,
+            height: 130.h,
           ),
         ),
       );
@@ -151,19 +155,16 @@ class _SymptomReportState extends State<SymptomReport> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [items[6], items[7]],
                   ),
-                  Container(),
                 ],
               ),
             ),
             Container(
               height: 72.h,
               padding: EdgeInsets.all(16),
-              child: Expanded(
-                child: CustomColorFillButton(
-                  buttonText: "Xác nhận",
-                  onPressed: onDone,
-                  fillColor: getCustomColor().secondary,
-                ),
+              child: CustomColorFillButton(
+                buttonText: "Xác nhận",
+                onPressed: onDone,
+                fillColor: getCustomColor().secondary,
               ),
             ),
           ],
