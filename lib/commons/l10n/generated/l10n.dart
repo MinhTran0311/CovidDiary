@@ -1061,10 +1061,10 @@ class S {
   }
 
   /// `Hôm nay bạn thấy thế nào?`
-  String get health_report_emotion_greating {
+  String get health_report_emotion_greeting {
     return Intl.message(
       'Hôm nay bạn thấy thế nào?',
-      name: 'health_report_emotion_greating',
+      name: 'health_report_emotion_greeting',
       desc: '',
       args: [],
     );
@@ -1145,6 +1145,36 @@ class S {
     return Intl.message(
       'Bực bội',
       name: 'health_report_emotion_8',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dạo này bạn có bị gì không?`
+  String get symptom_report_greeting {
+    return Intl.message(
+      'Dạo này bạn có bị gì không?',
+      name: 'symptom_report_greeting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chúc bạn một ngày vui vẻ`
+  String get symptom_report_response_positive {
+    return Intl.message(
+      'Chúc bạn một ngày vui vẻ',
+      name: 'symptom_report_response_positive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nếu bạn không thấy khoẻ,\ncó lẽ bạn nên ở nhà hôm nay.`
+  String get symptom_report_response_negative {
+    return Intl.message(
+      'Nếu bạn không thấy khoẻ,\ncó lẽ bạn nên ở nhà hôm nay.',
+      name: 'symptom_report_response_negative',
       desc: '',
       args: [],
     );

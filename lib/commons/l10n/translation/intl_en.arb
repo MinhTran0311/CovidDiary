@@ -120,5 +120,8 @@
   "health_report_emotion_5": "Tired",
   "health_report_emotion_6": "Sad",
   "health_report_emotion_7": "Frustrated",
-  "health_report_emotion_8": "Angry"
+  "health_report_emotion_8": "Angry",
+
+  "symptom_report_response_positive": "Have a good day",
+  "symptom_report_response_negative": "If you're not feeling well,\nmaybe you should stay home today."
 }

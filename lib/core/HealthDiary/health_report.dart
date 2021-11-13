@@ -75,8 +75,8 @@ class _EmotionReport extends StatelessWidget {
                 ),
               ],
             ),
-            width: 128,
-            height: 128,
+            width: 128.w,
+            height: 128.h,
           ),
         ),
       );
@@ -102,7 +102,7 @@ class _EmotionReport extends StatelessWidget {
                 Container(
                   height: 64,
                   child: Text(
-                    S.current.health_report_emotion_greating,
+                    S.current.health_report_emotion_greeting,
                     style: Theme.of(context)
                         .textTheme
                         .headline4!
@@ -180,6 +180,9 @@ class _EmotionReportState extends State<EmotionReport> {
   }
 
   void onNext() {
+    setState(() {
+      isPositive = null;
+    });
     Navigator.push(
         context,
         MaterialPageRoute(

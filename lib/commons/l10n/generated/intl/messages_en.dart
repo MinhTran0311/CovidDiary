@@ -95,8 +95,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Frustrated"),
         "health_report_emotion_8":
             MessageLookupByLibrary.simpleMessage("Angry"),
-        "health_report_emotion_greating":
-            MessageLookupByLibrary.simpleMessage("Hôm nay bạn thấy thế nào?"),
         "health_report_response_negative": MessageLookupByLibrary.simpleMessage(
             "Cố lên bạn ơi,\ndịch bệnh sẽ qua mau thôi!"),
         "health_report_response_positive": MessageLookupByLibrary.simpleMessage(
@@ -188,6 +186,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "symptom_name_6": MessageLookupByLibrary.simpleMessage("Sore throat"),
         "symptom_name_7": MessageLookupByLibrary.simpleMessage("Rash"),
         "symptom_name_8": MessageLookupByLibrary.simpleMessage("Diarrhea"),
+        "symptom_report_response_negative": MessageLookupByLibrary.simpleMessage(
+            "If you\'re not feeling well,\nmaybe you should stay home today."),
+        "symptom_report_response_positive":
+            MessageLookupByLibrary.simpleMessage("Have a good day"),
         "symptom_severity_1": MessageLookupByLibrary.simpleMessage(" (light)"),
         "symptom_severity_2": MessageLookupByLibrary.simpleMessage(" (normal)"),
         "symptom_severity_3": MessageLookupByLibrary.simpleMessage(" (severe)"),

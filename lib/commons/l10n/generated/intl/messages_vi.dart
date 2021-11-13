@@ -97,7 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chán nản"),
         "health_report_emotion_8":
             MessageLookupByLibrary.simpleMessage("Bực bội"),
-        "health_report_emotion_greating":
+        "health_report_emotion_greeting":
             MessageLookupByLibrary.simpleMessage("Hôm nay bạn thấy thế nào?"),
         "health_report_response_negative": MessageLookupByLibrary.simpleMessage(
             "Cố lên bạn ơi,\ndịch bệnh sẽ qua mau thôi!"),
@@ -193,6 +193,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "symptom_name_7":
             MessageLookupByLibrary.simpleMessage("Nổi ban\nngoài da"),
         "symptom_name_8": MessageLookupByLibrary.simpleMessage("Tiêu chảy"),
+        "symptom_report_greeting":
+            MessageLookupByLibrary.simpleMessage("Dạo này bạn có bị gì không?"),
+        "symptom_report_response_negative":
+            MessageLookupByLibrary.simpleMessage(
+                "Nếu bạn không thấy khoẻ,\ncó lẽ bạn nên ở nhà hôm nay."),
+        "symptom_report_response_positive":
+            MessageLookupByLibrary.simpleMessage("Chúc bạn một ngày vui vẻ"),
         "symptom_severity_1": MessageLookupByLibrary.simpleMessage(" nhẹ"),
         "symptom_severity_2": MessageLookupByLibrary.simpleMessage(" vừa"),
         "symptom_severity_3": MessageLookupByLibrary.simpleMessage(" nặng"),

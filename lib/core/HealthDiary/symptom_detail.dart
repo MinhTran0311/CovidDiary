@@ -144,8 +144,8 @@ class _SymptomDetailState extends State<SymptomDetail> {
     return colors.last;
   }
 
-  void onPressed(int id) {
-    ;
+  String replaceNewLine(String str) {
+    return str.replaceAll('\n', ' ');
   }
 
   void onCancel() {
@@ -154,7 +154,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
   }
 
   void onDone() {
-    widget.onDone(currentValue);
+    widget.onDone(currentValue * 3);
     Navigator.pop(context);
   }
 
@@ -208,7 +208,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
                         Container(
                           height: 96,
                           child: Text(
-                            "Bạn bị ${symptomNameList[symptom]} à?\n" +
+                            "Bạn bị ${replaceNewLine(symptomNameList[symptom])} à?\n" +
                                 "Có nặng không?",
                             style: Theme.of(context)
                                 .textTheme
@@ -271,10 +271,11 @@ class _SymptomDetailState extends State<SymptomDetail> {
                         ],
                       ),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Center(
                             child: Text(
-                              symptomNameList[symptom] +
+                              replaceNewLine(symptomNameList[symptom]) +
                                   severity[currentSeverity],
                               style: Theme.of(context)
                                   .textTheme
@@ -284,11 +285,10 @@ class _SymptomDetailState extends State<SymptomDetail> {
                                   ),
                             ),
                           ),
-                          Center(
-                            child: Text(
-                              symptomInfo[symptom][currentSeverity],
-                              style: Theme.of(context).textTheme.headline6!,
-                            ),
+                          Container(height: 8.h),
+                          Text(
+                            symptomInfo[symptom][currentSeverity],
+                            style: Theme.of(context).textTheme.headline6!,
                           ),
                         ],
                       ),
@@ -309,26 +309,29 @@ class _SymptomDetailState extends State<SymptomDetail> {
                         ],
                       ),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Center(
                             child: Text(
-                              "Triệu chứng ${symptomNameList[symptom]} của Covid 19",
+                              "Triệu chứng ${replaceNewLine(symptomNameList[symptom])} của Covid 19",
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6!
                                   .copyWith(color: getCustomColor().primary),
                             ),
                           ),
+                          Container(height: 8.h),
                           Center(
                             child: Text(
                               generalSymptomInfo[symptom],
                               style: Theme.of(context).textTheme.headline6!,
                             ),
                           ),
+                          Container(height: 8.h),
                           Center(
                             child: Text(
                               governmentAdvice[governmentAdviceType[symptom]](
-                                  symptomNameList[symptom]),
+                                  replaceNewLine(symptomNameList[symptom])),
                               style: Theme.of(context).textTheme.headline6!,
                             ),
                           )
