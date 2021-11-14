@@ -34,6 +34,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
   _SymptomDetailState({this.currentValue = 0}) : super();
 
   int get symptom => widget.symptom;
+
   static List<String> iconList = [
     "assets/svg/icon/cough_ws.svg",
     "assets/svg/icon/fever_ws.svg",
@@ -44,6 +45,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
     "assets/svg/icon/rash_ws.svg",
     "assets/svg/icon/diarrhea_ws.svg",
   ];
+
   static List<String> symptomNameList = [
     S.current.symptom_name_1,
     S.current.symptom_name_2,
@@ -54,11 +56,13 @@ class _SymptomDetailState extends State<SymptomDetail> {
     S.current.symptom_name_7,
     S.current.symptom_name_8,
   ];
+
   static List<String> severity = [
     S.current.symptom_severity_1,
     S.current.symptom_severity_2,
     S.current.symptom_severity_3,
   ];
+
   static List<List<String>> symptomInfo = [
     [
       S.current.symptom_info_1_1,
@@ -101,6 +105,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
       S.current.symptom_info_8_3,
     ],
   ];
+
   static List<String> generalSymptomInfo = [
     "Ho là một trong những triệu chứng quan trọng nhất của Covid 19, mặc dù có rất nhiều bệnh cũng có triệu chứng này.",
     "",
@@ -111,6 +116,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
     "",
     "",
   ];
+
   static List<String Function(String)> governmentAdvice = [
     (str) =>
         "Theo khuyến cáo của chính phủ, nếu bạn bị $str, " +
@@ -121,7 +127,57 @@ class _SymptomDetailState extends State<SymptomDetail> {
         "Theo khuyến cáo của chính phủ, nếu bạn bị $str, " +
         "bạn nên tìm trợ giúp y tế ngay lập tức.",
   ];
+
   static List<int> governmentAdviceType = [0, 0, 1, 0, 0, 0, 1, 0];
+
+  @override
+  Widget build(BuildContext context) {
+    return GradientBackGround(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBarCustom(
+            context: context, title: "Tâm tư với nhật ký"), //app bar
+        body: Stack(
+          textDirection: TextDirection.ltr,
+          children: [
+            //*
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: getCustomColor().bgGradient,
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+            ),
+            // */
+            Column(
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      Center(
+                        child: topQuestion(context),
+                      ),
+                      Center(
+                        child: symptomPicture(context),
+                      ),
+                      //*
+                      slider(context),
+                      symptomDetailInfo(context),
+                      symptomGeneralInfo(context),
+                      Spacer(),
+                    ],
+                  ),
+                ),
+                bottomBar(context),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   Color lerpGradient(LinearGradient gradient, double t) {
     List<Color> colors = gradient.colors;
@@ -152,12 +208,12 @@ class _SymptomDetailState extends State<SymptomDetail> {
 
   void onCancel() {
     widget.onCanceled();
-    Navigator.pop(context);
+    goBack(context);
   }
 
   void onDone() {
     widget.onDone(currentValue * 3);
-    Navigator.pop(context);
+    goBack(context);
   }
 
   int currentSeverity = 0;
@@ -332,65 +388,16 @@ class _SymptomDetailState extends State<SymptomDetail> {
             CustomColorFillButton(
               height: 40.h,
               width: 160.w,
-              buttonText: "Huỷ",
+              buttonText: S.current.confirm_cancel,
               onPressed: onCancel,
               fillColor: CustomColors.error,
             ),
             CustomColorFillButton(
               height: 40.h,
               width: 160.w,
-              buttonText: "Xác nhận",
+              buttonText: S.current.confirm,
               onPressed: onDone,
               fillColor: CustomColors.success,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GradientBackGround(
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBarCustom(
-            context: context, title: "Tâm tư với nhật ký"), //app bar
-        body: Stack(
-          textDirection: TextDirection.ltr,
-          children: [
-            //*
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: getCustomColor().bgGradient,
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-            ),
-            // */
-            Column(
-              children: [
-                Expanded(
-                  child: Column(
-                    children: [
-                      Center(
-                        child: topQuestion(context),
-                      ),
-                      Center(
-                        child: symptomPicture(context),
-                      ),
-                      //*
-                      slider(context),
-                      symptomDetailInfo(context),
-                      symptomGeneralInfo(context),
-                      Spacer(),
-                    ],
-                  ),
-                ),
-                bottomBar(context),
-              ],
             ),
           ],
         ),
