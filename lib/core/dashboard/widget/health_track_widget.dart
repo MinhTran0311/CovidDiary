@@ -9,7 +9,7 @@ import 'package:src/core/dashboard/widget/panel_header_widget.dart';
 import 'package:src/widgets/button/fill_button.dart';
 import 'package:src/widgets/panel.dart';
 
-class DBHealthTrackWidget extends PanelLight {
+class DBHealthTrackWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PanelLight(
@@ -60,7 +60,7 @@ class DBHealthTrackWidget extends PanelLight {
     return Column(
       children: [
         _dayTag(context, dayInWeek, isToday),
-        SizedBox(height: 4),
+        SizedBox(height: 4.h),
         _getEmoticon(emoticon!),
       ],
     );
@@ -80,7 +80,7 @@ class DBHealthTrackWidget extends PanelLight {
         )),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(
-              Radius.circular(64),
+              Radius.circular(64.r),
             ),
             color: (isToday
                 ? getCustomColor().secondary

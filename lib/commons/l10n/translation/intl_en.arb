@@ -69,6 +69,10 @@
   "dashboard_friday": "Fr",
   "dashboard_saturday": "Sa",
   "dashboard_sunday": "Su",
+  "dashboard_place_track": "Place track",
+  "dashboard_place_you_visited": "Place visited by you in lastest 21 days",
+  "dashboard_place_track_button": "Did you go anywhere today ? Note it down now!",
+  "dashboard_more_place": "And 12 other places ...",
 
   "on_boarding1": "Always wear a mask as soon as you leave the house, go to public places, gather in crowds.",
   "on_boarding2": "Only leave the house when absolutely necessary, always keep a note of your own journey..",

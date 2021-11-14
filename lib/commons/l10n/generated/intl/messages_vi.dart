@@ -40,6 +40,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "dashboard_hello": MessageLookupByLibrary.simpleMessage("Xin chào"),
         "dashboard_infected": MessageLookupByLibrary.simpleMessage("Bị nhiễm"),
         "dashboard_monday": MessageLookupByLibrary.simpleMessage("T2"),
+        "dashboard_more_place":
+            MessageLookupByLibrary.simpleMessage("Và 12 nơi khác ..."),
+        "dashboard_place_track":
+            MessageLookupByLibrary.simpleMessage("Theo dõi điểm đến"),
+        "dashboard_place_track_button": MessageLookupByLibrary.simpleMessage(
+            "Hôm nay bạn có đi đâu không ? Ghi nhớ lại ngay!"),
+        "dashboard_place_you_visited": MessageLookupByLibrary.simpleMessage(
+            "Những nơi bạn đã đến trong 21 ngày qua"),
         "dashboard_recovered":
             MessageLookupByLibrary.simpleMessage("Khỏi bệnh"),
         "dashboard_saturday": MessageLookupByLibrary.simpleMessage("T7"),

@@ -700,6 +700,46 @@ class S {
     );
   }
 
+  /// `Theo dõi điểm đến`
+  String get dashboard_place_track {
+    return Intl.message(
+      'Theo dõi điểm đến',
+      name: 'dashboard_place_track',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Những nơi bạn đã đến trong 21 ngày qua`
+  String get dashboard_place_you_visited {
+    return Intl.message(
+      'Những nơi bạn đã đến trong 21 ngày qua',
+      name: 'dashboard_place_you_visited',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hôm nay bạn có đi đâu không ? Ghi nhớ lại ngay!`
+  String get dashboard_place_track_button {
+    return Intl.message(
+      'Hôm nay bạn có đi đâu không ? Ghi nhớ lại ngay!',
+      name: 'dashboard_place_track_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Và 12 nơi khác ...`
+  String get dashboard_more_place {
+    return Intl.message(
+      'Và 12 nơi khác ...',
+      name: 'dashboard_more_place',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Hãy luôn đeo khẩu trang ngay khi ra khỏi nhà, đến những nơi công cộng, tập trung đông người.`
   String get on_boarding1 {
     return Intl.message(

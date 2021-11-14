@@ -17,6 +17,8 @@ import 'package:src/widgets/input_field/gradient_background.dart';
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key? key}) : super(key: key);
 
+  // flutter pub global run intl_utils:generate
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +34,8 @@ class DashboardPage extends StatelessWidget {
                     DBTodayStatsWidget(),
                     SizedBox(height: 8.h),
                     DBHealthTrackWidget(),
+                    SizedBox(height: 8.h),
+                    DBPlaceTrackWidget(),
                     SizedBox(height: 8.h),
                   ],
                 ))),

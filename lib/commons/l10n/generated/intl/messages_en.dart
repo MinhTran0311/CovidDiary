@@ -40,6 +40,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "dashboard_hello": MessageLookupByLibrary.simpleMessage("Hello"),
         "dashboard_infected": MessageLookupByLibrary.simpleMessage("Infected"),
         "dashboard_monday": MessageLookupByLibrary.simpleMessage("Mo"),
+        "dashboard_more_place":
+            MessageLookupByLibrary.simpleMessage("And 12 other places ..."),
+        "dashboard_place_track":
+            MessageLookupByLibrary.simpleMessage("Place track"),
+        "dashboard_place_track_button": MessageLookupByLibrary.simpleMessage(
+            "Did you go anywhere today ? Note it down now!"),
+        "dashboard_place_you_visited": MessageLookupByLibrary.simpleMessage(
+            "Place visited by you in lastest 21 days"),
         "dashboard_recovered":
             MessageLookupByLibrary.simpleMessage("Recovered"),
         "dashboard_saturday": MessageLookupByLibrary.simpleMessage("Sa"),
