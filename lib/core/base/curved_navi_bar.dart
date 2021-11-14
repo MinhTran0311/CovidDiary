@@ -1,7 +1,13 @@
-import 'package:flutter/material.dart';
+import 'dart:ffi';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:src/commons/themes/custom_colors.dart';
+import 'package:src/commons/themes/theme.dart';
 
 typedef _LetIndexPage = bool Function(int value);
+
+const double ARG0 = 80.0;
 
 class CustomCurvedNavigationBar extends StatefulWidget {
   final List<Widget> items;
@@ -19,22 +25,23 @@ class CustomCurvedNavigationBar extends StatefulWidget {
     Key? key,
     required this.items,
     this.index = 0,
-    this.color = Colors.white,
-    this.buttonBackgroundColor,
-    this.backgroundColor = Colors.blueAccent,
+    this.color = Colors.transparent,
+    this.buttonBackgroundColor = Colors.transparent,
+    this.backgroundColor = Colors.transparent,
     this.onTap,
     _LetIndexPage? letIndexChange,
     this.animationCurve = Curves.easeOut,
     this.animationDuration = const Duration(milliseconds: 600),
-    this.height = 75.0,
+    this.height = ARG0,
   })  : letIndexChange = letIndexChange ?? ((_) => true),
         assert(items.length >= 1),
         assert(0 <= index && index < items.length),
-        assert(0 <= height && height <= 75.0),
+        assert(0 <= height && height <= ARG0),
         super(key: key);
 
   @override
-  CustomCurvedNavigationBarState createState() => CustomCurvedNavigationBarState();
+  CustomCurvedNavigationBarState createState() =>
+      CustomCurvedNavigationBarState();
 }
 
 class CustomCurvedNavigationBarState extends State<CustomCurvedNavigationBar>
@@ -91,14 +98,14 @@ class CustomCurvedNavigationBarState extends State<CustomCurvedNavigationBar>
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      color: widget.backgroundColor,
+      color: Colors.transparent,
       height: widget.height,
       child: Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.bottomCenter,
         children: <Widget>[
           Positioned(
-            bottom: -40 - (75.0 - widget.height),
+            bottom: -40 - (ARG0 - widget.height),
             left: Directionality.of(context) == TextDirection.rtl
                 ? null
                 : _pos * size.width,
@@ -113,7 +120,7 @@ class CustomCurvedNavigationBarState extends State<CustomCurvedNavigationBar>
                   -(1 - _buttonHide) * 80,
                 ),
                 child: Material(
-                  color: widget.buttonBackgroundColor ?? widget.color,
+                  color: getCustomColor().secondary,
                   type: MaterialType.circle,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -126,31 +133,31 @@ class CustomCurvedNavigationBarState extends State<CustomCurvedNavigationBar>
           Positioned(
             left: 0,
             right: 0,
-            bottom: 0 - (75.0 - widget.height),
+            bottom: 0 - (ARG0.h - widget.height),
             child: CustomPaint(
               painter: NavCustomPainter(
                   _pos, _length, widget.color, Directionality.of(context)),
               child: Container(
-                height: 75.0,
+                height: ARG0.h,
               ),
             ),
           ),
           Positioned(
             left: 0,
             right: 0,
-            bottom: 0 - (75.0 - widget.height),
+            bottom: 0 - (ARG0 - widget.height),
             child: SizedBox(
                 height: 100.0,
                 child: Row(
                     children: widget.items.map((item) {
-                      return NavButton(
-                        onTap: _buttonTap,
-                        position: _pos,
-                        length: _length,
-                        index: widget.items.indexOf(item),
-                        child: Center(child: item),
-                      );
-                    }).toList())),
+                  return NavButton(
+                    onTap: _buttonTap,
+                    position: _pos,
+                    length: _length,
+                    index: widget.items.indexOf(item),
+                    child: Center(child: item),
+                  );
+                }).toList())),
           ),
         ],
       ),
@@ -177,7 +184,6 @@ class CustomCurvedNavigationBarState extends State<CustomCurvedNavigationBar>
     });
   }
 }
-
 
 class NavButton extends StatelessWidget {
   final double position;
@@ -207,7 +213,7 @@ class NavButton extends StatelessWidget {
           onTap(index);
         },
         child: Container(
-            height: 75.0,
+            height: ARG0.h,
             child: Transform.translate(
               offset: Offset(
                   0, difference < 1.0 / length ? verticalAlignment * 40 : 0),

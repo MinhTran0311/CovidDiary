@@ -64,19 +64,23 @@ class _HomePageScreenState extends State<HomePageScreen> {
           _buildOffstageNavigator("ProfileScreen"),
           _buildOffstageNavigator("ManagementScreen"),
         ]),
+
         ///TO DO - Trung Vo
         bottomNavigationBar: CustomCurvedNavigationBar(
           height: 60,
-          backgroundColor: getCustomColor().background,
+          backgroundColor: Colors.transparent,
           color: getCustomColor().primary,
           items: <Widget>[
             // Icons.account_box, Icons.home, Icons.menu
-            Icon(Icons.home_rounded, size: 30, color: Colors.black),
-            Icon(Icons.location_pin, size: 30, color: Colors.black),
-            Icon(Icons.add_circle_rounded, size: 30, color: Colors.black),
-            Icon(Icons.person, size: 30, color: Colors.black),
+            Icon(Icons.home_rounded,
+                size: 32, color: getCustomColor().background),
+            Icon(Icons.location_pin,
+                size: 32, color: getCustomColor().background),
+            Icon(Icons.add_circle_rounded,
+                size: 32, color: getCustomColor().background),
+            Icon(Icons.person, size: 32, color: getCustomColor().background),
             Icon(Icons.admin_panel_settings_rounded,
-                size: 30, color: Colors.black),
+                size: 32, color: getCustomColor().background),
           ],
           index: _currentIndex,
           onTap: (index) {

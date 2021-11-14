@@ -539,6 +539,196 @@ class S {
       args: [],
     );
   }
+
+  /// `Hãy luôn đeo khẩu trang ngay khi ra khỏi nhà, đến những nơi công cộng, tập trung đông người.`
+  String get on_boarding1 {
+    return Intl.message(
+      'Hãy luôn đeo khẩu trang ngay khi ra khỏi nhà, đến những nơi công cộng, tập trung đông người.',
+      name: 'on_boarding1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chỉ ra khỏi nhà khi thật sự cần thiết, luôn ghi chú hành trình di chuyển của bản thân.`
+  String get on_boarding2 {
+    return Intl.message(
+      'Chỉ ra khỏi nhà khi thật sự cần thiết, luôn ghi chú hành trình di chuyển của bản thân.',
+      name: 'on_boarding2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rửa tay là phương pháp hữu hiệu để ngăn ngừa không chỉ Covid-19 mà còn với các bệnh lý hô hấp khác `
+  String get on_boarding3 {
+    return Intl.message(
+      'Rửa tay là phương pháp hữu hiệu để ngăn ngừa không chỉ Covid-19 mà còn với các bệnh lý hô hấp khác ',
+      name: 'on_boarding3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theo dõi sức khỏe mỗi ngày, liên hệ ngay cơ quan y tế khi có dấu hiệu bất thường.`
+  String get on_boarding4 {
+    return Intl.message(
+      'Theo dõi sức khỏe mỗi ngày, liên hệ ngay cơ quan y tế khi có dấu hiệu bất thường.',
+      name: 'on_boarding4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thông tin dịch bệnh`
+  String get disease_info_app_bar_title {
+    return Intl.message(
+      'Thông tin dịch bệnh',
+      name: 'disease_info_app_bar_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nhiễm`
+  String get disease_info_cases {
+    return Intl.message(
+      'Nhiễm',
+      name: 'disease_info_cases',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Khỏi`
+  String get disease_info_healed {
+    return Intl.message(
+      'Khỏi',
+      name: 'disease_info_healed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tử vong`
+  String get disease_info_death {
+    return Intl.message(
+      'Tử vong',
+      name: 'disease_info_death',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Việt Nam`
+  String get disease_info_vietnam {
+    return Intl.message(
+      'Việt Nam',
+      name: 'disease_info_vietnam',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thế giới`
+  String get disease_info_world {
+    return Intl.message(
+      'Thế giới',
+      name: 'disease_info_world',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tỉnh/Thành phố`
+  String get disease_info_table_province {
+    return Intl.message(
+      'Tỉnh/Thành phố',
+      name: 'disease_info_table_province',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quốc gia`
+  String get disease_info_table_nation {
+    return Intl.message(
+      'Quốc gia',
+      name: 'disease_info_table_nation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nhiễm bệnh`
+  String get disease_info_table_cases {
+    return Intl.message(
+      'Nhiễm bệnh',
+      name: 'disease_info_table_cases',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bình phục`
+  String get disease_info_table_healed {
+    return Intl.message(
+      'Bình phục',
+      name: 'disease_info_table_healed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tử vong`
+  String get disease_info_table_deaths {
+    return Intl.message(
+      'Tử vong',
+      name: 'disease_info_table_deaths',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bảng xếp hạng`
+  String get score_board_app_bar_title {
+    return Intl.message(
+      'Bảng xếp hạng',
+      name: 'score_board_app_bar_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hôm nay`
+  String get score_board_today {
+    return Intl.message(
+      'Hôm nay',
+      name: 'score_board_today',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tuần`
+  String get score_board_week {
+    return Intl.message(
+      'Tuần',
+      name: 'score_board_week',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tháng`
+  String get score_board_month {
+    return Intl.message(
+      'Tháng',
+      name: 'score_board_month',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

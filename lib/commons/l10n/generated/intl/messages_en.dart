@@ -8,6 +8,7 @@
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
+// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
 
 import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
@@ -29,6 +30,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter your confirm password"),
         "confirm_password_input":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
+        "disease_info_app_bar_title":
+            MessageLookupByLibrary.simpleMessage("Disease information"),
+        "disease_info_cases": MessageLookupByLibrary.simpleMessage("Cases"),
+        "disease_info_death": MessageLookupByLibrary.simpleMessage("Deaths"),
+        "disease_info_healed": MessageLookupByLibrary.simpleMessage("Heals"),
+        "disease_info_table_cases":
+            MessageLookupByLibrary.simpleMessage("Cases"),
+        "disease_info_table_deaths":
+            MessageLookupByLibrary.simpleMessage("Deaths"),
+        "disease_info_table_healed":
+            MessageLookupByLibrary.simpleMessage("Heals"),
+        "disease_info_table_nation":
+            MessageLookupByLibrary.simpleMessage("Nation"),
+        "disease_info_table_province":
+            MessageLookupByLibrary.simpleMessage("Province/City"),
+        "disease_info_vietnam": MessageLookupByLibrary.simpleMessage("Vietnam"),
+        "disease_info_world": MessageLookupByLibrary.simpleMessage("World"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
@@ -73,6 +91,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
         "login_with_phone":
             MessageLookupByLibrary.simpleMessage("Sign in with phone number"),
+        "on_boarding1": MessageLookupByLibrary.simpleMessage(
+            "Always wear a mask as soon as you leave the house, go to public places, gather in crowds."),
+        "on_boarding2": MessageLookupByLibrary.simpleMessage(
+            "Only leave the house when absolutely necessary, always keep a note of your own journey.."),
+        "on_boarding3": MessageLookupByLibrary.simpleMessage(
+            "Hand washing is an effective way to prevent not only Covid-19 but also other respiratory diseases."),
+        "on_boarding4": MessageLookupByLibrary.simpleMessage(
+            "Check your health every day, immediately contact medical authorities if there are abnormal symptoms."),
         "otp_input": MessageLookupByLibrary.simpleMessage("Enter OTP code"),
         "otp_resent": MessageLookupByLibrary.simpleMessage("Resent OTP"),
         "password_hint":
@@ -85,6 +111,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter your phone number"),
         "resend_otp_code":
             MessageLookupByLibrary.simpleMessage("Resend OTP code"),
+        "score_board_app_bar_title":
+            MessageLookupByLibrary.simpleMessage("Bảng xếp hạng"),
+        "score_board_month": MessageLookupByLibrary.simpleMessage("Tháng"),
+        "score_board_today": MessageLookupByLibrary.simpleMessage("Hôm nay"),
+        "score_board_week": MessageLookupByLibrary.simpleMessage("Tuần"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_in_button": MessageLookupByLibrary.simpleMessage("Sign in"),
