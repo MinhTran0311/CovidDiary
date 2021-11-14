@@ -385,19 +385,19 @@ class _SymptomDetailState extends State<SymptomDetail> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            CustomColorFillButton(
+            FillButton(
               height: 40.h,
               width: 160.w,
               buttonText: S.current.confirm_cancel,
               onPressed: onCancel,
-              fillColor: CustomColors.error,
+              buttonColor: CustomColors.error,
             ),
-            CustomColorFillButton(
+            FillButton(
               height: 40.h,
               width: 160.w,
               buttonText: S.current.confirm,
               onPressed: onDone,
-              fillColor: CustomColors.success,
+              buttonColor: CustomColors.success,
             ),
           ],
         ),

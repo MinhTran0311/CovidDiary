@@ -171,6 +171,7 @@ class EmotionReport extends StatelessWidget {
             ),
             onTap: () {
               goBack(context);
+              goBack(Scaffold.of(context).context);
               navigateTo(SymptomReport(), context);
             },
           ),

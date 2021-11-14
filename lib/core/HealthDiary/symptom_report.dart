@@ -193,10 +193,10 @@ class _SymptomReportState extends State<SymptomReport> {
           Flexible(
             flex: 14,
             fit: FlexFit.tight,
-            child: CustomColorFillButton(
+            child: FillButton(
               buttonText: S.current.confirm,
               onPressed: onDone,
-              fillColor: getCustomColor().secondary,
+              buttonColor: getCustomColor().secondary,
             ),
           ),
           Spacer(),
