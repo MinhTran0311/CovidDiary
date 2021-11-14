@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/dashboard/widget/panel_header_widget.dart';
+import 'package:src/widgets/button/border_button.dart';
 import 'package:src/widgets/button/fill_button.dart';
 import 'package:src/widgets/panel.dart';
 
@@ -41,7 +42,7 @@ class DBHealthTrackWidget extends StatelessWidget {
               ],
             ))),
         SizedBox(height: 8.h),
-        FillButton(
+        BorderButton(
           isAccent: true,
           width: 342.w,
           onPressed: () => {},
@@ -89,7 +90,7 @@ class DBHealthTrackWidget extends StatelessWidget {
 
   Widget _getEmoticon(DBEmoticon emoticon) {
     String path = _getEmoticonPath(emoticon);
-    return Image.asset(path, width: 48, height: 48);
+    return Image.asset(path, width: 48.w, height: 48.h);
   }
 
   DBEmoticon _getRandomEmoPath() {

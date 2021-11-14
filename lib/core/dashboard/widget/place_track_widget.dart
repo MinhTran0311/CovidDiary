@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/dashboard/widget/panel_header_widget.dart';
-import 'package:src/widgets/button/fill_button.dart';
+import 'package:src/widgets/button/border_button.dart';
 import 'package:src/widgets/panel.dart';
 
 class DBPlaceTrackWidget extends StatelessWidget {
@@ -29,11 +28,11 @@ class DBPlaceTrackWidget extends StatelessWidget {
                   fontWeight: FontWeight.w600, color: getCustomColor().primary))
         ]),
         SizedBox(height: 8.h),
-        FillButton(
+        BorderButton(
           isAccent: true,
           width: 342.w,
           onPressed: () => {},
-          buttonText: S.current.dashboard_heath_track_button,
+          buttonText: S.current.dashboard_place_track_button,
         ),
       ]),
     );
@@ -42,8 +41,8 @@ class DBPlaceTrackWidget extends StatelessWidget {
   Widget _placeGrid(BuildContext context) {
     return Wrap(
       crossAxisAlignment: WrapCrossAlignment.start,
-      spacing: 8,
-      runSpacing: 8,
+      spacing: 8.w,
+      runSpacing: 8.h,
       children: [
         _placeCell(context, "Nhà Simmy", 21),
         _placeCell(context, "Net IMBA", 18),
@@ -58,7 +57,7 @@ class DBPlaceTrackWidget extends StatelessWidget {
 
   Widget _placeCell(BuildContext context, String place, int timeVisit) {
     return Container(
-        height: 46,
+        height: 46.h,
         child: Container(
             child: Row(mainAxisSize: MainAxisSize.min, children: [
           SizedBox(width: 8.w),
@@ -80,7 +79,7 @@ class DBPlaceTrackWidget extends StatelessWidget {
 
   Widget _visitTimeTag(BuildContext context, int timeVisit) {
     return Container(
-        height: 30,
+        height: 30.h,
         child: Center(
             child: Row(children: [
           SizedBox(width: 8.w),
