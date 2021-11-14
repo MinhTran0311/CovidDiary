@@ -63,7 +63,7 @@ class _SymptomReportState extends State<SymptomReport> {
         appBar: AppBarCustom(context: context, title: title), //app bar
         body: Column(
           children: [
-            Expanded(
+            SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -86,12 +86,12 @@ class _SymptomReportState extends State<SymptomReport> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [items[6], items[7]],
                   ),
+                  Expanded(
+                    flex: 0,
+                    child: confirmButton(context),
+                  )
                 ],
               ),
-            ),
-            Expanded(
-              flex: 0,
-              child: confirmButton(context),
             ),
           ],
         ),

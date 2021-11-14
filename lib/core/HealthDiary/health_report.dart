@@ -53,27 +53,23 @@ class EmotionReport extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Row(
-              children: [
-                Expanded(child: Container()),
-                Container(
-                  height: 64,
-                  child: Text(
-                    S.current.health_report_emotion_greeting,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4!
-                        .copyWith(color: getCustomColor().primary),
-                  ),
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: getCustomColor().white,
-                    borderRadius: BorderRadius.circular(8.r),
-                  ),
-                  alignment: Alignment.center,
+            Center(
+              child: Container(
+                height: 64,
+                child: Text(
+                  S.current.health_report_emotion_greeting,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline4!
+                      .copyWith(color: getCustomColor().primary),
                 ),
-                Expanded(child: Container()),
-              ],
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: getCustomColor().white,
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                alignment: Alignment.center,
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

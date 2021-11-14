@@ -137,42 +137,26 @@ class _SymptomDetailState extends State<SymptomDetail> {
         backgroundColor: Colors.transparent,
         appBar: AppBarCustom(
             context: context, title: "Tâm tư với nhật ký"), //app bar
-        body: Stack(
-          textDirection: TextDirection.ltr,
+        body: Column(
           children: [
-            //*
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: getCustomColor().bgGradient,
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Center(
+                    child: topQuestion(context),
+                  ),
+                  Center(
+                    child: symptomPicture(context),
+                  ),
+                  //*
+                  slider(context),
+                  symptomDetailInfo(context),
+                  symptomGeneralInfo(context),
+                  Spacer(),
+                ],
               ),
             ),
-            // */
-            Column(
-              children: [
-                Expanded(
-                  child: Column(
-                    children: [
-                      Center(
-                        child: topQuestion(context),
-                      ),
-                      Center(
-                        child: symptomPicture(context),
-                      ),
-                      //*
-                      slider(context),
-                      symptomDetailInfo(context),
-                      symptomGeneralInfo(context),
-                      Spacer(),
-                    ],
-                  ),
-                ),
-                bottomBar(context),
-              ],
-            ),
+            bottomBar(context),
           ],
         ),
       ),
