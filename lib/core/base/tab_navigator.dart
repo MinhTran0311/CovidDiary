@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:src/core/dashboard/dashboard_page.dart';
+=======
+import 'package:src/core/achievement/view/personal_achievement.dart';
+import 'package:src/core/achievement/view/score_board.dart';
+>>>>>>> main
 import 'package:src/core/disease_info/view/disease_info.dart';
 
 class TabNavigator extends StatelessWidget {
@@ -15,7 +20,7 @@ class TabNavigator extends StatelessWidget {
     if (tabItem == "HomeScreen")
       child = DiseaseInfoPage();
     else if (tabItem == "MapsScreen")
-      child = DashboardPage();
+      child = ScoreBoard();
     else if (tabItem == "ManagementScreen")
       child = DashboardPage();
     else if (tabItem == "ProfileScreen")
