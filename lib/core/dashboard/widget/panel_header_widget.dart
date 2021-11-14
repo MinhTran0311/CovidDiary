@@ -42,7 +42,7 @@ class DBPanelHeader extends StatelessWidget {
                   textAlign: TextAlign.right,
                   style: Theme.of(context)
                       .textTheme
-                      .bodyText1!
+                      .caption!
                       .copyWith(color: getCustomColor().secondary),
                 ),
                 SizedBox(width: 4.w),

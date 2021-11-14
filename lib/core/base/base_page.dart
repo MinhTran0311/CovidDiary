@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:src/commons/themes/theme.dart';
@@ -68,7 +69,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
         ///TO DO - Trung Vo
         bottomNavigationBar: CustomCurvedNavigationBar(
           height: 60,
-          backgroundColor: getCustomColor().white,
+          backgroundColor: Colors.white,
           color: getCustomColor().primary,
           items: <Widget>[
             // Icons.account_box, Icons.home, Icons.menu
