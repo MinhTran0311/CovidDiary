@@ -76,8 +76,8 @@ getTextTheme(TextTheme textTheme) {
     ///Heading 2
     headline6: textTheme.headline6?.copyWith(
         fontFamily: 'Roboto Condensed',
-        fontSize: 16.sp,
-        height: (20 / 16).sp,
+        fontSize: 20.sp,
+        height: (32 / 20).sp,
         fontWeight: FontWeight.w700),
 
     ///Normal Text
@@ -100,6 +100,6 @@ getTextTheme(TextTheme textTheme) {
 
     ///Input Caption
     caption: textTheme.caption?.copyWith(
-        fontFamily: 'Roboto Condensed', fontSize: 12.sp, height: (16 / 12).sp),
+        fontFamily: 'Roboto Condensed', fontSize: 14.sp, height: (16 / 14).sp),
   );
 }

@@ -1179,6 +1179,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Bảng xếp hạng`
+  String get score_board_app_bar_title {
+    return Intl.message(
+      'Bảng xếp hạng',
+      name: 'score_board_app_bar_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hôm nay`
+  String get score_board_today {
+    return Intl.message(
+      'Hôm nay',
+      name: 'score_board_today',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tuần`
+  String get score_board_week {
+    return Intl.message(
+      'Tuần',
+      name: 'score_board_week',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tháng`
+  String get score_board_month {
+    return Intl.message(
+      'Tháng',
+      name: 'score_board_month',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

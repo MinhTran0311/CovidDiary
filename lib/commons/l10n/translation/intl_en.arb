@@ -123,5 +123,10 @@
   "health_report_emotion_8": "Angry",
 
   "symptom_report_response_positive": "Have a good day",
-  "symptom_report_response_negative": "If you're not feeling well,\nmaybe you should stay home today."
+  "symptom_report_response_negative": "If you're not feeling well,\nmaybe you should stay home today.",
+
+  "score_board_app_bar_title": "Bảng xếp hạng",
+  "score_board_today": "Hôm nay",
+  "score_board_week": "Tuần",
+  "score_board_month": "Tháng"
 }

@@ -10,7 +10,7 @@ import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/HealthDiary/widget/SymptomSeverityBasicNotification.dart';
 import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/button/fill_button.dart';
-import 'package:src/widgets/button/outline_button.dart' as btn;
+import 'package:src/widgets/button/border_button.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 
@@ -123,7 +123,7 @@ class _SymptomReportState extends State<SymptomReport> {
       items.add(
         // ButtonEmoticon
         Center(
-          child: btn.OutlineButton(
+          child: BorderButton(
             onPressed: () => onSymptomPressed(i),
             child: Stack(
               children: [

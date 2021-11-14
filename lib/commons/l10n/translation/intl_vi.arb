@@ -125,5 +125,10 @@
 
   "symptom_report_greeting": "Dạo này bạn có bị gì không?",
   "symptom_report_response_positive": "Chúc bạn một ngày vui vẻ",
-  "symptom_report_response_negative": "Nếu bạn không thấy khoẻ,\ncó lẽ bạn nên ở nhà hôm nay."
+  "symptom_report_response_negative": "Nếu bạn không thấy khoẻ,\ncó lẽ bạn nên ở nhà hôm nay.",
+  
+  "score_board_app_bar_title": "Bảng xếp hạng",
+  "score_board_today": "Hôm nay",
+  "score_board_week": "Tuần",
+  "score_board_month": "Tháng"
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -41,7 +42,7 @@ class _DiseaseInfoPageState extends State<DiseaseInfoPage> {
 
   Widget _buildBody() {
     return Column(mainAxisSize: MainAxisSize.min, children: [
-      Flexible(child: _buildStatistic()),
+      _buildStatistic(),
       isExpanding ? SizedBox.shrink() : Expanded(child: _buildMap(), flex: 2)
     ]);
   }
@@ -51,6 +52,7 @@ class _DiseaseInfoPageState extends State<DiseaseInfoPage> {
     return Padding(
       padding: EdgeInsets.only(bottom: isExpanding ? 32.h : 0),
       child: Container(
+        height: isExpanding ? MediaQuery.of(context).size.height * 0.75 : null,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(32.r)),
             color: getCustomColor().background,
@@ -105,6 +107,7 @@ class _DiseaseInfoPageState extends State<DiseaseInfoPage> {
                 });
               },
               child: Container(
+                color: Colors.transparent,
                 height: 30.h,
                 width: double.infinity,
                 child: Align(

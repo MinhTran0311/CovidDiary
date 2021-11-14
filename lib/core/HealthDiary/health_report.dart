@@ -8,7 +8,7 @@ import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/core/HealthDiary/symptom_report.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/widgets/app_bar.dart';
-import 'package:src/widgets/button/outline_button.dart' as btn;
+import 'package:src/widgets/button/border_button.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/commons/navigators/navigator.dart';
 
@@ -186,7 +186,7 @@ class EmotionReport extends StatelessWidget {
       items.add(
         // ButtonEmoticon
         Center(
-          child: btn.OutlineButton(
+          child: BorderButton(
             isAccent: i < 4,
             onPressed: () => showCustomDialog(
               context,
