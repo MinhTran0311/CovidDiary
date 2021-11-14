@@ -9,6 +9,7 @@ import 'package:src/core/HealthDiary/symptom_report.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/button/border_button.dart';
+import 'package:src/widgets/expanded_or_list_view.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/commons/navigators/navigator.dart';
 
@@ -50,56 +51,58 @@ class EmotionReport extends StatelessWidget {
           context: context,
           title: title,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Center(
-              child: Container(
-                height: 64,
-                child: Text(
-                  S.current.health_report_emotion_greeting,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline4!
-                      .copyWith(color: getCustomColor().primary),
+        body: ExpandedOrListView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Center(
+                child: Container(
+                  height: 64,
+                  child: Text(
+                    S.current.health_report_emotion_greeting,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4!
+                        .copyWith(color: getCustomColor().primary),
+                  ),
+                  padding: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: getCustomColor().white,
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  alignment: Alignment.center,
                 ),
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: getCustomColor().white,
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                alignment: Alignment.center,
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                items[0],
-                items[1],
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                items[2],
-                items[3],
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                items[4],
-                items[5],
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                items[6],
-                items[7],
-              ],
-            ),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  items[0],
+                  items[1],
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  items[2],
+                  items[3],
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  items[4],
+                  items[5],
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  items[6],
+                  items[7],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -166,7 +169,6 @@ class EmotionReport extends StatelessWidget {
               ),
             ),
             onTap: () {
-              goBack(context);
               goBack(Scaffold.of(context).context);
               navigateTo(SymptomReport(), context);
             },

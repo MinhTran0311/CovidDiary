@@ -12,6 +12,7 @@ import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/button/fill_button.dart';
 import 'package:src/widgets/button/border_button.dart';
 import 'package:src/commons/navigators/navigator.dart';
+import 'package:src/widgets/expanded_or_list_view.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 
 class SymptomReport extends StatefulWidget {
@@ -61,39 +62,35 @@ class _SymptomReportState extends State<SymptomReport> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBarCustom(context: context, title: title), //app bar
-        body: Column(
-          children: [
-            SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Center(
-                    child: topQuestion(context),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [items[0], items[1]],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [items[2], items[3]],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [items[4], items[5]],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [items[6], items[7]],
-                  ),
-                  Expanded(
-                    flex: 0,
-                    child: confirmButton(context),
-                  )
-                ],
+        body: ExpandedOrListView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Center(
+                child: topQuestion(context),
               ),
-            ),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [items[0], items[1]],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [items[2], items[3]],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [items[4], items[5]],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [items[6], items[7]],
+              ),
+              Expanded(
+                child: confirmButton(context),
+                flex: 0,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -155,8 +152,8 @@ class _SymptomReportState extends State<SymptomReport> {
                 )
               ],
             ),
-            width: 130.w,
-            height: 130.h,
+            width: 128.w,
+            height: 128.h,
           ),
         ),
       );
@@ -165,28 +162,29 @@ class _SymptomReportState extends State<SymptomReport> {
   }
 
   Widget topQuestion(BuildContext context) {
-    return Container(
-      height: 64,
-      child: Text(
-        S.current.symptom_report_greeting,
-        style: Theme.of(context)
-            .textTheme
-            .headline4!
-            .copyWith(color: getCustomColor().primary),
+    return Center(
+      child: Container(
+        height: 64.h,
+        child: Text(
+          S.current.symptom_report_greeting,
+          style: Theme.of(context)
+              .textTheme
+              .headline4!
+              .copyWith(color: getCustomColor().primary),
+        ),
+        //padding: EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: getCustomColor().white,
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        alignment: Alignment.center,
       ),
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: getCustomColor().white,
-        borderRadius: BorderRadius.circular(8.r),
-      ),
-      alignment: Alignment.center,
     );
   }
 
   Widget confirmButton(BuildContext context) {
     return Container(
       height: 72.h,
-      padding: EdgeInsets.all(16),
       child: Row(
         children: [
           Spacer(),
@@ -261,7 +259,10 @@ class _SymptomReportState extends State<SymptomReport> {
                 ),
               ),
             ),
-            onTap: () => popToTop(context),
+            onTap: () {
+              goBack(Scaffold.of(context).context);
+              popToTop(context);
+            },
           ),
         ),
         Spacer()

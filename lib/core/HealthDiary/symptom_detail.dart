@@ -7,6 +7,7 @@ import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/button/fill_button.dart';
+import 'package:src/widgets/expanded_or_list_view.dart';
 import 'package:src/widgets/gradientSliderShape.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
@@ -137,27 +138,22 @@ class _SymptomDetailState extends State<SymptomDetail> {
         backgroundColor: Colors.transparent,
         appBar: AppBarCustom(
             context: context, title: "Tâm tư với nhật ký"), //app bar
-        body: Column(
-          children: [
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  Center(
-                    child: topQuestion(context),
-                  ),
-                  Center(
-                    child: symptomPicture(context),
-                  ),
-                  //*
-                  slider(context),
-                  symptomDetailInfo(context),
-                  symptomGeneralInfo(context),
-                  Spacer(),
-                ],
+        body: ExpandedOrListView(
+          child: Column(
+            children: [
+              Center(
+                child: topQuestion(context),
               ),
-            ),
-            bottomBar(context),
-          ],
+              Center(
+                child: symptomPicture(context),
+              ),
+              slider(context),
+              symptomDetailInfo(context),
+              symptomGeneralInfo(context),
+              Spacer(),
+              bottomBar(context),
+            ],
+          ),
         ),
       ),
     );
@@ -221,7 +217,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
     return Container(
       height: 96,
       child: Text(
-        "Bạn bị ${replaceNewLine(symptomNameList[symptom])} à?\n" +
+        "Bạn bị ${replaceNewLine(symptomNameList[symptom]).toLowerCase()} à?\n" +
             "Có nặng không?",
         style: Theme.of(context)
             .textTheme
@@ -335,7 +331,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
         children: [
           Center(
             child: Text(
-              "Triệu chứng ${replaceNewLine(symptomNameList[symptom])} của Covid 19",
+              "Triệu chứng ${replaceNewLine(symptomNameList[symptom]).toLowerCase()} của Covid 19",
               style: Theme.of(context)
                   .textTheme
                   .headline6!
@@ -353,7 +349,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
           Center(
             child: Text(
               governmentAdvice[governmentAdviceType[symptom]](
-                  replaceNewLine(symptomNameList[symptom])),
+                  replaceNewLine(symptomNameList[symptom]).toLowerCase()),
               style: Theme.of(context).textTheme.headline6!,
             ),
           )
