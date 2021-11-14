@@ -54,6 +54,7 @@
   "otp_resent": "Resent OTP",
   
   "dashboard_hello": "Hello",
+  "dashboard_detail": "Detail",
   "dashboard_def_username": "Siêu nhân cuồng phong",
   "dashboard_today_stats": "Today stats",
   "dashboard_world": "Worldwide",

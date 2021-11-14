@@ -550,6 +550,16 @@ class S {
     );
   }
 
+  /// `Xem chi tiết`
+  String get dashboard_detail {
+    return Intl.message(
+      'Xem chi tiết',
+      name: 'dashboard_detail',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Siêu nhân cuồng phong`
   String get dashboard_def_username {
     return Intl.message(

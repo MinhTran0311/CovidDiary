@@ -21,9 +21,10 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: GradientBackGround(
-      child: SafeArea(
+    return GradientBackGround(
+        child: Scaffold(
+      backgroundColor: Colors.transparent,
+      body: SafeArea(
         child: SingleChildScrollView(
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),

@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "dashboard_def_username":
             MessageLookupByLibrary.simpleMessage("Siêu nhân cuồng phong"),
+        "dashboard_detail": MessageLookupByLibrary.simpleMessage("Detail"),
         "dashboard_friday": MessageLookupByLibrary.simpleMessage("Fr"),
         "dashboard_heath_track":
             MessageLookupByLibrary.simpleMessage("Health tracking"),

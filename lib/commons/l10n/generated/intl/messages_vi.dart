@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
         "dashboard_def_username":
             MessageLookupByLibrary.simpleMessage("Siêu nhân cuồng phong"),
+        "dashboard_detail":
+            MessageLookupByLibrary.simpleMessage("Xem chi tiết"),
         "dashboard_friday": MessageLookupByLibrary.simpleMessage("T6"),
         "dashboard_heath_track":
             MessageLookupByLibrary.simpleMessage("Theo dõi sức khỏe"),
