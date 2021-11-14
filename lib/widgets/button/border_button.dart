@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/themes/theme.dart';
 
-class OutlineButton extends StatelessWidget {
+class BorderButton extends StatelessWidget {
   final bool isAccent;
 
   final double? width;
@@ -16,7 +16,7 @@ class OutlineButton extends StatelessWidget {
 
   final Widget? child;
 
-  const OutlineButton(
+  const BorderButton(
       {Key? key,
       this.isAccent = false,
       this.width,
