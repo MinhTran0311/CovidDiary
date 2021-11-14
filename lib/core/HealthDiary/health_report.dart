@@ -7,19 +7,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/core/HealthDiary/symptom_report.dart';
 import 'package:src/commons/themes/theme.dart';
+import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/button/outline_button.dart' as btn;
+import 'package:src/widgets/input_field/gradient_background.dart';
+import 'package:src/commons/navigators/navigator.dart';
 
-class _EmotionReport extends StatelessWidget {
+class EmotionReport extends StatelessWidget {
   /// buttonColor: the color of the button
   /// height: the height of the button
   /// width: the width of the button
   /// buttonText: the text on the button. If you use child widget, don't fill this field
   /// child: the child widget of the button. Mutually exclusive with buttonText.
   /// fontColor: the font color of the text. defaults to black.
-  const _EmotionReport({
-    Key? key,
-    required this.onPressed,
-  }) : super(key: key);
+  const EmotionReport({Key? key}) : super(key: key);
+
+  static const String closeSvg = "assets/svg/icon/close-r.svg";
 
   static List<String> iconList = [
     "assets/svg/icon/wink.png",
@@ -42,10 +44,79 @@ class _EmotionReport extends StatelessWidget {
     S.current.health_report_emotion_8,
   ];
 
-  final void Function(int) onPressed;
+  void onNext(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SymptomReport(),
+        ));
+  }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget getResponseMessage(BuildContext context, bool isPositive) {
+    return Row(
+      children: [
+        Spacer(),
+        Flexible(
+          flex: 14,
+          child: GestureDetector(
+            child: Center(
+              child: Container(
+                height: 128.h,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1.r,
+                      blurRadius: 1.5.r,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                  border: Border.all(
+                      width: 2.w,
+                      color: isPositive
+                          ? getCustomColor().primary
+                          : getCustomColor().secondary),
+                  color: getCustomColor().background,
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                child: Stack(
+                  children: [
+                    Center(
+                      child: Text(
+                        isPositive
+                            ? S.current.health_report_response_positive
+                            : S.current.health_report_response_negative,
+                        style: Theme.of(context).textTheme.headline5!.copyWith(
+                            color: isPositive
+                                ? getCustomColor().secondary
+                                : getCustomColor().primary),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: SvgPicture.asset(
+                        closeSvg,
+                        height: 24.h,
+                        width: 24.w,
+                        color: isPositive
+                            ? getCustomColor().secondary
+                            : getCustomColor().primary,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            onTap: () => navigateTo(SymptomReport(), context),
+          ),
+        ),
+        Spacer()
+      ],
+    );
+  }
+
+  List<Widget> getButtons(BuildContext context) {
     List<Widget> items = [];
     for (int i = 0; i < 8; i++) {
       items.add(
@@ -53,7 +124,10 @@ class _EmotionReport extends StatelessWidget {
         Center(
           child: btn.OutlineButton(
             isAccent: i < 4,
-            onPressed: () => onPressed(i),
+            onPressed: () => showCustomDialog(
+              context,
+              getResponseMessage(context, i < 4),
+            ),
             child: Stack(
               children: [
                 Container(
@@ -81,20 +155,22 @@ class _EmotionReport extends StatelessWidget {
         ),
       );
     }
+    return items;
+  }
 
-    return Stack(
-      textDirection: TextDirection.ltr,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: getCustomColor().bgGradient,
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> items = getButtons(context);
+
+    return GradientBackGround(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBarCustom(
+          context: context,
+          title: "Tâm tư với nhật ký",
         ),
-        Column(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Row(
               children: [
@@ -118,163 +194,37 @@ class _EmotionReport extends StatelessWidget {
                 Expanded(child: Container()),
               ],
             ),
-            Expanded(child: Container()),
-            Row(children: [
-              Expanded(child: Container()),
-              items[0],
-              Expanded(child: Container()),
-              items[1],
-              Expanded(child: Container()),
-            ]),
-            Expanded(child: Container()),
-            Row(children: [
-              Expanded(child: Container()),
-              items[2],
-              Expanded(child: Container()),
-              items[3],
-              Expanded(child: Container()),
-            ]),
-            Expanded(child: Container()),
-            Row(children: [
-              Expanded(child: Container()),
-              items[4],
-              Expanded(child: Container()),
-              items[5],
-              Expanded(child: Container()),
-            ]),
-            Expanded(child: Container()),
-            Row(children: [
-              Expanded(child: Container()),
-              items[6],
-              Expanded(child: Container()),
-              items[7],
-              Expanded(child: Container()),
-            ]),
-            Expanded(child: Container()),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                items[0],
+                items[1],
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                items[2],
+                items[3],
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                items[4],
+                items[5],
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                items[6],
+                items[7],
+              ],
+            ),
           ],
         ),
-      ],
-    );
-  }
-}
-
-class EmotionReport extends StatefulWidget {
-  const EmotionReport({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  _EmotionReportState createState() => _EmotionReportState();
-}
-
-class _EmotionReportState extends State<EmotionReport> {
-  bool? isPositive;
-
-  static const String closeSvg = "assets/svg/icon/close-r.svg";
-
-  void onClick(int value) {
-    // TODO: add to DB
-    setState(() {
-      isPositive = value < 4;
-    });
-  }
-
-  void onNext() {
-    setState(() {
-      isPositive = null;
-    });
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => SymptomReport(),
-        ));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> stackedEntities = [
-      _EmotionReport(
-        onPressed: onClick,
       ),
-    ];
-    if (isPositive != null) {
-      stackedEntities.add(BackdropFilter(
-        filter: ImageFilter.blur(
-          sigmaX: 5,
-          sigmaY: 5,
-        ),
-        child: Container(
-          color: getCustomColor().black.withOpacity(0.5),
-        ),
-      ));
-      stackedEntities.add(Row(
-        children: [
-          Spacer(),
-          Flexible(
-            flex: 14,
-            child: GestureDetector(
-              child: Center(
-                child: Container(
-                  height: 128.h,
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 1.r,
-                        blurRadius: 1.5.r,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
-                    border: Border.all(
-                        width: 2.w,
-                        color: isPositive!
-                            ? getCustomColor().primary
-                            : getCustomColor().secondary),
-                    color: getCustomColor().background,
-                    borderRadius: BorderRadius.circular(8.r),
-                  ),
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Text(
-                          isPositive!
-                              ? S.current.health_report_response_positive
-                              : S.current.health_report_response_negative,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5!
-                              .copyWith(
-                                  color: isPositive!
-                                      ? getCustomColor().secondary
-                                      : getCustomColor().primary),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: SvgPicture.asset(
-                          closeSvg,
-                          height: 24.h,
-                          width: 24.w,
-                          color: isPositive!
-                              ? getCustomColor().secondary
-                              : getCustomColor().primary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              onTap: onNext,
-            ),
-          ),
-          Spacer()
-        ],
-      ));
-    }
-
-    return Stack(
-      children: stackedEntities,
     );
   }
 }

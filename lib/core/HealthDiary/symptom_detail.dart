@@ -5,9 +5,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
+import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/button/fill_button.dart';
 import 'package:src/widgets/gradientSliderShape.dart';
 import 'package:src/commons/navigators/navigator.dart';
+import 'package:src/widgets/input_field/gradient_background.dart';
 
 class SymptomDetail extends StatefulWidget {
   const SymptomDetail({
@@ -174,201 +176,224 @@ class _SymptomDetailState extends State<SymptomDetail> {
     CustomColors.warning,
     CustomColors.error,
   ];
-  @override
-  Widget build(BuildContext context) {
+
+  Widget topQuestion(BuildContext context) {
+    return Container(
+      height: 96,
+      child: Text(
+        "Bạn bị ${replaceNewLine(symptomNameList[symptom])} à?\n" +
+            "Có nặng không?",
+        style: Theme.of(context)
+            .textTheme
+            .headline4!
+            .copyWith(color: getCustomColor().primary),
+        textAlign: TextAlign.center,
+      ),
+      padding: EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: getCustomColor().white,
+        borderRadius: BorderRadius.circular(8.r),
+      ),
+      alignment: Alignment.center,
+    );
+  }
+
+  Widget symptomPicture(BuildContext context) {
+    return Container(
+      child: SvgPicture.asset(
+        iconList[symptom],
+        width: 96.w,
+        height: 96.h,
+        fit: BoxFit.fill,
+      ),
+      width: 96,
+      height: 96,
+    );
+  }
+
+  Widget slider(BuildContext context) {
     LinearGradient redgreenGradient = LinearGradient(
       colors: redgreen,
     );
 
     Color sliderThumbColor = lerpGradient(redgreenGradient, currentValue);
 
-    return Scaffold(
-      body: Stack(
-        textDirection: TextDirection.ltr,
+    return SliderTheme(
+      data: SliderThemeData(
+        trackShape: GradientRectSliderTrackShape(
+          gradient: redgreenGradient,
+        ),
+        trackHeight: 16.h,
+        thumbColor: sliderThumbColor,
+        thumbShape: RoundSliderThumbShape(
+          enabledThumbRadius: 16.h,
+        ),
+      ),
+      child: Slider(
+        value: currentValue,
+        onChanged: onSliderChanged,
+      ),
+    );
+  }
+
+  Widget symptomDetailInfo(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(8),
+      margin: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: getCustomColor().background,
+        borderRadius: BorderRadius.circular(8.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 1,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          //*
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: getCustomColor().bgGradient,
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
+          Center(
+            child: Text(
+              replaceNewLine(symptomNameList[symptom]) +
+                  severity[currentSeverity],
+              style: Theme.of(context).textTheme.headline6!.copyWith(
+                    color: redgreen[currentSeverity],
+                  ),
             ),
           ),
-          // */
-          Column(
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(child: Container()),
-                        Container(
-                          height: 96,
-                          child: Text(
-                            "Bạn bị ${replaceNewLine(symptomNameList[symptom])} à?\n" +
-                                "Có nặng không?",
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline4!
-                                .copyWith(color: getCustomColor().primary),
-                            textAlign: TextAlign.center,
-                          ),
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: getCustomColor().white,
-                            borderRadius: BorderRadius.circular(8.r),
-                          ),
-                          alignment: Alignment.center,
-                        ),
-                        Expanded(child: Container()),
-                      ],
-                    ),
-                    Center(
-                      child: Container(
-                        child: SvgPicture.asset(
-                          iconList[symptom],
-                          width: 96.w,
-                          height: 96.h,
-                          fit: BoxFit.fill,
-                        ),
-                        width: 96,
-                        height: 96,
-                      ),
-                    ),
-                    //*
-                    SliderTheme(
-                      data: SliderThemeData(
-                        trackShape: GradientRectSliderTrackShape(
-                          gradient: redgreenGradient,
-                        ),
-                        trackHeight: 16.h,
-                        thumbColor: sliderThumbColor,
-                        thumbShape: RoundSliderThumbShape(
-                          enabledThumbRadius: 16.h,
-                        ),
-                      ),
-                      child: Slider(
-                        value: currentValue,
-                        onChanged: onSliderChanged,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(8),
-                      margin: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: getCustomColor().background,
-                        borderRadius: BorderRadius.circular(8.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 1,
-                            blurRadius: 1,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Center(
-                            child: Text(
-                              replaceNewLine(symptomNameList[symptom]) +
-                                  severity[currentSeverity],
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6!
-                                  .copyWith(
-                                    color: redgreen[currentSeverity],
-                                  ),
-                            ),
-                          ),
-                          Container(height: 8.h),
-                          Text(
-                            symptomInfo[symptom][currentSeverity],
-                            style: Theme.of(context).textTheme.headline6!,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(8),
-                      margin: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: getCustomColor().background,
-                        borderRadius: BorderRadius.circular(8.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 1,
-                            blurRadius: 1,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Center(
-                            child: Text(
-                              "Triệu chứng ${replaceNewLine(symptomNameList[symptom])} của Covid 19",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6!
-                                  .copyWith(color: getCustomColor().primary),
-                            ),
-                          ),
-                          Container(height: 8.h),
-                          Center(
-                            child: Text(
-                              generalSymptomInfo[symptom],
-                              style: Theme.of(context).textTheme.headline6!,
-                            ),
-                          ),
-                          Container(height: 8.h),
-                          Center(
-                            child: Text(
-                              governmentAdvice[governmentAdviceType[symptom]](
-                                  replaceNewLine(symptomNameList[symptom])),
-                              style: Theme.of(context).textTheme.headline6!,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Expanded(child: Container()),
-                  ],
+          Container(height: 8.h),
+          Text(
+            symptomInfo[symptom][currentSeverity],
+            style: Theme.of(context).textTheme.headline6!,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget symptomGeneralInfo(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(8),
+      margin: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: getCustomColor().background,
+        borderRadius: BorderRadius.circular(8.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 1,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: Text(
+              "Triệu chứng ${replaceNewLine(symptomNameList[symptom])} của Covid 19",
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6!
+                  .copyWith(color: getCustomColor().primary),
+            ),
+          ),
+          Container(height: 8.h),
+          Center(
+            child: Text(
+              generalSymptomInfo[symptom],
+              style: Theme.of(context).textTheme.headline6!,
+            ),
+          ),
+          Container(height: 8.h),
+          Center(
+            child: Text(
+              governmentAdvice[governmentAdviceType[symptom]](
+                  replaceNewLine(symptomNameList[symptom])),
+              style: Theme.of(context).textTheme.headline6!,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget bottomBar(BuildContext context) {
+    return Container(
+      height: 72.h,
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            CustomColorFillButton(
+              height: 40.h,
+              width: 160.w,
+              buttonText: "Huỷ",
+              onPressed: onCancel,
+              fillColor: CustomColors.error,
+            ),
+            CustomColorFillButton(
+              height: 40.h,
+              width: 160.w,
+              buttonText: "Xác nhận",
+              onPressed: onDone,
+              fillColor: CustomColors.success,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GradientBackGround(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBarCustom(
+            context: context, title: "Tâm tư với nhật ký"), //app bar
+        body: Stack(
+          textDirection: TextDirection.ltr,
+          children: [
+            //*
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: getCustomColor().bgGradient,
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                 ),
               ),
-              Container(
-                height: 72.h,
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+            ),
+            // */
+            Column(
+              children: [
+                Expanded(
+                  child: Column(
                     children: [
-                      CustomColorFillButton(
-                        height: 40.h,
-                        width: 160.w,
-                        buttonText: "Huỷ",
-                        onPressed: onCancel,
-                        fillColor: CustomColors.error,
+                      Center(
+                        child: topQuestion(context),
                       ),
-                      CustomColorFillButton(
-                        height: 40.h,
-                        width: 160.w,
-                        buttonText: "Xác nhận",
-                        onPressed: onDone,
-                        fillColor: CustomColors.success,
+                      Center(
+                        child: symptomPicture(context),
                       ),
+                      //*
+                      slider(context),
+                      symptomDetailInfo(context),
+                      symptomGeneralInfo(context),
+                      Spacer(),
                     ],
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+                bottomBar(context),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
