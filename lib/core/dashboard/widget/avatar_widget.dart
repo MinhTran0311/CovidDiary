@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
-import 'package:src/widgets/rounded_avatar.dart';
+import 'package:src/widgets/round_avatar.dart';
 
 class DBAvatarWidget extends StatelessWidget {
   const DBAvatarWidget({Key? key}) : super(key: key);

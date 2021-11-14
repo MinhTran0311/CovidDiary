@@ -141,6 +141,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter your phone number"),
         "resend_otp_code":
             MessageLookupByLibrary.simpleMessage("Resend OTP code"),
+        "score_board_app_bar_title":
+            MessageLookupByLibrary.simpleMessage("Bảng xếp hạng"),
+        "score_board_month": MessageLookupByLibrary.simpleMessage("Tháng"),
+        "score_board_today": MessageLookupByLibrary.simpleMessage("Hôm nay"),
+        "score_board_week": MessageLookupByLibrary.simpleMessage("Tuần"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_in_button": MessageLookupByLibrary.simpleMessage("Sign in"),
