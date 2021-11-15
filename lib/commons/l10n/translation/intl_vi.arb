@@ -94,8 +94,18 @@
   "disease_info_table_healed": "Bình phục",
   "disease_info_table_deaths": "Tử vong",
 
+  "personal_achievement_app_bar_title": "Danh hiệu",
+
+
   "score_board_app_bar_title": "Bảng xếp hạng",
   "score_board_today": "Hôm nay",
   "score_board_week": "Tuần",
-  "score_board_month": "Tháng"
+  "score_board_month": "Tháng",
+
+  "profile_info_title": "Thông tin cá nhân",
+  "profile_info_dob": "Ngày sinh",
+  "profile_info_phone": "Điện thoại",
+  "profile_info_work": "Công việc",
+  "profile_info_social": "Mạng xã hội",
+  "profile_info_achievement": "Danh hiệu"
 }

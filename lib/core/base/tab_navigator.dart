@@ -3,6 +3,7 @@ import 'package:src/core/dashboard/dashboard_page.dart';
 import 'package:src/core/achievement/view/personal_achievement.dart';
 import 'package:src/core/achievement/view/score_board.dart';
 import 'package:src/core/disease_info/view/disease_info.dart';
+import 'package:src/core/profile/view/profile.dart';
 
 class TabNavigator extends StatelessWidget {
   TabNavigator({required this.navigatorKey, required this.tabItem});
@@ -21,7 +22,7 @@ class TabNavigator extends StatelessWidget {
     else if (tabItem == "ManagementScreen")
       child = DashboardPage();
     else if (tabItem == "ProfileScreen")
-      child = DashboardPage();
+      child = Profile();
     else if (tabItem == "NewPost") child = DashboardPage();
     return Navigator(
       key: navigatorKey,
