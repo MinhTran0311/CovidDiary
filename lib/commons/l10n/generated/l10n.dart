@@ -900,6 +900,16 @@ class S {
     );
   }
 
+  /// `Danh hiệu`
+  String get personal_achievement_app_bar_title {
+    return Intl.message(
+      'Danh hiệu',
+      name: 'personal_achievement_app_bar_title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Bảng xếp hạng`
   String get score_board_app_bar_title {
     return Intl.message(
@@ -935,6 +945,66 @@ class S {
     return Intl.message(
       'Tháng',
       name: 'score_board_month',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thông tin cá nhân`
+  String get profile_info_title {
+    return Intl.message(
+      'Thông tin cá nhân',
+      name: 'profile_info_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ngày sinh`
+  String get profile_info_dob {
+    return Intl.message(
+      'Ngày sinh',
+      name: 'profile_info_dob',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Điện thoại`
+  String get profile_info_phone {
+    return Intl.message(
+      'Điện thoại',
+      name: 'profile_info_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Công việc`
+  String get profile_info_work {
+    return Intl.message(
+      'Công việc',
+      name: 'profile_info_work',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mạng xã hội`
+  String get profile_info_social {
+    return Intl.message(
+      'Mạng xã hội',
+      name: 'profile_info_social',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Danh hiệu`
+  String get profile_info_achievement {
+    return Intl.message(
+      'Danh hiệu',
+      name: 'profile_info_achievement',
       desc: '',
       args: [],
     );

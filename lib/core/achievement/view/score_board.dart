@@ -146,7 +146,6 @@ class _ScoreBoardState extends State<ScoreBoard> {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-
       itemCount: listData.length,
       itemBuilder: (context, index) {
         return _buildListTile(
@@ -160,9 +159,11 @@ class _ScoreBoardState extends State<ScoreBoard> {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 8.h),
       child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Container(width: 20.w, child: Text(rank.toString(), style: Theme.of(context).textTheme.bodyText1)),
+        Container(
+            width: 20.w,
+            child: Text(rank.toString(),
+                style: Theme.of(context).textTheme.bodyText1)),
         SizedBox(width: 8.w),
-
         SvgPicture.asset(isUp
             ? "assets/svg/icon/up_ranking.svg"
             : "assets/svg/icon/down_ranking.svg"),

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,7 +5,6 @@ import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/profile/model/info_model.dart';
-import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/widgets/panel.dart';
 import 'package:src/widgets/round_avatar.dart';
@@ -47,7 +44,6 @@ class _ProfileState extends State<Profile> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        //App bar
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -57,7 +53,7 @@ class _ProfileState extends State<Profile> {
             ),
           ],
         ),
-        SizedBox(height: 80.h),
+        SizedBox(height: 70.h),
         _buildInfo(context),
         SizedBox(height: 10.h),
         _builSocialNetwork(context),
@@ -68,203 +64,80 @@ class _ProfileState extends State<Profile> {
   }
 
   Widget _buildInfo(BuildContext context) {
-    double lineHeight = 45.h;
-    return PanelLight(
-      context: context,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            transform: Matrix4.translationValues(0.0, -64.h, 0.0),
-            child: RoundAvatar(
-              path: "assets/svg/avatar.png",
-              width: 128.w,
-              height: 128.h,
+    return Container(
+        child: Stack(children: [
+      PanelLight(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 64.h),
+            Text(
+              userInfo.name.toUpperCase(),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headline5!.copyWith(
+                  fontWeight: FontWeight.w600, color: getCustomColor().primary),
             ),
-          ),
-          SizedBox(height: 5.h),
-          Container(
-            transform: Matrix4.translationValues(0.0, -64.h, 0.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+            SizedBox(height: 10.h),
+            //Info Tittle
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  userInfo.name.toUpperCase(),
+                  S.current.profile_info_title,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline5!.copyWith(
+                  style: Theme.of(context).textTheme.headline6!.copyWith(
                       fontWeight: FontWeight.w600,
-                      color: getCustomColor().primary),
+                      color: getCustomColor().secondary),
                 ),
-                SizedBox(height: 10.h),
-                //Info Tittle
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      S.current.profile_info_title,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline6!.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: getCustomColor().secondary),
-                    ),
-                  ],
-                ),
-                //Info Detail
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Container(
-                            height: lineHeight,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                S.current.profile_info_dob,
-                                textAlign: TextAlign.left,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        color: getCustomColor().black),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: lineHeight,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "Email",
-                                textAlign: TextAlign.left,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        color: getCustomColor().black),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: lineHeight,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                S.current.profile_info_phone,
-                                textAlign: TextAlign.left,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        color: getCustomColor().black),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: lineHeight,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                S.current.profile_info_work,
-                                textAlign: TextAlign.left,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        color: getCustomColor().black),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: 20.h),
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: lineHeight,
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                userInfo.dob,
-                                textAlign: TextAlign.left,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .subtitle1!
-                                    .copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        color: getCustomColor().black),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: lineHeight,
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                userInfo.email,
-                                textAlign: TextAlign.left,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .subtitle1!
-                                    .copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        color: getCustomColor().black),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: lineHeight,
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                userInfo.phone.toString(),
-                                textAlign: TextAlign.left,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .subtitle1!
-                                    .copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        color: getCustomColor().black),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: lineHeight,
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                userInfo.work,
-                                textAlign: TextAlign.left,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .subtitle1!
-                                    .copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        color: getCustomColor().black),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                )
               ],
             ),
-          ),
-        ],
+            //Info Detail
+            _buildInfoDetail(S.current.profile_info_dob, "15/03/2020"),
+            SizedBox(height: 8.h),
+            _buildInfoDetail(
+                S.current.email_input, "Sieu nhan cuong @ gmail.com"),
+            SizedBox(height: 8.h),
+            _buildInfoDetail(S.current.profile_info_phone, "0935723862"),
+            SizedBox(height: 8.h),
+            _buildInfoDetail(S.current.profile_info_work, "Product Owner"),
+          ],
+        ),
       ),
-    );
+      Center(
+        child: Container(
+          transform: Matrix4.translationValues(0.0, -64.h, 0.0),
+          child: RoundAvatar(
+            path: "assets/svg/avatar.png",
+            width: 128.w,
+            height: 128.h,
+          ),
+        ),
+      ),
+    ]));
+  }
+
+  Widget _buildInfoDetail(String title, String value) {
+    return Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      Expanded(
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Text(title,
+                style: Theme.of(context).textTheme.headline6!.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: getCustomColor().black)),
+          ),
+          flex: 1),
+      SizedBox(width: 32.w),
+      Expanded(
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(value,
+                style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: getCustomColor().black)),
+          ),
+          flex: 1)
+    ]);
   }
 
   Widget _builSocialNetwork(BuildContext context) {
@@ -331,39 +204,77 @@ class _ProfileState extends State<Profile> {
             runSpacing: 20.w,
             spacing: 20.h,
             children: [
-              Image(
-                image: AssetImage('assets/image/vacxin1.png'),
-                width: 64.w,
-                height: 64.h,
-              ),
-              Image(
-                image: AssetImage('assets/image/vacxin2.png'),
-                width: 64.w,
-                height: 64.h,
-              ),
-              Image(
-                image: AssetImage('assets/image/award.png'),
-                width: 64.w,
-                height: 64.h,
-              ),
-              Image(
-                image: AssetImage('assets/image/lazy.png'),
-                width: 64.w,
-                height: 64.h,
-              ),
-              Image(
-                image: AssetImage('assets/image/stayHome.png'),
-                width: 64.w,
-                height: 64.h,
-              ),
-              Image(
-                image: AssetImage('assets/image/approved.png'),
-                width: 64.w,
-                height: 64.h,
-              ),
+              _buildAwardDetail('assets/image/vacxin1.png', 'Đã tiêm mũi 1'),
+              _buildAwardDetail('assets/image/vacxin2.png', "Đã tiêm mũi 2"),
+              _buildAwardDetail('assets/image/award.png', "Công dân gương mẫu"),
+              _buildAwardDetail('assets/image/lazy.png', "Lười để chống dịch"),
+              _buildAwardDetail('assets/image/stayHome.png', "Ở nhà vui khỏe"),
+              _buildAwardDetail('assets/image/approved.png',
+                  "Thường xuyên cập nhật sức khỏe"),
             ],
           )
         ],
+      ),
+    );
+  }
+
+  Widget _buildAwardDetail(String url, String name) {
+    return InkWell(
+      onTap: () {
+        showCustomDialog(
+            context,
+            Material(
+              child: Container(
+                child: Center(
+                  child: PanelLight(
+                    width: 280.w,
+                    height: 280.h,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          S.current.profile_info_achievement,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6!
+                              .copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: getCustomColor().secondary),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Image.asset(
+                          url,
+                          width: 130.w,
+                          height: 130.h,
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Text(
+                          name.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5!
+                              .copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: getCustomColor().primary),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ));
+      },
+      child: Image.asset(
+        url,
+        width: 64.w,
+        height: 64.h,
       ),
     );
   }

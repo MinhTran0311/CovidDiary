@@ -135,10 +135,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter your password"),
         "password_input":
             MessageLookupByLibrary.simpleMessage("Enter password"),
+        "personal_achievement_app_bar_title":
+            MessageLookupByLibrary.simpleMessage("Achievement"),
         "phone_number_hint":
             MessageLookupByLibrary.simpleMessage("Enter your phone number"),
         "phone_number_input":
             MessageLookupByLibrary.simpleMessage("Enter your phone number"),
+        "profile_info_achievement":
+            MessageLookupByLibrary.simpleMessage("Achievement"),
+        "profile_info_dob":
+            MessageLookupByLibrary.simpleMessage("Day of birth"),
+        "profile_info_phone": MessageLookupByLibrary.simpleMessage("Phone"),
+        "profile_info_social":
+            MessageLookupByLibrary.simpleMessage("Social Network"),
+        "profile_info_title":
+            MessageLookupByLibrary.simpleMessage("User information"),
+        "profile_info_work": MessageLookupByLibrary.simpleMessage("Work"),
         "resend_otp_code":
             MessageLookupByLibrary.simpleMessage("Resend OTP code"),
         "score_board_app_bar_title":

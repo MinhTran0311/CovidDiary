@@ -138,10 +138,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "password_hint":
             MessageLookupByLibrary.simpleMessage("Nhập mật khẩu của bạn"),
         "password_input": MessageLookupByLibrary.simpleMessage("Nhập mật khẩu"),
+        "personal_achievement_app_bar_title":
+            MessageLookupByLibrary.simpleMessage("Danh hiệu"),
         "phone_number_hint":
             MessageLookupByLibrary.simpleMessage("Nhập số điện thoại của bạn"),
         "phone_number_input":
             MessageLookupByLibrary.simpleMessage("Nhập số điện thoại của bạn"),
+        "profile_info_achievement":
+            MessageLookupByLibrary.simpleMessage("Danh hiệu"),
+        "profile_info_dob": MessageLookupByLibrary.simpleMessage("Ngày sinh"),
+        "profile_info_phone":
+            MessageLookupByLibrary.simpleMessage("Điện thoại"),
+        "profile_info_social":
+            MessageLookupByLibrary.simpleMessage("Mạng xã hội"),
+        "profile_info_title":
+            MessageLookupByLibrary.simpleMessage("Thông tin cá nhân"),
+        "profile_info_work": MessageLookupByLibrary.simpleMessage("Công việc"),
         "resend_otp_code":
             MessageLookupByLibrary.simpleMessage("Gửi lại mã OTP"),
         "score_board_app_bar_title":
