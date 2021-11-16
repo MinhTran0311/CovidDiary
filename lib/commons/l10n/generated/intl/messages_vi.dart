@@ -8,6 +8,7 @@
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
+// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
 
 import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
@@ -29,6 +30,55 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nhập lại mật khẩu của bạn"),
         "confirm_password_input":
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
+        "dashboard_def_username":
+            MessageLookupByLibrary.simpleMessage("Siêu nhân cuồng phong"),
+        "dashboard_detail":
+            MessageLookupByLibrary.simpleMessage("Xem chi tiết"),
+        "dashboard_friday": MessageLookupByLibrary.simpleMessage("T6"),
+        "dashboard_heath_track":
+            MessageLookupByLibrary.simpleMessage("Theo dõi sức khỏe"),
+        "dashboard_heath_track_button": MessageLookupByLibrary.simpleMessage(
+            "Hôm nay bạn có khỏe không, để mình ghi lại nhé !"),
+        "dashboard_hello": MessageLookupByLibrary.simpleMessage("Xin chào"),
+        "dashboard_infected": MessageLookupByLibrary.simpleMessage("Bị nhiễm"),
+        "dashboard_monday": MessageLookupByLibrary.simpleMessage("T2"),
+        "dashboard_more_place":
+            MessageLookupByLibrary.simpleMessage("Và 12 nơi khác ..."),
+        "dashboard_place_track":
+            MessageLookupByLibrary.simpleMessage("Theo dõi điểm đến"),
+        "dashboard_place_track_button": MessageLookupByLibrary.simpleMessage(
+            "Hôm nay bạn có đi đâu không ? Ghi nhớ lại ngay!"),
+        "dashboard_place_you_visited": MessageLookupByLibrary.simpleMessage(
+            "Những nơi bạn đã đến trong 21 ngày qua"),
+        "dashboard_recovered":
+            MessageLookupByLibrary.simpleMessage("Khỏi bệnh"),
+        "dashboard_saturday": MessageLookupByLibrary.simpleMessage("T7"),
+        "dashboard_sunday": MessageLookupByLibrary.simpleMessage("CN"),
+        "dashboard_thursday": MessageLookupByLibrary.simpleMessage("T5"),
+        "dashboard_today_stats":
+            MessageLookupByLibrary.simpleMessage("Tình hình dịch bệnh hôm nay"),
+        "dashboard_tuesday": MessageLookupByLibrary.simpleMessage("T3"),
+        "dashboard_vn": MessageLookupByLibrary.simpleMessage("Việt Nam"),
+        "dashboard_wednesday": MessageLookupByLibrary.simpleMessage("T4"),
+        "dashboard_world": MessageLookupByLibrary.simpleMessage("Thế giới"),
+        "disease_info_app_bar_title":
+            MessageLookupByLibrary.simpleMessage("Thông tin dịch bệnh"),
+        "disease_info_cases": MessageLookupByLibrary.simpleMessage("Nhiễm"),
+        "disease_info_death": MessageLookupByLibrary.simpleMessage("Tử vong"),
+        "disease_info_healed": MessageLookupByLibrary.simpleMessage("Khỏi"),
+        "disease_info_table_cases":
+            MessageLookupByLibrary.simpleMessage("Nhiễm bệnh"),
+        "disease_info_table_deaths":
+            MessageLookupByLibrary.simpleMessage("Tử vong"),
+        "disease_info_table_healed":
+            MessageLookupByLibrary.simpleMessage("Bình phục"),
+        "disease_info_table_nation":
+            MessageLookupByLibrary.simpleMessage("Quốc gia"),
+        "disease_info_table_province":
+            MessageLookupByLibrary.simpleMessage("Tỉnh/Thành phố"),
+        "disease_info_vietnam":
+            MessageLookupByLibrary.simpleMessage("Việt Nam"),
+        "disease_info_world": MessageLookupByLibrary.simpleMessage("Thế giới"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("Chưa có tài khoản?"),
         "email_hint":
@@ -75,6 +125,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng Google"),
         "login_with_phone": MessageLookupByLibrary.simpleMessage(
             "Đăng nhập bằng số điện thoại"),
+        "on_boarding1": MessageLookupByLibrary.simpleMessage(
+            "Hãy luôn đeo khẩu trang ngay khi ra khỏi nhà, đến những nơi công cộng, tập trung đông người."),
+        "on_boarding2": MessageLookupByLibrary.simpleMessage(
+            "Chỉ ra khỏi nhà khi thật sự cần thiết, luôn ghi chú hành trình di chuyển của bản thân."),
+        "on_boarding3": MessageLookupByLibrary.simpleMessage(
+            "Rửa tay là phương pháp hữu hiệu để ngăn ngừa không chỉ Covid-19 mà còn với các bệnh lý hô hấp khác "),
+        "on_boarding4": MessageLookupByLibrary.simpleMessage(
+            "Theo dõi sức khỏe mỗi ngày, liên hệ ngay cơ quan y tế khi có dấu hiệu bất thường."),
         "otp_input": MessageLookupByLibrary.simpleMessage("Nhập mã OTP"),
         "otp_resent": MessageLookupByLibrary.simpleMessage("Đã gửi lại OTP"),
         "password_hint":
@@ -86,6 +144,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nhập số điện thoại của bạn"),
         "resend_otp_code":
             MessageLookupByLibrary.simpleMessage("Gửi lại mã OTP"),
+        "score_board_app_bar_title":
+            MessageLookupByLibrary.simpleMessage("Bảng xếp hạng"),
+        "score_board_month": MessageLookupByLibrary.simpleMessage("Tháng"),
+        "score_board_today": MessageLookupByLibrary.simpleMessage("Hôm nay"),
+        "score_board_week": MessageLookupByLibrary.simpleMessage("Tuần"),
         "send": MessageLookupByLibrary.simpleMessage("Gửi"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "sign_in_button":
