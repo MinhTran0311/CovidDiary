@@ -14,8 +14,8 @@ import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/commons/navigators/navigator.dart';
 
 class EmotionReport extends StatelessWidget {
-  const EmotionReport({Key? key}) : super(key: key);
-  static String title = "Tâm tư với nhật ký";
+  EmotionReport({Key? key}) : super(key: key);
+  String get title => S.current.health_report_title;
 
   static const String closeSvg = "assets/svg/icon/close-r.svg";
 
@@ -29,7 +29,7 @@ class EmotionReport extends StatelessWidget {
     "assets/svg/icon/bored.png",
     "assets/svg/icon/angry.png",
   ];
-  static List<String> noteList = [
+  final List<String> noteList = [
     S.current.health_report_emotion_1,
     S.current.health_report_emotion_2,
     S.current.health_report_emotion_3,

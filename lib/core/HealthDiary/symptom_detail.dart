@@ -36,6 +36,8 @@ class _SymptomDetailState extends State<SymptomDetail> {
 
   int get symptom => widget.symptom;
 
+  String get title => S.current.health_report_title;
+
   static List<String> iconList = [
     "assets/svg/icon/cough_ws.svg",
     "assets/svg/icon/fever_ws.svg",
@@ -47,7 +49,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
     "assets/svg/icon/diarrhea_ws.svg",
   ];
 
-  static List<String> symptomNameList = [
+  List<String> symptomNameList = [
     S.current.symptom_name_1,
     S.current.symptom_name_2,
     S.current.symptom_name_3,
@@ -58,13 +60,13 @@ class _SymptomDetailState extends State<SymptomDetail> {
     S.current.symptom_name_8,
   ];
 
-  static List<String> severity = [
+  List<String> severity = [
     S.current.symptom_severity_1,
     S.current.symptom_severity_2,
     S.current.symptom_severity_3,
   ];
 
-  static List<List<String>> symptomInfo = [
+  List<List<String>> symptomInfo = [
     [
       S.current.symptom_info_1_1,
       S.current.symptom_info_1_2,
@@ -107,7 +109,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
     ],
   ];
 
-  static List<String> generalSymptomInfo = [
+  List<String> generalSymptomInfo = [
     "Ho là một trong những triệu chứng quan trọng nhất của Covid 19, mặc dù có rất nhiều bệnh cũng có triệu chứng này.",
     "",
     "",
@@ -118,7 +120,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
     "",
   ];
 
-  static List<String Function(String)> governmentAdvice = [
+  List<String Function(String)> governmentAdvice = [
     (str) =>
         "Theo khuyến cáo của chính phủ, nếu bạn bị $str, " +
         "bạn nên theo dõi các triệu chứng này. " +
@@ -136,8 +138,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
     return GradientBackGround(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBarCustom(
-            context: context, title: "Tâm tư với nhật ký"), //app bar
+        appBar: AppBarCustom(context: context, title: title), //app bar
         body: ExpandedOrListView(
           child: Column(
             children: [

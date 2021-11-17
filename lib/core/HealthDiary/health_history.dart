@@ -68,7 +68,7 @@ class HealthHistoryItem extends StatelessWidget {
   final int emotion;
   final DateTime date;
   final List<double> symptomSeverity;
-  const HealthHistoryItem({
+  HealthHistoryItem({
     Key? key,
     required this.emotion,
     required this.date,
@@ -79,7 +79,7 @@ class HealthHistoryItem extends StatelessWidget {
 
   static String iconVirus = "assets/svg/virus.png";
   static String iconDown = "assets/svg/icon/down_arrow.svg";
-  static String upDown = "assets/svg/icon/up_arrow.svg";
+  static String iconUp = "assets/svg/icon/up_arrow.svg";
 
   static String healthy = "Hôm nay bạn khoẻ, không có triệu chứng gì hết!";
 
@@ -90,13 +90,13 @@ class HealthHistoryItem extends StatelessWidget {
 
   static String day = "Ngày ";
 
-  static List<String> severity = [
+  final List<String> severity = [
     S.current.symptom_severity_1,
     S.current.symptom_severity_2,
     S.current.symptom_severity_3,
   ];
 
-  static List<String> symptomNameList = [
+  final List<String> symptomNameList = [
     edit(S.current.symptom_name_1),
     edit(S.current.symptom_name_2),
     edit(S.current.symptom_name_3),

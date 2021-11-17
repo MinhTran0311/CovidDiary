@@ -30,7 +30,7 @@ class SymptomReport extends StatefulWidget {
 class _SymptomReportState extends State<SymptomReport> {
   static String closeSvg = "assets/svg/icon/close-r.svg";
 
-  static String title = "Tâm tư với nhật ký";
+  String get title => S.current.health_report_title;
 
   static List<String> iconList = [
     "assets/svg/icon/cough_ps.svg",
@@ -42,7 +42,7 @@ class _SymptomReportState extends State<SymptomReport> {
     "assets/svg/icon/rash_ps.svg",
     "assets/svg/icon/diarrhea_ps.svg",
   ];
-  static List<String> noteList = [
+  List<String> noteList = [
     S.current.symptom_name_1,
     S.current.symptom_name_2,
     S.current.symptom_name_3,

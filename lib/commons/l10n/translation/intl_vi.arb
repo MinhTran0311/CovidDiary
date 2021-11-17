@@ -94,6 +94,7 @@
   "disease_info_table_healed": "Bình phục",
   "disease_info_table_deaths": "Tử vong",
 
+  "health_report_title": "Tâm tư với nhật ký",
   "symptom_name_1": "Ho",
   "symptom_name_2": "Sốt",
   "symptom_name_3": "Khó thở",
@@ -153,5 +154,15 @@
   "score_board_app_bar_title": "Bảng xếp hạng",
   "score_board_today": "Hôm nay",
   "score_board_week": "Tuần",
-  "score_board_month": "Tháng"
+  "score_board_month": "Tháng",
+
+  "setting_title": "Tuỳ chọn",
+  "setting_language": "Ngôn ngữ",
+  "setting_sound": "Âm thanh",
+  "setting_light_dark_theme": "Chủ đề tối",
+  "setting_other": "Tuỳ chọn khác",
+
+  "setting_achievement": "Hiển thị chúc mừng với achievement",
+  "setting_notification" : "Nhắc nhở với notification",
+  "setting_remember_user": "Ghi nhớ username và password"
 }

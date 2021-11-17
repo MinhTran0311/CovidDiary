@@ -92,6 +92,7 @@
   "disease_info_table_healed": "Heals",
   "disease_info_table_deaths": "Deaths",
   
+  "health_report_title": "Dear diary",
   "symptom_name_1": "Coughing",
   "symptom_name_2": "Fever",
   "symptom_name_3": "Shortness\nof breath",
@@ -130,10 +131,10 @@
   "symptom_info_8_2": "",
   "symptom_info_8_3": "",
 
-  "health_report_response_positive": "Mình rất vui\nkhi bạn tâm tư với mình!",
-  "health_report_response_negative": "Cố lên bạn ơi,\ndịch bệnh sẽ qua mau thôi!",
+  "health_report_response_positive": "I'm so happy\nto talk with you!",
+  "health_report_response_negative": "Don't be so negative,\nit will be over soon!",
 
-  "health_report_emotion_greating": "Hôm nay bạn thấy thế nào?",
+  "health_report_emotion_greating": "How are you today?",
   
   "health_report_emotion_1": "Happy",
   "health_report_emotion_2": "Satisfied",
@@ -150,5 +151,15 @@
   "score_board_app_bar_title": "Bảng xếp hạng",
   "score_board_today": "Hôm nay",
   "score_board_week": "Tuần",
-  "score_board_month": "Tháng"
+  "score_board_month": "Tháng",
+
+  "setting_title": "Settings",
+  "setting_language": "Language",
+  "setting_sound": "Sounds",
+  "setting_light_dark_theme": "Dark mode",
+  "setting_other": "Others",
+
+  "setting_achievement": "Congratulate for achievements",
+  "setting_notification" : "Remind me with notification",
+  "setting_remember_user": "Remember username and password"
 }
