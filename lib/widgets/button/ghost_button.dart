@@ -51,7 +51,7 @@ class GhostButton extends StatelessWidget {
               ? this.child!
               : Text(
             buttonText!,
-            style: Theme.of(context).textTheme.headline6!.copyWith(
+            style: Theme.of(context).textTheme.button!.copyWith(
                 color: !this.isAccent
                     ? getCustomColor().primary
                     : getCustomColor().secondary),

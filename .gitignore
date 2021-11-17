@@ -80,6 +80,8 @@ build/
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 /.flutter-plugins-dependencies
+
+#flutter
 .idea/libraries/Dart_Packages.xml
 .idea/libraries/Dart_SDK.xml
 .idea/libraries/Flutter_Plugins.xml

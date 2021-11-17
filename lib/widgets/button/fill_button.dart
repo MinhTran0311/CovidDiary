@@ -60,7 +60,7 @@ class FillButton extends StatelessWidget {
                   buttonText!,
                   style: Theme.of(context)
                       .textTheme
-                      .headline6!
+                      .button!
                       .copyWith(color: lightColor.background),
                 ),
           onPressed: onPressed),

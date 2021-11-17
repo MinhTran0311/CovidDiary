@@ -22,7 +22,7 @@ class _CategoryTabBarState extends State<CategoryTabBar> {
       onTap: widget.callBack,
       child: Container(
         width: 110.w,
-        height: 30.h,
+        height: 40.h,
         decoration: BoxDecoration(
           color: widget.isSelected
               ? getCustomColor().background
