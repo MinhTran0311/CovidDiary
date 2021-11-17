@@ -157,8 +157,8 @@ class EmotionReport extends StatelessWidget {
                       alignment: Alignment.topRight,
                       child: SvgPicture.asset(
                         closeSvg,
-                        height: 24.h,
-                        width: 24.w,
+                        height: 24.r,
+                        width: 24.r,
                         color: isPositive
                             ? getCustomColor().secondary
                             : getCustomColor().primary,
@@ -198,8 +198,8 @@ class EmotionReport extends StatelessWidget {
                   padding: EdgeInsets.all(8),
                   child: Image.asset(
                     iconList[i],
-                    width: 60.h,
-                    height: 60.h,
+                    width: 64.r,
+                    height: 64.r,
                     fit: BoxFit.fill,
                   ),
                 ),

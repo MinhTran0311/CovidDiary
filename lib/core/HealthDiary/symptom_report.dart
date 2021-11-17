@@ -129,8 +129,8 @@ class _SymptomReportState extends State<SymptomReport> {
                   padding: EdgeInsets.all(8),
                   child: SvgPicture.asset(
                     iconList[i],
-                    width: 60.h,
-                    height: 60.h,
+                    width: 64.r,
+                    height: 64.r,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -248,8 +248,8 @@ class _SymptomReportState extends State<SymptomReport> {
                       alignment: Alignment.topRight,
                       child: SvgPicture.asset(
                         closeSvg,
-                        height: 24.h,
-                        width: 24.w,
+                        height: 24.r,
+                        width: 24.r,
                         color: isPositive
                             ? getCustomColor().secondary
                             : getCustomColor().primary,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:src/core/HealthDiary/health_history.dart';
 import 'package:src/core/achievement/view/personal_achievement.dart';
 import 'package:src/core/achievement/view/score_board.dart';
 import 'package:src/core/disease_info/view/disease_info.dart';
@@ -15,7 +16,7 @@ class TabNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     late Widget child;
     if (tabItem == "HomeScreen")
-      child = EmotionReport();
+      child = HealthHistory();
     else if (tabItem == "MapsScreen")
       child = ScoreBoard();
     else if (tabItem == "ManagementScreen")
