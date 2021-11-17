@@ -87,5 +87,4 @@ build/
 .idea/libraries/Flutter_Plugins.xml
 .flutter-plugins
 .flutter-plugins-dependencies
-**lib/commons/l10n/generated/intl/*
-**lib/commons/l10n/l10n.dart
+**lib/commons/l10n/generated/*
