@@ -95,5 +95,12 @@
   "score_board_app_bar_title": "Bảng xếp hạng",
   "score_board_today": "Hôm nay",
   "score_board_week": "Tuần",
-  "score_board_month": "Tháng"
+  "score_board_month": "Tháng",
+
+  "health_declaration_app_bar_title": "Health declaration",
+  "health_declaration_first_question": "Are you experiencing any of the following symptoms today?",
+  "health_declaration_second_question": "Today, do you have contact with: ",
+  "health_declaration_covid_patient": "Patients, people suspected of having Covid-19",
+  "health_declaration_nations": "People from countries with Covid-19 cases",
+  "health_declaration_symptom": "People with symptoms (fever, cough, ...)"
 }

@@ -97,5 +97,13 @@
   "score_board_app_bar_title": "Bảng xếp hạng",
   "score_board_today": "Hôm nay",
   "score_board_week": "Tuần",
-  "score_board_month": "Tháng"
+  "score_board_month": "Tháng",
+
+  "health_declaration_app_bar_title": "Ghi chú sức khỏe (nghiêm túc)",
+  "health_declaration_first_question": "Trong ngày hôm nay, bạn có thấy xuất hiện dấu hiệu nào sau đây không ?",
+  "health_declaration_second_question": "Trong hôm nay, bạn có tiếp xúc với: ",
+  "health_declaration_covid_patient": "Người bệnh, người nghi ngờ mắc Covid-19",
+  "health_declaration_nations": "Người từ quốc gia có ca bệnh Covid-19",
+  "health_declaration_symptom": "Người có biểu hiện (sốt, ho, khó thở, ...)"
+
 }

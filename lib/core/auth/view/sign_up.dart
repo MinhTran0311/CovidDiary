@@ -65,7 +65,7 @@ class _SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin {
             stage == Stage.first ? _buildFormField() : SizedBox.shrink(),
             stage == Stage.second ? _buildOTP() : SizedBox.shrink(),
             Expanded(child: Container()),
-            _buildBottomField()
+            _buildBottomField(),
           ]),
         ),
       )
@@ -170,31 +170,29 @@ class _SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin {
               _submit();
             },
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 16.h),
-            child: Align(
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    S.current.have_an_account,
-                    style: Theme.of(context).textTheme.caption!.copyWith(
+          SizedBox(height: 16.h),
+          Align(
+            alignment: Alignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  S.current.have_an_account,
+                  style: Theme.of(context).textTheme.caption!.copyWith(
+                      fontWeight: FontWeight.w500,
+                      color: getCustomColor().black),
+                ),
+                SizedBox(width: 8.w),
+                GestureDetector(
+                  onTap: () => widget.callBack(0),
+                  child: Text(
+                    S.current.sign_in,
+                    style: Theme.of(context).textTheme.subtitle1!.copyWith(
                         fontWeight: FontWeight.w500,
-                        color: getCustomColor().black),
+                        color: getCustomColor().primary),
                   ),
-                  SizedBox(width: 8.w),
-                  GestureDetector(
-                    onTap: () => widget.callBack(0),
-                    child: Text(
-                      S.current.sign_in,
-                      style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                          fontWeight: FontWeight.w500,
-                          color: getCustomColor().primary),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ]),

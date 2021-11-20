@@ -127,17 +127,16 @@ class TextFormFieldWidget extends FormField<String> {
                       ? _buildLabel(context, label!, labelStyle)
                       : Container(),
                   Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 1,
-                            blurRadius: 8.r,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 8.r,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ]),
                       child: child),
+                  SizedBox(height: 4.h),
                   if (hasError)
                     _getErrorText(
                         context, errorText ?? state.errorText as String)
@@ -188,12 +187,13 @@ class TextFormFieldWidget extends FormField<String> {
         Validators.phoneNumber()
       ]),
       prefix: Padding(
-        padding: EdgeInsets.only(left: 16.w, top: 14.5.h, bottom: 16.h),
-        child: Text(
-          '+84 ',
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
-              fontWeight: FontWeight.w500, color: getCustomColor().black),
-        ),
+        padding: EdgeInsets.only(left: 16.w, bottom: 2.h),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text('(+84) ',
+              style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  fontWeight: FontWeight.w400, color: getCustomColor().black),
+              textAlign: TextAlign.center),
+        ]),
       ),
     );
   }

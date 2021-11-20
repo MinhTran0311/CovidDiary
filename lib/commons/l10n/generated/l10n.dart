@@ -939,6 +939,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Ghi chú sức khỏe (nghiêm túc)`
+  String get health_declaration_app_bar_title {
+    return Intl.message(
+      'Ghi chú sức khỏe (nghiêm túc)',
+      name: 'health_declaration_app_bar_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trong ngày hôm nay, bạn có thấy xuất hiện dấu hiệu nào sau đây không ?`
+  String get health_declaration_first_question {
+    return Intl.message(
+      'Trong ngày hôm nay, bạn có thấy xuất hiện dấu hiệu nào sau đây không ?',
+      name: 'health_declaration_first_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trong hôm nay, bạn có tiếp xúc với: `
+  String get health_declaration_second_question {
+    return Intl.message(
+      'Trong hôm nay, bạn có tiếp xúc với: ',
+      name: 'health_declaration_second_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Người bệnh, người nghi ngờ mắc Covid-19`
+  String get health_declaration_covid_patient {
+    return Intl.message(
+      'Người bệnh, người nghi ngờ mắc Covid-19',
+      name: 'health_declaration_covid_patient',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Người từ quốc gia có ca bệnh Covid-19`
+  String get health_declaration_nations {
+    return Intl.message(
+      'Người từ quốc gia có ca bệnh Covid-19',
+      name: 'health_declaration_nations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Người có biểu hiện (sốt, ho, khó thở, ...)`
+  String get health_declaration_symptom {
+    return Intl.message(
+      'Người có biểu hiện (sốt, ho, khó thở, ...)',
+      name: 'health_declaration_symptom',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
