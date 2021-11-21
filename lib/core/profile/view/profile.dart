@@ -41,18 +41,15 @@ class _ProfileState extends State<Profile> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            IconButton(
-              onPressed: () async {
-                await navigateTo(EditProfile(), context);
-                this.setState(() {});
-              },
-              icon: SvgPicture.asset('assets/svg/icon/pencil.svg'),
-            ),
-          ],
-        ),
+        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          IconButton(
+            onPressed: () async {
+              await navigateTo(EditProfile(), context);
+              this.setState(() {});
+            },
+            icon: SvgPicture.asset('assets/svg/icon/pencil.svg'),
+          ),
+        ]),
         SizedBox(height: 70.h),
         _buildInfo(context),
         SizedBox(height: 10.h),
@@ -65,56 +62,58 @@ class _ProfileState extends State<Profile> {
 
   Widget _buildInfo(BuildContext context) {
     return Container(
-        child: Stack(children: [
-      PanelLight(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 64.h),
-            Text(
-              Info.instance.name.toUpperCase(),
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline5!.copyWith(
-                  fontWeight: FontWeight.w600, color: getCustomColor().primary),
-            ),
-            SizedBox(height: 10.h),
-            //Info Tittle
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  S.current.profile_info_title,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: getCustomColor().secondary),
-                ),
-              ],
-            ),
-            //Info Detail
-            _buildInfoDetail(S.current.profile_info_dob, "15/03/2020"),
-            SizedBox(height: 8.h),
-            _buildInfoDetail(
-                S.current.email_input, "Sieu nhan cuong @ gmail.com"),
-            SizedBox(height: 8.h),
-            _buildInfoDetail(S.current.profile_info_phone, "0935723862"),
-            SizedBox(height: 8.h),
-            _buildInfoDetail(S.current.profile_info_work, "Product Owner"),
-          ],
-        ),
-      ),
-      Center(
-        child: Container(
-          transform: Matrix4.translationValues(0.0, -64.h, 0.0),
-          child: RoundAvatar(
-            path: Info.instance.avatar,
-            isPicked: Info.instance.isPicked,
-            width: 128.w,
-            height: 128.h,
+      child: Stack(children: [
+        PanelLight(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 64.h),
+              Text(
+                Info.instance.name.toUpperCase(),
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headline5!.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: getCustomColor().primary),
+              ),
+              SizedBox(height: 10.h),
+              //Info Tittle
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    S.current.profile_info_title,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: getCustomColor().secondary),
+                  ),
+                ],
+              ),
+              //Info Detail
+              _buildInfoDetail(S.current.profile_info_dob, "15/03/2020"),
+              SizedBox(height: 8.h),
+              _buildInfoDetail(
+                  S.current.email_input, "Sieu nhan cuong @ gmail.com"),
+              SizedBox(height: 8.h),
+              _buildInfoDetail(S.current.profile_info_phone, "0935723862"),
+              SizedBox(height: 8.h),
+              _buildInfoDetail(S.current.profile_info_work, "Product Owner"),
+            ],
           ),
         ),
-      ),
-    ]));
+        Center(
+          child: Container(
+            transform: Matrix4.translationValues(0.0, -64.h, 0.0),
+            child: RoundAvatar(
+              path: Info.instance.avatar,
+              isPicked: Info.instance.isPicked,
+              width: 128.w,
+              height: 128.h,
+            ),
+          ),
+        ),
+      ]),
+    );
   }
 
   Widget _buildInfoDetail(String title, String value) {

@@ -58,8 +58,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
           _buildOffstageNavigator("InfoScreen"),
           _buildOffstageNavigator("ProfileScreen"),
         ]),
-
-        ///TO DO - Trung Vo
         bottomNavigationBar: CustomCurvedNavigationBar(
           height: 60,
           backgroundColor: Colors.white,

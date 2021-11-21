@@ -100,8 +100,9 @@ class _LoginPageState extends State<LoginPage> {
             buttonText: S.current.sign_in,
             onPressed: () {
               //_submit();
-              pushReplacement(LoadingPage(nextPage: HomePageScreen()), context);
               Navigator.of(context).popUntil((route) => route.isFirst);
+              pushReplacement(LoadingPage(nextPage: HomePageScreen()), context);
+
             },
           ),
           Padding(

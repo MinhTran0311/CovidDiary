@@ -5,6 +5,7 @@ import 'package:src/commons/themes/theme.dart';
 import 'package:src/widgets/app_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/widgets/button/fill_button.dart';
+import 'package:src/widgets/button/ghost_button.dart';
 import 'package:src/widgets/panel.dart';
 import 'checkbox.dart';
 
@@ -102,11 +103,10 @@ class _HealthDeclarationState extends State<HealthDeclaration> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
       children: [
-        FillButton(
+        GhostButton(
             buttonText: S.current.health_declaration_do_again,
             onPressed: () {},
-            width: 176.w,
-            buttonColor: getCustomColor().white),
+            width: 176.w),
         FillButton(
             buttonText: S.current.confirm,
             onPressed: () {},
