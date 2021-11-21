@@ -22,6 +22,8 @@
   "password_hint": "Enter your password",
   "issue_hint": "Enter your issue",
   "email_hint": "Enter your email",
+  "dob_hint": "Enter your day of birth",
+  "work_hint": "Enter your work",
   "forgot_password": "Forgot password?",
   "sign_in_button": "Sign in",
   "sign_in": "Sign in",
@@ -170,5 +172,6 @@
 
   "setting_achievement": "Congratulate for achievements",
   "setting_notification" : "Remind me with notification",
-  "setting_remember_user": "Remember username and password"
+  "setting_remember_user": "Remember username and password",
+  "update_profile_name_displayed": "Name displayed"
 }
