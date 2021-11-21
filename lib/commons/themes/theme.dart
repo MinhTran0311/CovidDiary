@@ -101,5 +101,13 @@ getTextTheme(TextTheme textTheme) {
     ///Input Caption
     caption: textTheme.caption?.copyWith(
         fontFamily: 'Roboto Condensed', fontSize: 14.sp, height: (16 / 14).sp),
+
+    ///Input Notification
+    overline: textTheme.caption?.copyWith(
+      fontFamily: 'Roboto Condensed',
+      fontStyle: FontStyle.italic,
+      fontSize: 14.sp,
+      height: (16 / 14).sp,
+    ),
   );
 }

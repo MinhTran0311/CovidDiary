@@ -17,6 +17,8 @@ class FillButton extends StatelessWidget {
 
   final Widget? child;
 
+  final Color? buttonColor;
+
   const FillButton(
       {Key? key,
       this.isAccent = false,
@@ -24,7 +26,8 @@ class FillButton extends StatelessWidget {
       this.height,
       this.buttonText,
       required this.onPressed,
-      this.child})
+      this.child,
+      this.buttonColor})
       : assert((buttonText != null && child == null) ||
             (buttonText == null && child != null)),
         super(key: key);
@@ -35,9 +38,11 @@ class FillButton extends StatelessWidget {
       height: this.height ?? 48.h,
       width: this.width ?? 128.w,
       decoration: BoxDecoration(
-        color: !this.isAccent
-            ? getCustomColor().primary
-            : getCustomColor().secondary,
+        color: buttonColor != null
+            ? buttonColor
+            : (!this.isAccent
+                ? getCustomColor().primary
+                : getCustomColor().secondary),
         borderRadius: BorderRadius.circular(8.r),
         boxShadow: [
           BoxShadow(

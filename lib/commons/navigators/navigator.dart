@@ -45,7 +45,6 @@ void showCustomDialog(BuildContext context, Widget child) {
   );
 }
 
-
 Future navigateTo(Widget screen, BuildContext context) {
   return Navigator.push(context, _getPlatformRoute(context, screen));
 }
@@ -60,6 +59,10 @@ Future pushReplacement(Widget screen, BuildContext context) {
 
 void goBack<T>(BuildContext context, [T? result]) {
   return Navigator.of(context).pop(result);
+}
+
+void popToTop(BuildContext context) {
+  Navigator.popUntil(context, (route) => route.isFirst);
 }
 
 Future showBottomPage(BuildContext context, Widget screen,
