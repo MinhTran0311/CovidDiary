@@ -20,14 +20,14 @@ class TabNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     late Widget child;
     if (tabItem == "HomeScreen")
-      child = MovementReport();
-    else if (tabItem == "MapsScreen")
-      child = ScoreBoard();
-    else if (tabItem == "ManagementScreen")
       child = DashboardPage();
+    else if (tabItem == "MapsScreen")
+      child = DiseaseInfoPage();
+    else if (tabItem == "NewPost")
+      child = Profile();
     else if (tabItem == "ProfileScreen")
-      child = Settings();
-    else if (tabItem == "NewPost") child = DashboardPage();
+      child = Profile();
+    else if (tabItem == "NewPost") child = Profile();
     return Navigator(
       key: navigatorKey,
       onGenerateRoute: (routeSettings) {
