@@ -180,6 +180,6 @@
 
   "setting_achievement": "Congratulate for achievements",
   "setting_notification" : "Remind me with notification",
-  "setting_remember_user": "Remember username and password",
-  "update_profile_name_displayed": "Name displayed"
+  "update_profile_name_displayed": "Name displayed",
+  "update_profile_connect_account": "Connect Account"
 }

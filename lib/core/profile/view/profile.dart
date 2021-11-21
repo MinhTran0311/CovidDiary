@@ -28,8 +28,8 @@ class _ProfileState extends State<Profile> {
     return GradientBackGround(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
-          child: SafeArea(
+        body: SafeArea(
+          child: SingleChildScrollView(
             child: _buildBody(context),
           ),
         ),
@@ -162,7 +162,7 @@ class _ProfileState extends State<Profile> {
       height: 40,
       child: ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          // physics: NeverScrollableScrollPhysics(),
           // scrollDirection: Axis.horizontal,
           scrollDirection: Axis.horizontal,
           itemCount: Info.instance.socialArr.length,

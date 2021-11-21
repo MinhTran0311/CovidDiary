@@ -8,6 +8,7 @@ import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/commons/validators/validators.dart';
 import 'package:src/core/profile/model/info_model.dart';
+import 'package:src/core/profile/view/edit_profile_social_list.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/widgets/input_field/text_form_field.dart';
 import 'package:src/widgets/panel.dart';
@@ -60,8 +61,12 @@ class _EditProfileState extends State<EditProfile> {
     return GradientBackGround(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
-          child: SafeArea(child: _buildBody(context)),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: SafeArea(
+              child: _buildBody(context),
+            ),
+          ),
         ),
       ),
     );
@@ -172,7 +177,7 @@ class _EditProfileState extends State<EditProfile> {
         ),
         GestureDetector(
           onTap: () {
-            _showImageSourceActionSheet(context);
+            _showImageSourceActionSheet(Scaffold.of(context).context);
           },
           child: Center(
             child: Container(
@@ -191,62 +196,89 @@ class _EditProfileState extends State<EditProfile> {
 
   Widget _buildSocialField(BuildContext context) {
     return PanelLight(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
         children: [
-          Expanded(
-            flex: 4,
-            child: Column(
-              // This next line does the trick.
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image(
-                  image: AssetImage('assets/image/facebook.png'),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                //flex: 4,
+                child: Column(
+                  // This next line does the trick.
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: Info.instance.socialArr
+                      .map(
+                        (e) => Container(
+                          margin: new EdgeInsets.symmetric(vertical: 8.h),
+                          height: 35.h,
+                          child: Image.asset(e.imgUrl),
+                        ),
+                      )
+                      .toList(),
                 ),
-                Image(
-                  image: AssetImage('assets/image/tinder.png'),
+              ),
+              SizedBox(
+                width: 32.w,
+              ),
+              Container(
+                // flex: 6,
+                child: Column(
+                  // This next line does the trick.
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: Info.instance.socialArr
+                      .map(
+                        (e) => Container(
+                          margin: new EdgeInsets.symmetric(vertical: 8.h),
+                          height: 35.h,
+                          child: Text(
+                            e.value,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline6!
+                                .copyWith(
+                                    fontWeight: FontWeight.w400,
+                                    color: getCustomColor().black),
+                          ),
+                        ),
+                      )
+                      .toList(),
                 ),
-                Image(
-                  image: AssetImage('assets/image/telegram.png'),
-                ),
-                Image(
-                  image: AssetImage('assets/image/linkedin.png'),
-                ),
-                Image(
-                  image: AssetImage('assets/image/twitter.png'),
-                ),
-              ],
-            ),
+              )
+            ],
           ),
           SizedBox(
-            width: 32.w,
+            height: 8.h,
           ),
-          Expanded(
-            flex: 6,
-            child: Column(
-              // This next line does the trick.
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  child: Text(
-                    "aaa",
+          GestureDetector(
+            onTap: () {
+              _showSocialNetworkSourceActionSheet(Scaffold.of(context).context);
+            },
+            child: Container(
+              padding: new EdgeInsets.symmetric(horizontal: 20.h),
+              width: 200.w,
+              height: 50.h,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: getCustomColor().primary),
+              child: Row(
+                children: [
+                  Image.asset('assets/image/add.png'),
+                  SizedBox(
+                    width: 8.w,
                   ),
-                ),
-                Image(
-                  image: AssetImage('assets/image/tinder.png'),
-                ),
-                Image(
-                  image: AssetImage('assets/image/telegram.png'),
-                ),
-                Image(
-                  image: AssetImage('assets/image/linkedin.png'),
-                ),
-                Image(
-                  image: AssetImage('assets/image/twitter.png'),
-                ),
-              ],
+                  Text(
+                    S.current.update_profile_connect_account,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                        fontWeight: FontWeight.w400,
+                        color: getCustomColor().white),
+                  ),
+                ],
+              ),
             ),
           )
         ],
@@ -255,14 +287,17 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   void _showImageSourceActionSheet(BuildContext context) {
-    if (Platform.isIOS) {
-      showCupertinoModalPopup(
-        context: context,
-        builder: (context) => CupertinoActionSheet(actions: [
-          CupertinoActionSheetAction(
-            child: Text(S.current.camera),
-            onPressed: () async {
-              Navigator.pop(context);
+    showModalBottomSheet(
+      barrierColor: Colors.black54,
+      context: context,
+      builder: (context) => Container(
+        color: getCustomColor().background,
+        child: Wrap(children: [
+          ListTile(
+            leading: Icon(Icons.camera_alt),
+            title: Text(S.current.camera),
+            onTap: () async {
+              goBack(context);
               image = await _picker.pickImage(source: ImageSource.camera);
               if (image != null) {
                 Info.instance.avatar = image!.path;
@@ -271,9 +306,10 @@ class _EditProfileState extends State<EditProfile> {
               setState(() {});
             },
           ),
-          CupertinoActionSheetAction(
-            child: Text(S.current.gallery),
-            onPressed: () async {
+          ListTile(
+            leading: Icon(Icons.photo_album),
+            title: Text(S.current.gallery),
+            onTap: () async {
               goBack(context);
               image = await _picker.pickImage(source: ImageSource.gallery);
               if (image != null) {
@@ -284,43 +320,20 @@ class _EditProfileState extends State<EditProfile> {
             },
           )
         ]),
-      );
-    } else {
-      showModalBottomSheet(
-        barrierColor: Colors.transparent,
-        context: context,
-        builder: (context) => Container(
-          color: getCustomColor().background,
-          child: Wrap(children: [
-            ListTile(
-              leading: Icon(Icons.camera_alt),
-              title: Text(S.current.camera),
-              onTap: () async {
-                goBack(context);
-                image = await _picker.pickImage(source: ImageSource.camera);
-                if (image != null) {
-                  Info.instance.avatar = image!.path;
-                  Info.instance.isPicked = true;
-                }
-                setState(() {});
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.photo_album),
-              title: Text(S.current.gallery),
-              onTap: () async {
-                goBack(context);
-                image = await _picker.pickImage(source: ImageSource.gallery);
-                if (image != null) {
-                  Info.instance.avatar = image!.path;
-                  Info.instance.isPicked = true;
-                }
-                setState(() {});
-              },
-            )
-          ]),
-        ),
-      );
-    }
+      ),
+    );
+  }
+
+  void _showSocialNetworkSourceActionSheet(BuildContext context) async {
+    await showModalBottomSheet(
+      barrierColor: Colors.transparent,
+      context: context,
+      builder: (context) => Container(
+        padding: new EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
+        color: getCustomColor().background,
+        child: Wrap(children: socialNetworkList(context)),
+      ),
+    );
+    setState(() {});
   }
 }

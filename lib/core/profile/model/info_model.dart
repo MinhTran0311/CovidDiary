@@ -11,9 +11,9 @@ class Info {
   String avatar = "assets/svg/avatar.png";
   bool isPicked = false;
   List<Social> socialArr = [
-    new Social("Facebook", 'assets/image/facebook.png', "Hoàng tử sa mạt"),
-    new Social("Tinder", 'assets/image/tinder.png', "Hoàng Tuấn Minh"),
-    new Social("Twitter", 'assets/image/twitter.png', "t.me/desert.eagle"),
+    Social("Facebook", 'assets/image/facebook.png', "Hoàng tử sa mạt"),
+    Social("Tinder", 'assets/image/tinder.png', "Hoàng Tuấn Minh"),
+    Social("Twitter", 'assets/image/twitter.png', "t.me/desert.eagle"),
   ];
   // Info(this.name, this.dob, this.email, this.phone, this.work);
 }
