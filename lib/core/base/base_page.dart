@@ -17,17 +17,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   List<String> pageKeys = [
     "HomeScreen",
-    "MapsScreen",
-    "NewPost",
+    "InfoScreen",
     "ProfileScreen",
-    "ManagementScreen"
   ];
   Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
     "HomeScreen": GlobalKey<NavigatorState>(),
-    "MapsScreen": GlobalKey<NavigatorState>(),
-    "ManagementScreen": GlobalKey<NavigatorState>(),
+    "InfoScreen": GlobalKey<NavigatorState>(),
     "ProfileScreen": GlobalKey<NavigatorState>(),
-    "NewPost": GlobalKey<NavigatorState>(),
   };
 
   @override
@@ -59,10 +55,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
       child: Scaffold(
         body: Stack(children: [
           _buildOffstageNavigator("HomeScreen"),
-          _buildOffstageNavigator("MapsScreen"),
-          _buildOffstageNavigator("NewPost"),
+          _buildOffstageNavigator("InfoScreen"),
           _buildOffstageNavigator("ProfileScreen"),
-          _buildOffstageNavigator("ManagementScreen"),
         ]),
 
         ///TO DO - Trung Vo
@@ -78,9 +72,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 size: 32, color: getCustomColor().background),
             Icon(Icons.account_circle,
                 size: 32, color: getCustomColor().background),
-            // Icon(Icons.person, size: 32, color: getCustomColor().background),
-            // Icon(Icons.admin_panel_settings_rounded,
-            //     size: 32, color: getCustomColor().background),
           ],
           index: _currentIndex,
           onTap: (index) {

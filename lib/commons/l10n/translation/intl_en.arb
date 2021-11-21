@@ -162,6 +162,8 @@
   "health_declaration_covid_patient": "Patients, people suspected of having Covid-19",
   "health_declaration_nations": "People from countries with Covid-19 cases",
   "health_declaration_symptom": "People with symptoms (fever, cough, ...)",
+  "health_declaration_do_again": "Do it again",
+
   "profile_info_title": "User information",
   "profile_info_dob": "Day of birth",
   "profile_info_phone": "Phone",

@@ -47,8 +47,8 @@ class FillButton extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 1,
+            spreadRadius: 1.r,
+            blurRadius: 1.5.r,
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],

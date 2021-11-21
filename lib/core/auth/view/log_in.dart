@@ -7,7 +7,6 @@ import 'package:src/core/splash/loading_page.dart';
 import 'package:src/widgets/button/fill_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/widgets/input_field/text_form_field.dart';
-import 'auth.dart';
 import 'forgot_password.dart';
 
 class LoginPage extends StatefulWidget {
@@ -101,8 +100,8 @@ class _LoginPageState extends State<LoginPage> {
             buttonText: S.current.sign_in,
             onPressed: () {
               //_submit();
-              Navigator.of(context).popUntil((route) => route.isFirst);
               pushReplacement(LoadingPage(nextPage: HomePageScreen()), context);
+              Navigator.of(context).popUntil((route) => route.isFirst);
             },
           ),
           Padding(

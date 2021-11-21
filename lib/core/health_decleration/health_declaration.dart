@@ -102,9 +102,16 @@ class _HealthDeclarationState extends State<HealthDeclaration> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
       children: [
-        FillButton(buttonText: "Làm lại", onPressed: () {}, width: 176.w),
         FillButton(
-            buttonText: S.current.confirm, onPressed: () {}, width: 176.w)
+            buttonText: S.current.health_declaration_do_again,
+            onPressed: () {},
+            width: 176.w,
+            buttonColor: getCustomColor().white),
+        FillButton(
+            buttonText: S.current.confirm,
+            onPressed: () {},
+            width: 176.w,
+            buttonColor: getCustomColor().secondary)
       ],
     );
   }
