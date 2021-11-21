@@ -79,6 +79,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "disease_info_vietnam":
             MessageLookupByLibrary.simpleMessage("Việt Nam"),
         "disease_info_world": MessageLookupByLibrary.simpleMessage("Thế giới"),
+        "dob_hint":
+            MessageLookupByLibrary.simpleMessage("Nhập ngày sinh của bạn"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("Chưa có tài khoản?"),
         "email_hint":
@@ -176,6 +178,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "text_field_error_invalid_phone_number":
             MessageLookupByLibrary.simpleMessage(
                 "Số diện thoại không hợp lệ. Vui lòng thử lại"),
+        "update_profile_name_displayed":
+            MessageLookupByLibrary.simpleMessage("Tên hiển thị"),
+        "work_hint":
+            MessageLookupByLibrary.simpleMessage("Nhập công việc của bạn"),
         "wrong_otp_code": MessageLookupByLibrary.simpleMessage(
             "Mã OTP nhập sai. Vui lòng nhập lại.")
       };

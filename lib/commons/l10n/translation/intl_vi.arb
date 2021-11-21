@@ -21,6 +21,8 @@
   "password_hint": "Nhập mật khẩu của bạn",
   "issue_hint": "Nhập sự cố gặp phải",
   "email_hint": "Nhập email của bạn",
+  "dob_hint": "Nhập ngày sinh của bạn",
+  "work_hint": "Nhập công việc của bạn",
   "forgot_password": "Quên mật khẩu?",
   "sign_in_button": "Đăng nhập tài khoản",
   "sign_in": "Đăng nhập",
@@ -107,5 +109,7 @@
   "profile_info_phone": "Điện thoại",
   "profile_info_work": "Công việc",
   "profile_info_social": "Mạng xã hội",
-  "profile_info_achievement": "Danh hiệu"
+  "profile_info_achievement": "Danh hiệu",
+  
+  "update_profile_name_displayed": "Tên hiển thị"
 }

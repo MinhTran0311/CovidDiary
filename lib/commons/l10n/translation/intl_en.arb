@@ -21,6 +21,8 @@
   "password_hint": "Enter your password",
   "issue_hint": "Enter your issue",
   "email_hint": "Enter your email",
+  "dob_hint": "Enter your day of birth",
+  "work_hint": "Enter your work",
   "forgot_password": "Forgot password?",
   "sign_in_button": "Sign in",
   "sign_in": "Sign in",
@@ -104,5 +106,7 @@
   "profile_info_phone": "Phone",
   "profile_info_work": "Work",
   "profile_info_social": "Social Network",
-  "profile_info_achievement": "Achievement"
+  "profile_info_achievement": "Achievement",
+
+  "update_profile_name_displayed": "Name displayed"
 }

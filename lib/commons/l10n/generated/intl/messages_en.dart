@@ -77,6 +77,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Province/City"),
         "disease_info_vietnam": MessageLookupByLibrary.simpleMessage("Vietnam"),
         "disease_info_world": MessageLookupByLibrary.simpleMessage("World"),
+        "dob_hint":
+            MessageLookupByLibrary.simpleMessage("Enter your day of birth"),
         "dont_have_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "email_hint": MessageLookupByLibrary.simpleMessage("Enter your email"),
@@ -171,6 +173,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "text_field_error_invalid_phone_number":
             MessageLookupByLibrary.simpleMessage(
                 "Phone number is not valid. Please try again."),
+        "update_profile_name_displayed":
+            MessageLookupByLibrary.simpleMessage("Name displayed"),
+        "work_hint": MessageLookupByLibrary.simpleMessage("Enter your work"),
         "wrong_otp_code": MessageLookupByLibrary.simpleMessage(
             "Incorrect OTP code. Please try again.")
       };

@@ -230,6 +230,26 @@ class S {
     );
   }
 
+  /// `Nhập ngày sinh của bạn`
+  String get dob_hint {
+    return Intl.message(
+      'Nhập ngày sinh của bạn',
+      name: 'dob_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nhập công việc của bạn`
+  String get work_hint {
+    return Intl.message(
+      'Nhập công việc của bạn',
+      name: 'work_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Quên mật khẩu?`
   String get forgot_password {
     return Intl.message(
@@ -1005,6 +1025,16 @@ class S {
     return Intl.message(
       'Danh hiệu',
       name: 'profile_info_achievement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tên hiển thị`
+  String get update_profile_name_displayed {
+    return Intl.message(
+      'Tên hiển thị',
+      name: 'update_profile_name_displayed',
       desc: '',
       args: [],
     );
