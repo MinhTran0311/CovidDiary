@@ -6,6 +6,7 @@ import 'package:src/commons/preference/covid_diary_preferences.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/onBoarding/boarding.dart';
 import 'package:src/core/onBoarding/login_method_page.dart';
+import 'package:src/core/HealthDiary/symptom_detail.dart';
 
 class SplashPage extends StatefulWidget {
   @override

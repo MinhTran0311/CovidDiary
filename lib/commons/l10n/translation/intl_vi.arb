@@ -6,6 +6,7 @@
   "confirm_ok": "Đồng ý",
   "test": "Kiểm tra",
   "hello": "Xin chào",
+  "select": "Chọn",
 
   "text_field_error_empty_input": "Vui lòng điền thông tin.",
   "text_field_error_invalid_email": "Email không hợp lệ. Vui lòng thử lại.",
@@ -76,7 +77,7 @@
   "dashboard_place_track_button": "Hôm nay bạn có đi đâu không ? Ghi nhớ lại ngay!",
   "dashboard_more_place": "Và 12 nơi khác ...",
 
-  
+
   "on_boarding1": "Hãy luôn đeo khẩu trang ngay khi ra khỏi nhà, đến những nơi công cộng, tập trung đông người.",
   "on_boarding2": "Chỉ ra khỏi nhà khi thật sự cần thiết, luôn ghi chú hành trình di chuyển của bản thân.",
   "on_boarding3": "Rửa tay là phương pháp hữu hiệu để ngăn ngừa không chỉ Covid-19 mà còn với các bệnh lý hô hấp khác ",
@@ -95,7 +96,62 @@
   "disease_info_table_deaths": "Tử vong",
 
   "personal_achievement_app_bar_title": "Danh hiệu",
+  "report_title": "Tâm tư với nhật ký",
+  "symptom_name_1": "Ho",
+  "symptom_name_2": "Sốt",
+  "symptom_name_3": "Khó thở",
+  "symptom_name_4": "Nôn /\nbuồn nôn",
+  "symptom_name_5": "Đau đầu",
+  "symptom_name_6": "Đau họng",
+  "symptom_name_7": "Nổi ban\nngoài da",
+  "symptom_name_8": "Tiêu chảy",
 
+  "symptom_severity_1": " nhẹ",
+  "symptom_severity_2": " vừa",
+  "symptom_severity_3": " nặng",
+
+  "symptom_info_1_1": "Thi thoảng, bạn bị ho một cái.\nCó thể nó không đủ để coi như là bị bệnh, nhưng nó có làm phiền bạn một chút ít.",
+  "symptom_info_1_2": "Bạn cảm giác như bạn bị cảm.\nBạn ho đủ nhiều để khiến bạn khó chịu, và khả năng cao nếu bạn không mắc Covid thì bạn cũng bị cảm hay gì đó.",
+  "symptom_info_1_3": "Bạn ho thường xuyên.\nThường xuyên đến nỗi bạn bắt đầu thấy mệt.\nCó lẽ đến mức này, bạn rất nên đi khám bệnh.",
+  "symptom_info_2_1": "Bạn bị sốt 37-38 độ C.\nSốt có thể khiến bạn mệt một chút, nhưng không gì quá nặng.",
+  "symptom_info_2_2": "Bạn bị sốt 38-39 độ C.\nĐợt sốt này khiến bạn quá mệt để làm việc gì nặng, và bạn nên nghỉ bệnh hôm nay.",
+  "symptom_info_2_3": "Bạn bị sốt 39+ độ C.\nBạn bị sốt nặng, và nên uống thuốc hạ sốt để giữ thân nhiệt thấp.",
+  "symptom_info_3_1": "Bạn bị tức ngực, nghẹt mũi, hay khó thở nói chung.\nBạn phải thở mạnh hơn bình thường, và nó có thể khó chịu một chút, nhưng chưa ảnh hưởng lớn đến khả năng hô hấp.",
+  "symptom_info_3_2": "Bạn bị khó thở.\nThi thoảng bạn phải thở dốc vì thiếu oxy.",
+  "symptom_info_3_3": "Bạn bị khó thở nặng.\nBạn đã ngất ít nhất 1 lần trong ngày vì thiếu oxy.\nNếu bạn chưa đến bệnh viện thì bạn nên đến đó đi.",
+  "symptom_info_4_1": "Nhiều lúc trong ngày, bạn thấy muốn ói.",
+  "symptom_info_4_2": "Bạn đã ói 1 lần trong ngày.",
+  "symptom_info_4_3": "Bạn đã ói nhiều lần trong ngày.\nBạn nên ăn uống đầy đủ để đảm bảo dinh dưỡng.\nCó khi bạn nên đi khám",
+  "symptom_info_5_1": "Bạn cảm thấy nhức đầu.\nChuyện bình thường nếu hôm nay bạn làm việc quá sức.",
+  "symptom_info_5_2": "Bạn cảm thấy chóng mặt.\nCó thể bạn sẽ ngã xuống bất cứ lúc nào.",
+  "symptom_info_5_3": "Bạn cảm thấy đau đầu.\nCó thể nó đau nhói, có thể nó đau giai giẳng, nhưng nó dường như sẽ không bớt đi sớm nếu bạn không đi khám.",
+  "symptom_info_6_1": "Bạn cảm thấy khô họng.\nNhớ uống đủ nước nha bạn.",
+  "symptom_info_6_2": "Bạn cảm thấy ngứa họng.\nBạn có thể muốn ho. Khi đó, nhớ che miệng hoặc ho vào khuỷu tay, và rửa tay thường xuyên.",
+  "symptom_info_6_3": "Bạn cảm thấy đau họng.\nBạn có thể bị khàn tiếng.\nCó lẽ bạn nên đi khám.",
+  "symptom_info_7_1": "",
+  "symptom_info_7_2": "",
+  "symptom_info_7_3": "",
+  "symptom_info_8_1": "",
+  "symptom_info_8_2": "",
+  "symptom_info_8_3": "",
+
+  "health_report_response_positive": "Mình rất vui\nkhi bạn tâm tư với mình!",
+  "health_report_response_negative": "Cố lên bạn ơi,\ndịch bệnh sẽ qua mau thôi!",
+
+  "health_report_emotion_greeting": "Hôm nay bạn thấy thế nào?",
+
+  "health_report_emotion_1": "Vui vẻ",
+  "health_report_emotion_2": "Hài lòng",
+  "health_report_emotion_3": "Thoải mái",
+  "health_report_emotion_4": "Phấn khởi",
+  "health_report_emotion_5": "Mệt mỏi",
+  "health_report_emotion_6": "Buồn",
+  "health_report_emotion_7": "Chán nản",
+  "health_report_emotion_8": "Bực bội",
+
+  "symptom_report_greeting": "Dạo này bạn có bị gì không?",
+  "symptom_report_response_positive": "Chúc bạn một ngày vui vẻ",
+  "symptom_report_response_negative": "Nếu bạn không thấy khoẻ,\ncó lẽ bạn nên ở nhà hôm nay.",
 
   "score_board_app_bar_title": "Bảng xếp hạng",
   "score_board_today": "Hôm nay",
@@ -107,5 +163,14 @@
   "profile_info_phone": "Điện thoại",
   "profile_info_work": "Công việc",
   "profile_info_social": "Mạng xã hội",
-  "profile_info_achievement": "Danh hiệu"
+  "profile_info_achievement": "Danh hiệu",
+  "setting_title": "Tuỳ chọn",
+  "setting_language": "Ngôn ngữ",
+  "setting_sound": "Âm thanh",
+  "setting_light_dark_theme": "Chủ đề tối",
+  "setting_other": "Tuỳ chọn khác",
+
+  "setting_achievement": "Hiển thị chúc mừng với achievement",
+  "setting_notification" : "Nhắc nhở với notification",
+  "setting_remember_user": "Ghi nhớ username và password"
 }

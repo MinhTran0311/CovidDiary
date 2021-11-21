@@ -16,6 +16,10 @@ class BorderButton extends StatelessWidget {
 
   final Widget? child;
 
+  final EdgeInsets? margin;
+
+  final EdgeInsets? padding;
+
   const BorderButton(
       {Key? key,
       this.isAccent = false,
@@ -23,6 +27,8 @@ class BorderButton extends StatelessWidget {
       this.height,
       this.buttonText,
       this.child,
+      this.margin,
+      this.padding,
       required this.onPressed})
       : assert((buttonText != null && child == null) ||
             (buttonText == null && child != null)),
@@ -31,8 +37,10 @@ class BorderButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: this.height ?? 48.h,
-      width: this.width ?? 128.w,
+      height: this.height,
+      width: this.width,
+      margin: margin,
+      padding: padding,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
