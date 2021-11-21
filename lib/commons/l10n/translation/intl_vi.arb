@@ -22,6 +22,8 @@
   "password_hint": "Nhập mật khẩu của bạn",
   "issue_hint": "Nhập sự cố gặp phải",
   "email_hint": "Nhập email của bạn",
+  "dob_hint": "Nhập ngày sinh của bạn",
+  "work_hint": "Nhập công việc của bạn",
   "forgot_password": "Quên mật khẩu?",
   "sign_in_button": "Đăng nhập tài khoản",
   "sign_in": "Đăng nhập",
@@ -179,5 +181,6 @@
 
   "setting_achievement": "Hiển thị chúc mừng với achievement",
   "setting_notification" : "Nhắc nhở với notification",
-  "setting_remember_user": "Ghi nhớ username và password"
+  "setting_remember_user": "Ghi nhớ username và password",
+  "update_profile_name_displayed": "Tên hiển thị"
 }
