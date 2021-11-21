@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/l10n/l10n.dart';
 import 'package:src/commons/preference/covid_diary_preferences.dart';
+import 'package:src/commons/provider/locale_provider.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:expandable/expandable.dart';
 import 'package:src/widgets/app_bar.dart';
@@ -21,6 +23,9 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingState extends State<Settings> {
+  _SettingState() {
+    provider = Provider.of<LocaleProvider>(context, listen: false);
+  }
   static String iconDown = "assets/svg/icon/down_arrow.svg";
 
   static String iconUp = "assets/svg/icon/up_arrow.svg";
@@ -44,13 +49,20 @@ class _SettingState extends State<Settings> {
   String get title => S.current.setting_title;
 
   int get locale => L10n.all.indexOf(Localizations.localeOf(context));
-  set locale(int value) => S.load(L10n.all[value]).then((_) => setState(() {}));
+  set locale(int value) {
+    provider.setLocale(Locale("vi"));
+  }
+
+  late LocaleProvider provider;
 
   double sound = 0.5; // TODO: put in Preference.
 
   bool get darkMode => CovidDiaryPreferences.getValue<bool>("isDarkTheme");
   set darkMode(bool value) => setState(() {
         CovidDiaryPreferences.setValue("isDarkTheme", value);
+
+        Provider.of<ThemeManager>(context, listen: false).themeData =
+            ThemeManager.darkTheme;
       });
 
   bool get achievementOn =>

@@ -164,11 +164,11 @@ class HealthHistoryItem extends StatelessWidget {
             child: Container(
               child: Image.asset(
                 isSick ? iconVirus : iconList[emotion],
-                width: 64.r,
-                height: 64.r,
+                width: 64.h,
+                height: 64.h,
                 fit: BoxFit.fill,
               ),
-              padding: EdgeInsets.all(8.r),
+              padding: EdgeInsets.all(8.h),
             ),
           ),
           Expanded(
@@ -189,13 +189,13 @@ class HealthHistoryItem extends StatelessWidget {
           Center(
             child: isSick
                 ? BorderButton(
-                    width: 54.r,
-                    height: 54.r,
-                    margin: EdgeInsets.all(8.r),
+                    width: 48.h,
+                    height: 48.h,
+                    margin: EdgeInsets.all(8.h),
                     child: SvgPicture.asset(
                       iconDown,
-                      width: 32.r,
-                      height: 32.r,
+                      width: 32.h,
+                      height: 32.h,
                       fit: BoxFit.fill,
                     ),
                     onPressed: () {}, // TODO

@@ -6,6 +6,7 @@
   "confirm_ok":"OK",
   "test":"Test",
   "hello": "Hello",
+  "select": "Select",
 
   "text_field_error_empty_input": "This field cannot be empty.",
   "text_field_error_invalid_email": "Email is not valid. Please try again.",
@@ -92,7 +93,7 @@
   "disease_info_table_healed": "Heals",
   "disease_info_table_deaths": "Deaths",
   
-  "health_report_title": "Dear diary",
+  "report_title": "Dear diary",
   "symptom_name_1": "Coughing",
   "symptom_name_2": "Fever",
   "symptom_name_3": "Shortness\nof breath",

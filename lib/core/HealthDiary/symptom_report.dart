@@ -30,7 +30,9 @@ class SymptomReport extends StatefulWidget {
 class _SymptomReportState extends State<SymptomReport> {
   static String closeSvg = "assets/svg/icon/close-r.svg";
 
-  String get title => S.current.health_report_title;
+  String get title => S.current.report_title;
+
+  String get topQuestion => S.current.symptom_report_greeting;
 
   static List<String> iconList = [
     "assets/svg/icon/cough_ps.svg",
@@ -67,7 +69,7 @@ class _SymptomReportState extends State<SymptomReport> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Center(
-                child: topQuestion(context),
+                child: buildTopQuestion(context),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -129,8 +131,8 @@ class _SymptomReportState extends State<SymptomReport> {
                   padding: EdgeInsets.all(8),
                   child: SvgPicture.asset(
                     iconList[i],
-                    width: 64.r,
-                    height: 64.r,
+                    width: 64.h,
+                    height: 64.h,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -161,12 +163,12 @@ class _SymptomReportState extends State<SymptomReport> {
     return items;
   }
 
-  Widget topQuestion(BuildContext context) {
+  Widget buildTopQuestion(BuildContext context) {
     return Center(
       child: Container(
         height: 64.h,
         child: Text(
-          S.current.symptom_report_greeting,
+          topQuestion,
           style: Theme.of(context)
               .textTheme
               .headline4!
@@ -248,8 +250,8 @@ class _SymptomReportState extends State<SymptomReport> {
                       alignment: Alignment.topRight,
                       child: SvgPicture.asset(
                         closeSvg,
-                        height: 24.r,
-                        width: 24.r,
+                        height: 24.h,
+                        width: 24.h,
                         color: isPositive
                             ? getCustomColor().secondary
                             : getCustomColor().primary,

@@ -36,7 +36,7 @@ class _SymptomDetailState extends State<SymptomDetail> {
 
   int get symptom => widget.symptom;
 
-  String get title => S.current.health_report_title;
+  String get title => S.current.report_title;
 
   static List<String> iconList = [
     "assets/svg/icon/cough_ws.svg",

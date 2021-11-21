@@ -15,7 +15,7 @@ import 'package:src/commons/navigators/navigator.dart';
 
 class EmotionReport extends StatelessWidget {
   EmotionReport({Key? key}) : super(key: key);
-  String get title => S.current.health_report_title;
+  String get title => S.current.report_title;
 
   static const String closeSvg = "assets/svg/icon/close-r.svg";
 
@@ -157,8 +157,8 @@ class EmotionReport extends StatelessWidget {
                       alignment: Alignment.topRight,
                       child: SvgPicture.asset(
                         closeSvg,
-                        height: 24.r,
-                        width: 24.r,
+                        height: 24.h,
+                        width: 24.h,
                         color: isPositive
                             ? getCustomColor().secondary
                             : getCustomColor().primary,
@@ -198,8 +198,8 @@ class EmotionReport extends StatelessWidget {
                   padding: EdgeInsets.all(8),
                   child: Image.asset(
                     iconList[i],
-                    width: 64.r,
-                    height: 64.r,
+                    width: 64.h,
+                    height: 64.h,
                     fit: BoxFit.fill,
                   ),
                 ),
