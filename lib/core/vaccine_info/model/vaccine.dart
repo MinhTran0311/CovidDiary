@@ -1,24 +1,26 @@
 class Vaccine {
-  String? name;
-  List<Country>? country;
-  int? effec;
-  int? numberOfCountries;
-  int? doses;
-  int? price;
-  String? detail;
+  String name;
+  List<Country> country;
+  int effect;
+  int numberOfCountries;
+  int doses;
+  int price;
+  String detail;
+
   Vaccine(
-      {this.name,
-      this.country,
-      this.effec,
-      this.numberOfCountries,
-      this.doses,
-      this.price,
-      this.detail});
+      {required this.name,
+      required this.country,
+      required this.effect,
+      required this.numberOfCountries,
+      required this.doses,
+      required this.price,
+      required this.detail});
 }
 
 class Country {
   String? name;
   String? imgUrl;
+
   Country({this.name, this.imgUrl});
 }
 
@@ -39,7 +41,7 @@ List<Vaccine> vaccines = [
   Vaccine(
       name: "Astra Zeneca",
       country: [UK, Sweden],
-      effec: 70,
+      effect: 70,
       numberOfCountries: 174,
       doses: 2,
       price: 4,
@@ -48,7 +50,7 @@ List<Vaccine> vaccines = [
   Vaccine(
       name: "Pfizer & BioNtech",
       country: [US, Germany],
-      effec: 95,
+      effect: 95,
       numberOfCountries: 102,
       doses: 2,
       price: 20,
@@ -57,7 +59,7 @@ List<Vaccine> vaccines = [
   Vaccine(
       name: "Sinovac",
       country: [China],
-      effec: 50,
+      effect: 50,
       numberOfCountries: 34,
       doses: 2,
       price: 30,
@@ -66,7 +68,7 @@ List<Vaccine> vaccines = [
   Vaccine(
       name: "Moderna",
       country: [US],
-      effec: 94,
+      effect: 94,
       numberOfCountries: 52,
       doses: 2,
       price: 37,
@@ -75,7 +77,7 @@ List<Vaccine> vaccines = [
   Vaccine(
       name: "Spunik V",
       country: [Russia],
-      effec: 92,
+      effect: 92,
       numberOfCountries: 47,
       doses: 2,
       price: 10,

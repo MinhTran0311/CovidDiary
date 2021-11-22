@@ -4,14 +4,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
-import 'package:src/core/profile/model/info_model.dart';
-import 'package:src/core/profile/view/edit_profitle.dart';
 import 'package:src/core/vaccine_info/model/vaccine.dart';
+import 'package:src/core/vaccine_info/view/vaccine_detail.dart';
 import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/widgets/input_field/text_form_field.dart';
 import 'package:src/widgets/panel.dart';
-import 'package:src/widgets/round_avatar.dart';
 
 class VaccineBoard extends StatefulWidget {
   const VaccineBoard({Key? key}) : super(key: key);
@@ -94,7 +92,7 @@ class _VaccineBoardState extends State<VaccineBoard> {
       _displayed_vaccines_List = new List<Vaccine>.from(vaccines);
     } else {
       _displayed_vaccines_List.forEach((vaccine) {
-        if (!vaccine.name!.toLowerCase().contains(text.toLowerCase()))
+        if (!vaccine.name.toLowerCase().contains(text.toLowerCase()))
           _displayed_vaccines_List.remove(vaccine);
       });
     }
@@ -108,6 +106,11 @@ class _VaccineBoardState extends State<VaccineBoard> {
       itemCount: _displayed_vaccines_List.length,
       itemBuilder: (context, index) {
         return InkWell(
+          onTap: () {
+            navigateTo(
+                VaccineDetailPage(vaccine: _displayed_vaccines_List[index]),
+                context);
+          },
           child: Container(
             margin: EdgeInsets.symmetric(vertical: 8.h),
             child: PanelLight(
@@ -134,7 +137,7 @@ class _VaccineBoardState extends State<VaccineBoard> {
                         ),
                         Wrap(
                           children: renderFlag(context,
-                              _displayed_vaccines_List[index].country!),
+                              _displayed_vaccines_List[index].country),
                         )
                       ],
                     ),

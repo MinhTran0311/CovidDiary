@@ -184,5 +184,11 @@
   "update_profile_connect_account": "Connect Account",
 
   "vaccine_info_title": "Vaccine Information",
-  "vaccine_info_search_place_holder": "Enter the name of vaccine"
+  "vaccine_info_search_place_holder": "Enter the name of vaccine",
+  "vaccine_info_made_in": "Produced by",
+  "vaccine_info_effect": "Effect",
+  "vaccine_info_nation_used": "Number of nation using",
+  "vaccine_info_dose": "Dose",
+  "vaccine_info_price": "Price",
+  "vaccine_info_detail": "Detail information"
 }

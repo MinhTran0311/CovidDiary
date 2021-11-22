@@ -186,5 +186,12 @@
   "update_profile_connect_account": "Liên kết tài khoản",
 
   "vaccine_info_title": "Thông tin vắc xin",
-  "vaccine_info_search_place_holder": "Nhập tên vắc xin"
+  "vaccine_info_search_place_holder": "Nhập tên vắc xin",
+  "vaccine_info_made_in": "Quốc gia sản xuất",
+  "vaccine_info_effect": "Hiệu quả",
+  "vaccine_info_nation_used": "Số quốc gia sử dụng",
+  "vaccine_info_dose": "Số liều",
+  "vaccine_info_price": "Giá thành",
+  "vaccine_info_detail": "Thông tin chi tiết"
+
 }
