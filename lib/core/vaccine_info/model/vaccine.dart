@@ -83,4 +83,14 @@ List<Vaccine> vaccines = [
       price: 10,
       detail:
           "Sputnik V (tiếng Nga: Спутник V) là loại vắc-xin COVID-19 được phát triển bởi Viện Nghiên cứu Dịch tễ học và Vi sinh vật học Gamaleya. Sputnik V sử dụng vector là một loài virus adeno ở người và đã được Bộ Y tế Nga đăng ký với tên gọi Gam-COVID-Vac (tiếng Nga: Гам-КОВИД-Вак, chuyển tự Gam-KOVID-Vak) vào ngày 11 tháng 8 năm 2020.[2][3] Gam-COVID-Vac được cấp phép phân phối tại Nga dựa trên kết quả thử nghiệm sơ bộ Giai đoạn I-II được xuất bản vào ngày 4 tháng 9 năm 2020.[4] Việc cấp phép vắc-xin Gam-COVID-Vac quá nhanh vào đầu tháng 8 đã nhận nhiều chỉ trích từ truyền thông và gây ra tranh cãi trong cộng đồng khoa học khi nhiều người cho rằng độ an toàn và hiệu quả của vắc-xin chưa được kiểm chứng rõ ràng.[2][3][5][6][7] Vào ngày 2 tháng 2 năm 2021, các phân tích được xuất bản trên tạp chí The Lancet cho thấy vắc-xin có hiệu quả 91,6% và không gây ra tác dụng phụ nào bất thường.[8] Tiến trình phân phối khẩn cấp trên diện rộng vắc-xin Sputnik V bắt đầu vào tháng 12 năm 2020 tại nhiều quốc gia, trong đó có Nga, Argentina, Belarus, Hungary, Serbia và Các Tiểu vương quốc Ả Rập Thống nhất. Tính đến tháng 3 năm 2021, 45 quốc gia đã cấp phép sử dụng khẩn cấp vắc-xin Sputnik V,[9] đồng thời hơn một tỷ liều vắc-xin đã được đặt mua để phân phối trên toàn cầu.[10]. Việt Nam cũng mới sản xuất thành công lô vắc-xin Sputnik V đầu tiên từ bán thành phẩm, công nghệ do Nga chuyển giao[11]"),
+  Vaccine(
+    name: "Janssen",
+    country: [US, Belgium],
+    effect: 66,
+    numberOfCountries: 27,
+    doses: 1,
+    price: 10,
+    detail:
+        "Vắc xin Janssen COVID-19 hoặc vắc xin Johnson & Johnson COVID-19 là vắc-xin COVID-19 được công ty Janssen Vaccines ở Leiden, Hà Lan,[19] và công ty mẹ Janssen Pharmaceuticals của Bỉ phát triển.[20] Công ty mẹ Janssen Pharmaceuticals là công ty con của công ty Mỹ Johnson & Johnson.[21][22] Đây là loại vắc-xin vector virus dựa trên virus Adeno ở người đã được sửa đổi để chứa gen tạo ra protein gai bề mặt của virus SARS-CoV-2 gây ra COVID-19.[3] Hệ thống miễn dịch của cơ thể phản ứng với protein gai này để tạo ra kháng thể.[23] Vắc xin này chỉ cần một liều và không cần bảo quản đông lạnh.[24][25] Các thử nghiệm lâm sàng cho vắc xin này đã được bắt đầu vào tháng 6 năm 2020, với giai đoạn thử nghiệm III áp dụng trên khoảng 43.000 người. Vào ngày 29 tháng 1 năm 2021, Janssen thông báo rằng 28 ngày sau khi tiêm chủng hoàn thành, vắc xin này có hiệu quả 66% trong chế độ một liều dùng trong việc ngăn ngừa COVID-19 có triệu chứng, với hiệu quả 85% trong việc ngăn ngừa biến chứng COVID-19 nghiêm trọng,[26][27][28] và hiệu quả 100% trong việc ngăn ngừa nhập viện hoặc tử vong do bệnh này gây ra.[1]",
+  ),
 ];

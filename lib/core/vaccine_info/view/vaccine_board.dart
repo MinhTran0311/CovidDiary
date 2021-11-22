@@ -62,7 +62,9 @@ class _VaccineBoardState extends State<VaccineBoard> {
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         _buildSearchBar(context),
         SizedBox(height: 10.h),
-        _buildVaccineList(context),
+        _displayed_vaccines_List.length > 0
+            ? _buildVaccineList(context)
+            : _buildBlankList(context),
         SizedBox(height: 10.h),
         //_buildAchievement(context)
       ]),
@@ -105,54 +107,77 @@ class _VaccineBoardState extends State<VaccineBoard> {
       physics: NeverScrollableScrollPhysics(),
       itemCount: _displayed_vaccines_List.length,
       itemBuilder: (context, index) {
-        return InkWell(
-          onTap: () {
-            navigateTo(
-                VaccineDetailPage(vaccine: _displayed_vaccines_List[index]),
-                context);
-          },
-          child: Container(
-            margin: EdgeInsets.symmetric(vertical: 8.h),
-            child: PanelLight(
-              height: 104.h,
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 9,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text(
-                          _displayed_vaccines_List[index].name.toString(),
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5!
-                              .copyWith(
-                                  fontWeight: FontWeight.w700,
-                                  color: getCustomColor().black),
-                        ),
-                        SizedBox(
-                          height: 5.h,
-                        ),
-                        Wrap(
-                          children: renderFlag(context,
-                              _displayed_vaccines_List[index].country),
-                        )
-                      ],
-                    ),
+        return Container(
+          height: 104.h,
+          margin: EdgeInsets.symmetric(vertical: 8.h),
+          padding: EdgeInsets.symmetric(horizontal: 8.w),
+          decoration: BoxDecoration(
+              color: getCustomColor().white,
+              borderRadius: BorderRadius.circular(8)),
+          child: InkWell(
+            splashColor: getCustomColor().gray,
+            splashFactory: InkSplash.splashFactory,
+            onTap: () {
+              navigateTo(
+                  VaccineDetailPage(vaccine: _displayed_vaccines_List[index]),
+                  context);
+            },
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 9,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        _displayed_vaccines_List[index].name.toString(),
+                        style: Theme.of(context).textTheme.headline5!.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: getCustomColor().black),
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      Wrap(
+                        children: renderFlag(
+                            context, _displayed_vaccines_List[index].country!),
+                      )
+                    ],
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: SvgPicture.asset('assets/svg/icon/rightArrow.svg',
-                        width: 30.w, height: 30.h),
-                  )
-                ],
-              ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: SvgPicture.asset('assets/svg/icon/rightArrow.svg',
+                      width: 30.w, height: 30.h),
+                )
+              ],
             ),
           ),
         );
       },
+    );
+  }
+
+  Widget _buildBlankList(BuildContext context) {
+    return Container(
+      height: 104.h,
+      margin: EdgeInsets.symmetric(vertical: 8.h),
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      decoration: BoxDecoration(
+          color: getCustomColor().white,
+          borderRadius: BorderRadius.circular(8)),
+      child: InkWell(
+          splashColor: getCustomColor().gray,
+          splashFactory: InkSplash.splashFactory,
+          onTap: () {},
+          child: Center(
+            child: Text(
+              S.current.vaccine_info_cant_find_info,
+              style: Theme.of(context).textTheme.headline5!.copyWith(
+                  fontWeight: FontWeight.w700, color: getCustomColor().black),
+            ),
+          )),
     );
   }
 
