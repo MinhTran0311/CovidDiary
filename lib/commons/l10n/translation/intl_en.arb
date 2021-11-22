@@ -181,5 +181,8 @@
   "setting_achievement": "Congratulate for achievements",
   "setting_notification" : "Remind me with notification",
   "update_profile_name_displayed": "Name displayed",
-  "update_profile_connect_account": "Connect Account"
+  "update_profile_connect_account": "Connect Account",
+
+  "vaccine_info_title": "Vaccine Information",
+  "vaccine_info_search_place_holder": "Enter the name of vaccine"
 }

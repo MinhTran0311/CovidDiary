@@ -183,5 +183,8 @@
   "setting_notification" : "Nhắc nhở với notification",
   "setting_remember_user": "Ghi nhớ username và password",
   "update_profile_name_displayed": "Tên hiển thị",
-  "update_profile_connect_account": "Liên kết tài khoản"
+  "update_profile_connect_account": "Liên kết tài khoản",
+
+  "vaccine_info_title": "Thông tin vắc xin",
+  "vaccine_info_search_place_holder": "Nhập tên vắc xin"
 }

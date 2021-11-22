@@ -55,6 +55,7 @@ flutter:
     - assets/logo/
     - assets/gif/
     - assets/image/
+    - assets/image/flags/
   fonts:
     - family: Roboto Condensed
       fonts:
