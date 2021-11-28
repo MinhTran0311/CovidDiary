@@ -9,14 +9,17 @@ class PlaceTrackItemWidget extends StatelessWidget {
     Key? key,
     required this.place,
     required this.timeVisit,
+    this.onPress,
   }) : super(key: key);
 
   final String place;
   final int timeVisit;
+  final void Function()? onPress;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      child: Container(
         height: 46.h,
         child: Container(
             child: Row(mainAxisSize: MainAxisSize.min, children: [
@@ -34,7 +37,10 @@ class PlaceTrackItemWidget extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(16.r),
             ),
-            color: getCustomColor().panelDark));
+            color: getCustomColor().panelDark),
+      ),
+      onTap: onPress,
+    );
   }
 
   Widget _visitTimeTag(BuildContext context, int timeVisit) {
