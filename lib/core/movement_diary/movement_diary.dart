@@ -13,6 +13,7 @@ import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:expandable/expandable.dart';
 import 'package:src/core/dashboard/widget/place_track_item_widget.dart';
+import 'package:src/core/movement_diary/widget/map_token.dart';
 import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/button/border_button.dart';
 import 'package:src/widgets/button/fill_button.dart';
@@ -25,39 +26,12 @@ class MovementReport extends StatefulWidget {
   _MovementReportState createState() => _MovementReportState();
 }
 
-class Location {
-  Location(
-    String? visitPlace,
-    this.visitTimes,
-    this.coordX,
-    this.coordY,
-  ) {
-    if (visitPlace == null)
-      this.visitPlace = defaultLocationName(coordX, coordY);
-    else
-      this.visitPlace = visitPlace;
-  }
-
-  static String defaultLocationName(double coordX, double coordY) {
-    return coordX.toStringAsFixed(2) + ", " + coordY.toStringAsFixed(2);
-  }
-
-  String getDefaultLocationName() {
-    return coordX.toStringAsFixed(2) + ", " + coordY.toStringAsFixed(2);
-  }
-
-  late String visitPlace;
-  final int visitTimes;
-  final double coordX;
-  final double coordY;
-}
-
 class _MovementReportState extends State<MovementReport> {
   String title = S.current.report_title;
 
   static String mapPicture = "assets/image/HCM_map.png";
-  static String iconPin = "assets/svg/icon/heart.svg";
-  static String iconSearch = "assets/svg/icon/vietnam.svg";
+  static String iconPin = "assets/svg/icon/location.svg";
+  static String iconSearch = "assets/svg/icon/search.svg";
 
   static const double maxScale = 8;
   static const double minScale = 2;
@@ -75,13 +49,13 @@ class _MovementReportState extends State<MovementReport> {
   String confirmButtonStr = "Xác nhận";
 
   List<Location> visitPlaces = [
-    Location("Nhà Simmy", 21, -123, 12),
-    Location("Net IMBA", 18, 234, -46),
-    Location("Kho", 17, -92, 102),
-    Location("Chợ gần nhà", 15, -293, -392),
-    Location("Bách hóa xanh", 5, 499, 122),
-    Location("Ngân hàng", 2, 39, -222),
-    Location("Công ty", 1, 12, -11)
+    Location("Nhà Simmy", 21, -123, 12, DateTime.now()),
+    Location("Net IMBA", 18, 234, -46, DateTime.now()),
+    Location("Kho", 17, -92, 102, DateTime.now()),
+    Location("Chợ gần nhà", 15, -293, -392, DateTime.now()),
+    Location("Bách hóa xanh", 5, 499, 122, DateTime.now()),
+    Location("Ngân hàng", 2, 39, -222, DateTime.now()),
+    Location("Công ty", 1, 12, -11, DateTime.now()),
   ];
 
   String? searchQuery;
@@ -171,19 +145,34 @@ class _MovementReportState extends State<MovementReport> {
         width: 16.h,
         height: 16.h,
         fit: BoxFit.fill,
+        color: getCustomColor().secondary,
       ),
     );
   }
 
   Widget map() {
+    List<Widget> mapComponent = [
+      Image.asset(
+        mapPicture,
+        fit: BoxFit.contain,
+      ),
+    ];
+    /*
+    for (int i = 0; i < visitPlaces.length; i++)
+      mapComponent.add(MapToken(
+        location: visitPlaces[i],
+      ));
+
+    if (currentLocation != null)
+      mapComponent.add(MapToken(
+        location: currentLocation!,
+        color: getCustomColor().secondary,
+      ));
+    // */
     return Stack(
+      alignment: Alignment.center,
       fit: StackFit.expand,
-      children: [
-        Image.asset(
-          mapPicture,
-          fit: BoxFit.contain,
-        ),
-      ],
+      children: mapComponent,
     );
   }
 
@@ -228,6 +217,7 @@ class _MovementReportState extends State<MovementReport> {
                       width: 32.h,
                       height: 32.h,
                       fit: BoxFit.fill,
+                      color: getCustomColor().secondary,
                     ),
                     onTap: onSearch,
                   ),
@@ -434,6 +424,7 @@ class _MovementReportState extends State<MovementReport> {
       1,
       photoController.position.dx,
       photoController.position.dy,
+      DateTime.now(),
     );
     for (int i = 0; i < visitPlaces.length; i++)
       if (thisLocation.coordX == visitPlaces[i].coordX &&
