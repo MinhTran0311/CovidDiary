@@ -17,7 +17,7 @@ class TabNavigator extends StatelessWidget {
     if (tabItem == "HomeScreen")
       child = DashboardPage();
     else if (tabItem == "InfoScreen")
-      child = VaccineBoard();
+      child = DiseaseInfoPage();
     else if (tabItem == "ProfileScreen") child = Profile();
     return Navigator(
       key: navigatorKey,

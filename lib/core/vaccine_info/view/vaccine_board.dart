@@ -122,11 +122,10 @@ class _VaccineBoardState extends State<VaccineBoard> {
                   VaccineDetailPage(vaccine: _displayed_vaccines_List[index]),
                   context);
             },
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 9,
-                  child: Column(
+            child: Row(children: [
+              Expanded(
+                flex: 9,
+                child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -141,18 +140,16 @@ class _VaccineBoardState extends State<VaccineBoard> {
                       ),
                       Wrap(
                         children: renderFlag(
-                            context, _displayed_vaccines_List[index].country!),
+                            context, _displayed_vaccines_List[index].country),
                       )
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: SvgPicture.asset('assets/svg/icon/rightArrow.svg',
-                      width: 30.w, height: 30.h),
-                )
-              ],
-            ),
+                    ]),
+              ),
+              Expanded(
+                flex: 1,
+                child: SvgPicture.asset('assets/svg/icon/rightArrow.svg',
+                    width: 30.w, height: 30.h),
+              )
+            ]),
           ),
         );
       },
