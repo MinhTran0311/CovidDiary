@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
+import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/dashboard/widget/panel_header_widget.dart';
 import 'package:src/core/dashboard/widget/place_track_item_widget.dart';
+import 'package:src/core/movement_diary/visit_history_place.dart';
 import 'package:src/widgets/button/border_button.dart';
 import 'package:src/widgets/panel.dart';
 
@@ -13,7 +15,13 @@ class DBPlaceTrackWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PanelLight(
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        DBPanelHeader(title: S.current.dashboard_place_track),
+        DBPanelHeader(
+          title: S.current.dashboard_place_track,
+          onPressed: () {
+            navigateTo(VisitHistoryPage(), context);
+          },
+        ),
+        SizedBox(height: 8.h),
         Row(children: [
           Text(S.current.dashboard_place_you_visited,
               style: Theme.of(context).textTheme.caption!.copyWith(
