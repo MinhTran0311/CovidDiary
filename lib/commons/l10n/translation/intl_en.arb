@@ -192,5 +192,6 @@
   "vaccine_info_nation_used": "Number of nation using",
   "vaccine_info_dose": "Dose",
   "vaccine_info_price": "Price",
-  "vaccine_info_detail": "Detail information"
+  "vaccine_info_detail": "Detail information",
+  "vaccine_info_cant_find_info": "Can't find vaccine information"
 }
