@@ -41,7 +41,14 @@ class _ProfileState extends State<Profile> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          IconButton(
+            onPressed: () async {
+              //await navigateTo(Setting(), context);
+            },
+            icon: SvgPicture.asset('assets/svg/icon/setting.svg',
+                color: getCustomColor().white),
+          ),
           IconButton(
             onPressed: () async {
               await navigateTo(EditProfile(), context);
@@ -50,12 +57,14 @@ class _ProfileState extends State<Profile> {
             icon: SvgPicture.asset('assets/svg/icon/pencil.svg'),
           ),
         ]),
-        SizedBox(height: 70.h),
+        SizedBox(height: 72.h),
         _buildInfo(context),
-        SizedBox(height: 10.h),
+        SizedBox(height: 12.h),
         _buildSocialNetwork(context),
-        SizedBox(height: 10.h),
-        _buildAchievement(context)
+        SizedBox(height: 12.h),
+        _buildAchievement(context),
+        SizedBox(height: 12.h),
+
       ]),
     );
   }
