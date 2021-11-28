@@ -40,7 +40,7 @@ class TextFormFieldWidget extends FormField<String> {
     String? Function(String?)? validator,
     this.onTap,
   })  : assert(readOnly == true || (readOnly == false && onTap == null)),
-        assert(hasLabel == true && label != null),
+        assert(hasLabel != true || label != null),
         super(
             validator: validator,
             initialValue: initialValue ?? controller?.text,

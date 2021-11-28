@@ -35,8 +35,8 @@ class FillButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: this.height ?? 48.h,
-      width: this.width ?? 128.w,
+      height: this.height,
+      width: this.width,
       decoration: BoxDecoration(
         color: buttonColor != null
             ? buttonColor
@@ -62,6 +62,7 @@ class FillButton extends StatelessWidget {
                       .textTheme
                       .button!
                       .copyWith(color: lightColor.background),
+                  textAlign: TextAlign.center,
                 ),
           onPressed: onPressed),
     );

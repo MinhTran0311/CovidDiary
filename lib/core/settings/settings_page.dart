@@ -23,9 +23,6 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingState extends State<Settings> {
-  _SettingState() {
-    provider = Provider.of<LocaleProvider>(context, listen: false);
-  }
   static String iconDown = "assets/svg/icon/down_arrow.svg";
 
   static String iconUp = "assets/svg/icon/up_arrow.svg";
@@ -53,7 +50,8 @@ class _SettingState extends State<Settings> {
     provider.setLocale(Locale("vi"));
   }
 
-  late LocaleProvider provider;
+  LocaleProvider get provider =>
+      Provider.of<LocaleProvider>(context, listen: false);
 
   double sound = 0.5; // TODO: put in Preference.
 
