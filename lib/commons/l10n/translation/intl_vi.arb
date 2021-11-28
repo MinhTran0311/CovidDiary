@@ -22,6 +22,8 @@
   "password_hint": "Nhập mật khẩu của bạn",
   "issue_hint": "Nhập sự cố gặp phải",
   "email_hint": "Nhập email của bạn",
+  "dob_hint": "Nhập ngày sinh của bạn",
+  "work_hint": "Nhập công việc của bạn",
   "forgot_password": "Quên mật khẩu?",
   "sign_in_button": "Đăng nhập tài khoản",
   "sign_in": "Đăng nhập",
@@ -158,6 +160,13 @@
   "score_board_week": "Tuần",
   "score_board_month": "Tháng",
 
+  "health_declaration_app_bar_title": "Ghi chú sức khỏe (nghiêm túc)",
+  "health_declaration_first_question": "Trong ngày hôm nay, bạn có thấy xuất hiện dấu hiệu nào sau đây không ?",
+  "health_declaration_second_question": "Trong hôm nay, bạn có tiếp xúc với: ",
+  "health_declaration_covid_patient": "Người bệnh, người nghi ngờ mắc Covid-19",
+  "health_declaration_nations": "Người từ quốc gia có ca bệnh Covid-19",
+  "health_declaration_symptom": "Người có biểu hiện (sốt, ho, khó thở, ...)",
+  "health_declaration_do_again": "Làm lại",
   "profile_info_title": "Thông tin cá nhân",
   "profile_info_dob": "Ngày sinh",
   "profile_info_phone": "Điện thoại",
@@ -170,7 +179,23 @@
   "setting_light_dark_theme": "Chủ đề tối",
   "setting_other": "Tuỳ chọn khác",
 
+  "visit_history": "Danh sách điểm đến",
+
   "setting_achievement": "Hiển thị chúc mừng với achievement",
   "setting_notification" : "Nhắc nhở với notification",
-  "setting_remember_user": "Ghi nhớ username và password"
+  "setting_remember_user": "Ghi nhớ username và password",
+  "update_profile_name_displayed": "Tên hiển thị",
+  "update_profile_connect_account": "Liên kết tài khoản",
+
+  "vaccine_info_title": "Thông tin vắc xin",
+  "vaccine_info_search_place_holder": "Nhập tên vắc xin",
+  "vaccine_info_made_in": "Quốc gia sản xuất",
+  "vaccine_info_effect": "Hiệu quả",
+  "vaccine_info_nation_used": "Số quốc gia sử dụng",
+  "vaccine_info_dose": "Số liều",
+  "vaccine_info_price": "Giá thành",
+  "vaccine_info_detail": "Thông tin chi tiết",
+  "vaccine_info_cant_find_info": "Không tìm thấy thông tin vắc xin"
+
+
 }

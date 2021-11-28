@@ -18,14 +18,14 @@ class GhostButton extends StatelessWidget {
 
   const GhostButton(
       {Key? key,
-        this.isAccent = false,
-        this.width,
-        this.height,
-        this.buttonText,
-        this.child,
-        required this.onPressed})
+      this.isAccent = false,
+      this.width,
+      this.height,
+      this.buttonText,
+      this.child,
+      required this.onPressed})
       : assert((buttonText != null && child == null) ||
-      (buttonText == null && child != null)),
+            (buttonText == null && child != null)),
         super(key: key);
 
   @override
@@ -46,17 +46,30 @@ class GhostButton extends StatelessWidget {
         color: getCustomColor().background,
         borderRadius: BorderRadius.circular(8.r),
       ),
-      child: TextButton(
-          child: (this.buttonText == null && this.child != null)
-              ? this.child!
-              : Text(
-            buttonText!,
-            style: Theme.of(context).textTheme.button!.copyWith(
-                color: !this.isAccent
-                    ? getCustomColor().primary
-                    : getCustomColor().secondary),
+      child: Material(
+        borderRadius: BorderRadius.circular(8.r),
+        color: getCustomColor().background,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(8.r),
+          onTap: onPressed,
+          splashColor: getCustomColor().gray,
+          splashFactory: InkSplash.splashFactory,
+          child: Center(
+            child: Container(
+              padding: EdgeInsets.all(8.0),
+              child: (this.buttonText == null && this.child != null)
+                  ? this.child!
+                  : Text(
+                      buttonText!,
+                      style: Theme.of(context).textTheme.button!.copyWith(
+                          color: !this.isAccent
+                              ? getCustomColor().primary
+                              : getCustomColor().secondary),
+                    ),
+            ),
           ),
-          onPressed: onPressed),
+        ),
+      ),
     );
   }
 }

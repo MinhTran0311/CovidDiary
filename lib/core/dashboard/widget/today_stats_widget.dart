@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
+import 'package:src/core/base/app_navigator.dart';
 import 'package:src/core/dashboard/widget/panel_header_widget.dart';
 import 'package:src/widgets/panel.dart';
 
@@ -17,7 +18,15 @@ class DBTodayStatsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PanelLight(
       child: Column(children: [
-        DBPanelHeader(title: S.current.dashboard_today_stats),
+        DBPanelHeader(
+          title: S.current.dashboard_today_stats,
+          onPressed: () {
+            // print("123");
+            // Scaffold.of(context).setState(() {
+            //   AppNavigator.changeTab(1);
+            // });
+          },
+        ),
         _tableTodayStats(context),
       ]),
     );

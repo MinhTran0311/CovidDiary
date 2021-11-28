@@ -22,6 +22,8 @@
   "password_hint": "Enter your password",
   "issue_hint": "Enter your issue",
   "email_hint": "Enter your email",
+  "dob_hint": "Enter your day of birth",
+  "work_hint": "Enter your work",
   "forgot_password": "Forgot password?",
   "sign_in_button": "Sign in",
   "sign_in": "Sign in",
@@ -156,6 +158,14 @@
   "score_board_week": "Tuần",
   "score_board_month": "Tháng",
 
+  "health_declaration_app_bar_title": "Health declaration",
+  "health_declaration_first_question": "Are you experiencing any of the following symptoms today?",
+  "health_declaration_second_question": "Today, do you have contact with: ",
+  "health_declaration_covid_patient": "Patients, people suspected of having Covid-19",
+  "health_declaration_nations": "People from countries with Covid-19 cases",
+  "health_declaration_symptom": "People with symptoms (fever, cough, ...)",
+  "health_declaration_do_again": "Do it again",
+
   "profile_info_title": "User information",
   "profile_info_dob": "Day of birth",
   "profile_info_phone": "Phone",
@@ -168,7 +178,20 @@
   "setting_light_dark_theme": "Dark mode",
   "setting_other": "Others",
 
+  "visit_history": "Visit history",
+
   "setting_achievement": "Congratulate for achievements",
   "setting_notification" : "Remind me with notification",
-  "setting_remember_user": "Remember username and password"
+  "update_profile_name_displayed": "Name displayed",
+  "update_profile_connect_account": "Connect Account",
+
+  "vaccine_info_title": "Vaccine Information",
+  "vaccine_info_search_place_holder": "Enter the name of vaccine",
+  "vaccine_info_made_in": "Produced by",
+  "vaccine_info_effect": "Effect",
+  "vaccine_info_nation_used": "Number of nation using",
+  "vaccine_info_dose": "Dose",
+  "vaccine_info_price": "Price",
+  "vaccine_info_detail": "Detail information",
+  "vaccine_info_cant_find_info": "Can't find vaccine information"
 }

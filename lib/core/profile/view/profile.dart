@@ -5,6 +5,7 @@ import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/profile/model/info_model.dart';
+import 'package:src/core/profile/view/edit_profitle.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/widgets/panel.dart';
 import 'package:src/widgets/round_avatar.dart';
@@ -17,13 +18,9 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  late Info userInfo;
-
   @override
   void initState() {
     super.initState();
-    userInfo = new Info("Siêu nhân cuồng phong", "15/3/2000",
-        "sieunhancuongphong@gmail.com", 0123456789, "Product Owner");
   }
 
   @override
@@ -31,8 +28,8 @@ class _ProfileState extends State<Profile> {
     return GradientBackGround(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
-          child: SafeArea(
+        body: SafeArea(
+          child: SingleChildScrollView(
             child: _buildBody(context),
           ),
         ),
@@ -44,19 +41,19 @@ class _ProfileState extends State<Profile> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            IconButton(
-              onPressed: () => {},
-              icon: SvgPicture.asset('assets/svg/icon/pencil.svg'),
-            ),
-          ],
-        ),
+        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          IconButton(
+            onPressed: () async {
+              await navigateTo(EditProfile(), context);
+              this.setState(() {});
+            },
+            icon: SvgPicture.asset('assets/svg/icon/pencil.svg'),
+          ),
+        ]),
         SizedBox(height: 70.h),
         _buildInfo(context),
         SizedBox(height: 10.h),
-        _builSocialNetwork(context),
+        _buildSocialNetwork(context),
         SizedBox(height: 10.h),
         _buildAchievement(context)
       ]),
@@ -65,55 +62,58 @@ class _ProfileState extends State<Profile> {
 
   Widget _buildInfo(BuildContext context) {
     return Container(
-        child: Stack(children: [
-      PanelLight(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 64.h),
-            Text(
-              userInfo.name.toUpperCase(),
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline5!.copyWith(
-                  fontWeight: FontWeight.w600, color: getCustomColor().primary),
-            ),
-            SizedBox(height: 10.h),
-            //Info Tittle
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  S.current.profile_info_title,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: getCustomColor().secondary),
-                ),
-              ],
-            ),
-            //Info Detail
-            _buildInfoDetail(S.current.profile_info_dob, "15/03/2020"),
-            SizedBox(height: 8.h),
-            _buildInfoDetail(
-                S.current.email_input, "Sieu nhan cuong @ gmail.com"),
-            SizedBox(height: 8.h),
-            _buildInfoDetail(S.current.profile_info_phone, "0935723862"),
-            SizedBox(height: 8.h),
-            _buildInfoDetail(S.current.profile_info_work, "Product Owner"),
-          ],
-        ),
-      ),
-      Center(
-        child: Container(
-          transform: Matrix4.translationValues(0.0, -64.h, 0.0),
-          child: RoundAvatar(
-            path: "assets/svg/avatar.png",
-            width: 128.w,
-            height: 128.h,
+      child: Stack(children: [
+        PanelLight(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 64.h),
+              Text(
+                Info.instance.name.toUpperCase(),
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headline5!.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: getCustomColor().primary),
+              ),
+              SizedBox(height: 10.h),
+              //Info Tittle
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    S.current.profile_info_title,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: getCustomColor().secondary),
+                  ),
+                ],
+              ),
+              //Info Detail
+              _buildInfoDetail(S.current.profile_info_dob, "15/03/2020"),
+              SizedBox(height: 8.h),
+              _buildInfoDetail(
+                  S.current.email_input, "Sieu nhan cuong @ gmail.com"),
+              SizedBox(height: 8.h),
+              _buildInfoDetail(S.current.profile_info_phone, "0935723862"),
+              SizedBox(height: 8.h),
+              _buildInfoDetail(S.current.profile_info_work, "Product Owner"),
+            ],
           ),
         ),
-      ),
-    ]));
+        Center(
+          child: Container(
+            transform: Matrix4.translationValues(0.0, -64.h, 0.0),
+            child: RoundAvatar(
+              path: Info.instance.avatar,
+              isPicked: Info.instance.isPicked,
+              width: 128.w,
+              height: 128.h,
+            ),
+          ),
+        ),
+      ]),
+    );
   }
 
   Widget _buildInfoDetail(String title, String value) {
@@ -140,48 +140,43 @@ class _ProfileState extends State<Profile> {
     ]);
   }
 
-  Widget _builSocialNetwork(BuildContext context) {
+  Widget _buildSocialNetwork(BuildContext context) {
     return PanelLight(
-        child: Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              S.current.profile_info_social,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline6!.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: getCustomColor().secondary),
-            ),
-          ],
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text(
+          S.current.profile_info_social,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.headline6!.copyWith(
+              fontWeight: FontWeight.w600, color: getCustomColor().secondary),
         ),
         SizedBox(
           height: 10.h,
         ),
-        Row(
-          // This next line does the trick.
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            Image(
-              image: AssetImage('assets/image/facebook.png'),
-            ),
-            Image(
-              image: AssetImage('assets/image/tinder.png'),
-            ),
-            Image(
-              image: AssetImage('assets/image/telegram.png'),
-            ),
-            Image(
-              image: AssetImage('assets/image/linkedin.png'),
-            ),
-            Image(
-              image: AssetImage('assets/image/twitter.png'),
-            ),
-          ],
-        )
-      ],
-    ));
+        _renderSocialNetwork(context),
+      ]),
+    );
+  }
+
+  Widget _renderSocialNetwork(BuildContext context) {
+    return Container(
+      height: 40,
+      child: ListView.builder(
+          shrinkWrap: true,
+          // physics: NeverScrollableScrollPhysics(),
+          // scrollDirection: Axis.horizontal,
+          scrollDirection: Axis.horizontal,
+          itemCount: Info.instance.socialArr.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Image(
+                image: AssetImage(Info.instance.socialArr[index].imgUrl),
+                width: 30,
+                height: 30,
+              ),
+            );
+          }),
+    );
   }
 
   Widget _buildAchievement(BuildContext context) {
@@ -238,22 +233,14 @@ class _ProfileState extends State<Profile> {
                           textAlign: TextAlign.center,
                           style: Theme.of(context)
                               .textTheme
-                              .headline6!
+                              .headline5!
                               .copyWith(
                                   fontWeight: FontWeight.w600,
                                   color: getCustomColor().secondary),
                         ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Image.asset(
-                          url,
-                          width: 130.w,
-                          height: 130.h,
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
+                        SizedBox(height: 10.h),
+                        Image.asset(url, width: 130.w, height: 130.h),
+                        SizedBox(height: 20.h),
                         Text(
                           name.toUpperCase(),
                           textAlign: TextAlign.center,
@@ -271,11 +258,7 @@ class _ProfileState extends State<Profile> {
               ),
             ));
       },
-      child: Image.asset(
-        url,
-        width: 64.w,
-        height: 64.h,
-      ),
+      child: Image.asset(url, width: 64.w, height: 64.h),
     );
   }
 }

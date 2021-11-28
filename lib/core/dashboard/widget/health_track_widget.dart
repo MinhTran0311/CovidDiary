@@ -7,7 +7,6 @@ import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/dashboard/widget/panel_header_widget.dart';
 import 'package:src/widgets/button/border_button.dart';
-import 'package:src/widgets/button/fill_button.dart';
 import 'package:src/widgets/panel.dart';
 
 class DBHealthTrackWidget extends StatelessWidget {
@@ -44,7 +43,6 @@ class DBHealthTrackWidget extends StatelessWidget {
         SizedBox(height: 8.h),
         BorderButton(
           isAccent: true,
-          width: 342.w,
           onPressed: () => {},
           buttonText: S.current.dashboard_heath_track_button,
         ),

@@ -36,6 +36,7 @@ class TextFormFieldWidget extends FormField<String> {
     this.suffix,
     this.prefix,
     this.hasLabel = true,
+    this.textInputAction = TextInputAction.next,
     String? Function(String?)? validator,
     this.onTap,
   })  : assert(readOnly == true || (readOnly == false && onTap == null)),
@@ -45,6 +46,7 @@ class TextFormFieldWidget extends FormField<String> {
             initialValue: initialValue ?? controller?.text,
             builder: (FormFieldState<String> state) {
               if (controller != null) {
+                state.setValue(controller.text);
                 controller.addListener(() {
                   if (controller.text != state.value) {
                     state.didChange(controller.text);
@@ -86,6 +88,7 @@ class TextFormFieldWidget extends FormField<String> {
               bool hasError =
                   (errorText != null && errorText.isNotEmpty) || state.hasError;
               final child = TextFormField(
+                textInputAction: textInputAction,
                 autofocus: autoFocus!,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 readOnly: readOnly,
@@ -127,17 +130,16 @@ class TextFormFieldWidget extends FormField<String> {
                       ? _buildLabel(context, label!, labelStyle)
                       : Container(),
                   Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 1,
-                            blurRadius: 8.r,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 8.r,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ]),
                       child: child),
+                  SizedBox(height: 4.h),
                   if (hasError)
                     _getErrorText(
                         context, errorText ?? state.errorText as String)
@@ -171,6 +173,7 @@ class TextFormFieldWidget extends FormField<String> {
   final VoidCallback? onTap;
   final VoidCallback? onIconTap;
   final bool? hasLabel;
+  final TextInputAction? textInputAction;
 
   static TextFormFieldWidget phoneNumber(
       BuildContext context, TextEditingController controller,
@@ -188,12 +191,13 @@ class TextFormFieldWidget extends FormField<String> {
         Validators.phoneNumber()
       ]),
       prefix: Padding(
-        padding: EdgeInsets.only(left: 16.w, top: 14.5.h, bottom: 16.h),
-        child: Text(
-          '+84 ',
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
-              fontWeight: FontWeight.w500, color: getCustomColor().black),
-        ),
+        padding: EdgeInsets.only(left: 16.w, bottom: 2.h),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text('(+84) ',
+              style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  fontWeight: FontWeight.w400, color: getCustomColor().black),
+              textAlign: TextAlign.center),
+        ]),
       ),
     );
   }
@@ -235,6 +239,7 @@ class TextFormFieldWidget extends FormField<String> {
     return ValueListenableBuilder<bool>(
       valueListenable: _obscureText,
       builder: (_, value, __) => TextFormFieldWidget(
+        textInputAction: TextInputAction.done,
         context: context,
         label: label ?? S.current.confirm_password_input,
         hintText: hint ?? S.current.confirm_password_hint,
