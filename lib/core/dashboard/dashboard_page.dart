@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/core/dashboard/widget/avatar_widget.dart';
 import 'package:src/core/dashboard/widget/health_track_widget.dart';
 import 'package:src/core/dashboard/widget/place_track_widget.dart';
+import 'package:src/core/dashboard/widget/ranking_widget.dart';
 import 'package:src/core/dashboard/widget/today_stats_widget.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 
@@ -25,6 +26,8 @@ class DashboardPage extends StatelessWidget {
                 DBAvatarWidget(),
                 SizedBox(height: 8.h),
                 DBTodayStatsWidget(),
+                SizedBox(height: 8.h),
+                DBRankingWidget(),
                 SizedBox(height: 8.h),
                 DBHealthTrackWidget(),
                 SizedBox(height: 8.h),
