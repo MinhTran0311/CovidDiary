@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -45,8 +46,14 @@ void showCustomDialog(BuildContext context, Widget child) {
   );
 }
 
-Future navigateTo(Widget screen, BuildContext context) {
-  return Navigator.push(context, _getPlatformRoute(context, screen));
+enum EffNavigation { NONE, COTAINER, SHARED, FADE_THROUGH, FADE }
+
+Future navigateTo(Widget screen, BuildContext context,
+    [EffNavigation effect = EffNavigation.NONE]) {
+  switch (effect) {
+    default:
+      return Navigator.push(context, _getPlatformRoute(context, screen));
+  }
 }
 
 Future popUp(BuildContext context, Widget screen) {
