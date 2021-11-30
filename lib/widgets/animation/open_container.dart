@@ -3,8 +3,7 @@ import 'dart:ffi';
 import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 
-OpenContainer animatedContainer(Widget closed, Widget open,
-    [int animTime = 1]) {
+OpenContainer openContainer(Widget closed, Widget open, [int animTime = 1]) {
   return OpenContainer(
       transitionDuration: Duration(seconds: animTime),
       transitionType: ContainerTransitionType.fade,
