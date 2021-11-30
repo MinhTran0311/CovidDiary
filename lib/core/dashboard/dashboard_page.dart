@@ -18,20 +18,22 @@ class DashboardPage extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: SafeArea(
         child: SingleChildScrollView(
-            child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-                child: Column(
-                  children: [
-                    DBAvatarWidget(),
-                    SizedBox(height: 8.h),
-                    DBTodayStatsWidget(),
-                    SizedBox(height: 8.h),
-                    DBHealthTrackWidget(),
-                    SizedBox(height: 8.h),
-                    DBPlaceTrackWidget(),
-                    SizedBox(height: 32.h),
-                  ],
-                ))),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+            child: Column(
+              children: [
+                DBAvatarWidget(),
+                SizedBox(height: 8.h),
+                DBTodayStatsWidget(),
+                SizedBox(height: 8.h),
+                DBHealthTrackWidget(),
+                SizedBox(height: 8.h),
+                DBPlaceTrackWidget(),
+                SizedBox(height: 12.h),
+              ],
+            ),
+          ),
+        ),
       ),
     ));
   }

@@ -17,17 +17,15 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   List<String> pageKeys = [
     "HomeScreen",
-    "MapsScreen",
-    "NewPost",
+    "InfoScreen",
     "ProfileScreen",
-    "ManagementScreen"
+    "DeclarationScreen"
   ];
   Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
     "HomeScreen": GlobalKey<NavigatorState>(),
-    "MapsScreen": GlobalKey<NavigatorState>(),
-    "ManagementScreen": GlobalKey<NavigatorState>(),
+    "InfoScreen": GlobalKey<NavigatorState>(),
     "ProfileScreen": GlobalKey<NavigatorState>(),
-    "NewPost": GlobalKey<NavigatorState>(),
+    "DeclarationScreen": GlobalKey<NavigatorState>()
   };
 
   @override
@@ -50,7 +48,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
             !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
         if (isFirstRouteInCurrentTab) {
           if (_currentPage != "HomeScreen") {
-            _selectTab("HomeScreen", 1);
+            _selectTab("HomeScreen", 0);
             return false;
           }
         }
@@ -59,13 +57,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
       child: Scaffold(
         body: Stack(children: [
           _buildOffstageNavigator("HomeScreen"),
-          _buildOffstageNavigator("MapsScreen"),
-          _buildOffstageNavigator("NewPost"),
+          _buildOffstageNavigator("InfoScreen"),
           _buildOffstageNavigator("ProfileScreen"),
-          _buildOffstageNavigator("ManagementScreen"),
+          _buildOffstageNavigator("DeclarationScreen"),
         ]),
-
-        ///TO DO - Trung Vo
         bottomNavigationBar: CustomCurvedNavigationBar(
           height: 60,
           backgroundColor: Colors.white,
@@ -76,10 +71,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 size: 32, color: getCustomColor().background),
             Icon(Icons.location_pin,
                 size: 32, color: getCustomColor().background),
-            Icon(Icons.add_circle_rounded,
+            Icon(Icons.account_circle,
                 size: 32, color: getCustomColor().background),
-            Icon(Icons.person, size: 32, color: getCustomColor().background),
-            Icon(Icons.admin_panel_settings_rounded,
+            Icon(Icons.book,
                 size: 32, color: getCustomColor().background),
           ],
           index: _currentIndex,
@@ -103,9 +97,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
     } else {
       setState(() {
         _currentPage = pageKeys[index];
-        // _selectedIndex = index;
+        _currentIndex = index;
       });
     }
+    setState(() {});
+
   }
 
   Widget _buildOffstageNavigator(String tabItem) {

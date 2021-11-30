@@ -17,7 +17,12 @@ class DBTodayStatsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PanelLight(
       child: Column(children: [
-        DBPanelHeader(title: S.current.dashboard_today_stats),
+        DBPanelHeader(
+          title: S.current.dashboard_today_stats,
+          onPressed: () {
+
+          },
+        ),
         _tableTodayStats(context),
       ]),
     );

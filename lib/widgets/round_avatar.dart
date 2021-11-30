@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/commons/themes/theme.dart';
@@ -9,6 +11,7 @@ class RoundAvatar extends StatelessWidget {
   final Color? borderColor;
   final Color? backgroundColor;
   final double? borderWidth;
+  final bool isPicked;
 
   const RoundAvatar(
       {Key? key,
@@ -17,7 +20,8 @@ class RoundAvatar extends StatelessWidget {
       this.height,
       this.borderColor,
       this.backgroundColor,
-      this.borderWidth})
+      this.borderWidth,
+      this.isPicked = false})
       : super(key: key);
 
   @override
@@ -31,7 +35,11 @@ class RoundAvatar extends StatelessWidget {
             color: borderColor ?? getCustomColor().white,
             width: borderWidth ?? 3.w),
         color: backgroundColor ?? getCustomColor().white,
-        image: DecorationImage(image: AssetImage(path), fit: BoxFit.contain),
+        image: DecorationImage(
+            image: !isPicked
+                ? AssetImage(path)
+                : FileImage(File(path)) as ImageProvider,
+            fit: BoxFit.contain),
       ),
     );
   }

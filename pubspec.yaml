@@ -44,6 +44,7 @@ dependencies:
   animations: ^2.0.2
   simple_animations: ^4.0.1
   jiffy: ^4.1.0
+  expandable: ^5.0.1
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +57,7 @@ flutter:
     - assets/logo/
     - assets/gif/
     - assets/image/
+    - assets/image/flags/
   fonts:
     - family: Roboto Condensed
       fonts:

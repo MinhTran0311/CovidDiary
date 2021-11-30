@@ -6,6 +6,7 @@ import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/panel.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:src/widgets/round_avatar.dart';
+import 'package:src/commons/l10n/generated/l10n.dart';
 
 class PersonalAchievement extends StatefulWidget {
   const PersonalAchievement({Key? key}) : super(key: key);
@@ -51,7 +52,9 @@ class _PersonalAchievementState extends State<PersonalAchievement> {
             getCustomColor().white
           ])),
       child: Scaffold(
-          appBar: AppBarCustom(title: "Huy hiệu", context: context),
+          appBar: AppBarCustom(
+              title: S.current.personal_achievement_app_bar_title,
+              context: context),
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
             child: SingleChildScrollView(
@@ -71,26 +74,25 @@ class _PersonalAchievementState extends State<PersonalAchievement> {
                                     color: getCustomColor().black),
                             textAlign: TextAlign.center),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            SvgPicture.asset(
-                              'assets/svg/icon/heart.svg',
-                              color: getCustomColor().secondary,
-                              width: 28.w,
-                              height: 28.h,
-                            ),
-                            SizedBox(width: 5),
-                            Text(
-                              data.totalPoint.toString(),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline4!
-                                  .copyWith(
-                                      fontWeight: FontWeight.w700,
-                                      color: getCustomColor().secondary),
-                            ),
-                          ]
-                        )
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              SvgPicture.asset(
+                                'assets/svg/icon/heart.svg',
+                                color: getCustomColor().secondary,
+                                width: 28.w,
+                                height: 28.h,
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                data.totalPoint.toString(),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline4!
+                                    .copyWith(
+                                        fontWeight: FontWeight.w700,
+                                        color: getCustomColor().secondary),
+                              ),
+                            ])
                       ]),
                     ),
                     SizedBox(height: 16.h),

@@ -5,10 +5,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
+import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/disease_info/widget/disease_detail_info.dart';
 import 'package:src/core/disease_info/widget/statistical_table.dart';
 import 'package:src/core/disease_info/widget/tab_bar.dart';
+import 'package:src/core/vaccine_info/view/vaccine_board.dart';
 import 'package:src/widgets/app_bar.dart';
 
 class DiseaseInfoPage extends StatefulWidget {
@@ -33,6 +35,12 @@ class _DiseaseInfoPageState extends State<DiseaseInfoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarCustom(
+        hasReturnIcon: false,
+        action: [
+          IconButton(
+              onPressed: () => navigateTo(VaccineBoard(), context),
+              icon: Icon(Icons.one_k_rounded))
+        ],
         title: S.current.disease_info_app_bar_title,
         context: context,
       ),
