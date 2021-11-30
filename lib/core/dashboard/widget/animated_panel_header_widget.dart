@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/theme.dart';
+import 'package:src/widgets/animation/animated_container.dart';
 
 class DBAnimatedPanelHeader extends StatelessWidget {
   String? _title;
@@ -42,15 +43,7 @@ class DBAnimatedPanelHeader extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6!.copyWith(
                     fontWeight: FontWeight.w600,
                     color: getCustomColor().primary)),
-            OpenContainer(
-                transitionDuration: Duration(seconds: 1),
-                transitionType: ContainerTransitionType.fade,
-                closedBuilder: (context, action) {
-                  return _detail(context);
-                },
-                openBuilder: (context, action) {
-                  return _openWidget!;
-                }),
+            animatedContainer(_detail(context), _openWidget!),
           ],
         )
       ]),
