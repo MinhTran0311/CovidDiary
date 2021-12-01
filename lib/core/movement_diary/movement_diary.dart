@@ -7,15 +7,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
-import 'package:src/commons/l10n/l10n.dart';
-import 'package:src/commons/preference/covid_diary_preferences.dart';
+import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
-import 'package:expandable/expandable.dart';
 import 'package:src/core/dashboard/widget/place_track_item_widget.dart';
 import 'package:src/core/movement_diary/widget/map_token.dart';
 import 'package:src/widgets/app_bar.dart';
-import 'package:src/widgets/button/border_button.dart';
 import 'package:src/widgets/button/fill_button.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/widgets/input_field/text_form_field.dart';
@@ -35,6 +32,7 @@ class _MovementReportState extends State<MovementReport> {
 
   static const double maxScale = 8;
   static const double minScale = 2;
+  static const double initialZoom = 2;
 
   String topQuestion = "Bạn mới đi đâu về thế?";
   String searchHint = "Nhập để tìm kiếm";
@@ -75,7 +73,7 @@ class _MovementReportState extends State<MovementReport> {
           children: [
             buildMap(),
             buildTopQuestion(),
-            buildCenterPin(),
+            currentLocation == null ? buildCenterPin() : Container(),
             currentLocation == null
                 ? buildBottomSearch()
                 : buildBottomConfirm(currentLocation!.visitPlace ==
@@ -113,39 +111,44 @@ class _MovementReportState extends State<MovementReport> {
   }
 
   Widget buildMap() {
+    PhotoView photo = PhotoView.customChild(
+      key: ObjectKey(photoController.scale),
+      child: Container(
+        child: map(),
+      ),
+      minScale: PhotoViewComputedScale.contained * minScale,
+      maxScale: PhotoViewComputedScale.contained * maxScale,
+      basePosition: Alignment.center,
+      initialScale: PhotoViewComputedScale.contained * initialZoom,
+      //*
+      controller: photoController,
+      backgroundDecoration: BoxDecoration(
+        color: getCustomColor().background,
+      ),
+      disableGestures: currentLocation != null,
+      enablePanAlways: false,
+      tightMode: true,
+      // */
+    );
+
     return Container(
       padding: EdgeInsets.only(top: 8.h),
-      child: ClipRect(
-        child: PhotoView.customChild(
-          child: Container(
-            child: map(),
-          ),
-          minScale: PhotoViewComputedScale.contained * minScale,
-          maxScale: PhotoViewComputedScale.contained * maxScale,
-          basePosition: Alignment.center,
-          initialScale: PhotoViewComputedScale.contained * 4,
-          controller: photoController,
-          //*
-          backgroundDecoration: BoxDecoration(
-            color: getCustomColor().background,
-          ),
-          disableGestures: currentLocation != null,
-          enablePanAlways: false,
-          tightMode: true,
-          // */
-        ),
-      ),
+      child: ClipRect(child: photo),
     );
   }
 
   Widget buildCenterPin() {
     return Center(
-      child: SvgPicture.asset(
-        iconPin,
-        width: 16.h,
-        height: 16.h,
-        fit: BoxFit.fill,
-        color: getCustomColor().secondary,
+      child: SizedOverflowBox(
+        size: Size(0, 8.h), // For some reason, we need this offset
+        alignment: Alignment.bottomCenter,
+        child: SvgPicture.asset(
+          iconPin,
+          width: 32.h,
+          height: 32.h,
+          fit: BoxFit.fill,
+          color: getCustomColor().secondary,
+        ),
       ),
     );
   }
@@ -157,16 +160,18 @@ class _MovementReportState extends State<MovementReport> {
         fit: BoxFit.contain,
       ),
     ];
-    /*
+    //*
     for (int i = 0; i < visitPlaces.length; i++)
       mapComponent.add(MapToken(
         location: visitPlaces[i],
+        zoomFactor: photoController.scale ?? initialZoom,
       ));
 
     if (currentLocation != null)
       mapComponent.add(MapToken(
         location: currentLocation!,
         color: getCustomColor().secondary,
+        zoomFactor: photoController.scale ?? initialZoom,
       ));
     // */
     return Stack(
@@ -448,6 +453,7 @@ class _MovementReportState extends State<MovementReport> {
     setState(() {
       currentLocation = null;
     });
+    popToTop(context);
     // TODO
   }
 
@@ -455,6 +461,7 @@ class _MovementReportState extends State<MovementReport> {
     setState(() {
       currentLocation = null;
     });
+    popToTop(context);
     // TODO
   }
 }

@@ -45,9 +45,9 @@ class _SettingState extends State<Settings> {
 
   String get title => S.current.setting_title;
 
-  int get locale => L10n.all.indexOf(Localizations.localeOf(context));
+  int get locale => L10n.all.indexOf(provider.locale);
   set locale(int value) {
-    provider.setLocale(Locale("vi"));
+    provider.setLocale(L10n.all[value]);
   }
 
   LocaleProvider get provider =>
@@ -59,8 +59,12 @@ class _SettingState extends State<Settings> {
   set darkMode(bool value) => setState(() {
         CovidDiaryPreferences.setValue("isDarkTheme", value);
 
-        Provider.of<ThemeManager>(context, listen: false).themeData =
-            ThemeManager.darkTheme;
+        if (value)
+          Provider.of<ThemeManager>(context, listen: false).themeData =
+              ThemeManager.darkTheme;
+        else
+          Provider.of<ThemeManager>(context, listen: false).themeData =
+              ThemeManager.lightTheme;
       });
 
   bool get achievementOn =>
@@ -292,7 +296,7 @@ class _SettingState extends State<Settings> {
           Container(
             child: Text(
               miscSettingName[id],
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.bodyText2,
             ),
             padding: EdgeInsets.all(16.r),
           ),

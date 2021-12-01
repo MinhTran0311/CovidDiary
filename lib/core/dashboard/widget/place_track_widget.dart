@@ -6,6 +6,7 @@ import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/dashboard/widget/panel_header_widget.dart';
 import 'package:src/core/dashboard/widget/place_track_item_widget.dart';
+import 'package:src/core/movement_diary/movement_diary.dart';
 import 'package:src/core/movement_diary/visit_history_place.dart';
 import 'package:src/widgets/button/border_button.dart';
 import 'package:src/widgets/panel.dart';
@@ -38,7 +39,7 @@ class DBPlaceTrackWidget extends StatelessWidget {
         SizedBox(height: 8.h),
         BorderButton(
           isAccent: true,
-          onPressed: () => {},
+          onPressed: () => {navigateTo(MovementReport(), context)},
           buttonText: S.current.dashboard_place_track_button,
         ),
       ]),
