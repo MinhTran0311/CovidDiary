@@ -89,18 +89,16 @@ class _SettingState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
-    return GradientBackGround(
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBarCustom(context: context, title: title), //app bar
-        body: Column(
-          children: [
-            languageSetting(),
-            soundSetting(),
-            darkLightThemeSetting(),
-            otherSetting(),
-          ],
-        ),
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: AppBarCustom(context: context, title: title), //app bar
+      body: Column(
+        children: [
+          languageSetting(),
+          soundSetting(),
+          darkLightThemeSetting(),
+          otherSetting(),
+        ],
       ),
     );
   }
@@ -117,7 +115,7 @@ class _SettingState extends State<Settings> {
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],
-        color: getCustomColor().background,
+        color: getCustomColor().panelDark,
         //borderRadius: BorderRadius.circular(8.r),
       ),
       child: Row(
@@ -163,7 +161,7 @@ class _SettingState extends State<Settings> {
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],
-        color: getCustomColor().background,
+        color: getCustomColor().panelDark,
         //borderRadius: BorderRadius.circular(8.r),
       ),
       child: Row(
@@ -204,7 +202,7 @@ class _SettingState extends State<Settings> {
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],
-        color: getCustomColor().background,
+        color: getCustomColor().panelDark,
         //borderRadius: BorderRadius.circular(8.r),
       ),
       child: Row(
@@ -228,7 +226,7 @@ class _SettingState extends State<Settings> {
 
   Widget otherSetting() {
     return ExpandablePanel(
-      collapsed: otherSettingHeader(),
+      collapsed: Container(child: otherSettingHeader()),
       expanded: Column(
         children: [
           otherSettingHeader(),
@@ -254,7 +252,7 @@ class _SettingState extends State<Settings> {
             offset: Offset(0, 3), // changes position of shadow
           ),
         ],
-        color: getCustomColor().background,
+        color: getCustomColor().panelDark,
         //borderRadius: BorderRadius.circular(8.r),
       ),
       child: Row(

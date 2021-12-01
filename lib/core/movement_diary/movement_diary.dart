@@ -34,17 +34,17 @@ class _MovementReportState extends State<MovementReport> {
   static const double minScale = 2;
   static const double initialZoom = 2;
 
-  String topQuestion = "Bạn mới đi đâu về thế?";
-  String searchHint = "Nhập để tìm kiếm";
+  String topQuestion = S.current.movement_report_topQuestion;
+  String searchHint = S.current.movement_report_searchHint;
 
-  String bottomQuestionNewLoc =
-      "Bạn có muốn đặt nickname\ncho vị trí này không?";
-  String bottomQuestionOldLoc = "Bạn đã chọn vị trí này?";
-  String selectedLocationStr = "Bạn đã chọn:";
-  String selectedNicknameStr = "Nickname:";
-  String cancelButtonStr = "Huỷ lưu";
-  String confirmNoNicknameButtonStr = "Không nickname";
-  String confirmButtonStr = "Xác nhận";
+  String bottomQuestionNewLoc = S.current.movement_report_bottomQuestionNewLoc;
+  String bottomQuestionOldLoc = S.current.movement_report_bottomQuestionOldLoc;
+  String selectedLocationStr = S.current.movement_report_selectedLocationStr;
+  String selectedNicknameStr = S.current.movement_report_selectedNicknameStr;
+  String cancelButtonStr = S.current.movement_report_cancelButtonStr;
+  String confirmNoNicknameButtonStr =
+      S.current.movement_report_confirmNoNicknameButtonStr;
+  String confirmButtonStr = S.current.movement_report_confirmButtonStr;
 
   List<Location> visitPlaces = [
     Location("Nhà Simmy", 21, -123, 12, DateTime.now()),

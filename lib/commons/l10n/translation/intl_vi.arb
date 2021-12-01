@@ -195,7 +195,17 @@
   "vaccine_info_dose": "Số liều",
   "vaccine_info_price": "Giá thành",
   "vaccine_info_detail": "Thông tin chi tiết",
-  "vaccine_info_cant_find_info": "Không tìm thấy thông tin vắc xin"
+  "vaccine_info_cant_find_info": "Không tìm thấy thông tin vắc xin",
 
 
+   "movement_report_topQuestion" : "Bạn mới đi đâu về thế?",
+   "movement_report_searchHint" : "Nhập để tìm kiếm",
+
+   "movement_report_bottomQuestionNewLoc" : "Bạn có muốn đặt nickname\ncho vị trí này không?",
+   "movement_report_bottomQuestionOldLoc" : "Bạn đã chọn vị trí này?",
+   "movement_report_selectedLocationStr" : "Bạn đã chọn:",
+   "movement_report_selectedNicknameStr" : "Nickname:",
+   "movement_report_cancelButtonStr" : "Huỷ lưu",
+   "movement_report_confirmNoNicknameButtonStr" : "Không nickname",
+   "movement_report_confirmButtonStr" : "Xác nhận"
 }

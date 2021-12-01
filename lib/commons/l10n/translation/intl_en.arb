@@ -193,5 +193,17 @@
   "vaccine_info_dose": "Dose",
   "vaccine_info_price": "Price",
   "vaccine_info_detail": "Detail information",
-  "vaccine_info_cant_find_info": "Can't find vaccine information"
+  "vaccine_info_cant_find_info": "Can't find vaccine information",
+
+  
+  "movement_report_topQuestion" : "Where have you been?",
+  "movement_report_searchHint" : "Type to search",
+
+  "movement_report_bottomQuestionNewLoc" : "Do you want to nickname this?",
+  "movement_report_bottomQuestionOldLoc" : "You chose this location?",
+  "movement_report_selectedLocationStr" : "Location:",
+  "movement_report_selectedNicknameStr" : "Nickname:",
+  "movement_report_cancelButtonStr" : "Cancel\nsave",
+  "movement_report_confirmNoNicknameButtonStr" : "No\nnickname",
+  "movement_report_confirmButtonStr" : "Confirm"
 }
