@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
+import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/achievement/model/achievement_model.dart';
 import 'package:src/core/achievement/view/personal_achievement.dart';
@@ -12,7 +13,6 @@ import 'package:src/widgets/panel.dart';
 import 'package:src/widgets/round_avatar.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'dart:math';
-
 
 class ScoreBoard extends StatefulWidget {
   const ScoreBoard({Key? key}) : super(key: key);
@@ -56,9 +56,9 @@ class _ScoreBoardState extends State<ScoreBoard> {
   @override
   void initState() {
     super.initState();
-  data = new PersonalData(name, avatarUrl, awardArr, 7);
-  personalData = new PersonalData(
-      "Siêu nhân cuồng phong", "assets/svg/avatar.png", awardArr, 2);
+    data = new PersonalData(name, avatarUrl, awardArr, 7);
+    personalData = new PersonalData(
+        "Siêu nhân cuồng phong", "assets/svg/avatar.png", awardArr, 2);
     var rng = new Random();
 
     listDataDay = [];
@@ -69,9 +69,10 @@ class _ScoreBoardState extends State<ScoreBoard> {
     listDataMonth.add(PersonalData("Minh Trần", avatarUrl, awardArr, 150));
 
     for (int i = 0; i < 10; i++) {
-      data = new PersonalData(name, avatarUrl, awardArr, rng.nextInt(50));
-      listDataDay.add(data);
-      listDataWeek.add(data);
+      listDataDay
+          .add(new PersonalData(name, avatarUrl, awardArr, rng.nextInt(50)));
+      listDataWeek
+          .add(new PersonalData(name, avatarUrl, awardArr, rng.nextInt(50)));
     }
   }
 
@@ -101,6 +102,35 @@ class _ScoreBoardState extends State<ScoreBoard> {
               SizedBox(height: 16.h),
               PanelLight(child: _buildScoreBoard(context)),
             ]),
+          ),
+        ),
+        SizedBox(height: 8.h),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(8.r)),
+            color: getCustomColor().panelLight,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 1,
+                blurRadius: 1,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          child: Material(
+            color: getCustomColor().panelLight,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(8.r),
+              splashColor: getCustomColor().gray,
+              splashFactory: InkSplash.splashFactory,
+              onTap: () => {navigateTo(PersonalAchievement(), context)},
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                child: _buildPersonalTile(
+                    data: personalData, isUp: true, rank: 99),
+              ),
+            ),
           ),
         ),
         SizedBox(height: 8.h),
@@ -144,11 +174,11 @@ class _ScoreBoardState extends State<ScoreBoard> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             _buildTop3(PersonalData("Trung Võ", avatarUrl, awardArr, 170), 2,
-                getCustomColor().secondary),
-            _buildTop3(PersonalData("Duy Đức", avatarUrl, awardArr, 200), 1,
                 getCustomColor().primary),
-            _buildTop3(PersonalData("Minh Trần", avatarUrl, awardArr, 150), 3,
+            _buildTop3(PersonalData("Duy Đức", avatarUrl, awardArr, 200), 1,
                 getCustomColor().secondary),
+            _buildTop3(PersonalData("Minh Trần", avatarUrl, awardArr, 150), 3,
+                CustomColors.error),
           ]),
     );
   }
@@ -180,34 +210,23 @@ class _ScoreBoardState extends State<ScoreBoard> {
           style: style.copyWith(color: getCustomColor().black),
         ),
       ),
-      Text(data.name,
-          style: style.copyWith(
-              color: top == 1
-                  ? getCustomColor().primary
-                  : getCustomColor().secondary)),
+      Text(data.name, style: style.copyWith(color: getCustomColor().black)),
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         SvgPicture.asset("assets/svg/icon/heart.svg",
-            width: 10.r,
-            height: 10.r,
-            color: top == 1
-                ? getCustomColor().primary
-                : getCustomColor().secondary),
+            width: 10.r, height: 10.r, color: getCustomColor().secondary),
         SizedBox(width: 4.w),
         Text(data.totalPoint.toString(),
-            style: style.copyWith(
-                color: top == 1
-                    ? getCustomColor().primary
-                    : getCustomColor().secondary)),
+            style: style.copyWith(color: getCustomColor().secondary)),
       ])
     ]);
   }
 
   Widget _buildScoreBoard(BuildContext context) {
-  List<PersonalData> listData = _selectedTab == SelectedTab.day
-      ? listDataDay
-      : _selectedTab == SelectedTab.week
-          ? listDataWeek
-          : listDataMonth;
+    List<PersonalData> listData = _selectedTab == SelectedTab.day
+        ? listDataDay
+        : _selectedTab == SelectedTab.week
+            ? listDataWeek
+            : listDataMonth;
     return Column(
       children: [
         ListView.builder(
@@ -219,17 +238,6 @@ class _ScoreBoardState extends State<ScoreBoard> {
                 data: listData[index], isUp: index % 2 == 0, rank: index + 4);
           },
         ),
-        Divider(
-          thickness: 2.h,
-          height: 5.h,
-          color: getCustomColor().gray,
-        ),
-        Container(
-          child: InkWell(
-            onTap: () => {navigateTo(PersonalAchievement(), context)},
-            child: _buildPersonalTile(data: personalData, isUp: true, rank: 99),
-          ),
-        )
       ],
     );
   }
