@@ -9,6 +9,7 @@ import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/widgets/panel.dart';
 import 'package:src/widgets/round_avatar.dart';
+import 'dart:math';
 
 class ScoreBoard extends StatefulWidget {
   const ScoreBoard({Key? key}) : super(key: key);
@@ -17,8 +18,14 @@ class ScoreBoard extends StatefulWidget {
   _ScoreBoardState createState() => _ScoreBoardState();
 }
 
+enum SelectedTab { day, week, month }
+
 class _ScoreBoardState extends State<ScoreBoard> {
-  late List<PersonalData> listData;
+  late List<PersonalData> listDataDay;
+  late List<PersonalData> listDataWeek;
+  late List<PersonalData> listDataMonth;
+
+  SelectedTab _selectedTab = SelectedTab.day;
   var name = "Tuan Minh";
   var avatarUrl = "assets/image/anh_ban_a.png";
   var awardArr = [
@@ -45,10 +52,19 @@ class _ScoreBoardState extends State<ScoreBoard> {
   @override
   void initState() {
     super.initState();
-    data = new PersonalData(name, avatarUrl, awardArr, 7);
-    listData = [];
+    var rng = new Random();
+
+    listDataDay = [];
+    listDataWeek = [];
+    listDataMonth = [];
+    listDataDay.add(PersonalData("Duy Đức", avatarUrl, awardArr, 200));
+    listDataWeek.add(PersonalData("Trung Võ", avatarUrl, awardArr, 170));
+    listDataMonth.add(PersonalData("Minh Trần", avatarUrl, awardArr, 150));
+
     for (int i = 0; i < 10; i++) {
-      listData.add(data);
+      data = new PersonalData(name, avatarUrl, awardArr, rng.nextInt(50));
+      listDataDay.add(data);
+      listDataWeek.add(data);
     }
   }
 
@@ -86,9 +102,30 @@ class _ScoreBoardState extends State<ScoreBoard> {
 
   Widget _buildTabBar(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      CategoryTabBar(isSelected: true, title: S.current.score_board_today),
-      CategoryTabBar(isSelected: false, title: S.current.score_board_week),
-      CategoryTabBar(isSelected: false, title: S.current.score_board_month)
+      CategoryTabBar(
+          isSelected: _selectedTab == SelectedTab.day,
+          title: S.current.score_board_today,
+          callBack: () {
+            setState(() {
+              _selectedTab = SelectedTab.day;
+            });
+          }),
+      CategoryTabBar(
+          isSelected: _selectedTab == SelectedTab.week,
+          title: S.current.score_board_week,
+          callBack: () {
+            setState(() {
+              _selectedTab = SelectedTab.week;
+            });
+          }),
+      CategoryTabBar(
+          isSelected: _selectedTab == SelectedTab.month,
+          title: S.current.score_board_month,
+          callBack: () {
+            setState(() {
+              _selectedTab = SelectedTab.month;
+            });
+          })
     ]);
   }
 
@@ -98,9 +135,12 @@ class _ScoreBoardState extends State<ScoreBoard> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            _buildTop3(data, 2, getCustomColor().secondary),
-            _buildTop3(data, 1, getCustomColor().secondary),
-            _buildTop3(data, 3, getCustomColor().secondary),
+            _buildTop3(PersonalData("Trung Võ", avatarUrl, awardArr, 170), 2,
+                getCustomColor().secondary),
+            _buildTop3(PersonalData("Duy Đức", avatarUrl, awardArr, 200), 1,
+                getCustomColor().primary),
+            _buildTop3(PersonalData("Minh Trần", avatarUrl, awardArr, 150), 3,
+                getCustomColor().secondary),
           ]),
     );
   }
@@ -132,17 +172,34 @@ class _ScoreBoardState extends State<ScoreBoard> {
           style: style.copyWith(color: getCustomColor().black),
         ),
       ),
-      Text(data.name, style: style),
+      Text(data.name,
+          style: style.copyWith(
+              color: top == 1
+                  ? getCustomColor().primary
+                  : getCustomColor().secondary)),
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         SvgPicture.asset("assets/svg/icon/heart.svg",
-            width: 10.r, height: 10.r),
+            width: 10.r,
+            height: 10.r,
+            color: top == 1
+                ? getCustomColor().primary
+                : getCustomColor().secondary),
         SizedBox(width: 4.w),
-        Text(data.totalPoint.toString(), style: style),
+        Text(data.totalPoint.toString(),
+            style: style.copyWith(
+                color: top == 1
+                    ? getCustomColor().primary
+                    : getCustomColor().secondary)),
       ])
     ]);
   }
 
   Widget _buildScoreBoard(BuildContext context) {
+    List<PersonalData> listData = _selectedTab == SelectedTab.day
+        ? listDataDay
+        : _selectedTab == SelectedTab.week
+            ? listDataWeek
+            : listDataMonth;
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,

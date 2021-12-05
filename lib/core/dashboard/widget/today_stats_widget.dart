@@ -21,9 +21,8 @@ class DBTodayStatsWidget extends StatelessWidget {
     return PanelLight(
       child: Column(children: [
         DBAnimatedPanelHeader(
-          title: S.current.dashboard_place_track,
-          openWidget: DiseaseInfoPage(),
-        ),
+            title: S.current.dashboard_place_track,
+            openWidget: DiseaseInfoPage()),
         _tableTodayStats(context),
       ]),
     );
