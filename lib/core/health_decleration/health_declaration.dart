@@ -56,24 +56,29 @@ class _HealthDeclarationState extends State<HealthDeclaration> {
         ),
         SizedBox(height: 8.h),
         Row(mainAxisSize: MainAxisSize.max, children: [
-          Expanded(child: CheckBox(text: "12312")),
+          Expanded(child: CheckBox(text: S.current.symptom_name_2)),
           SizedBox(width: 8.w),
-          Expanded(child: CheckBox(text: "123")),
+          Expanded(child: CheckBox(text: S.current.symptom_name_9)),
         ]),
         Row(mainAxisSize: MainAxisSize.max, children: [
-          Expanded(child: CheckBox(text: "12312")),
+          Expanded(child: CheckBox(text: S.current.symptom_name_1)),
           SizedBox(width: 8.w),
-          Expanded(child: CheckBox(text: "123")),
+          Expanded(child: CheckBox(text: S.current.symptom_name_6)),
         ]),
         Row(mainAxisSize: MainAxisSize.max, children: [
-          Expanded(child: CheckBox(text: "12312")),
+          Expanded(child: CheckBox(text: S.current.symptom_name_3)),
           SizedBox(width: 8.w),
-          Expanded(child: CheckBox(text: "123")),
+          Expanded(child: CheckBox(text: S.current.symptom_name_10)),
         ]),
         Row(mainAxisSize: MainAxisSize.max, children: [
-          Expanded(child: CheckBox(text: "12312", hasBottomMargin: false)),
+          Expanded(child: CheckBox(text: S.current.symptom_name_5)),
           SizedBox(width: 8.w),
-          Expanded(child: CheckBox(text: "123", hasBottomMargin: false)),
+          Expanded(child: CheckBox(text: S.current.symptom_name_11)),
+        ]),
+        Row(mainAxisSize: MainAxisSize.max, children: [
+          Expanded(child: CheckBox(text: S.current.symptom_name_12, hasBottomMargin: false)),
+          SizedBox(width: 8.w),
+          Expanded(child: CheckBox(text: S.current.symptom_name_8, hasBottomMargin: false)),
         ])
       ]),
     );
