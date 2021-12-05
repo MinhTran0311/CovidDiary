@@ -6,6 +6,7 @@ import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/profile/model/info_model.dart';
 import 'package:src/core/profile/view/edit_profitle.dart';
+import 'package:src/core/settings/settings_page.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/widgets/panel.dart';
 import 'package:src/widgets/round_avatar.dart';
@@ -41,7 +42,14 @@ class _ProfileState extends State<Profile> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          IconButton(
+            onPressed: () async {
+              navigateTo(Settings(), context);
+            },
+            icon: SvgPicture.asset('assets/svg/icon/setting.svg',
+                color: getCustomColor().white),
+          ),
           IconButton(
             onPressed: () async {
               await navigateTo(EditProfile(), context);
@@ -50,12 +58,14 @@ class _ProfileState extends State<Profile> {
             icon: SvgPicture.asset('assets/svg/icon/pencil.svg'),
           ),
         ]),
-        SizedBox(height: 70.h),
+        SizedBox(height: 72.h),
         _buildInfo(context),
-        SizedBox(height: 10.h),
+        SizedBox(height: 12.h),
         _buildSocialNetwork(context),
-        SizedBox(height: 10.h),
-        _buildAchievement(context)
+        SizedBox(height: 12.h),
+        _buildAchievement(context),
+        SizedBox(height: 12.h),
+
       ]),
     );
   }

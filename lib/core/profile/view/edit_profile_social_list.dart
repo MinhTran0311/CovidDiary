@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/profile/model/info_model.dart';
 
@@ -25,6 +26,7 @@ List<Widget> socialNetworkList(BuildContext context) {
           Info.instance.socialArr
               .removeWhere((info) => info.name == element.name);
         }
+        goBack(context);
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
@@ -32,7 +34,7 @@ List<Widget> socialNetworkList(BuildContext context) {
         decoration: BoxDecoration(
             color: checkName(element.name)
                 ? getCustomColor().primary
-                : getCustomColor().panelMedium,
+                : getCustomColor().panelDark,
             borderRadius: BorderRadius.circular(8.r)),
         width: 170.w,
         height: 50.h,

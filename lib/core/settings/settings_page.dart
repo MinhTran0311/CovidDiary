@@ -31,12 +31,14 @@ class _SettingState extends State<Settings> {
         "English",
         "Tiếng Việt",
       ];
+
   List<String> get settingName => [
         S.current.setting_language,
         S.current.setting_sound,
         S.current.setting_light_dark_theme,
         S.current.setting_other,
       ];
+
   List<String> get miscSettingName => [
         S.current.setting_achievement,
         S.current.setting_notification,
@@ -56,6 +58,7 @@ class _SettingState extends State<Settings> {
   double sound = 0.5; // TODO: put in Preference.
 
   bool get darkMode => CovidDiaryPreferences.getValue<bool>("isDarkTheme");
+
   set darkMode(bool value) => setState(() {
         CovidDiaryPreferences.setValue("isDarkTheme", value);
 
@@ -69,18 +72,21 @@ class _SettingState extends State<Settings> {
 
   bool get achievementOn =>
       CovidDiaryPreferences.getValue<bool>("achievementOn");
+
   set achievementOn(bool value) => setState(() {
         CovidDiaryPreferences.setValue("achievementOn", value);
       });
 
   bool get notificationOn =>
       CovidDiaryPreferences.getValue<bool>("notificationOn");
+
   set notificationOn(bool value) => setState(() {
         CovidDiaryPreferences.setValue("notificationOn", value);
       });
 
   bool get rememberUserOn =>
       CovidDiaryPreferences.getValue<bool>("rememberUserOn");
+
   set rememberUserOn(bool value) => setState(() {
         CovidDiaryPreferences.setValue("rememberUserOn", value);
       });
@@ -132,8 +138,12 @@ class _SettingState extends State<Settings> {
             child: DropdownButton(
               value: language[locale],
               icon: downIcon(),
-              onChanged: (String? newValue) =>
-                  locale = language.indexOf(newValue!),
+              onChanged: (String? newValue) {
+                locale = language.indexOf(newValue!);
+                setState(() {
+
+                });
+              },
               dropdownColor: getCustomColor().panelLight,
               items: language.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(

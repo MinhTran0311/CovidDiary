@@ -7,6 +7,8 @@ import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/HealthDiary/health_report.dart';
+import 'package:src/core/HealthDiary/health_history.dart';
+import 'package:src/core/dashboard/widget/animated_panel_header_widget.dart';
 import 'package:src/core/dashboard/widget/panel_header_widget.dart';
 import 'package:src/core/health_decleration/health_declaration.dart';
 import 'package:src/widgets/button/border_button.dart';
@@ -17,7 +19,10 @@ class DBHealthTrackWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PanelLight(
       child: Column(children: [
-        DBPanelHeader(title: S.current.dashboard_heath_track),
+        DBAnimatedPanelHeader(
+          title: S.current.dashboard_heath_track,
+          openWidget: HealthHistory(),
+        ),
         SizedBox(height: 8.h),
         SingleChildScrollView(
             scrollDirection: Axis.horizontal,

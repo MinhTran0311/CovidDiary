@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:src/commons/themes/theme.dart';
-import 'package:src/core/base/app_navigator.dart';
 import 'curved_navi_bar.dart';
 import 'tab_navigator.dart';
 
@@ -11,13 +10,23 @@ class HomePageScreen extends StatefulWidget {
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
-  //String _currentPage = "HomeScreen";
-  //int _currentIndex = 0;
+  String _currentPage = "HomeScreen";
+  int _currentIndex = 0;
   late PageController _pageController;
   int _selectedIndex = 0;
 
-
-
+  List<String> pageKeys = [
+    "HomeScreen",
+    "InfoScreen",
+    "ProfileScreen",
+    "DeclarationScreen"
+  ];
+  Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
+    "HomeScreen": GlobalKey<NavigatorState>(),
+    "InfoScreen": GlobalKey<NavigatorState>(),
+    "ProfileScreen": GlobalKey<NavigatorState>(),
+    "DeclarationScreen": GlobalKey<NavigatorState>()
+  };
 
   @override
   void initState() {
@@ -36,9 +45,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
     return WillPopScope(
       onWillPop: () async {
         final isFirstRouteInCurrentTab =
-            !await AppNavigator.navigatorKeys[AppNavigator.currentPage]!.currentState!.maybePop();
+            !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
         if (isFirstRouteInCurrentTab) {
-          if (AppNavigator.currentPage != "HomeScreen") {
+          if (_currentPage != "HomeScreen") {
             _selectTab("HomeScreen", 0);
             return false;
           }
@@ -50,6 +59,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
           _buildOffstageNavigator("HomeScreen"),
           _buildOffstageNavigator("InfoScreen"),
           _buildOffstageNavigator("ProfileScreen"),
+          _buildOffstageNavigator("DeclarationScreen"),
         ]),
         bottomNavigationBar: CustomCurvedNavigationBar(
           height: 60,
@@ -63,13 +73,15 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 size: 32, color: getCustomColor().background),
             Icon(Icons.account_circle,
                 size: 32, color: getCustomColor().background),
+            Icon(Icons.book,
+                size: 32, color: getCustomColor().background),
           ],
-          index: AppNavigator.currentIndex,
+          index: _currentIndex,
           onTap: (index) {
             setState(
               () {
-                _selectTab(AppNavigator.pageKeys[index], index);
-                AppNavigator.currentIndex = index;
+                _selectTab(pageKeys[index], index);
+                _currentIndex = index;
               },
             );
             //_pageController.jumpToPage(index);
@@ -80,21 +92,23 @@ class _HomePageScreenState extends State<HomePageScreen> {
   }
 
   void _selectTab(String tabItem, int index) {
-    if (tabItem == AppNavigator.currentPage) {
-      AppNavigator.navigatorKeys[tabItem]!.currentState!.popUntil((route) => route.isFirst);
+    if (tabItem == _currentPage) {
+      _navigatorKeys[tabItem]!.currentState!.popUntil((route) => route.isFirst);
     } else {
       setState(() {
-        AppNavigator.currentPage = AppNavigator.pageKeys[index];
-        AppNavigator.currentIndex = index;
+        _currentPage = pageKeys[index];
+        _currentIndex = index;
       });
     }
+    setState(() {});
+
   }
 
   Widget _buildOffstageNavigator(String tabItem) {
     return Offstage(
-      offstage: AppNavigator.currentPage != tabItem,
+      offstage: _currentPage != tabItem,
       child: TabNavigator(
-        navigatorKey: AppNavigator.navigatorKeys[tabItem]!,
+        navigatorKey: _navigatorKeys[tabItem]!,
         tabItem: tabItem,
       ),
     );

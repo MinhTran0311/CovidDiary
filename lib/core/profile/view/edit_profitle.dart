@@ -93,11 +93,11 @@ class _EditProfileState extends State<EditProfile> {
             ),
           ],
         ),
-        SizedBox(height: 70.h),
+        SizedBox(height: 72.h),
         _buildInputField(context),
-        SizedBox(height: 10.h),
+        SizedBox(height: 12.h),
         _buildSocialField(context),
-        SizedBox(height: 10.h),
+        SizedBox(height: 12.h),
       ]),
     );
   }
@@ -132,14 +132,15 @@ class _EditProfileState extends State<EditProfile> {
                 ),
                 SizedBox(height: 10.h),
                 TextFormFieldWidget(
-                  context: context,
-                  label: S.current.profile_info_dob,
-                  hintText: S.current.dob_hint,
-                  inputFormatters: [MaskTextInputFormatter(mask: '##/##/####')],
-                  controller: _dobController,
-                  validator: Validators.required(
-                      errorMessage: S.current.error_empty_input),
-                ),
+                    context: context,
+                    label: S.current.profile_info_dob,
+                    hintText: S.current.dob_hint,
+                    inputFormatters: [
+                      MaskTextInputFormatter(mask: '##/##/####')
+                    ],
+                    controller: _dobController,
+                    validator: Validators.required(
+                        errorMessage: S.current.error_empty_input)),
                 SizedBox(height: 10.h),
                 TextFormFieldWidget(
                   context: context,
@@ -153,14 +154,13 @@ class _EditProfileState extends State<EditProfile> {
                 TextFormFieldWidget.phoneNumber(context, _phoneController),
                 SizedBox(height: 10.h),
                 TextFormFieldWidget(
-                  context: context,
-                  label: S.current.profile_info_work,
-                  hintText: S.current.work_hint,
-                  controller: _workController,
-                  validator: Validators.required(
-                      errorMessage: S.current.error_empty_input),
-                  textInputAction: TextInputAction.done,
-                ),
+                    context: context,
+                    label: S.current.profile_info_work,
+                    hintText: S.current.work_hint,
+                    controller: _workController,
+                    validator: Validators.required(
+                        errorMessage: S.current.error_empty_input),
+                    textInputAction: TextInputAction.done),
                 SizedBox(height: 10.h),
               ]),
             ),
@@ -196,9 +196,8 @@ class _EditProfileState extends State<EditProfile> {
 
   Widget _buildSocialField(BuildContext context) {
     return PanelLight(
-      child: Column(
-        children: [
-          Row(
+      child: Column(children: [
+        Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -219,9 +218,7 @@ class _EditProfileState extends State<EditProfile> {
                       .toList(),
                 ),
               ),
-              SizedBox(
-                width: 32.w,
-              ),
+              SizedBox(width: 32.w),
               Container(
                 // flex: 6,
                 child: Column(
@@ -248,41 +245,32 @@ class _EditProfileState extends State<EditProfile> {
                       .toList(),
                 ),
               )
-            ],
-          ),
-          SizedBox(
-            height: 8.h,
-          ),
-          GestureDetector(
-            onTap: () {
-              _showSocialNetworkSourceActionSheet(Scaffold.of(context).context);
-            },
-            child: Container(
-              padding: new EdgeInsets.symmetric(horizontal: 20.h),
-              width: 200.w,
-              height: 50.h,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: getCustomColor().primary),
-              child: Row(
-                children: [
-                  Image.asset('assets/image/add.png'),
-                  SizedBox(
-                    width: 8.w,
-                  ),
-                  Text(
-                    S.current.update_profile_connect_account,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
-                        fontWeight: FontWeight.w400,
-                        color: getCustomColor().white),
-                  ),
-                ],
+            ]),
+        SizedBox(height: 8.h),
+        GestureDetector(
+          onTap: () {
+            _showSocialNetworkSourceActionSheet(Scaffold.of(context).context);
+          },
+          child: Container(
+            padding: new EdgeInsets.symmetric(horizontal: 20.h),
+            width: 200.w,
+            height: 50.h,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: getCustomColor().primary),
+            child: Row(children: [
+              Image.asset('assets/image/add.png'),
+              SizedBox(width: 8.w),
+              Text(
+                S.current.update_profile_connect_account,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headline6!.copyWith(
+                    fontWeight: FontWeight.w400, color: getCustomColor().white),
               ),
-            ),
-          )
-        ],
-      ),
+            ]),
+          ),
+        )
+      ]),
     );
   }
 
@@ -291,7 +279,9 @@ class _EditProfileState extends State<EditProfile> {
       barrierColor: Colors.black54,
       context: context,
       builder: (context) => Container(
-        color: getCustomColor().background,
+        decoration: BoxDecoration(
+            color: getCustomColor().background,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(16.r))),
         child: Wrap(children: [
           ListTile(
             leading: Icon(Icons.camera_alt),
@@ -326,11 +316,13 @@ class _EditProfileState extends State<EditProfile> {
 
   void _showSocialNetworkSourceActionSheet(BuildContext context) async {
     await showModalBottomSheet(
-      barrierColor: Colors.transparent,
+      barrierColor: Colors.black54,
       context: context,
       builder: (context) => Container(
+        decoration: BoxDecoration(
+            color: getCustomColor().background,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(16.r))),
         padding: new EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
-        color: getCustomColor().background,
         child: Wrap(children: socialNetworkList(context)),
       ),
     );

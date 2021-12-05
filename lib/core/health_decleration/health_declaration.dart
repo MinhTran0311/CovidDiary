@@ -21,6 +21,7 @@ class _HealthDeclarationState extends State<HealthDeclaration> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarCustom(
+        hasReturnIcon: false,
         context: context,
         title: S.current.health_declaration_app_bar_title,
       ),

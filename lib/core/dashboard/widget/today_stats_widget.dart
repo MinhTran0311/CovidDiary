@@ -7,9 +7,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
-import 'package:src/core/base/app_navigator.dart';
 import 'package:src/core/dashboard/widget/panel_header_widget.dart';
+import 'package:src/core/disease_info/view/disease_info.dart';
 import 'package:src/widgets/panel.dart';
+
+import 'animated_panel_header_widget.dart';
 
 class DBTodayStatsWidget extends StatelessWidget {
   const DBTodayStatsWidget({Key? key}) : super(key: key);
@@ -18,14 +20,9 @@ class DBTodayStatsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PanelLight(
       child: Column(children: [
-        DBPanelHeader(
-          title: S.current.dashboard_today_stats,
-          onPressed: () {
-            // print("123");
-            // Scaffold.of(context).setState(() {
-            //   AppNavigator.changeTab(1);
-            // });
-          },
+        DBAnimatedPanelHeader(
+          title: S.current.dashboard_place_track,
+          openWidget: DiseaseInfoPage(),
         ),
         _tableTodayStats(context),
       ]),
