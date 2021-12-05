@@ -38,8 +38,14 @@ class _DiseaseInfoPageState extends State<DiseaseInfoPage> {
         hasReturnIcon: false,
         action: [
           IconButton(
-              onPressed: () => navigateTo(VaccineBoard(), context),
-              icon: Icon(Icons.one_k_rounded))
+            onPressed: () => navigateTo(VaccineBoard(), context),
+            icon: Image.asset(
+              "assets/image/vaccine.png",
+              color: getCustomColor().white,
+              width: 30.w,
+              height: 30.h,
+            ),
+          )
         ],
         title: S.current.disease_info_app_bar_title,
         context: context,

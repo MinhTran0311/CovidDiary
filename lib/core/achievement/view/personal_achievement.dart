@@ -15,11 +15,11 @@ class PersonalAchievement extends StatefulWidget {
   _PersonalAchievementState createState() => _PersonalAchievementState();
 }
 
-var name = "Tuan Minh";
-var avatarUrl = "assets/image/anh_ban_a.png";
+var name = "Siêu nhân cuồng phong";
+var avatarUrl = "assets/svg/avatar.png";
 var awardArr = [
-  new awardDetail("Da tiem mui 1", "assets/image/vacxin1.png", 3, true),
-  new awardDetail("Da tiem mui 2", "assets/image/vacxin2.png", 4, true),
+  new awardDetail("Da tiem mui 1", "assets/image/vacxin1.png", 1, true),
+  new awardDetail("Da tiem mui 2", "assets/image/vacxin2.png", 1, true),
   new awardDetail("Luoi de chong dich", "assets/image/lazy.png", 3, false),
   new awardDetail("Da co nguoi yeu", "assets/image/award.png", 3, false),
   new awardDetail("Da tiem mui 1", "assets/image/vacxin1.png", 3, true),
@@ -36,7 +36,7 @@ var awardArr = [
   new awardDetail("Da co nguoi yeu", "assets/image/award.png", 3, false),
 ];
 
-PersonalData data = new PersonalData(name, avatarUrl, awardArr, 7);
+PersonalData data = new PersonalData(name, avatarUrl, awardArr, 2);
 
 class _PersonalAchievementState extends State<PersonalAchievement> {
   @override

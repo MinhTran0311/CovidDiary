@@ -4,11 +4,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/achievement/model/achievement_model.dart';
+import 'package:src/core/achievement/view/personal_achievement.dart';
 import 'package:src/core/achievement/widget/category_tab_bar.dart';
 import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/widgets/panel.dart';
 import 'package:src/widgets/round_avatar.dart';
+import 'package:src/commons/navigators/navigator.dart';
 
 class ScoreBoard extends StatefulWidget {
   const ScoreBoard({Key? key}) : super(key: key);
@@ -41,11 +43,14 @@ class _ScoreBoardState extends State<ScoreBoard> {
   ];
 
   late PersonalData data;
+  late PersonalData personalData;
 
   @override
   void initState() {
     super.initState();
     data = new PersonalData(name, avatarUrl, awardArr, 7);
+    personalData = new PersonalData(
+        "Siêu nhân cuồng phong", "assets/svg/avatar.png", awardArr, 2);
     listData = [];
     for (int i = 0; i < 10; i++) {
       listData.add(data);
@@ -79,7 +84,8 @@ class _ScoreBoardState extends State<ScoreBoard> {
               PanelLight(child: _buildScoreBoard(context)),
             ]),
           ),
-        )
+        ),
+        SizedBox(height: 8.h),
       ]),
     );
   }
@@ -98,9 +104,9 @@ class _ScoreBoardState extends State<ScoreBoard> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            _buildTop3(data, 2, getCustomColor().secondary),
+            _buildTop3(data, 2, getCustomColor().primary),
             _buildTop3(data, 1, getCustomColor().secondary),
-            _buildTop3(data, 3, getCustomColor().secondary),
+            _buildTop3(data, 3, Colors.redAccent),
           ]),
     );
   }
@@ -143,14 +149,29 @@ class _ScoreBoardState extends State<ScoreBoard> {
   }
 
   Widget _buildScoreBoard(BuildContext context) {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: listData.length,
-      itemBuilder: (context, index) {
-        return _buildListTile(
-            data: listData[index], isUp: index % 2 == 0, rank: index + 4);
-      },
+    return Column(
+      children: [
+        ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: listData.length,
+          itemBuilder: (context, index) {
+            return _buildListTile(
+                data: listData[index], isUp: index % 2 == 0, rank: index + 4);
+          },
+        ),
+        Divider(
+          thickness: 2.h,
+          height: 5.h,
+          color: getCustomColor().gray,
+        ),
+        Container(
+          child: InkWell(
+            onTap: () => {navigateTo(PersonalAchievement(), context)},
+            child: _buildPersonalTile(data: personalData, isUp: true, rank: 99),
+          ),
+        )
+      ],
     );
   }
 
@@ -171,6 +192,41 @@ class _ScoreBoardState extends State<ScoreBoard> {
         RoundAvatar(path: data.avatarUrl, width: 50.r, height: 50.r),
         SizedBox(width: 8.w),
         Text(data.name),
+        Expanded(child: Container()),
+        SvgPicture.asset("assets/svg/icon/heart.svg",
+            width: 10.r, height: 10.r),
+        SizedBox(width: 4.w),
+        Text(
+          data.totalPoint.toString(),
+          style: Theme.of(context).textTheme.caption!.copyWith(
+              color: getCustomColor().secondary, fontWeight: FontWeight.w900),
+        ),
+        SizedBox(width: 8.w)
+      ]),
+    );
+  }
+
+  Widget _buildPersonalTile(
+      {required PersonalData data, required bool isUp, required int rank}) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 8.h),
+      child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        Container(
+            width: 20.w,
+            child: Text(rank.toString(),
+                style: Theme.of(context).textTheme.bodyText1)),
+        SizedBox(width: 8.w),
+        SvgPicture.asset(isUp
+            ? "assets/svg/icon/up_ranking.svg"
+            : "assets/svg/icon/down_ranking.svg"),
+        SizedBox(width: 8.w),
+        RoundAvatar(path: data.avatarUrl, width: 50.r, height: 50.r),
+        SizedBox(width: 8.w),
+        Text(
+          data.name,
+          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+              color: getCustomColor().secondary, fontWeight: FontWeight.w700),
+        ),
         Expanded(child: Container()),
         SvgPicture.asset("assets/svg/icon/heart.svg",
             width: 10.r, height: 10.r),
