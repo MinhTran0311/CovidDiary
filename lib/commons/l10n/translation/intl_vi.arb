@@ -107,6 +107,10 @@
   "symptom_name_6": "Đau họng",
   "symptom_name_7": "Nổi ban\nngoài da",
   "symptom_name_8": "Tiêu chảy",
+  "symptom_name_9": "Viêm phổi",
+  "symptom_name_10": "Mệt mỏi",
+  "symptom_name_11": "Buồn nôn",
+  "symptom_name_12": "Nổi ban",
 
   "symptom_severity_1": " nhẹ",
   "symptom_severity_2": " vừa",
@@ -167,6 +171,7 @@
   "health_declaration_nations": "Người từ quốc gia có ca bệnh Covid-19",
   "health_declaration_symptom": "Người có biểu hiện (sốt, ho, khó thở, ...)",
   "health_declaration_do_again": "Làm lại",
+  "health_declaration_thank_you": "Cảm ơn bạn đã điền form!",
   "profile_info_title": "Thông tin cá nhân",
   "profile_info_dob": "Ngày sinh",
   "profile_info_phone": "Điện thoại",
