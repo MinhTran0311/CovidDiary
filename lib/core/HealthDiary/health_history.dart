@@ -1,12 +1,15 @@
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
+import 'package:src/commons/themes/custom_colors.dart';
 import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/HealthDiary/symptom_detail.dart';
 import 'package:src/widgets/app_bar.dart';
 import 'package:src/widgets/button/border_button.dart';
+import 'package:src/widgets/gradientSliderShape.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 
 import 'health_report.dart';
@@ -107,13 +110,28 @@ class HealthHistoryItem extends StatelessWidget {
     edit(S.current.symptom_name_8),
   ];
 
+  static List<Color> redgreen = [
+    CustomColors.success,
+    CustomColors.warning,
+    CustomColors.error,
+  ];
+
+  final ExpandableController _controller = ExpandableController();
+
   static String edit(String str) {
     return str.replaceAll('\n', ' ').toLowerCase();
   }
 
   @override
   Widget build(BuildContext context) {
-    bool isSick = symptomSeverity.any((severity) => severity != 0);
+    bool isSick = false;
+    List<int> ids = [0];
+
+    for (int i = 0; i < symptomSeverity.length; i++)
+      if (symptomSeverity[i] != 0) {
+        isSick = true;
+        ids.add(i + 1);
+      }
 
     String content;
     if (isSick) {
@@ -158,51 +176,177 @@ class HealthHistoryItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.r),
       ),
       margin: EdgeInsets.fromLTRB(16, 4, 16, 4),
-      child: Row(
+      child: Stack(
         children: [
-          Center(
-            child: Container(
-              child: Image.asset(
-                isSick ? iconVirus : iconList[emotion],
-                width: 64.h,
-                height: 64.h,
-                fit: BoxFit.fill,
-              ),
-              padding: EdgeInsets.all(8.h),
-            ),
+          Container(
+            alignment: Alignment.centerRight,
+            child: isSick ? downIcon() : null,
           ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  day + DateFormat('Md', Intl.getCurrentLocale()).format(date),
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-                Text(
-                  content,
-                  style: Theme.of(context).textTheme.bodyText1,
-                ),
-              ],
-            ),
-          ),
-          Center(
+          Container(
+            alignment: Alignment.centerRight,
             child: isSick
-                ? BorderButton(
-                    width: 48.h,
-                    height: 48.h,
-                    margin: EdgeInsets.all(8.h),
-                    child: SvgPicture.asset(
-                      iconDown,
-                      width: 32.h,
-                      height: 32.h,
-                      fit: BoxFit.fill,
-                    ),
-                    onPressed: () {}, // TODO
+                ? DropdownButton(
+                    elevation: 0,
+                    value: 0,
+                    iconSize: 0,
+                    onChanged: (int? newValue) {},
+                    dropdownColor: getCustomColor().panelLight,
+                    alignment: Alignment.centerRight,
+                    items: ids.map<DropdownMenuItem<int>>((int value) {
+                      return DropdownMenuItem<int>(
+                        value: value,
+                        child: value == 0
+                            ? Container()
+                            : Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Container(
+                                    width: 80.w,
+                                    child: Text(symptomNameList[value - 1]),
+                                  ),
+                                  slider(
+                                    context,
+                                    symptomSeverity[value - 1] / 3.0,
+                                  ),
+                                ],
+                              ),
+                      );
+                    }).toList(),
                   )
                 : null,
           ),
+          Row(
+            children: [
+              Center(
+                child: Container(
+                  child: Image.asset(
+                    isSick ? iconVirus : iconList[emotion],
+                    width: 64.h,
+                    height: 64.h,
+                    fit: BoxFit.fill,
+                  ),
+                  padding: EdgeInsets.all(8.h),
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      day +
+                          DateFormat('Md', Intl.getCurrentLocale())
+                              .format(date),
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    Text(
+                      content,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: isSick ? 56.h : 8.h,
+              ),
+            ],
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget downIcon() {
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1.r,
+            blurRadius: 1.5.r,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+        border: Border.all(
+          width: 2.w,
+          color: getCustomColor().primary,
+        ),
+        color: getCustomColor().background,
+        borderRadius: BorderRadius.circular(8.r),
+      ),
+      width: 48.h,
+      height: 48.h,
+      margin: EdgeInsets.all(8.h),
+      padding: EdgeInsets.all(12.h),
+      child: SvgPicture.asset(
+        iconDown,
+        width: 8.h,
+        height: 8.h,
+        fit: BoxFit.fill,
+      ),
+    );
+  }
+
+  Widget upIcon() {
+    return BorderButton(
+      width: 48.h,
+      height: 48.h,
+      margin: EdgeInsets.all(8.h),
+      child: SvgPicture.asset(
+        iconUp,
+        width: 32.h,
+        height: 32.h,
+        fit: BoxFit.fill,
+      ),
+      onPressed: () {
+        _controller.expanded = false;
+      }, // TODO
+    );
+  }
+
+  Color lerpGradient(LinearGradient gradient, double t) {
+    List<Color> colors = gradient.colors;
+    List<double> stops = gradient.stops ?? [];
+
+    int sections = colors.length - 1;
+    if (stops.isEmpty)
+      for (int i = 0; i <= sections; i++) stops.add(i / sections);
+    if (stops.first != 0) stops.insert(0, 0);
+    if (stops.last != 1) stops.add(1);
+
+    for (var s = 0; s < stops.length - 1; s++) {
+      final leftStop = stops[s], rightStop = stops[s + 1];
+      final leftColor = colors[s], rightColor = colors[s + 1];
+      if (t <= leftStop) {
+        return leftColor;
+      } else if (t < rightStop) {
+        final sectionT = (t - leftStop) / (rightStop - leftStop);
+        return Color.lerp(leftColor, rightColor, sectionT)!;
+      }
+    }
+    return colors.last;
+  }
+
+  Widget slider(BuildContext context, double currentValue) {
+    LinearGradient redgreenGradient = LinearGradient(
+      colors: redgreen,
+    );
+
+    Color sliderThumbColor = lerpGradient(redgreenGradient, currentValue);
+
+    return SliderTheme(
+      data: SliderThemeData(
+        trackShape: GradientRectSliderTrackShape(
+          gradient: redgreenGradient,
+        ),
+        trackHeight: 16.h,
+        thumbColor: sliderThumbColor,
+        thumbShape: RoundSliderThumbShape(
+          enabledThumbRadius: 16.h,
+        ),
+      ),
+      child: Slider(
+        value: currentValue,
+        onChanged: null,
       ),
     );
   }

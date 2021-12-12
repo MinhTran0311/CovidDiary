@@ -30,9 +30,9 @@ class _MovementReportState extends State<MovementReport> {
   static String iconPin = "assets/svg/icon/location.svg";
   static String iconSearch = "assets/svg/icon/search.svg";
 
-  static const double maxScale = 8;
-  static const double minScale = 2;
-  static const double initialZoom = 2;
+  static const double maxScale = 16;
+  static const double minScale = 4;
+  static const double initialZoom = 4;
 
   String topQuestion = S.current.movement_report_topQuestion;
   String searchHint = S.current.movement_report_searchHint;
@@ -73,13 +73,8 @@ class _MovementReportState extends State<MovementReport> {
           children: [
             buildMap(),
             buildTopQuestion(),
-            currentLocation == null ? buildCenterPin() : Container(),
-            currentLocation == null
-                ? buildBottomSearch()
-                : buildBottomConfirm(currentLocation!.visitPlace ==
-                        currentLocation!.getDefaultLocationName()
-                    ? null
-                    : currentLocation!.visitPlace),
+            buildCenterPin(),
+            buildBottomSearch(),
           ],
           textDirection: TextDirection.ltr,
         ),
@@ -125,7 +120,7 @@ class _MovementReportState extends State<MovementReport> {
       backgroundDecoration: BoxDecoration(
         color: getCustomColor().background,
       ),
-      disableGestures: currentLocation != null,
+      //disableGestures: currentLocation != null,
       enablePanAlways: false,
       tightMode: true,
       // */
@@ -196,7 +191,6 @@ class _MovementReportState extends State<MovementReport> {
 
   Widget buildBottomSearchBar() {
     return Container(
-      height: 72.h,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -210,32 +204,29 @@ class _MovementReportState extends State<MovementReport> {
       ),
       padding: EdgeInsets.all(16.r),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(8.r),
-              child: Row(
-                children: [
-                  GestureDetector(
+              padding: EdgeInsets.fromLTRB(0, 0, 8.r, 0),
+              child: TextFormFieldWidget(
+                context: context,
+                hasLabel: false,
+                hintText: searchHint,
+                controller: searchController,
+                prefix: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
                     child: SvgPicture.asset(
                       iconSearch,
                       width: 32.h,
                       height: 32.h,
                       fit: BoxFit.fill,
-                      color: getCustomColor().secondary,
+                      color: getCustomColor().primary,
                     ),
                     onTap: onSearch,
                   ),
-                  Expanded(
-                    child: TextField(
-                      controller: searchController,
-                      decoration: InputDecoration(
-                        hintStyle: Theme.of(context).textTheme.overline,
-                        hintText: searchHint,
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ),
@@ -249,94 +240,170 @@ class _MovementReportState extends State<MovementReport> {
     );
   }
 
-  Widget buildBottomConfirm(String? initialName) {
-    return Container(
-      alignment: Alignment.bottomCenter,
+  Widget getResponseMessage(BuildContext context, bool isPositive) {
+    return GestureDetector(
       child: Container(
-        decoration: BoxDecoration(
-          color: getCustomColor().panelLight,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(32.r)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1.r,
-              blurRadius: 1.5.r,
-              offset: Offset(0, -3), // changes position of shadow
-            ),
-          ],
-        ),
-        padding: EdgeInsets.all(24.r),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
+        color: Colors.transparent,
+        child: Row(
           children: [
-            Container(
-              padding: EdgeInsets.all(8.r),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    initialName == null
-                        ? bottomQuestionNewLoc
-                        : bottomQuestionOldLoc,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4!
-                        .copyWith(color: getCustomColor().primary),
-                    textAlign: TextAlign.center,
+            Spacer(),
+            Flexible(
+              flex: 14,
+              child: Center(
+                child: Container(
+                  height: 128.h,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 1.r,
+                        blurRadius: 1.5.r,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                    border: Border.all(
+                        width: 2.w,
+                        color: isPositive
+                            ? getCustomColor().secondary
+                            : getCustomColor().primary),
+                    color: getCustomColor().background,
+                    borderRadius: BorderRadius.circular(8.r),
                   ),
-                ],
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Text(
+                          isPositive
+                              ? S.current.health_report_response_positive
+                              : S.current.health_report_response_negative,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5!
+                              .copyWith(
+                                  color: isPositive
+                                      ? getCustomColor().secondary
+                                      : getCustomColor().primary),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: SvgPicture.asset(
+                          iconPin,
+                          height: 24.h,
+                          width: 24.h,
+                          color: isPositive
+                              ? getCustomColor().secondary
+                              : getCustomColor().primary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.all(8.r),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    selectedLocationStr,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1!
-                        .copyWith(color: getCustomColor().black),
-                  ),
-                  Text(
-                    Location.defaultLocationName(photoController.position.dx,
-                        photoController.position.dy),
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1!
-                        .copyWith(color: getCustomColor().black),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(8.r),
-              child: Row(
-                children: [
-                  Text(
-                    selectedNicknameStr,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1!
-                        .copyWith(color: getCustomColor().black),
-                  ),
-                  Spacer(),
-                  Expanded(
-                    child: TextFormFieldWidget(
-                      context: context,
-                      controller: nicknameController,
-                      hintText: currentLocation!.visitPlace,
-                      hasLabel: false,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            buildBottomConfirmButtons(initialName == null),
+            Spacer()
           ],
         ),
       ),
+      onTap: () {},
+    );
+  }
+
+  Widget buildBottomConfirm(BuildContext context, String? initialName) {
+    return Row(
+      children: [
+        Spacer(),
+        Container(
+          //alignment: Alignment.bottomCenter,
+          child: Container(
+            decoration: BoxDecoration(
+              color: getCustomColor().panelLight,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(32.r)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 1.r,
+                  blurRadius: 1.5.r,
+                  offset: Offset(0, -3), // changes position of shadow
+                ),
+              ],
+            ),
+            padding: EdgeInsets.all(24.r),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(8.r),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        initialName == null
+                            ? bottomQuestionNewLoc
+                            : bottomQuestionOldLoc,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline4!
+                            .copyWith(color: getCustomColor().primary),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(8.r),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        selectedLocationStr,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1!
+                            .copyWith(color: getCustomColor().black),
+                      ),
+                      Text(
+                        Location.defaultLocationName(
+                            photoController.position.dx,
+                            photoController.position.dy),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1!
+                            .copyWith(color: getCustomColor().black),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(8.r),
+                  child: Row(
+                    children: [
+                      Text(
+                        selectedNicknameStr,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1!
+                            .copyWith(color: getCustomColor().black),
+                      ),
+                      Spacer(),
+                      Expanded(
+                        child: TextFormFieldWidget(
+                          context: context,
+                          controller: nicknameController,
+                          hintText: currentLocation!.visitPlace,
+                          hasLabel: false,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                buildBottomConfirmButtons(initialName == null),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -439,6 +506,17 @@ class _MovementReportState extends State<MovementReport> {
     if (result == null) result = thisLocation;
     setState(() {
       currentLocation = result;
+      showCustomDialog(
+          context,
+          getResponseMessage(context,
+              true)); /*
+          buildBottomConfirm(
+              context,
+              currentLocation!.visitPlace ==
+                      currentLocation!.getDefaultLocationName()
+                  ? null
+                  : currentLocation!.visitPlace));
+                  // */
     });
   }
 

@@ -113,69 +113,75 @@ class EmotionReport extends StatelessWidget {
   }
 
   Widget getResponseMessage(BuildContext context, bool isPositive) {
-    return Row(
-      children: [
-        Spacer(),
-        Flexible(
-          flex: 14,
-          child: GestureDetector(
-            child: Center(
-              child: Container(
-                height: 128.h,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 1.r,
-                      blurRadius: 1.5.r,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                  border: Border.all(
-                      width: 2.w,
-                      color: isPositive
-                          ? getCustomColor().secondary
-                          : getCustomColor().primary),
-                  color: getCustomColor().background,
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                child: Stack(
-                  children: [
-                    Center(
-                      child: Text(
-                        isPositive
-                            ? S.current.health_report_response_positive
-                            : S.current.health_report_response_negative,
-                        style: Theme.of(context).textTheme.headline5!.copyWith(
-                            color: isPositive
-                                ? getCustomColor().secondary
-                                : getCustomColor().primary),
-                        textAlign: TextAlign.center,
+    return GestureDetector(
+      child: Container(
+        color: Colors.transparent,
+        child: Row(
+          children: [
+            Spacer(),
+            Flexible(
+              flex: 14,
+              child: Center(
+                child: Container(
+                  height: 128.h,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 1.r,
+                        blurRadius: 1.5.r,
+                        offset: Offset(0, 3), // changes position of shadow
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: SvgPicture.asset(
-                        closeSvg,
-                        height: 24.h,
-                        width: 24.h,
+                    ],
+                    border: Border.all(
+                        width: 2.w,
                         color: isPositive
                             ? getCustomColor().secondary
-                            : getCustomColor().primary,
+                            : getCustomColor().primary),
+                    color: getCustomColor().background,
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Text(
+                          isPositive
+                              ? S.current.health_report_response_positive
+                              : S.current.health_report_response_negative,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5!
+                              .copyWith(
+                                  color: isPositive
+                                      ? getCustomColor().secondary
+                                      : getCustomColor().primary),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                    ),
-                  ],
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: SvgPicture.asset(
+                          closeSvg,
+                          height: 24.h,
+                          width: 24.h,
+                          color: isPositive
+                              ? getCustomColor().secondary
+                              : getCustomColor().primary,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            onTap: () {
-              goBack(Scaffold.of(context).context);
-              navigateTo(SymptomReport(), context);
-            },
-          ),
+            Spacer()
+          ],
         ),
-        Spacer()
-      ],
+      ),
+      onTap: () {
+        goBack(Scaffold.of(context).context);
+        navigateTo(SymptomReport(), context);
+      },
     );
   }
 
