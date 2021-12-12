@@ -119,7 +119,6 @@ class _ScoreBoardState extends State<ScoreBoard> {
             ],
           ),
           child: Material(
-            color: getCustomColor().panelLight,
             child: InkWell(
               borderRadius: BorderRadius.circular(8.r),
               splashColor: getCustomColor().gray,
@@ -276,6 +275,9 @@ class _ScoreBoardState extends State<ScoreBoard> {
   Widget _buildPersonalTile(
       {required PersonalData data, required bool isUp, required int rank}) {
     return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16.r),
+      ),
       padding: EdgeInsets.symmetric(vertical: 8.h),
       child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
         Container(
