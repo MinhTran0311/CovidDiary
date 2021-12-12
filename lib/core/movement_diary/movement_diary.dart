@@ -209,22 +209,24 @@ class _MovementReportState extends State<MovementReport> {
           Expanded(
             child: Container(
               padding: EdgeInsets.fromLTRB(0, 0, 8.r, 0),
-              child: TextFormFieldWidget(
-                context: context,
-                hasLabel: false,
-                hintText: searchHint,
-                controller: searchController,
-                prefix: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                    child: SvgPicture.asset(
-                      iconSearch,
-                      width: 32.h,
-                      height: 32.h,
-                      fit: BoxFit.fill,
-                      color: getCustomColor().primary,
+              child: Material(
+                child: TextFormFieldWidget(
+                  context: context,
+                  hasLabel: false,
+                  hintText: searchHint,
+                  controller: searchController,
+                  prefix: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      child: SvgPicture.asset(
+                        iconSearch,
+                        width: 32.h,
+                        height: 32.h,
+                        fit: BoxFit.fill,
+                        color: getCustomColor().primary,
+                      ),
+                      onTap: onSearch,
                     ),
-                    onTap: onSearch,
                   ),
                 ),
               ),
@@ -240,178 +242,104 @@ class _MovementReportState extends State<MovementReport> {
     );
   }
 
-  Widget getResponseMessage(BuildContext context, bool isPositive) {
-    return GestureDetector(
+  Widget buildBottomConfirm(BuildContext context, String? initialName) {
+    return Container(
+      alignment: Alignment.bottomCenter,
       child: Container(
-        color: Colors.transparent,
-        child: Row(
+        decoration: BoxDecoration(
+          color: getCustomColor().panelLight,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(32.r)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1.r,
+              blurRadius: 1.5.r,
+              offset: Offset(0, -3), // changes position of shadow
+            ),
+          ],
+        ),
+        padding: EdgeInsets.all(24.r),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Spacer(),
-            Flexible(
-              flex: 14,
-              child: Center(
-                child: Container(
-                  height: 128.h,
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 1.r,
-                        blurRadius: 1.5.r,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
-                    border: Border.all(
-                        width: 2.w,
-                        color: isPositive
-                            ? getCustomColor().secondary
-                            : getCustomColor().primary),
-                    color: getCustomColor().background,
-                    borderRadius: BorderRadius.circular(8.r),
+            Container(
+              padding: EdgeInsets.all(8.r),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    initialName == null
+                        ? bottomQuestionNewLoc
+                        : bottomQuestionOldLoc,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4!
+                        .copyWith(color: getCustomColor().primary),
+                    textAlign: TextAlign.center,
                   ),
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Text(
-                          isPositive
-                              ? S.current.health_report_response_positive
-                              : S.current.health_report_response_negative,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5!
-                              .copyWith(
-                                  color: isPositive
-                                      ? getCustomColor().secondary
-                                      : getCustomColor().primary),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: SvgPicture.asset(
-                          iconPin,
-                          height: 24.h,
-                          width: 24.h,
-                          color: isPositive
-                              ? getCustomColor().secondary
-                              : getCustomColor().primary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                ],
               ),
             ),
-            Spacer()
+            Container(
+              padding: EdgeInsets.all(8.r),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    selectedLocationStr,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1!
+                        .copyWith(color: getCustomColor().black),
+                  ),
+                  Text(
+                    Location.defaultLocationName(photoController.position.dx,
+                        photoController.position.dy),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1!
+                        .copyWith(color: getCustomColor().black),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(8.r),
+              child: Row(
+                children: [
+                  Text(
+                    selectedNicknameStr,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1!
+                        .copyWith(color: getCustomColor().black),
+                  ),
+                  Spacer(),
+                  Expanded(
+                    child: Material(
+                      child: TextFormFieldWidget(
+                        context: context,
+                        controller: nicknameController,
+                        hintText: currentLocation!.visitPlace,
+                        hasLabel: false,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            buildBottomConfirmButtons(context, initialName == null),
           ],
         ),
       ),
-      onTap: () {},
     );
   }
 
-  Widget buildBottomConfirm(BuildContext context, String? initialName) {
-    return Row(
-      children: [
-        Spacer(),
-        Container(
-          //alignment: Alignment.bottomCenter,
-          child: Container(
-            decoration: BoxDecoration(
-              color: getCustomColor().panelLight,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(32.r)),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 1.r,
-                  blurRadius: 1.5.r,
-                  offset: Offset(0, -3), // changes position of shadow
-                ),
-              ],
-            ),
-            padding: EdgeInsets.all(24.r),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: EdgeInsets.all(8.r),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(
-                        initialName == null
-                            ? bottomQuestionNewLoc
-                            : bottomQuestionOldLoc,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline4!
-                            .copyWith(color: getCustomColor().primary),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(8.r),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        selectedLocationStr,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1!
-                            .copyWith(color: getCustomColor().black),
-                      ),
-                      Text(
-                        Location.defaultLocationName(
-                            photoController.position.dx,
-                            photoController.position.dy),
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1!
-                            .copyWith(color: getCustomColor().black),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(8.r),
-                  child: Row(
-                    children: [
-                      Text(
-                        selectedNicknameStr,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1!
-                            .copyWith(color: getCustomColor().black),
-                      ),
-                      Spacer(),
-                      Expanded(
-                        child: TextFormFieldWidget(
-                          context: context,
-                          controller: nicknameController,
-                          hintText: currentLocation!.visitPlace,
-                          hasLabel: false,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                buildBottomConfirmButtons(initialName == null),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget buildBottomConfirmButtons(bool noNameAvailable) {
+  Widget buildBottomConfirmButtons(BuildContext context, bool noNameAvailable) {
     List<Widget> rowChild = [
       Expanded(
         child: FillButton(
-          onPressed: onCancel,
+          onPressed: () => onCancel(context),
           buttonColor: CustomColors.error,
           buttonText: cancelButtonStr,
         ),
@@ -508,22 +436,20 @@ class _MovementReportState extends State<MovementReport> {
       currentLocation = result;
       showCustomDialog(
           context,
-          getResponseMessage(context,
-              true)); /*
           buildBottomConfirm(
               context,
               currentLocation!.visitPlace ==
                       currentLocation!.getDefaultLocationName()
                   ? null
                   : currentLocation!.visitPlace));
-                  // */
     });
   }
 
-  void onCancel() {
+  void onCancel(BuildContext context) {
     setState(() {
       currentLocation = null;
     });
+    goBack(Scaffold.of(context).context);
     // TODO
   }
 
@@ -531,6 +457,7 @@ class _MovementReportState extends State<MovementReport> {
     setState(() {
       currentLocation = null;
     });
+    goBack(Scaffold.of(context).context);
     popToTop(context);
     // TODO
   }
@@ -539,6 +466,7 @@ class _MovementReportState extends State<MovementReport> {
     setState(() {
       currentLocation = null;
     });
+    goBack(Scaffold.of(context).context);
     popToTop(context);
     // TODO
   }
