@@ -202,7 +202,11 @@ class HealthHistoryItem extends StatelessWidget {
                                 children: [
                                   Container(
                                     width: 80.w,
-                                    child: Text(symptomNameList[value - 1]),
+                                    child: Text(
+                                      symptomNameList[value - 1],
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
+                                    ),
                                   ),
                                   slider(
                                     context,
