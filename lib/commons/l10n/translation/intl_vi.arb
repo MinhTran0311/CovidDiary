@@ -59,7 +59,7 @@
 
   "dashboard_hello": "Xin chào",
   "dashboard_detail": "Xem chi tiết",
-  "dashboard_def_username": "Siêu nhân cuồng phong",
+  "dashboard_def_username": "Johnny Dang",
   "dashboard_today_stats": "Tình hình dịch bệnh hôm nay",
   "dashboard_world": "Thế giới",
   "dashboard_vn": "Việt Nam",
@@ -164,7 +164,7 @@
   "score_board_week": "Tuần",
   "score_board_month": "Tháng",
 
-  "health_declaration_app_bar_title": "Ghi chú sức khỏe (nghiêm túc)",
+  "health_declaration_app_bar_title": "Ghi chú sức khỏe",
   "health_declaration_first_question": "Trong ngày hôm nay, bạn có thấy xuất hiện dấu hiệu nào sau đây không ?",
   "health_declaration_second_question": "Trong hôm nay, bạn có tiếp xúc với: ",
   "health_declaration_covid_patient": "Người bệnh, người nghi ngờ mắc Covid-19",

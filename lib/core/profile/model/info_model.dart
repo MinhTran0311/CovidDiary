@@ -3,7 +3,7 @@ class Info {
 
   static final Info instance = Info._privateConstructor();
 
-  String name = "Siêu nhân cuồng phong";
+  String name = "Johnny Dang";
   String dob = "30/07/2000";
   String email = "sieunhan@gmail.com";
   String phone = "0935723862";

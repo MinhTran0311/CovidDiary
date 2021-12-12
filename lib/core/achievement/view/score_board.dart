@@ -30,7 +30,7 @@ class _ScoreBoardState extends State<ScoreBoard> {
 
   SelectedTab _selectedTab = SelectedTab.day;
   var name = "Tuan Minh";
-  var avatarUrl = "assets/image/anh_ban_a.png";
+  var avatarUrl = "assets/svg/avatar.png";
   var awardArr = [
     new awardDetail("Da tiem mui 1", "assets/image/vacxin1.png", 3, true),
     new awardDetail("Da tiem mui 2", "assets/image/vacxin2.png", 4, true),

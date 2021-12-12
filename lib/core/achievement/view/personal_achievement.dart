@@ -15,25 +15,25 @@ class PersonalAchievement extends StatefulWidget {
   _PersonalAchievementState createState() => _PersonalAchievementState();
 }
 
-var name = "Siêu nhân cuồng phong";
+var name = "Johnny Dang";
 var avatarUrl = "assets/svg/avatar.png";
 var awardArr = [
-  new awardDetail("Da tiem mui 1", "assets/image/vacxin1.png", 1, true),
-  new awardDetail("Da tiem mui 2", "assets/image/vacxin2.png", 1, true),
-  new awardDetail("Luoi de chong dich", "assets/image/lazy.png", 3, false),
-  new awardDetail("Da co nguoi yeu", "assets/image/award.png", 3, false),
-  new awardDetail("Da tiem mui 1", "assets/image/vacxin1.png", 3, true),
-  new awardDetail("Da tiem mui 2", "assets/image/vacxin2.png", 4, true),
-  new awardDetail("Luoi de chong dich", "assets/image/lazy.png", 3, false),
-  new awardDetail("Da co nguoi yeu", "assets/image/award.png", 3, false),
-  new awardDetail("Da tiem mui 1", "assets/image/vacxin1.png", 3, true),
-  new awardDetail("Da tiem mui 2", "assets/image/vacxin2.png", 4, true),
-  new awardDetail("Luoi de chong dich", "assets/image/lazy.png", 3, false),
-  new awardDetail("Da co nguoi yeu", "assets/image/award.png", 3, false),
-  new awardDetail("Da tiem mui 1", "assets/image/vacxin1.png", 3, true),
-  new awardDetail("Da tiem mui 2", "assets/image/vacxin2.png", 4, true),
-  new awardDetail("Luoi de chong dich", "assets/image/lazy.png", 3, false),
-  new awardDetail("Da co nguoi yeu", "assets/image/award.png", 3, false),
+  new awardDetail("Đã tiêm mũi 1", "assets/image/vacxin1.png", 1, true),
+  new awardDetail("Đã tiêm mũi 2", "assets/image/vacxin2.png", 1, true),
+  new awardDetail("Lười để chống dịch", "assets/image/lazy.png", 3, false),
+  new awardDetail("Đã có 30 tỷ", "assets/image/award.png", 3, false),
+  new awardDetail("Đã tiêm mũi 1", "assets/image/vacxin1.png", 1, true),
+  new awardDetail("Đã tiêm mũi 2", "assets/image/vacxin2.png", 1, true),
+  new awardDetail("Lười để chống dịch", "assets/image/lazy.png", 3, false),
+  new awardDetail("Đã có 30 tỷ", "assets/image/award.png", 3, false),
+  new awardDetail("Đã tiêm mũi 1", "assets/image/vacxin1.png", 1, true),
+  new awardDetail("Đã tiêm mũi 2", "assets/image/vacxin2.png", 1, true),
+  new awardDetail("Lười để chống dịch", "assets/image/lazy.png", 3, false),
+  new awardDetail("Đã có 30 tỷ", "assets/image/award.png", 3, false),
+  new awardDetail("Đã tiêm mũi 1", "assets/image/vacxin1.png", 1, true),
+  new awardDetail("Đã tiêm mũi 2", "assets/image/vacxin2.png", 1, true),
+  new awardDetail("Lười để chống dịch", "assets/image/lazy.png", 3, false),
+  new awardDetail("Đã có 30 tỷ", "assets/image/award.png", 3, false),
 ];
 
 PersonalData data = new PersonalData(name, avatarUrl, awardArr, 2);

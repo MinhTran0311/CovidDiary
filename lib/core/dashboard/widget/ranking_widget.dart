@@ -42,7 +42,7 @@ class DBRankingWidget extends StatelessWidget {
                   Divider(height: 2),
                   Divider(height: 2),
                 ]),
-                _rankCell(context, 99, "Siêu nhân cuồng phong", 2, true),
+                _rankCell(context, 99, "Johnny Dang", 2, true),
               ]),
         )
       ]),
