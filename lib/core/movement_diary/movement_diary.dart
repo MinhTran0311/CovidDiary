@@ -32,7 +32,7 @@ class _MovementReportState extends State<MovementReport> {
 
   static const double maxScale = 16;
   static const double minScale = 4;
-  static const double initialZoom = 8;
+  double zoom = 8;
 
   String topQuestion = S.current.movement_report_topQuestion;
   String searchHint = S.current.movement_report_searchHint;
@@ -107,14 +107,21 @@ class _MovementReportState extends State<MovementReport> {
 
   Widget buildMap() {
     PhotoView photo = PhotoView.customChild(
-      key: ObjectKey(photoController.scale),
+      //key: ObjectKey(initialZoom),
       child: Container(
+        key: ObjectKey(zoom),
         child: map(),
       ),
       minScale: PhotoViewComputedScale.contained * minScale,
       maxScale: PhotoViewComputedScale.contained * maxScale,
       basePosition: Alignment.center,
-      initialScale: PhotoViewComputedScale.contained * initialZoom,
+      initialScale: PhotoViewComputedScale.contained * zoom,
+      onScaleEnd: (_, __, ___) => setState(() {
+        zoom = photoController.scale ?? zoom;
+      }),
+      scaleStateChangedCallback: (_) => setState(() {
+        zoom = photoController.scale ?? zoom;
+      }),
       //*
       controller: photoController,
       backgroundDecoration: BoxDecoration(
@@ -159,14 +166,14 @@ class _MovementReportState extends State<MovementReport> {
     for (int i = 0; i < visitPlaces.length; i++)
       mapComponent.add(MapToken(
         location: visitPlaces[i],
-        zoomFactor: photoController.scale ?? initialZoom,
+        zoomFactor: photoController.scale ?? zoom,
       ));
 
     if (currentLocation != null)
       mapComponent.add(MapToken(
         location: currentLocation!,
         color: getCustomColor().secondary,
-        zoomFactor: photoController.scale ?? initialZoom,
+        zoomFactor: photoController.scale ?? zoom,
       ));
     // */
     return Stack(
@@ -295,9 +302,9 @@ class _MovementReportState extends State<MovementReport> {
                   Text(
                     Location.defaultLocationName(
                       photoController.position.dx /
-                          (photoController.scale ?? initialZoom),
+                          (photoController.scale ?? zoom),
                       photoController.position.dy /
-                          (photoController.scale ?? initialZoom),
+                          (photoController.scale ?? zoom),
                     ),
                     style: Theme.of(context)
                         .textTheme
@@ -395,8 +402,8 @@ class _MovementReportState extends State<MovementReport> {
                 visitPlaces[i].coordX,
                 visitPlaces[i].coordY,
               ).scale(
-                photoController.scale ?? initialZoom,
-                photoController.scale ?? initialZoom,
+                photoController.scale ?? zoom,
+                photoController.scale ?? zoom,
               );
             }),
           ),
@@ -431,8 +438,8 @@ class _MovementReportState extends State<MovementReport> {
     Location thisLocation = new Location(
       null,
       1,
-      photoController.position.dx / (photoController.scale ?? initialZoom),
-      photoController.position.dy / (photoController.scale ?? initialZoom),
+      photoController.position.dx / (photoController.scale ?? zoom),
+      photoController.position.dy / (photoController.scale ?? zoom),
       DateTime.now(),
     );
     for (int i = 0; i < visitPlaces.length; i++)
