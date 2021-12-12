@@ -32,7 +32,7 @@ class _MovementReportState extends State<MovementReport> {
 
   static const double maxScale = 16;
   static const double minScale = 4;
-  static const double initialZoom = 4;
+  static const double initialZoom = 8;
 
   String topQuestion = S.current.movement_report_topQuestion;
   String searchHint = S.current.movement_report_searchHint;
@@ -47,13 +47,13 @@ class _MovementReportState extends State<MovementReport> {
   String confirmButtonStr = S.current.movement_report_confirmButtonStr;
 
   List<Location> visitPlaces = [
-    Location("Nhà Simmy", 21, -123, 12, DateTime.now()),
-    Location("Net IMBA", 18, 234, -46, DateTime.now()),
-    Location("Kho", 17, -92, 102, DateTime.now()),
-    Location("Chợ gần nhà", 15, -293, -392, DateTime.now()),
-    Location("Bách hóa xanh", 5, 499, 122, DateTime.now()),
-    Location("Ngân hàng", 2, 39, -222, DateTime.now()),
-    Location("Công ty", 1, 12, -11, DateTime.now()),
+    Location("Nhà Simmy", 21, -34, 3, DateTime.now()),
+    Location("Net IMBA", 18, 58, -11, DateTime.now()),
+    Location("Kho", 17, -22, 26, DateTime.now()),
+    Location("Chợ gần nhà", 15, -74, -98, DateTime.now()),
+    Location("Bách hóa xanh", 5, 125, 32, DateTime.now()),
+    Location("Ngân hàng", 2, 9, -55, DateTime.now()),
+    Location("Công ty", 1, 3, -3, DateTime.now()),
   ];
 
   String? searchQuery;
@@ -293,8 +293,12 @@ class _MovementReportState extends State<MovementReport> {
                         .copyWith(color: getCustomColor().black),
                   ),
                   Text(
-                    Location.defaultLocationName(photoController.position.dx,
-                        photoController.position.dy),
+                    Location.defaultLocationName(
+                      photoController.position.dx /
+                          (photoController.scale ?? initialZoom),
+                      photoController.position.dy /
+                          (photoController.scale ?? initialZoom),
+                    ),
                     style: Theme.of(context)
                         .textTheme
                         .bodyText1!
@@ -387,8 +391,13 @@ class _MovementReportState extends State<MovementReport> {
             timeVisit: visitPlaces[i].visitTimes,
             onPress: () => setState(() {
               searchController.text = searchQuery = visitPlaces[i].visitPlace;
-              photoController.position =
-                  new Offset(visitPlaces[i].coordX, visitPlaces[i].coordY);
+              photoController.position = Offset(
+                visitPlaces[i].coordX,
+                visitPlaces[i].coordY,
+              ).scale(
+                photoController.scale ?? initialZoom,
+                photoController.scale ?? initialZoom,
+              );
             }),
           ),
         );
@@ -422,8 +431,8 @@ class _MovementReportState extends State<MovementReport> {
     Location thisLocation = new Location(
       null,
       1,
-      photoController.position.dx,
-      photoController.position.dy,
+      photoController.position.dx / (photoController.scale ?? initialZoom),
+      photoController.position.dy / (photoController.scale ?? initialZoom),
       DateTime.now(),
     );
     for (int i = 0; i < visitPlaces.length; i++)

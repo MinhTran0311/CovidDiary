@@ -50,10 +50,10 @@ class MapToken extends StatelessWidget {
     double textSize =
         Theme.of(context).textTheme.headline4!.fontSize! / zoomFactor;
     return Positioned(
-      right: location.coordX / zoomFactor,
-      left: -location.coordX / zoomFactor,
-      top: -location.coordY / zoomFactor,
-      bottom: location.coordY / zoomFactor,
+      right: location.coordX,
+      left: -location.coordX,
+      top: -location.coordY,
+      bottom: location.coordY,
       child: Center(
         child: SizedOverflowBox(
           size: Size(0, 0),
