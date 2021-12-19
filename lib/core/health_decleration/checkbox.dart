@@ -26,6 +26,12 @@ class _CheckBoxState extends State<CheckBox> {
   }
 
   @override
+  void didUpdateWidget(CheckBox oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    isCheck = false;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: widget.hasBottomMargin

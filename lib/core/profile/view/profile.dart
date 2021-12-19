@@ -65,7 +65,6 @@ class _ProfileState extends State<Profile> {
         SizedBox(height: 12.h),
         _buildAchievement(context),
         SizedBox(height: 12.h),
-
       ]),
     );
   }
@@ -100,14 +99,14 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
               //Info Detail
-              _buildInfoDetail(S.current.profile_info_dob, "15/03/2020"),
+              _buildInfoDetail(S.current.profile_info_dob, Info.instance.dob),
               SizedBox(height: 8.h),
               _buildInfoDetail(
-                  S.current.email_input, "Sieu nhan cuong @ gmail.com"),
+                  S.current.email_input, Info.instance.email),
               SizedBox(height: 8.h),
-              _buildInfoDetail(S.current.profile_info_phone, "0935723862"),
+              _buildInfoDetail(S.current.profile_info_phone, Info.instance.phone),
               SizedBox(height: 8.h),
-              _buildInfoDetail(S.current.profile_info_work, "Product Owner"),
+              _buildInfoDetail(S.current.profile_info_work, Info.instance.work),
             ],
           ),
         ),
@@ -227,14 +226,14 @@ class _ProfileState extends State<Profile> {
     return InkWell(
       onTap: () {
         showCustomDialog(
-            context,
-            Material(
-              child: Container(
-                child: Center(
-                  child: PanelLight(
-                    width: 280.w,
-                    height: 280.h,
-                    child: Column(
+          context,
+          Material(
+            child: Container(
+              child: Center(
+                child: PanelLight(
+                  width: 280.w,
+                  height: 280.h,
+                  child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -261,12 +260,12 @@ class _ProfileState extends State<Profile> {
                                   fontWeight: FontWeight.w600,
                                   color: getCustomColor().primary),
                         ),
-                      ],
-                    ),
-                  ),
+                      ]),
                 ),
               ),
-            ));
+            ),
+          ),
+        );
       },
       child: Image.asset(url, width: 64.w, height: 64.h),
     );

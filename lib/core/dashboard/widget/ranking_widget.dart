@@ -14,17 +14,15 @@ import 'package:src/widgets/button/border_button.dart';
 import 'package:src/widgets/panel.dart';
 import 'package:src/widgets/round_avatar.dart';
 
+import 'animated_panel_header_widget.dart';
+
 class DBRankingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PanelLight(
       child: Column(children: [
-        DBPanelHeader(
-          title: S.current.dashboard_ranking,
-          onPressed: () {
-            navigateTo(ScoreBoard(), context);
-          },
-        ),
+        DBAnimatedPanelHeader(
+            title: S.current.dashboard_ranking, openWidget: ScoreBoard()),
         SizedBox(height: 8.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.w),
@@ -44,7 +42,7 @@ class DBRankingWidget extends StatelessWidget {
                   Divider(height: 2),
                   Divider(height: 2),
                 ]),
-                _rankCell(context, 99, "Siêu nhân cuồng phong", 2, true),
+                _rankCell(context, 99, "Johnny Dang", 2, true),
               ]),
         )
       ]),
