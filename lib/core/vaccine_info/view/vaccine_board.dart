@@ -113,7 +113,7 @@ class _VaccineBoardState extends State<VaccineBoard> {
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(8.r)),
-            color: getCustomColor().panelLight,
+            color: getCustomColor().white,
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
