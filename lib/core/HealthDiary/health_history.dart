@@ -17,7 +17,7 @@ import 'health_report.dart';
 class HealthHistory extends StatelessWidget {
   const HealthHistory({Key? key}) : super(key: key);
 
-  static String title = "Lịch sử sức khoẻ";
+  static String title = S.current.health_history_title;
 
   static List<int> emotions = [0, 3, 1, 6, 3, 4, 1];
   static List<double> defaultSymptoms = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -84,14 +84,13 @@ class HealthHistoryItem extends StatelessWidget {
   static String iconDown = "assets/svg/icon/down_arrow.svg";
   static String iconUp = "assets/svg/icon/up_arrow.svg";
 
-  static String healthy = "Hôm nay bạn khoẻ, không có triệu chứng gì hết!";
-
-  static String sickPre = "Hôm nay bạn bị ";
+  final String healthy = S.current.health_history_no_symptom;
+  final String symptomTitle = S.current.health_history_symptom;
   static String sickPost = ".";
   static String connector1 = ", ";
-  static String connector2 = "và ";
+  final String connector2 = S.current.and;
 
-  static String day = "Ngày ";
+  final String day = S.current.day;
 
   final List<String> severity = [
     S.current.symptom_severity_1,
@@ -135,7 +134,7 @@ class HealthHistoryItem extends StatelessWidget {
 
     String content;
     if (isSick) {
-      content = sickPre;
+      content = symptomTitle;
 
       List<int> symptomsExperienced = [];
       List<int> generalSeverity = [];

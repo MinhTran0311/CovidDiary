@@ -205,5 +205,11 @@
   "movement_report_selectedNicknameStr" : "Nickname:",
   "movement_report_cancelButtonStr" : "Cancel\nsave",
   "movement_report_confirmNoNicknameButtonStr" : "No\nnickname",
-  "movement_report_confirmButtonStr" : "Confirm"
+  "movement_report_confirmButtonStr" : "Confirm",
+  
+  "health_history_title" : "Health history",
+  "health_history_no_symptom" :  "You're healthy this day. No symptoms!",
+  "day": "Day ",
+  "and": "and ",
+  "health_history_symptom" :  "You had the following symptoms: "
 }

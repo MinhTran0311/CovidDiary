@@ -207,5 +207,11 @@
    "movement_report_selectedNicknameStr" : "Nickname:",
    "movement_report_cancelButtonStr" : "Huỷ lưu",
    "movement_report_confirmNoNicknameButtonStr" : "Không nickname",
-   "movement_report_confirmButtonStr" : "Xác nhận"
+   "movement_report_confirmButtonStr" : "Xác nhận",
+
+   "health_history_title" : "Lịch sử sức khoẻ",
+   "health_history_no_symptom" :  "Hôm nay bạn khoẻ, không có triệu chứng gì hết!",
+   "day": "Ngày ",
+   "and": "và ",
+   "health_history_symptom" :  "Hôm này bạn bị: "
 }
