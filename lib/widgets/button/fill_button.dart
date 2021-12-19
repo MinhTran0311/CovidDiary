@@ -35,8 +35,8 @@ class FillButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: this.height,
-      width: this.width,
+      height: this.height ?? 48.h,
+      width: this.width ?? 128.w,
       decoration: BoxDecoration(
         color: buttonColor != null
             ? buttonColor
@@ -53,18 +53,32 @@ class FillButton extends StatelessWidget {
           ),
         ],
       ),
-      child: TextButton(
-          child: (this.buttonText == null && this.child != null)
-              ? this.child!
-              : Text(
-                  buttonText!,
-                  style: Theme.of(context)
-                      .textTheme
-                      .button!
-                      .copyWith(color: lightColor.background),
-                  textAlign: TextAlign.center,
-                ),
-          onPressed: onPressed),
+      child: Material(
+        borderRadius: BorderRadius.circular(8.r),
+        color: buttonColor != null
+            ? buttonColor
+            : (!this.isAccent
+            ? getCustomColor().primary
+            : getCustomColor().secondary),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(8.r),
+          onTap: onPressed,
+          splashColor: getCustomColor().gray,
+          splashFactory: InkSplash.splashFactory,
+          child: Center(
+            child: Container(
+              padding: EdgeInsets.all(8.0),
+              child: (this.buttonText == null && this.child != null)
+                  ? this.child!
+                  : Text(
+                buttonText!,
+                style: Theme.of(context).textTheme.button!.copyWith(
+                    color: lightColor.background),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

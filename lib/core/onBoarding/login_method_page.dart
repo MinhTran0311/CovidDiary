@@ -19,16 +19,17 @@ class LoginMethodPage extends StatelessWidget {
       body: SafeArea(
         child: Column(children: [
           Expanded(
-            child: Column(children: [
-              Padding(
-                padding: EdgeInsets.only(top: 56.h),
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Image.asset("assets/svg/big_icon_with_name_1.png"),
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: 56.h, bottom: 56.h, left: 56.w, right: 56.w),
+              child: Align(
+                alignment: Alignment.center,
+                child: Image.asset(
+                  "assets/svg/big_icon_with_name_1.png",
+                  scale: 1.5,
                 ),
               ),
-              SizedBox(height: 8.h),
-            ]),
+            ),
           ),
           _buildBottomPage(context)
         ]),
@@ -45,7 +46,8 @@ Widget _buildBottomPage(BuildContext context) {
       child: Column(children: [
         _btnLoginWithPhone(context),
         SizedBox(height: 16.h),
-        _buildAppleOrGoogle(context)
+        _buildAppleOrGoogle(context),
+        SizedBox(height: 16.h),
       ]),
     ),
   );
@@ -69,8 +71,7 @@ Widget _btnLoginWithApple(BuildContext context) {
             .copyWith(fontWeight: FontWeight.w600, color: Colors.white),
       ),
       height: 44.h,
-      onPressed: () {
-      },
+      onPressed: () {},
       icon: SvgPicture.asset("assets/svg/icon/apple_logo.svg", width: 18.w),
     ),
   );
@@ -89,8 +90,7 @@ Widget _btnLoginWithGoogle(BuildContext context) {
             .copyWith(fontWeight: FontWeight.w600, color: Colors.white),
       ),
       height: 44.h,
-      onPressed: () {
-      },
+      onPressed: () {},
       isGoogleDark: true,
       icon: SvgPicture.asset("assets/svg/icon/google_logo.svg",
           width: 18.w, height: 18.h),
@@ -114,10 +114,8 @@ Widget _btnLoginWithPhone(BuildContext context) {
       onPressed: () {
         navigateTo(AuthPage(), context);
       },
-      icon: SvgPicture.asset(
-        "assets/svg/icon/phone_signin.svg",
-        color: lightColor.white
-      ),
+      icon: SvgPicture.asset("assets/svg/icon/phone_signin.svg",
+          color: lightColor.white),
     ),
   );
 }

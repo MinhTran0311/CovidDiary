@@ -32,20 +32,27 @@ List<Widget> socialNetworkList(BuildContext context) {
         margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
         padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 8.h),
         decoration: BoxDecoration(
-            color: checkName(element.name)
-                ? getCustomColor().primary
-                : getCustomColor().panelDark,
+            color: getCustomColor()
+                .panelDark
+                .withOpacity(checkName(element.name) ? 0.25 : 1),
             borderRadius: BorderRadius.circular(8.r)),
         width: 170.w,
         height: 50.h,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset(
-              element.imgUrl,
-              width: 30,
-              height: 30,
-            ),
+            (checkName(element.name)
+                ? Image.asset(
+                    element.imgUrl,
+                    width: 30,
+                    height: 30,
+                    color: Colors.grey,
+                  )
+                : Image.asset(
+                    element.imgUrl,
+                    width: 30,
+                    height: 30,
+                  )),
             SizedBox(
               width: 10,
             ),
@@ -53,7 +60,10 @@ List<Widget> socialNetworkList(BuildContext context) {
               element.name,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.headline5!.copyWith(
-                  fontWeight: FontWeight.w600, color: getCustomColor().black),
+                  fontWeight: FontWeight.w600,
+                  color: getCustomColor()
+                      .black
+                      .withOpacity(checkName(element.name) ? 0.25 : 1)),
             ),
           ],
         ),

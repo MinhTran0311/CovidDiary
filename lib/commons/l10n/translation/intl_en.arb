@@ -58,7 +58,7 @@
 
   "dashboard_hello": "Hello",
   "dashboard_detail": "Detail",
-  "dashboard_def_username": "Siêu nhân cuồng phong",
+  "dashboard_def_username": "Johnny Dang",
   "dashboard_today_stats": "Today stats",
   "dashboard_world": "Worldwide",
   "dashboard_vn": "Vietnam",
@@ -104,6 +104,10 @@
   "symptom_name_6": "Sore throat",
   "symptom_name_7": "Rash",
   "symptom_name_8": "Diarrhea",
+  "symptom_name_9": "Pneumonia",
+  "symptom_name_10": "Tired",
+  "symptom_name_11": "Vomiting",
+  "symptom_name_12": "Rash",
 
   "symptom_severity_1": " (light)",
   "symptom_severity_2": " (normal)",
@@ -165,6 +169,7 @@
   "health_declaration_nations": "People from countries with Covid-19 cases",
   "health_declaration_symptom": "People with symptoms (fever, cough, ...)",
   "health_declaration_do_again": "Do it again",
+  "health_declaration_thank_you": "Thank you for filling the form!",
 
   "profile_info_title": "User information",
   "profile_info_dob": "Day of birth",
