@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as material;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
@@ -99,14 +102,14 @@ class HealthHistoryItem extends StatelessWidget {
   ];
 
   final List<String> symptomNameList = [
-    edit(S.current.symptom_name_1),
-    edit(S.current.symptom_name_2),
-    edit(S.current.symptom_name_3),
-    edit(S.current.symptom_name_4),
-    edit(S.current.symptom_name_5),
-    edit(S.current.symptom_name_6),
-    edit(S.current.symptom_name_7),
-    edit(S.current.symptom_name_8),
+    S.current.symptom_name_1,
+    S.current.symptom_name_2,
+    S.current.symptom_name_3,
+    S.current.symptom_name_4,
+    S.current.symptom_name_5,
+    S.current.symptom_name_6,
+    S.current.symptom_name_7,
+    S.current.symptom_name_8,
   ];
 
   static List<Color> redgreen = [
@@ -148,148 +151,134 @@ class HealthHistoryItem extends StatelessWidget {
 
       for (int i = 0; i < generalSeverity.length - 1; i++)
         content = content +
-            symptomNameList[symptomsExperienced[i]] +
+            edit(symptomNameList[symptomsExperienced[i]]) +
             severity[generalSeverity[i]] +
             connector1;
       if (symptomsExperienced.length > 0)
         content = content +
             connector2 +
-            symptomNameList[symptomsExperienced.last] +
+            edit(symptomNameList[symptomsExperienced.last]) +
             severity[generalSeverity.last];
 
       content = content + sickPost;
     } else
       content = healthy;
 
+    if (isSick)
+      return Container(
+        child: ExpandablePanel(
+          controller: _controller,
+          collapsed: openPanel(context, isSick, content, false),
+          expanded: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            textDirection: material.TextDirection.ltr,
+            children: ids.map<Widget>((int value) {
+              return value == 0
+                  ? openPanel(context, isSick, content, true)
+                  : Container(
+                      width: 320.w,
+                      color: getCustomColor().panelLight,
+                      alignment: Alignment.centerRight,
+                      margin: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            width: 80.w,
+                            child: Text(
+                              symptomNameList[value - 1],
+                              style: Theme.of(context).textTheme.bodyText1,
+                            ),
+                          ),
+                          slider(
+                            context,
+                            symptomSeverity[value - 1] / 3.0,
+                          ),
+                        ],
+                      ),
+                    );
+            }).toList(),
+          ),
+        ),
+      );
+    else
+      return openPanel(context, isSick, content, false);
+  }
+
+  Widget openPanel(
+      BuildContext context, bool isSick, String content, bool isOpen) {
     return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1.r,
-            blurRadius: 1.5.r,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
-        color: getCustomColor().background,
-        borderRadius: BorderRadius.circular(8.r),
-      ),
-      margin: EdgeInsets.fromLTRB(16, 4, 16, 4),
-      child: Stack(
-        children: [
-          Container(
-            alignment: Alignment.centerRight,
-            child: isSick ? downIcon() : null,
-          ),
-          Container(
-            alignment: Alignment.centerRight,
-            child: isSick
-                ? DropdownButton(
-                    elevation: 0,
-                    value: 0,
-                    iconSize: 0,
-                    onChanged: (int? newValue) {},
-                    dropdownColor: Colors.transparent,
-                    alignment: Alignment.centerRight,
-                    items: ids.map<DropdownMenuItem<int>>((int value) {
-                      return DropdownMenuItem<int>(
-                        value: value,
-                        child: value == 0
-                            ? Container()
-                            : Container(
-                                color: getCustomColor().panelLight,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Container(
-                                      width: 80.w,
-                                      child: Text(
-                                        symptomNameList[value - 1],
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                    ),
-                                    slider(
-                                      context,
-                                      symptomSeverity[value - 1] / 3.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                      );
-                    }).toList(),
-                  )
-                : null,
-          ),
-          Row(
-            children: [
-              Center(
-                child: Container(
-                  child: Image.asset(
-                    isSick ? iconVirus : iconList[emotion],
-                    width: 64.h,
-                    height: 64.h,
-                    fit: BoxFit.fill,
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1.r,
+              blurRadius: 1.5.r,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+          color: getCustomColor().background,
+          borderRadius: isOpen
+              ? BorderRadius.vertical(top: Radius.circular(8.r))
+              : BorderRadius.circular(8.r),
+        ),
+        margin: isOpen ? null : EdgeInsets.fromLTRB(0, 0, 0, 3),
+        //width: 256.w,
+        child: Row(
+          children: [
+            Center(
+              child: Container(
+                child: Image.asset(
+                  isSick ? iconVirus : iconList[emotion],
+                  width: 64.h,
+                  height: 64.h,
+                  fit: BoxFit.fill,
+                ),
+                padding: EdgeInsets.all(8.h),
+              ),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    day +
+                        DateFormat('Md', Intl.getCurrentLocale()).format(date),
+                    style: Theme.of(context).textTheme.headline6,
                   ),
-                  padding: EdgeInsets.all(8.h),
-                ),
+                  Text(
+                    content,
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                ],
               ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      day +
-                          DateFormat('Md', Intl.getCurrentLocale())
-                              .format(date),
-                      style: Theme.of(context).textTheme.headline6,
-                    ),
-                    Text(
-                      content,
-                      style: Theme.of(context).textTheme.bodyText1,
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                width: isSick ? 56.h : 8.h,
-              ),
-            ],
-          ),
-        ],
+            ),
+            Container(
+              alignment: Alignment.centerRight,
+              child: isSick ? (isOpen ? upIcon() : downIcon()) : null,
+            ),
+          ],
+        ),
       ),
+      margin: EdgeInsets.fromLTRB(16, 8, 16, 0),
     );
   }
 
   Widget downIcon() {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1.r,
-            blurRadius: 1.5.r,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
-        border: Border.all(
-          width: 2.w,
-          color: getCustomColor().primary,
-        ),
-        color: getCustomColor().background,
-        borderRadius: BorderRadius.circular(8.r),
-      ),
+    return BorderButton(
       width: 48.h,
       height: 48.h,
       margin: EdgeInsets.all(8.h),
-      padding: EdgeInsets.all(12.h),
       child: SvgPicture.asset(
         iconDown,
-        width: 8.h,
-        height: 8.h,
+        width: 32.h,
+        height: 32.h,
         fit: BoxFit.fill,
       ),
+      onPressed: () {
+        _controller.expanded = true;
+      }, // TODO
     );
   }
 
@@ -349,7 +338,9 @@ class HealthHistoryItem extends StatelessWidget {
         thumbColor: sliderThumbColor,
         thumbShape: RoundSliderThumbShape(
           enabledThumbRadius: 16.h,
+          disabledThumbRadius: 0,
         ),
+        disabledActiveTrackColor: Colors.black,
       ),
       child: Slider(
         value: currentValue,
