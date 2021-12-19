@@ -189,29 +189,33 @@ class HealthHistoryItem extends StatelessWidget {
                     value: 0,
                     iconSize: 0,
                     onChanged: (int? newValue) {},
-                    dropdownColor: getCustomColor().panelLight,
+                    dropdownColor: Colors.transparent,
                     alignment: Alignment.centerRight,
                     items: ids.map<DropdownMenuItem<int>>((int value) {
                       return DropdownMenuItem<int>(
                         value: value,
                         child: value == 0
                             ? Container()
-                            : Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Container(
-                                    width: 80.w,
-                                    child: Text(
-                                      symptomNameList[value - 1],
-                                      style:
-                                          Theme.of(context).textTheme.bodyText1,
+                            : Container(
+                                color: getCustomColor().panelLight,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Container(
+                                      width: 80.w,
+                                      child: Text(
+                                        symptomNameList[value - 1],
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1,
+                                      ),
                                     ),
-                                  ),
-                                  slider(
-                                    context,
-                                    symptomSeverity[value - 1] / 3.0,
-                                  ),
-                                ],
+                                    slider(
+                                      context,
+                                      symptomSeverity[value - 1] / 3.0,
+                                    ),
+                                  ],
+                                ),
                               ),
                       );
                     }).toList(),

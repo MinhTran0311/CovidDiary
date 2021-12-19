@@ -65,7 +65,7 @@ class MapToken extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: color ?? getCustomColor().primary,
                   borderRadius:
-                      BorderRadius.all(Radius.circular(32.r / zoomFactor)),
+                      BorderRadius.all(Radius.circular(16.r / zoomFactor)),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
@@ -76,29 +76,34 @@ class MapToken extends StatelessWidget {
                     ),
                   ],
                 ),
-                padding: EdgeInsets.all(8.r / zoomFactor),
-                width: 224.w / zoomFactor,
+                width: 216.w / zoomFactor,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      dateFormat.format(location.lastVisited),
-                      style: Theme.of(context).textTheme.headline4!.copyWith(
-                            color: getCustomColor().white,
-                            fontSize: textSize,
-                          ),
+                    Container(
+                      padding: EdgeInsets.all(8.r / zoomFactor),
+                      child: Text(
+                        dateFormat.format(location.lastVisited),
+                        style: Theme.of(context).textTheme.headline4!.copyWith(
+                              color: getCustomColor().white,
+                              fontSize: textSize,
+                            ),
+                      ),
                     ),
                     Divider(
                       color: getCustomColor().white,
                       height: 1.h / zoomFactor,
                       thickness: 1.h / zoomFactor,
                     ),
-                    Text(
-                      location.visitPlace,
-                      style: Theme.of(context).textTheme.headline4!.copyWith(
-                            color: getCustomColor().white,
-                            fontSize: textSize,
-                          ),
+                    Container(
+                      padding: EdgeInsets.all(8.r / zoomFactor),
+                      child: Text(
+                        location.visitPlace,
+                        style: Theme.of(context).textTheme.headline4!.copyWith(
+                              color: getCustomColor().white,
+                              fontSize: textSize,
+                            ),
+                      ),
                     )
                   ],
                 ),

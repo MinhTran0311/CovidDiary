@@ -42,9 +42,9 @@ class _MovementReportState extends State<MovementReport> {
   String selectedLocationStr = S.current.movement_report_selectedLocationStr;
   String selectedNicknameStr = S.current.movement_report_selectedNicknameStr;
   String cancelButtonStr = S.current.movement_report_cancelButtonStr;
-  String confirmNoNicknameButtonStr =
-      S.current.movement_report_confirmNoNicknameButtonStr;
   String confirmButtonStr = S.current.movement_report_confirmButtonStr;
+  String searchButton = S.current.movement_report_search;
+  String selectButton = S.current.select;
 
   List<Location> visitPlaces = [
     Location("Nhà Simmy", 21, -34, 3, DateTime.now()),
@@ -235,14 +235,17 @@ class _MovementReportState extends State<MovementReport> {
                       onTap: onSearch,
                     ),
                   ),
+                  onChanged: (text) => setState(() => onSearch()),
                 ),
               ),
             ),
           ),
           FillButton(
-            onPressed: onSelect,
-            buttonText: S.current.select,
-            buttonColor: CustomColors.success,
+            onPressed: searchQuery != null ? onSearchSelect : onSelect,
+            buttonText: searchQuery != null ? searchButton : selectButton,
+            buttonColor: searchQuery != null
+                ? getCustomColor().primary
+                : CustomColors.success,
           )
         ],
       ),
@@ -359,17 +362,6 @@ class _MovementReportState extends State<MovementReport> {
       Spacer(),
     ];
 
-    if (noNameAvailable) {
-      rowChild.add(Expanded(
-        child: FillButton(
-          onPressed: onSaveNoNickname,
-          buttonColor: CustomColors.warning,
-          buttonText: confirmNoNicknameButtonStr,
-        ),
-        flex: 3,
-      ));
-      rowChild.add(Spacer());
-    }
     rowChild.add(Expanded(
       child: FillButton(
         onPressed: onSaveWithNickname,
@@ -387,17 +379,17 @@ class _MovementReportState extends State<MovementReport> {
     );
   }
 
+  void Function()? firstSearchChoice;
+
   Widget buildSearchResult() {
     List<Widget> places = [];
+    firstSearchChoice = null;
     for (int i = 0; i < visitPlaces.length; i++)
       if (searchQuery == null ||
-          visitPlaces[i].visitPlace.contains(searchQuery!))
-        places.add(
-          PlaceTrackItemWidget(
-            place: visitPlaces[i].visitPlace,
-            timeVisit: visitPlaces[i].visitTimes,
-            onPress: () => setState(() {
-              searchController.text = searchQuery = visitPlaces[i].visitPlace;
+          visitPlaces[i].visitPlace.contains(searchQuery!)) {
+        void Function() function = () => setState(() {
+              searchController.text = "";
+              searchQuery = null;
               photoController.position = Offset(
                 visitPlaces[i].coordX,
                 visitPlaces[i].coordY,
@@ -405,18 +397,29 @@ class _MovementReportState extends State<MovementReport> {
                 photoController.scale ?? zoom,
                 photoController.scale ?? zoom,
               );
-            }),
+            });
+        places.add(
+          PlaceTrackItemWidget(
+            borderColor: getCustomColor().primary,
+            place: visitPlaces[i].visitPlace,
+            timeVisit: visitPlaces[i].visitTimes,
+            onPress: function,
           ),
         );
+        if (firstSearchChoice == null) firstSearchChoice = function;
+      }
 
     return searchQuery == null
         ? Container()
         : Expanded(
-            child: Wrap(
-              crossAxisAlignment: WrapCrossAlignment.start,
-              spacing: 8.w,
-              runSpacing: 8.h,
-              children: places,
+            child: Container(
+              child: Wrap(
+                crossAxisAlignment: WrapCrossAlignment.start,
+                spacing: 8.w,
+                runSpacing: 8.h,
+                children: places,
+              ),
+              padding: EdgeInsets.all(8.r),
             ),
             flex: 0,
           );
@@ -431,6 +434,10 @@ class _MovementReportState extends State<MovementReport> {
           searchQuery = searchController.text;
       }
     });
+  }
+
+  void onSearchSelect() {
+    firstSearchChoice?.call();
   }
 
   void onSelect() {

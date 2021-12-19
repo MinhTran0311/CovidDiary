@@ -198,6 +198,7 @@
   
   "movement_report_topQuestion" : "Where have you been?",
   "movement_report_searchHint" : "Type to search",
+  "movement_report_search" : "Search",
 
   "movement_report_bottomQuestionNewLoc" : "Do you want to nickname this?",
   "movement_report_bottomQuestionOldLoc" : "You chose this location?",

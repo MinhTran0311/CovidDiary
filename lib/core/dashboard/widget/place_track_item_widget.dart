@@ -10,11 +10,13 @@ class PlaceTrackItemWidget extends StatelessWidget {
     required this.place,
     required this.timeVisit,
     this.onPress,
+    this.borderColor,
   }) : super(key: key);
 
   final String place;
   final int timeVisit;
   final void Function()? onPress;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,10 @@ class PlaceTrackItemWidget extends StatelessWidget {
           SizedBox(width: 8.w)
         ])),
         decoration: BoxDecoration(
+            border: Border.all(
+              color: borderColor ?? getCustomColor().panelDark,
+              width: 2.r,
+            ),
             borderRadius: BorderRadius.all(
               Radius.circular(16.r),
             ),

@@ -200,6 +200,7 @@
 
    "movement_report_topQuestion" : "Bạn mới đi đâu về thế?",
    "movement_report_searchHint" : "Nhập để tìm kiếm",
+   "movement_report_search" : "Tìm kiếm",
 
    "movement_report_bottomQuestionNewLoc" : "Bạn có muốn đặt nickname\ncho vị trí này không?",
    "movement_report_bottomQuestionOldLoc" : "Bạn đã chọn vị trí này?",
