@@ -38,13 +38,13 @@ class HealthHistory extends StatelessWidget {
 
   static DateTime start = DateTime.now();
   static List<DateTime> days = [
-    start,
-    start.add(Duration(days: 1)),
-    start.add(Duration(days: 2)),
-    start.add(Duration(days: 3)),
-    start.add(Duration(days: 4)),
-    start.add(Duration(days: 5)),
     start.add(Duration(days: 6)),
+    start.add(Duration(days: 5)),
+    start.add(Duration(days: 4)),
+    start.add(Duration(days: 3)),
+    start.add(Duration(days: 2)),
+    start.add(Duration(days: 1)),
+    start,
   ];
   static int itemCount = emotions.length;
 
@@ -62,9 +62,12 @@ class HealthHistory extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBarCustom(context: context, title: title), //app bar
-        body: ListView(
-          children: items,
-        ), //các widget khác
+        body: Container(
+          child: ListView(
+            children: items,
+          ),
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 8.h),
+        ),
       ),
     );
   }
@@ -179,7 +182,7 @@ class HealthHistoryItem extends StatelessWidget {
                       width: 320.w,
                       color: getCustomColor().panelLight,
                       alignment: Alignment.centerRight,
-                      margin: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                      margin: EdgeInsets.fromLTRB(16.w, 0, 16.w, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -261,7 +264,7 @@ class HealthHistoryItem extends StatelessWidget {
           ],
         ),
       ),
-      margin: EdgeInsets.fromLTRB(16, 8, 16, 0),
+      margin: EdgeInsets.fromLTRB(16.w, 8.h, 16.w, 0),
     );
   }
 
