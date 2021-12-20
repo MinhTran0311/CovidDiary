@@ -8,6 +8,7 @@
   "hello": "Xin chào",
   "select": "Chọn",
 
+  "logout": "Đăng xuất",
   "text_field_error_empty_input": "Vui lòng điền thông tin.",
   "text_field_error_invalid_email": "Email không hợp lệ. Vui lòng thử lại.",
   "text_field_error_invalid_phone_number": "Số diện thoại không hợp lệ. Vui lòng thử lại",

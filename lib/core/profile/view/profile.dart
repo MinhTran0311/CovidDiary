@@ -7,6 +7,7 @@ import 'package:src/commons/themes/theme.dart';
 import 'package:src/core/profile/model/info_model.dart';
 import 'package:src/core/profile/view/edit_profitle.dart';
 import 'package:src/core/settings/settings_page.dart';
+import 'package:src/widgets/button/fill_button.dart';
 import 'package:src/widgets/input_field/gradient_background.dart';
 import 'package:src/widgets/panel.dart';
 import 'package:src/widgets/round_avatar.dart';
@@ -65,7 +66,17 @@ class _ProfileState extends State<Profile> {
         SizedBox(height: 12.h),
         _buildAchievement(context),
         SizedBox(height: 12.h),
+        _buildLogout(context),
+        SizedBox(height: 12.h),
       ]),
+    );
+  }
+
+  Widget _buildLogout(BuildContext context) {
+    return FillButton(
+      onPressed: () {},
+      buttonText: S.current.logout,
+      isAccent: true,
     );
   }
 
@@ -101,10 +112,10 @@ class _ProfileState extends State<Profile> {
               //Info Detail
               _buildInfoDetail(S.current.profile_info_dob, Info.instance.dob),
               SizedBox(height: 8.h),
-              _buildInfoDetail(
-                  S.current.email_input, Info.instance.email),
+              _buildInfoDetail(S.current.email_input, Info.instance.email),
               SizedBox(height: 8.h),
-              _buildInfoDetail(S.current.profile_info_phone, Info.instance.phone),
+              _buildInfoDetail(
+                  S.current.profile_info_phone, Info.instance.phone),
               SizedBox(height: 8.h),
               _buildInfoDetail(S.current.profile_info_work, Info.instance.work),
             ],

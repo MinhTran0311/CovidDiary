@@ -140,9 +140,7 @@ class _SettingState extends State<Settings> {
               icon: downIcon(),
               onChanged: (String? newValue) {
                 locale = language.indexOf(newValue!);
-                setState(() {
-
-                });
+                setState(() {});
               },
               dropdownColor: getCustomColor().panelLight,
               items: language.map<DropdownMenuItem<String>>((String value) {
@@ -236,10 +234,10 @@ class _SettingState extends State<Settings> {
 
   Widget otherSetting() {
     return ExpandablePanel(
-      collapsed: Container(child: otherSettingHeader()),
+      collapsed: Container(child: otherSettingHeader(false)),
       expanded: Column(
         children: [
-          otherSettingHeader(),
+          otherSettingHeader(true),
           miscSetting(0),
           miscSetting(1),
           miscSetting(2),
@@ -249,37 +247,39 @@ class _SettingState extends State<Settings> {
     );
   }
 
-  Widget otherSettingHeader() {
+  Widget otherSettingHeader(bool expanded) {
     return Container(
-      margin: EdgeInsets.fromLTRB(16.r, 16.r, 16.r, 0),
-      padding: EdgeInsets.all(16.r),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1.r,
-            blurRadius: 1.5.r,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
-        color: getCustomColor().panelDark,
-        //borderRadius: BorderRadius.circular(8.r),
-      ),
-      child: Row(
-        children: [
-          Container(
-            child: Text(
-              settingName[3],
-              style: Theme.of(context).textTheme.headline6,
+      child: Container(
+        margin: EdgeInsets.fromLTRB(16.r, 16.r, 16.r, expanded ? 0 : 3),
+        padding: EdgeInsets.all(16.r),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1.r,
+              blurRadius: 1.5.r,
+              offset: Offset(0, 3), // changes position of shadow
             ),
-          ),
-          Spacer(),
-          GestureDetector(
-              child: _controller.expanded ? upIcon() : downIcon(),
-              onTap: () => setState(() {
-                    _controller.toggle();
-                  })),
-        ],
+          ],
+          color: getCustomColor().panelDark,
+          //borderRadius: BorderRadius.circular(8.r),
+        ),
+        child: Row(
+          children: [
+            Container(
+              child: Text(
+                settingName[3],
+                style: Theme.of(context).textTheme.headline6,
+              ),
+            ),
+            Spacer(),
+            GestureDetector(
+                child: _controller.expanded ? upIcon() : downIcon(),
+                onTap: () => setState(() {
+                      _controller.toggle();
+                    })),
+          ],
+        ),
       ),
     );
   }

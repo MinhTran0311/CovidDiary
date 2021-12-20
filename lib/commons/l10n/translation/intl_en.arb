@@ -8,6 +8,7 @@
   "hello": "Hello",
   "select": "Select",
 
+  "logout": "Log out",
   "text_field_error_empty_input": "This field cannot be empty.",
   "text_field_error_invalid_email": "Email is not valid. Please try again.",
   "text_field_error_invalid_phone_number": "Phone number is not valid. Please try again.",
