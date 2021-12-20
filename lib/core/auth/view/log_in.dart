@@ -99,9 +99,9 @@ class _LoginPageState extends State<LoginPage> {
             width: 198.w,
             buttonText: S.current.sign_in,
             onPressed: () {
-              //_submit();
-              Navigator.of(context).popUntil((route) => route.isFirst);
-              pushReplacement(LoadingPage(nextPage: HomePageScreen()), context);
+              _submit();
+              // Navigator.of(context).popUntil((route) => route.isFirst);
+              // pushReplacement(LoadingPage(nextPage: HomePageScreen()), context);
 
             },
           ),
@@ -145,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
         _phoneNumber = '0$_phoneNumber';
       }
       String _password = _passwordController.text;
-      if (_phoneNumber == "01231231231" && _password == "12345678") {
+      if (_phoneNumber == "01234567891" && _password == "1234567891") {
         Navigator.of(context).popUntil((route) => route.isFirst);
         pushReplacement(HomePageScreen(), context);
       }

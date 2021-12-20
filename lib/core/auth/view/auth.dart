@@ -9,7 +9,9 @@ import 'package:src/core/auth/view/sign_up.dart';
 import 'log_in.dart';
 
 class AuthPage extends StatefulWidget {
-  const AuthPage({Key? key}) : super(key: key);
+  final bool hasReturn;
+
+  const AuthPage({Key? key, this.hasReturn = true}) : super(key: key);
 
   @override
   _AuthPageState createState() => _AuthPageState();
@@ -58,7 +60,7 @@ class _AuthPageState extends State<AuthPage> with TickerProviderStateMixin {
               image: AssetImage("assets/svg/authPage_app_bar.png"),
               fit: BoxFit.fill),
         )),
-        Align(
+        widget.hasReturn ? Align(
           alignment: Alignment.topLeft,
           child: GestureDetector(
             onTap: () {},
@@ -67,7 +69,7 @@ class _AuthPageState extends State<AuthPage> with TickerProviderStateMixin {
               child: SvgPicture.asset('assets/svg/icon/left_arrow.svg'),
             ),
           ),
-        )
+        ) : SizedBox.shrink()
       ]),
     );
   }

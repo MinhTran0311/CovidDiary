@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:src/commons/l10n/generated/l10n.dart';
 import 'package:src/commons/navigators/navigator.dart';
 import 'package:src/commons/themes/theme.dart';
+import 'package:src/core/auth/view/auth.dart';
+import 'package:src/core/auth/view/log_in.dart';
 import 'package:src/core/profile/model/info_model.dart';
 import 'package:src/core/profile/view/edit_profitle.dart';
 import 'package:src/core/settings/settings_page.dart';
@@ -74,7 +76,10 @@ class _ProfileState extends State<Profile> {
 
   Widget _buildLogout(BuildContext context) {
     return FillButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pushReplacement(
+            MaterialPageRoute(builder: (context) => AuthPage(hasReturn: false)));
+      },
       buttonText: S.current.logout,
       isAccent: true,
     );
