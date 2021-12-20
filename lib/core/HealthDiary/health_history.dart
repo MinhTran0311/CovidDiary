@@ -66,7 +66,7 @@ class HealthHistory extends StatelessWidget {
           child: ListView(
             children: items,
           ),
-          margin: EdgeInsets.fromLTRB(0, 0, 0, 8.h),
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 16.h),
         ),
       ),
     );
